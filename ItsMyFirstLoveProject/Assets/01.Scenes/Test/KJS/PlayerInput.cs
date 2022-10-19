@@ -4,15 +4,33 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Update() 
     {
-        
+        MovePlayer();
+        Rotation();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Rotation()
     {
-        
+        if(Input.GetKey(KeyCode.A))
+        {
+            transform.Rotate(0f, -1f, 0f);
+        }
+        if(Input.GetKey(KeyCode.D))
+        {
+            transform.Rotate(0f, 1f, 0f);
+        }
+    }
+
+    private void MovePlayer()
+    {
+        if(Input.GetKey(KeyCode.W))
+        {
+            transform.Translate(0f, 0f, 0.3f);
+        }
+        if(Input.GetKey(KeyCode.S))
+        {
+            transform.Translate(0f, 0f, -0.3f);
+        }
     }
 }
