@@ -661,8 +661,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4966719baa26e4b0e8231a24d9bd491a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FocusMode: 1
-  m_LightEstimationMode: 0
+  m_FocusMode: -1
+  m_LightEstimationMode: -1
   m_AutoFocus: 1
   m_LightEstimation: 0
   m_FacingDirection: 1
@@ -772,10 +772,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b50ad3f5d9024549b0a549c5a03a084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Session: {fileID: 0}
-  SessionOrigin: {fileID: 0}
-  CameraManager: {fileID: 0}
-  ARCoreExtensionsConfig: {fileID: 0}
+  Session: {fileID: 845057828}
+  SessionOrigin: {fileID: 834406812}
+  CameraManager: {fileID: 1440469147}
+  ARCoreExtensionsConfig: {fileID: 11400000, guid: b005f924913e086439bb57ac5509ffd2, type: 2}
   CameraConfigFilter: {fileID: 0}
 --- !u!4 &1869517117
 Transform:
