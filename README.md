@@ -6,9 +6,11 @@
 
 ### [노션](https://www.notion.so/7190b71a89af4eb2a9a0f26ce2c371cd)
 
-### [Git 관리전략](https://github.com/Kjaeseong/RocketTeamDocu/blob/main/05.%EA%B0%9C%EB%B0%9C%ED%8C%80%20%EB%AC%B8%EC%84%9C/%EA%B9%80%EC%9E%AC%EC%84%B1/%EA%B0%9C%EB%B0%9C%ED%8C%80%20Git%20%EA%B4%80%EB%A6%AC%EC%A0%84%EB%9E%B5.md)
+### [Git 관리전략](https://github.com/Kjaeseong/RocketTeamDocu/blob/main/06.%EA%B0%9C%EB%B0%9C%ED%8C%80%20%EB%AC%B8%EC%84%9C/%EA%B9%80%EC%9E%AC%EC%84%B1/%EA%B0%9C%EB%B0%9C%ED%8C%80%20Git%20%EA%B4%80%EB%A6%AC%EC%A0%84%EB%9E%B5.md)
 
-### [코드컨벤션](https://github.com/Kjaeseong/RocketTeamDocu/blob/main/05.%EA%B0%9C%EB%B0%9C%ED%8C%80%20%EB%AC%B8%EC%84%9C/%EA%B9%80%EC%9E%AC%EC%84%B1/%EA%B0%9C%EB%B0%9C%ED%8C%80%20%EC%BD%94%EB%93%9C%EC%BB%A8%EB%B2%A4%EC%85%98.md)
+### [코드컨벤션](https://github.com/Kjaeseong/RocketTeamDocu/blob/main/06.%EA%B0%9C%EB%B0%9C%ED%8C%80%20%EB%AC%B8%EC%84%9C/%EA%B9%80%EC%9E%AC%EC%84%B1/%EA%B0%9C%EB%B0%9C%ED%8C%80%20%EC%BD%94%EB%93%9C%EC%BB%A8%EB%B2%A4%EC%85%98.md)
+
+### [변수명 짓기](https://www.curioustore.com/#!/)
 
 
 ## 기술 문서
