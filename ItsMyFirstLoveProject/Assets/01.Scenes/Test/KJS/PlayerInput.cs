@@ -26,11 +26,11 @@ public class PlayerInput : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.W))
         {
-            transform.Translate(0f, 0f, 0.3f);
+            transform.Translate(0f, 0f, 0.05f);
         }
         if(Input.GetKey(KeyCode.S))
         {
-            transform.Translate(0f, 0f, -0.3f);
+            transform.Translate(0f, 0f, -0.05f);
         }
     }
 }
