@@ -9,9 +9,9 @@ public class LocationFinder : MonoBehaviour
     [SerializeField] private GameObject[] _destinations;
     [SerializeField] private GameObject   _player;
 
-    private int _locationCount = 0;
+    private int   _locationCount = 0;
     private float _elaspedTime = 0f;
-    private bool _isClose = true;
+    private bool  _isClose = true;
 
     private void Awake()
     {
