@@ -1430,9 +1430,9 @@ RectTransform:
   m_Father: {fileID: 4067555327441902265}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 531.5, y: -36.78702}
   m_SizeDelta: {x: 600, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4067555325647796979
@@ -2108,7 +2108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.69411767, g: 0.81568635, b: 0.58431375, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2787,11 +2787,11 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 56
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 56
-    m_Alignment: 0
+    m_Alignment: 6
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -3731,7 +3731,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 56
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 5
     m_MaxSize: 56
@@ -4068,6 +4068,7 @@ GameObject:
   - component: {fileID: 4067555326481690416}
   - component: {fileID: 4067555326481690419}
   - component: {fileID: 4067555326481690418}
+  - component: {fileID: 3981746480286359801}
   m_Layer: 5
   m_Name: Chapter-5
   m_TagString: Untagged
@@ -4091,9 +4092,9 @@ RectTransform:
   m_Father: {fileID: 4067555327441902265}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 531.5, y: -431.0832}
   m_SizeDelta: {x: 600, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4067555326481690416
@@ -4214,6 +4215,24 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3981746480286359801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4067555326481690428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d50e774b2eefe1c40aea4434d5d4c1c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isClear: 0
+  PlayerLv: {fileID: 0}
+  OpenLv: 3
+  ChapterText: {fileID: 4067555326186479904}
+  NonOpenTextInfo: {fileID: 4067555326885250839}
+  ChapterBack: {fileID: 4067555326481690419}
 --- !u!1 &4067555326493919683
 GameObject:
   m_ObjectHideFlags: 0
@@ -4308,6 +4327,7 @@ GameObject:
   - component: {fileID: 4067555326500179021}
   - component: {fileID: 4067555326500179020}
   - component: {fileID: 4067555326500179023}
+  - component: {fileID: 7058238185153534707}
   m_Layer: 5
   m_Name: Chapter-2
   m_TagString: Untagged
@@ -4331,9 +4351,9 @@ RectTransform:
   m_Father: {fileID: 4067555327441902265}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 531.5, y: -135.36107}
   m_SizeDelta: {x: 600, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4067555326500179021
@@ -4454,6 +4474,24 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7058238185153534707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4067555326500179017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d50e774b2eefe1c40aea4434d5d4c1c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isClear: 0
+  PlayerLv: {fileID: 0}
+  OpenLv: 2
+  ChapterText: {fileID: 4067555327346086804}
+  NonOpenTextInfo: {fileID: 4067555326165236239}
+  ChapterBack: {fileID: 4067555325647796978}
 --- !u!1 &4067555326537217186
 GameObject:
   m_ObjectHideFlags: 0
@@ -5830,6 +5868,7 @@ GameObject:
   - component: {fileID: 4067555326780038618}
   - component: {fileID: 4067555326780038565}
   - component: {fileID: 4067555326780038564}
+  - component: {fileID: 1774288835902655103}
   m_Layer: 5
   m_Name: Chapter-4
   m_TagString: Untagged
@@ -5853,9 +5892,9 @@ RectTransform:
   m_Father: {fileID: 4067555327441902265}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 531.5, y: -332.50916}
   m_SizeDelta: {x: 600, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4067555326780038618
@@ -5976,6 +6015,24 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1774288835902655103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4067555326780038566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d50e774b2eefe1c40aea4434d5d4c1c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isClear: 0
+  PlayerLv: {fileID: 0}
+  OpenLv: 3
+  ChapterText: {fileID: 4067555327253844332}
+  NonOpenTextInfo: {fileID: 4067555326691382953}
+  ChapterBack: {fileID: 4067555326780038565}
 --- !u!1 &4067555326791310201
 GameObject:
   m_ObjectHideFlags: 0
@@ -6164,7 +6221,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4067555326847031280
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7573,6 +7630,7 @@ GameObject:
   - component: {fileID: 4067555327202127604}
   - component: {fileID: 4067555327202127607}
   - component: {fileID: 4067555327202127606}
+  - component: {fileID: 5652802123500481436}
   m_Layer: 5
   m_Name: Chapter-3
   m_TagString: Untagged
@@ -7596,9 +7654,9 @@ RectTransform:
   m_Father: {fileID: 4067555327441902265}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 531.5, y: -233.9351}
   m_SizeDelta: {x: 600, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4067555327202127604
@@ -7719,6 +7777,24 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5652802123500481436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4067555327202127600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d50e774b2eefe1c40aea4434d5d4c1c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isClear: 0
+  PlayerLv: {fileID: 0}
+  OpenLv: 2
+  ChapterText: {fileID: 4067555325915010958}
+  NonOpenTextInfo: {fileID: 4067555327255017546}
+  ChapterBack: {fileID: 4067555327202127607}
 --- !u!1 &4067555327221033906
 GameObject:
   m_ObjectHideFlags: 0
@@ -7864,6 +7940,7 @@ GameObject:
   - component: {fileID: 4067555327232376043}
   - component: {fileID: 4067555327232376042}
   - component: {fileID: 4067555327232376053}
+  - component: {fileID: 1724384900596442860}
   m_Layer: 5
   m_Name: Chapter-6
   m_TagString: Untagged
@@ -7887,9 +7964,9 @@ RectTransform:
   m_Father: {fileID: 4067555327441902265}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 531.5, y: -529.6572}
   m_SizeDelta: {x: 600, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4067555327232376043
@@ -8010,6 +8087,24 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1724384900596442860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4067555327232376055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d50e774b2eefe1c40aea4434d5d4c1c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isClear: 0
+  PlayerLv: {fileID: 0}
+  OpenLv: 3
+  ChapterText: {fileID: 4067555325574312144}
+  NonOpenTextInfo: {fileID: 4067555327355984888}
+  ChapterBack: {fileID: 4067555327232376042}
 --- !u!1 &4067555327253844334
 GameObject:
   m_ObjectHideFlags: 0
@@ -8201,8 +8296,8 @@ RectTransform:
   m_Father: {fileID: 4067555325386583410}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.3041504}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -8556,7 +8651,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 56
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 5
     m_MaxSize: 56
@@ -9096,7 +9191,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0.000015258789}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 566.4443}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &4067555327441902271
 MonoBehaviour:
@@ -9449,6 +9544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c33f88208aeee94bb3321239b2627d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Char: {fileID: 0}
 --- !u!1 &4860403303692501262
 GameObject:
   m_ObjectHideFlags: 0
