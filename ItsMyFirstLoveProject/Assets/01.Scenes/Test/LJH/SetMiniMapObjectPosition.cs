@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class SetMiniMapObjectPosition : MonoBehaviour
 {
-    [SerializeField]
-    private Transform _miniMapCamera;
-    [SerializeField]
-    private Transform _miniMapRedCircle;
+    [SerializeField] private Transform _miniMapCamera;
+    [SerializeField] private Transform _miniMapRedCircle;
 
     private float _cameraHeight = 200f;
     private float _redCircleHeight = 100f;
@@ -17,6 +15,7 @@ public class SetMiniMapObjectPosition : MonoBehaviour
         SetCameraPosition();
         SetRedCirclePosition();
     }
+    // 미니맵 카메라의 위치 세팅
     private void SetCameraPosition()
     {
         _miniMapCamera.position = new Vector3(
@@ -25,6 +24,7 @@ public class SetMiniMapObjectPosition : MonoBehaviour
             Camera.main.transform.position.z);
     }
 
+    // 미니맵 플레이어 위치표시 오브젝트의 위치 세팅
     private void SetRedCirclePosition()
     {
         _miniMapRedCircle.position = new Vector3(
