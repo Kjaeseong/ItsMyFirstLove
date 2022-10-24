@@ -5,17 +5,21 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject _exitUI;
-    [SerializeField]
-    private Text _levelText;
-    [SerializeField]
-    private Image _favorabilityGage;
+    //이 매니저는 테스트를 위한 매니저 입니다.
 
-    public float Favorability = 5f;
-    public float MaxFavorability =100f;
-    public int Level = 1;
-    public float NowFavorability = 0f;
+    [SerializeField]
+    private GameObject  _exitUI;
+
+    [SerializeField]
+    private Text        _levelText;
+
+    [SerializeField]
+    private Image       _favorabilityGage;
+
+    public float    Favorability = 5f;
+    public float    MaxFavorability =100f;
+    public int      Level = 1;
+    public float    NowFavorability = 0f;
 
     // Update is called once per frame
     void Update()
@@ -32,19 +36,19 @@ public class UIManager : MonoBehaviour
         _levelText.text = $"Lv.{Level}";
 
     }
-
+    //앱 종료
     public void AppExit()
     {
         Application.Quit();
     }
-
+    //레벨 업
     public void LevelUP()
     {
         Level++;
         _favorabilityGage.fillAmount = 0;
         NowFavorability = 0;
     }
-
+    //호감도 업
     public void FavorabilityUP()
     {
         NowFavorability = NowFavorability + Favorability;

@@ -6,13 +6,15 @@ using UnityEngine.UI;
 
 public class OpenChapter : MonoBehaviour
 {
-    public bool isClear;
-    public UIManager PlayerLv;
-    public int OpenLv;
+    //일정 호감도 레벨 달성 및 이전 챕터 클리어시 현재 챕터 오픈
 
-    public Text ChapterText;
-    public Text NonOpenTextInfo;
-    public Image ChapterBack;
+    public bool         isClear;
+    public UIManager    PlayerLv;
+    public int          OpenLv;
+
+    public Text         ChapterText;
+    public Text         NonOpenTextInfo;
+    public Image        ChapterBack;
 
     private Button _chapterButton;
 
@@ -24,7 +26,7 @@ public class OpenChapter : MonoBehaviour
     {
         InteractiveChpater();
     }
-
+    
     private void InteractiveChpater()
     {
         if (isClear && PlayerLv.Level >= OpenLv)

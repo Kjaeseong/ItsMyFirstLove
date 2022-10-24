@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ChangeAnim : MonoBehaviour
 {
+    //클릭시 랜덤 애니메이션 실행
+
     public GameObject       Char;
 
     private int             _randNum;
@@ -16,7 +18,7 @@ public class ChangeAnim : MonoBehaviour
     //클릭시 애니메이션을 랜덤하게 바꾼다.
     public void AnimChanger()
     {
-        _randNum = Random.Range(0, 3);
+        _randNum = Random.Range(1,3);
 
         _animator.SetInteger("RandNum", _randNum);
         _animator.SetTrigger("Click");
