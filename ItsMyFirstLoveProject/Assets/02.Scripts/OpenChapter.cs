@@ -9,13 +9,17 @@ public class OpenChapter : MonoBehaviour
     //일정 호감도 레벨 달성 및 이전 챕터 클리어시 현재 챕터 오픈
 
     public bool         isClear;
+    //레벨 가져오기
     public UIManager    PlayerLv;
+    //챕터 오픈가능한 레벨
     public int          OpenLv;
-
+    //위치값 변환하기 위해 가져옮
     public Text         ChapterText;
+    //텍스트 Info 삭제하기
     public Text         NonOpenTextInfo;
+    //백그라운드
     public Image        ChapterBack;
-
+    //버튼 활성화
     private Button _chapterButton;
 
     private void Start()

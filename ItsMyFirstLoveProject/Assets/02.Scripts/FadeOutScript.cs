@@ -6,23 +6,23 @@ using UnityEngine.UI;
 
 public class FadeOutScript : MonoBehaviour
 {
+    // 3초후 페이드 아웃
     public int EnableTextBarTime = 3;
 
-    private Color _c;
+    private Color _color;
     //알파값 20%
     private float _colorA = 0.2f;
     private Coroutine _startFadeOut;
 
-    //활성화시 3초후 페이드 아웃
 
     private void Start()
     {
-        _c = this.gameObject.GetComponent<Image>().color;
+        _color = this.gameObject.GetComponent<Image>().color;
         StartCoroutine("FadeOut");
     }
     private void OnEnable()
     {
-        _c.a = _colorA;
+        _color.a = _colorA;
     }
 
     public IEnumerator FadeOut()
@@ -31,8 +31,8 @@ public class FadeOutScript : MonoBehaviour
         for (float f = 1f; f > 0; f -= 0.003f)
             {
 
-                _c.a = (f * _colorA);
-                this.GetComponent<Image>().color = _c;
+                _color.a = (f * _colorA);
+                this.GetComponent<Image>().color = _color;
                 yield return null;
                 Debug.Log("A");
             }

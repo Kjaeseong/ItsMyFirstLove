@@ -572,7 +572,7 @@ GameObject:
   - component: {fileID: 746755735785792853}
   - component: {fileID: 4167019569989694754}
   - component: {fileID: 5862718676784106459}
-  - component: {fileID: 4067555327208942671}
+  - component: {fileID: 2946022760691136842}
   m_Layer: 5
   m_Name: Character Script Bar
   m_TagString: Untagged
@@ -638,7 +638,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4067555327208942671
+--- !u!114 &2946022760691136842
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -647,53 +647,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3969679612862733375}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 5eeefbbd52e26dd4490333b8d1cf814e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 5862718676784106459}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3969679612862733375}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  EnableTextBarTime: 3
 --- !u!1 &4048501090488564486
 GameObject:
   m_ObjectHideFlags: 0
@@ -9415,6 +9372,7 @@ GameObject:
   - component: {fileID: 1687403340051084098}
   - component: {fileID: 3333560434513304561}
   - component: {fileID: 854799865664944108}
+  - component: {fileID: 9015477217710326037}
   m_Layer: 5
   m_Name: CharRawImg
   m_TagString: Untagged
@@ -9545,6 +9503,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Char: {fileID: 0}
+--- !u!114 &9015477217710326037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4741850042896127872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e59293353a5f2741bcabce9596c3298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _changeText: {fileID: 7027827855278539966}
+  _textBar: {fileID: 3969679612862733375}
+  _clickScripts: []
+  _timeChangeScripts: []
+  _fadeOutScript: {fileID: 2946022760691136842}
 --- !u!1 &4860403303692501262
 GameObject:
   m_ObjectHideFlags: 0
