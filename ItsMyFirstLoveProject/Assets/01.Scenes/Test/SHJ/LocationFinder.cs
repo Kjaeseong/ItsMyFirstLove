@@ -5,86 +5,108 @@ using UnityEngine.AI;
 
 public class LocationFinder : MonoBehaviour
 {
-    [SerializeField]
-    private NavMeshAgent AI;
+    [SerializeField] private NavMeshAgent _ai;
+    [SerializeField] private GameObject[] _destinations;
+    [SerializeField] private GameObject   _player;
 
-    [SerializeField]
-    private GameObject[] Destinations;
-
-    private int TestNum;
-    private int count = 0;
+    private int _locationCount = 0;
+    private float _elaspedTime = 0f;
+    private bool _isClose = true;
 
     private void Awake()
     {
-        AI = GetComponent<NavMeshAgent>();
+        _ai = GetComponent<NavMeshAgent>();
     }
 
     private void Start()
     {
         MoveWayPoint();
+    }
+    private void Update()
+    {
+        _elaspedTime += Time.deltaTime;
 
-        //Invoke("Delay", 3f);
+        if (_isClose == false)
+        {
+            PlayerStopped(_player);
+
+            if (_elaspedTime > 15f)
+            {
+                Debug.Log("데이트가 종료됩니다.");
+                _elaspedTime = 0f;
+            }
+        }
     }
 
     private void Delay()
     {
-        AI.ResetPath();
+        _ai.ResetPath();
     }
 
     private void MoveWayPoint()
     {
-        if (AI.isPathStale)
+        if (_ai.isPathStale)
         {
             return;
         }
-        AI.destination = Destinations[0].transform.position;
-
+        _ai.destination = _destinations[0].transform.position;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("도착");
+        _isClose = true;
+
         if (other.tag == "Location")
         {
-            if (count < 3)
+            Debug.Log("도착");
+
+            if (_locationCount < 3)
             {
-                count++;
-                Debug.Log($"{count}");
-                AI.destination = Destinations[count].transform.position;
-            }
-            else if (count >= 3)
-            {
-                count = 0;
-                Debug.Log($"{count}");
-                AI.destination = Destinations[count].transform.position;
+                _locationCount++;
+                Debug.Log($"{_locationCount}");
+                _ai.destination = _destinations[_locationCount].transform.position;
             }
 
-            if (Destinations == null)
+            else if (_locationCount == 3)
+            {
+                _locationCount = 0;
+                Debug.Log($"{_locationCount}");
+                _ai.destination = _destinations[_locationCount].transform.position;
+            }
+
+            if (_destinations == null)
             {
                 return;
             }
         }
 
-
     }
     private void OnTriggerStay(Collider other)
     {
+
         if (other.tag == "MainLocation")
         {
-            Destinations[count].gameObject.transform.localScale = new Vector3(1, 1);
+            _destinations[_locationCount].gameObject.transform.localScale = new Vector3(1, 1);
         }
 
-        if(other.tag == "Player")
+        if (other.tag == "Player")
         {
-            AI.speed = 5f;
+            _ai.speed = 6f;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.tag == "Player")
+        if (other.tag == "Player")
         {
-            AI.speed = 0f;
+            _isClose = false;
+            _ai.speed = 0f;
         }
+    }
+
+    private void PlayerStopped(GameObject player)
+    {
+        Debug.Log("왜 안와?");
+        transform.LookAt(player.transform.position);
     }
 }
