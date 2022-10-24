@@ -20,25 +20,18 @@ public class BuildingManager : MonoBehaviour
 
     private void Start()
     {
-        _mesh = GetComponentsInChildren<MeshRenderer>();
         Invoke("GetMesh", 1f);
     }
 
     private void GetMesh()
     {
+        _mesh = GetComponentsInChildren<MeshRenderer>();
         _latLng = new LatLng((double)_latLng.Lat, (double)_latLng.Lng);
 
         foreach (var renderer in _mesh)
         {
             renderer.materials = _mat;
             renderer.gameObject.AddComponent<MeshCollider>();
-        }
-    }
-
-    private void GetNavmesh()
-    {
-        foreach (var renderer in _mesh)
-        {
             renderer.gameObject.AddComponent<NavMeshSourceTag>();
         }
     }
