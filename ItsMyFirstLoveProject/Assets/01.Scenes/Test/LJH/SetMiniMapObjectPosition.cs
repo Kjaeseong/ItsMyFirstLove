@@ -9,6 +9,9 @@ public class SetMiniMapObjectPosition : MonoBehaviour
     [SerializeField]
     private Transform _miniMapRedCircle;
 
+    private float _cameraHeight = 200f;
+    private float _redCircleHeight = 100f;
+
     private void Update()
     {
         SetCameraPosition();
@@ -18,7 +21,7 @@ public class SetMiniMapObjectPosition : MonoBehaviour
     {
         _miniMapCamera.position = new Vector3(
             Camera.main.transform.position.x,
-            Camera.main.transform.position.y + 200f,
+            Camera.main.transform.position.y + _cameraHeight,
             Camera.main.transform.position.z);
     }
 
@@ -26,8 +29,9 @@ public class SetMiniMapObjectPosition : MonoBehaviour
     {
         _miniMapRedCircle.position = new Vector3(
             Camera.main.transform.position.x,
-            Camera.main.transform.position.y + 100f,
+            Camera.main.transform.position.y + _redCircleHeight,
             Camera.main.transform.position.z);
+
         _miniMapRedCircle.rotation = Quaternion.Euler(0f, Camera.main.transform.rotation.eulerAngles.y, 0f);
     }
 }
