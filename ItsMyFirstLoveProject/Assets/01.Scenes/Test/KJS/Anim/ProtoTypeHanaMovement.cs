@@ -29,20 +29,44 @@ public class ProtoTypeHanaMovement : MonoBehaviour
         MoveToTarget();
     }
 
-    private void MoveToTarget()
+    public void SetBool()
     {
-
-        Debug.Log(Vector3.Distance(_targetPosition.transform.position, transform.position));
-        if(Vector3.Distance(_targetPosition.transform.position, transform.position) > 1)
+        if(_isMoving)
         {
-            MoveWalk();
-            PlayAnim("MOVE");
-            RotateTo(_targetPosition);
-
-            transform.Translate(0f, 0f, _moveSpeed * Time.deltaTime);
+            _isMoving = false;
         }
         else
         {
+            _isMoving = true;
+        }
+    }
+
+    private void MoveToTarget()
+    {
+        Vector3 target = new Vector3(_targetPosition.transform.position.x, 0f, _targetPosition.transform.position.z);
+        Vector3 charpos = new Vector3(transform.position.x, 0f, transform.position.z);
+        if(Vector3.Distance(target, charpos) > 0.5)
+        {
+            if(_isMoving == true)
+            {
+                if(Vector3.Distance(target, charpos) > 5)
+                {
+                    MoveRun();
+                }
+                else
+                {
+                    MoveWalk();
+                }
+                
+                PlayAnim("MOVE");
+                RotateTo(_targetPosition);
+
+                transform.Translate(0f, 0f, _moveSpeed * Time.deltaTime);
+            }
+        }
+        else
+        {
+            _isMoving = false;
             IDLE();
             PlayAnim("MOVE");
         }
@@ -55,7 +79,7 @@ public class ProtoTypeHanaMovement : MonoBehaviour
         _moveStep = (int)MoveStep.WALK;
     }
 
-    private void MoveRUN()
+    private void MoveRun()
     {
         _moveSpeed = _runSpeed;
         _moveStep = (int)MoveStep.RUN;
@@ -77,7 +101,7 @@ public class ProtoTypeHanaMovement : MonoBehaviour
         switch(type)
         {
             case "KISS":
-                _anim.SetTrigger("KISS");
+                ILoveYouHanaChanKissMeBabeMyDarling();
                 break;
             case "NO":
                 _anim.SetTrigger("NO");
@@ -86,6 +110,11 @@ public class ProtoTypeHanaMovement : MonoBehaviour
                 _anim.SetInteger("MoveStep", _moveStep);
                 break;
         }
+    }
+
+    private void ILoveYouHanaChanKissMeBabeMyDarling()
+    {
+        _anim.SetTrigger("KISS");
     }
 
     private void RotateTo(GameObject target)
