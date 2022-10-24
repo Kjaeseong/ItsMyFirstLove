@@ -1571,6 +1571,7 @@ MonoBehaviour:
   _TcameraH: {fileID: 1585449561}
   _arRaycaster: {fileID: 759016571}
   _ground: {fileID: 11420327}
+  _hana: {fileID: 1452997718}
 --- !u!4 &1034336045
 Transform:
   m_ObjectHideFlags: 0
