@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 491979405}
   - component: {fileID: 491979406}
   m_Layer: 5
-  m_Name: FullScreenSetter
+  m_Name: Full Screen Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -267,6 +267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fullScreenMiniMap: {fileID: 1618756773}
+  _miniMapCamera: {fileID: 1098814156}
 --- !u!1 &546121349 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1090982979842174, guid: 5d03b240b1a7c48a48c4ae79f9d01ed9, type: 3}
@@ -412,7 +413,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 491979406}
         m_TargetAssemblyTypeName: FullScreenMiniMap, Assembly-CSharp
-        m_MethodName: ActiveFullScreen
+        m_MethodName: SwitchFullScreen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1294,7 +1295,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 491979406}
         m_TargetAssemblyTypeName: FullScreenMiniMap, Assembly-CSharp
-        m_MethodName: InActiveFullScreen
+        m_MethodName: SwitchFullScreen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
