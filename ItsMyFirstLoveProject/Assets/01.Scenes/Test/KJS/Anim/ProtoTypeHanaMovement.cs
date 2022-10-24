@@ -4,117 +4,98 @@ using UnityEngine;
 
 public class ProtoTypeHanaMovement : MonoBehaviour
 {
-    private enum MoveStep
-    {
-        IDLE,
-        WALK,
-        RUN
-    }
     [SerializeField] private GameObject _targetPosition;
-    private Animator _anim;
+    private AnimationSupport _anim;
 
     [SerializeField][Range(0, 20)] private float _walkSpeed;
     [SerializeField][Range(0, 20)] private float _runSpeed;
     private float _moveSpeed;
     private int _moveStep;
-    private bool _isMoving;
+    private bool _canMove;
 
     private void Start() 
     {
-        _anim = GetComponentInChildren<Animator>();
+        _anim = GetComponentInChildren<AnimationSupport>();
     }
 
     private void Update() 
     {
-        MoveToTarget();
+        MoveToTarget(_canMove);
     }
 
-    public void SetBool()
+    public void SetCanMove()
     {
-        if(_isMoving)
+        if(_canMove)
         {
-            _isMoving = false;
+            _canMove = false;
         }
         else
         {
-            _isMoving = true;
+            _canMove = true;
         }
     }
 
-    private void MoveToTarget()
+    private void MoveToTarget(bool canMove)
     {
-        Vector3 target = new Vector3(_targetPosition.transform.position.x, 0f, _targetPosition.transform.position.z);
-        Vector3 charpos = new Vector3(transform.position.x, 0f, transform.position.z);
-        if(Vector3.Distance(target, charpos) > 0.5)
+        if(canMove == true)
         {
-            if(_isMoving == true)
+            Vector2 target = new Vector2(
+                _targetPosition.transform.position.x, 
+                _targetPosition.transform.position.z
+            );
+            Vector2 charPos = new Vector2(
+                transform.position.x, 
+                transform.position.z
+            );
+            float DistToTarget = Vector2.Distance(target, charPos);
+            
+            if(DistToTarget > 0.5f)
             {
-                if(Vector3.Distance(target, charpos) > 5)
+                if(DistToTarget > 1.5f)
                 {
-                    MoveRun();
+                    MoveSet((int)MoveStep.RUN);
                 }
                 else
                 {
-                    MoveWalk();
+                    MoveSet((int)MoveStep.WALK);
                 }
-                
-                PlayAnim("MOVE");
-                RotateTo(_targetPosition);
-
-                transform.Translate(0f, 0f, _moveSpeed * Time.deltaTime);
+                _anim.Play("Move");
             }
+            else
+            {
+                _canMove = false;
+                MoveSet((int)MoveStep.IDLE);
+                _anim.Play("Move");
+            }
+        }
+    }
+
+    private void MoveSet(int state)
+    {
+        switch(state)
+        {
+            case 0:
+                _moveSpeed = 0f;
+                break;
+            case 1:
+                _moveSpeed = _walkSpeed;
+                break;
+            case 2:
+                _moveSpeed = _runSpeed;
+                break;
+        }
+
+        _moveStep = state;
+        
+        if(state != 0)
+        {
+            transform.Translate(0f, 0f, _moveSpeed * Time.deltaTime);
+            RotateTo(_targetPosition);
         }
         else
         {
-            _isMoving = false;
-            IDLE();
-            PlayAnim("MOVE");
+            RotateTo(Camera.main.gameObject);
         }
-        
-    }
-
-    private void MoveWalk()
-    {
-        _moveSpeed = _walkSpeed;
-        _moveStep = (int)MoveStep.WALK;
-    }
-
-    private void MoveRun()
-    {
-        _moveSpeed = _runSpeed;
-        _moveStep = (int)MoveStep.RUN;
-    }
-
-    private void IDLE()
-    {
-        _moveSpeed = 0f;
-        _moveStep = (int)MoveStep.IDLE;
-
-        RotateTo(Camera.main.gameObject);
-    }
-
-    /// <summary>
-    /// type : "WALK", "RUN", "MOVE" 중에서 선택 입력
-    /// </summary>
-    public void PlayAnim(string type)
-    {
-        switch(type)
-        {
-            case "KISS":
-                ILoveYouHanaChanKissMeBabeMyDarling();
-                break;
-            case "NO":
-                _anim.SetTrigger("NO");
-                break;
-            case "MOVE":
-                _anim.SetInteger("MoveStep", _moveStep);
-                break;
-        }
-    }
-
-    private void ILoveYouHanaChanKissMeBabeMyDarling()
-    {
-        _anim.SetTrigger("KISS");
     }
 
     private void RotateTo(GameObject target)
@@ -127,7 +108,14 @@ public class ProtoTypeHanaMovement : MonoBehaviour
         transform.LookAt(targetPos);
     }
 
+    public int GetMoveStep() => _moveStep;
 
-    
-
+    public void SetPosY(float y)
+    {
+        transform.position = new Vector3(
+            transform.position.x,
+            y,
+            transform.position.z
+        );
+    }
 }

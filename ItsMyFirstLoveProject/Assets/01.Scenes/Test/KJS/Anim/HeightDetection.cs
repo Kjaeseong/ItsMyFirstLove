@@ -12,6 +12,7 @@ public class HeightDetection : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _TcameraH;
     [SerializeField] private ARRaycastManager _arRaycaster;
     [SerializeField] private GameObject _ground;
+    [SerializeField] private ProtoTypeHanaMovement _hana;
 
     private float _rayPositionY;
     private float _camPositionY;
@@ -66,6 +67,7 @@ public class HeightDetection : MonoBehaviour
 
         Vector3 MapPosition = new Vector3(0f, -1 * _cameraH, 0f);
         _ground.transform.position = MapPosition;
+        _hana.SetPosY(-1 * _cameraH);
     }
 
 
