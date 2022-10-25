@@ -23,7 +23,7 @@ public class VPSEffectManager : MonoBehaviour
             _effectPool[effectNum].transform.position = new Vector3(
                 position.x,
 
-                // TODO : 추후 카메라와 지면 높이 받아와야 함.
+                // TODO : 추후 카메라와 지면 높이차 받아와야 함.
                 position.y,
                 position.z
             );
@@ -59,6 +59,7 @@ public class VPSEffectManager : MonoBehaviour
         }
     }
 
+    //테스트 호출용 함수. 삭제 가능
     public void Test(int a)
     {
         Vector3 position = new Vector3(
