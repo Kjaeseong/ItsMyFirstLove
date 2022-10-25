@@ -34,7 +34,8 @@ public class FadeOutScript : MonoBehaviour
                 _color.a = (f * _colorA);
                 this.GetComponent<Image>().color = _color;
                 yield return null;
-                Debug.Log("A");
+                // Debug.Log("A");
+                // TODO : 참다 못해서 남겨놓는데 리팩토링 한거 맞아요?
             }
             this.gameObject.SetActive(false);
             this.GetComponent<Image>().color = new Color(0, 0, 0, 0.2f);

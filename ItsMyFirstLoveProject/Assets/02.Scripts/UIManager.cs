@@ -23,7 +23,7 @@ public class UIManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    { 
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             _exitUI.SetActive(true);
@@ -33,7 +33,7 @@ public class UIManager : MonoBehaviour
             LevelUP();
         }
 
-        _levelText.text = $"Lv.{Level}";
+        
 
     }
     //앱 종료
@@ -41,13 +41,16 @@ public class UIManager : MonoBehaviour
     {
         Application.Quit();
     }
+    
     //레벨 업
     public void LevelUP()
     {
         Level++;
+        _levelText.text = $"Lv.{Level}";
         _favorabilityGage.fillAmount = 0;
         NowFavorability = 0;
     }
+
     //호감도 업
     public void FavorabilityUP()
     {

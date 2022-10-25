@@ -5,11 +5,12 @@ using UnityEngine;
 public class ChangeAnim : MonoBehaviour
 {
     //클릭시 랜덤 애니메이션 실행
-
+    /*
     public GameObject       Char;
 
     private int             _randNum;
     private Animator        _animator;
+
     private void Start()
     {
         _animator = Char.GetComponent<Animator>();
@@ -25,5 +26,5 @@ public class ChangeAnim : MonoBehaviour
         Debug.Log(_randNum);
         _randNum = 0;
     }
-
+    */
 }
