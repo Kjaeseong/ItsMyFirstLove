@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class UIManager : MonoBehaviour
+public class PDI_UIManager : MonoBehaviour
 {
     private TextMeshProUGUI _favorText;
     private TextMeshProUGUI _levelText;
