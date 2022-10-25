@@ -10,7 +10,7 @@ public class Character : MonoBehaviour
     private string _favor;
     private string _hate;
 
-    [SerializeField] UIManager _ui;
+    [SerializeField] PDI_UIManager _ui;
 
     private void Start()
     {
