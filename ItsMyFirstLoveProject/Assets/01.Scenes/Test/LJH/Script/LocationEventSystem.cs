@@ -5,7 +5,11 @@ using UnityEngine;
 public class LocationEventSystem : MonoBehaviour
 {
     // TODO : 이벤트 발생 콜라이더 임시 Ver입니다. 추후 추가되는 이벤트나 결과물 합칠 때 각자 작업본에 따라서 수정 요망
+
     [SerializeField] private CSVReader _csvReader;
+
+    // 일회성 이벤트는 체크!
+    [SerializeField] private bool _isPlayOneTime;
 
     [SerializeField] private bool _vpsEventOn;
     [SerializeField] private int _vpsIndex;
@@ -29,9 +33,10 @@ public class LocationEventSystem : MonoBehaviour
 
             // 기타 추가 이벤트
 
-            // 추후 방명록 시스템
-
-            gameObject.SetActive(false);
+            if(_isPlayOneTime)
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
 }
