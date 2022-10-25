@@ -11,25 +11,29 @@ public class LocationFinder : MonoBehaviour
 
     private int   _locationCount = 0;
     private float _elaspedTime = 0f;
-    private bool  _isClose = true;
+    private bool  _isClose;
 
     private void Awake()
     {
         _ai = GetComponent<NavMeshAgent>();
+        _isClose = false;
     }
 
     private void Start()
     {
         MoveWayPoint();
     }
+
     private void Update()
     {
         _elaspedTime += Time.deltaTime;
 
+        // 캐릭터근처에 플레이어가 없다면 실행된다.
         if (_isClose == false)
         {
             PlayerStopped(_player);
 
+            // 15초가 지나면 데이트 이벤트 종료.
             if (_elaspedTime > 15f)
             {
                 Debug.Log("데이트가 종료됩니다.");
@@ -43,8 +47,10 @@ public class LocationFinder : MonoBehaviour
         _ai.ResetPath();
     }
 
+    // 이동 가능하게 해준다.
     private void MoveWayPoint()
     {
+        // 유효한 경로가 아닐 경우 리턴한다.
         if (_ai.isPathStale)
         {
             return;
@@ -52,6 +58,7 @@ public class LocationFinder : MonoBehaviour
         _ai.destination = _destinations[0].transform.position;
     }
 
+    // 캐릭터가 목적지 포인트에 도착하면 다음 목적지로 변경해준다.
     private void OnTriggerEnter(Collider other)
     {
         _isClose = true;
@@ -81,20 +88,17 @@ public class LocationFinder : MonoBehaviour
         }
 
     }
+
+    // 캐릭터근처에 플레이어가 있으면 이동한다.
     private void OnTriggerStay(Collider other)
     {
-
-        if (other.tag == "MainLocation")
-        {
-            _destinations[_locationCount].gameObject.transform.localScale = new Vector3(1, 1);
-        }
-
         if (other.tag == "Player")
         {
             _ai.speed = 6f;
         }
     }
 
+    // 캐릭터 근처에 플레이어가 없으면 실행.
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")
@@ -104,6 +108,7 @@ public class LocationFinder : MonoBehaviour
         }
     }
 
+    // 플레이어가 경로대로 움직이지 않으면 실행.
     private void PlayerStopped(GameObject player)
     {
         Debug.Log("왜 안와?");
