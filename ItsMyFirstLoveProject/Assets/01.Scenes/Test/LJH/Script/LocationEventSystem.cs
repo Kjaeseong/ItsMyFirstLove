@@ -8,6 +8,8 @@ public class LocationEventSystem : MonoBehaviour
 
     [SerializeField] private CSVReader _csvReader;
 
+    [SerializeField] private VPSEffectManager _vpsEffectManager;
+
     // 일회성 이벤트는 체크!
     [SerializeField] private bool _isPlayOneTime;
 
@@ -23,8 +25,9 @@ public class LocationEventSystem : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log("이벤트 실행");
             // VPS 연출
-
+            _vpsEffectManager.ActivatedEffect(0,transform.position);
             // 대사 연출
 
             // 사운드 출력
@@ -33,7 +36,7 @@ public class LocationEventSystem : MonoBehaviour
 
             // 기타 추가 이벤트
 
-            if(_isPlayOneTime)
+            if (_isPlayOneTime)
             {
                 gameObject.SetActive(false);
             }

@@ -45,12 +45,12 @@ public class VPSEffect : MonoBehaviour
     /// </summary>
     private void CreatePool(int index)
     {
-        PoolSettingCheck(index - 1);
+        PoolSettingCheck(index);
 
         int count = 0;
         for(int i = 0; i < _poolSize; i++)
         {
-            switch(index - 1)
+            switch(index)
             {
                 case 0:
                     _pool.Add(Instantiate(_firstPrefabGroup[count]));
