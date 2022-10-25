@@ -14,6 +14,8 @@ public class FullScreenMiniMap : MonoBehaviour
     private float _cameraSize = 150f;
     private float _currentTouchDistance;
     private float _touchDistance;
+    private float _zoomMaxDistance = 300f;
+    private float _zoomMinDistance = 70f;
 
     private void Update()
     {
@@ -40,15 +42,10 @@ public class FullScreenMiniMap : MonoBehaviour
         if (Input.touchCount == 2 && (Input.touches[0].phase == TouchPhase.Moved || Input.touches[1].phase == TouchPhase.Moved))
         {
             _currentTouchDistance = (Input.touches[0].position - Input.touches[1].position).sqrMagnitude;
-
             _touchDistance = (_currentTouchDistance - _oldTouchDistance) * 0.01f;
-
             _cameraSize -= _touchDistance;
-
             _cameraSize = Mathf.Clamp(_cameraSize, 70f, 300f);
-
             _miniMapCamera.orthographicSize = Mathf.Lerp(_miniMapCamera.orthographicSize, _cameraSize, Time.deltaTime * 5f);
-
             _oldTouchDistance = _currentTouchDistance;
         }
     }
