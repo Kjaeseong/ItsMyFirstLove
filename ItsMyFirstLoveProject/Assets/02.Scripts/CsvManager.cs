@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KJS_CsvManager : MonoBehaviour
+public class CsvManager : MonoBehaviour
 {
     // CSV 로드방법
     // 1. 파일 위치 : Resources/CSV  
