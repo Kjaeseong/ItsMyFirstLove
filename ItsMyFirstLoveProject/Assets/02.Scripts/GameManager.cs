@@ -16,6 +16,7 @@ public class GameManager : SingletonBehaviour<GameManager>
 
     private void Awake() 
     {
+        DontDestroyOnLoad(gameObject);
         _audio = GetComponentInChildren<AudioManager>();
         _csv = GetComponentInChildren<CsvManager>();
         _scene = GetComponentInChildren<SceneChanger>();

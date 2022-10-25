@@ -27,6 +27,5 @@ public class SingletonBehaviour<T> : MonoBehaviour where T : MonoBehaviour
       return;
     }
     _instance = GetComponent<T>();
-    DontDestroyOnLoad(gameObject);
   }
 }
