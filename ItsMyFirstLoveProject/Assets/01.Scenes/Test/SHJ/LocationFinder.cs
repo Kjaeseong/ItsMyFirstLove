@@ -36,24 +36,22 @@ public class LocationFinder : MonoBehaviour
     private void Update()
     {
         _elaspedTime += Time.deltaTime;
-        // Ä³¸¯ÅÍ±ÙÃ³¿¡ ÇÃ·¹ÀÌ¾î°¡ ¾ø´Ù¸é ½ÇÇàµÈ´Ù.
+        // ìºë¦­í„°ê·¼ì²˜ì— í”Œë ˆì´ì–´ê°€ ì—†ë‹¤ë©´ ì‹¤í–‰ëœë‹¤.
         if (_isClose == false)
         {
             PlayerStopped(_player);
-            // 15ÃÊ°¡ Áö³ª¸é µ¥ÀÌÆ® ÀÌº¥Æ® Á¾·á.
+            // 15ì´ˆê°€ ì§€ë‚˜ë©´ ë°ì´íŠ¸ ì´ë²¤íŠ¸ ì¢…ë£Œ.
             if (_elaspedTime > 15f)
             {
-                Debug.Log("µ¥ÀÌÆ®°¡ Á¾·áµË´Ï´Ù.");
+                Debug.Log("ë°ì´íŠ¸ê°€ ì¢…ë£Œë©ë‹ˆë‹¤.");
                 _elaspedTime = 0f;
             }
         }
         MakePath();
     }
-
-    // ÀÌµ¿ °¡´ÉÇÏ°Ô ÇØÁØ´Ù.
     private void MoveWayPoint()
     {
-        // À¯È¿ÇÑ °æ·Î°¡ ¾Æ´Ò °æ¿ì ¸®ÅÏÇÑ´Ù.
+        // ìœ íš¨í•œ ê²½ë¡œê°€ ì•„ë‹ ê²½ìš° ë¦¬í„´í•œë‹¤.
         if (_ai.isPathStale)
         {
             return;
@@ -61,14 +59,14 @@ public class LocationFinder : MonoBehaviour
         _ai.destination = _destinations[0].transform.position;
     }
 
-    //  makePathCoroutine()À» ½ÃÀÛÇÏ´Â ÇÔ¼ö
+    //  makePathCoroutine()ì„ ì‹œì‘í•˜ëŠ” í•¨ìˆ˜
     private void MakePath()
     {
         _lineRenderer.enabled = true;
         StartCoroutine(MakePathCoroutine());
     }
 
-    // ¶óÀÎÀ» ±×·ÁÁÖ´Â ÇÔ¼ö
+    // ë¼ì¸ì„ ê·¸ë ¤ì£¼ëŠ” í•¨ìˆ˜
     private void DrawPath()
     {
         int length = _ai.path.corners.Length;
@@ -80,7 +78,7 @@ public class LocationFinder : MonoBehaviour
         }
     }
 
-    // ÇöÀç À§Ä¡¿¡¼­ ´ÙÀ½ ¸ñÀûÁö±îÁö ±×·ÁÁÖ´Â ÄÚ·çÆ¾
+    // í˜„ì¬ ìœ„ì¹˜ì—ì„œ ë‹¤ìŒ ëª©ì ì§€ê¹Œì§€ ê·¸ë ¤ì£¼ëŠ” ì½”ë£¨í‹´
     private IEnumerator MakePathCoroutine()
     {
         _lineRenderer.SetPosition(0, this.transform.position);
@@ -90,20 +88,20 @@ public class LocationFinder : MonoBehaviour
         DrawPath();
     }
 
-    // ÇÃ·¹ÀÌ¾î°¡ °æ·Î´ë·Î ¿òÁ÷ÀÌÁö ¾ÊÀ¸¸é ½ÇÇà.
+    // í”Œë ˆì´ì–´ê°€ ê²½ë¡œëŒ€ë¡œ ì›€ì§ì´ì§€ ì•Šìœ¼ë©´ ì‹¤í–‰.
     private void PlayerStopped(GameObject player)
     {
         _ai.speed = 0f;
-        Debug.Log("¿Ö ¾È¿Í?");
+        Debug.Log("ì™œ ì•ˆì™€?");
         transform.LookAt(player.transform.position);
     }
 
-    // Ä³¸¯ÅÍ°¡ ¸ñÀûÁö Æ÷ÀÎÆ®¿¡ µµÂøÇÏ¸é ´ÙÀ½ ¸ñÀûÁö·Î º¯°æÇØÁØ´Ù.
+    // ìºë¦­í„°ê°€ ëª©ì ì§€ í¬ì¸íŠ¸ì— ë„ì°©í•˜ë©´ ë‹¤ìŒ ëª©ì ì§€ë¡œ ë³€ê²½í•´ì¤€ë‹¤.
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Location")
         {
-            Debug.Log("µµÂø");
+            Debug.Log("ë„ì°©");
 
             if (_locationCount < 3)
             {
@@ -130,7 +128,7 @@ public class LocationFinder : MonoBehaviour
 
     }
 
-    // Ä³¸¯ÅÍ±ÙÃ³¿¡ ÇÃ·¹ÀÌ¾î°¡ ÀÖÀ¸¸é ÀÌµ¿ÇÑ´Ù.
+    // ìºë¦­í„°ê·¼ì²˜ì— í”Œë ˆì´ì–´ê°€ ìˆìœ¼ë©´ ì´ë™í•œë‹¤.
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")
@@ -139,7 +137,7 @@ public class LocationFinder : MonoBehaviour
         }
     }
 
-    // Ä³¸¯ÅÍ ±ÙÃ³¿¡ ÇÃ·¹ÀÌ¾î°¡ ¾øÀ¸¸é ½ÇÇà.
+    // ìºë¦­í„° ê·¼ì²˜ì— í”Œë ˆì´ì–´ê°€ ì—†ìœ¼ë©´ ì‹¤í–‰.
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")

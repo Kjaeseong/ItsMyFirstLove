@@ -1,0 +1,321 @@
+fileFormatVersion: 2
+guid: 8a76350eed3201d46a029dfe596cc42d
+ModelImporter:
+  serializedVersion: 19301
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
+      human bone 'Hips' not found\n"
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 0
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: FluffyPonyTail_by_KanNya(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Armature
+      parentName: FluffyPonyTail_by_KanNya(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Head
+      parentName: Armature
+      position: {x: -0, y: 0, z: 1.2262739}
+      rotation: {x: 0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PonyHairRoot
+      parentName: Head
+      position: {x: -0, y: 0.06301916, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FrontRoot
+      parentName: PonyHairRoot
+      position: {x: -3.4840723e-18, y: 0.029242039, z: 0.06}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Front_A.001
+      parentName: FrontRoot
+      position: {x: 0.0024798512, y: -0.058971167, z: 0.059962813}
+      rotation: {x: 0.9995161, y: -0.009417901, z: -0.0094069345, w: 0.028113673}
+      scale: {x: 1.0000073, y: 1, z: 1.0000695}
+    - name: Front_A.002
+      parentName: Front_A.001
+      position: {x: 4.656613e-10, y: 0.026385274, z: 3.274181e-11}
+      rotation: {x: 0.18348822, y: -0.17357491, z: 0.1607114, w: 0.95413613}
+      scale: {x: 0.9999999, y: 0.9999999, z: 0.9999999}
+    - name: Front_A_L.001
+      parentName: FrontRoot
+      position: {x: -0.046144385, y: -0.060562134, z: 0.04275811}
+      rotation: {x: 0.99585485, y: -0.08599552, z: -0.025162065, w: 0.01564552}
+      scale: {x: 0.99999243, y: 0.9999995, z: 0.99999964}
+    - name: Front_A_L.002
+      parentName: Front_A_L.001
+      position: {x: 0.0000000037252903, y: 0.033082727, z: -0.0000000055879354}
+      rotation: {x: 0.13044973, y: 0.07732577, z: -0.052859437, w: 0.98702055}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: Front_A_R.001
+      parentName: FrontRoot
+      position: {x: 0.046144385, y: -0.060562134, z: 0.04275811}
+      rotation: {x: 0.99585485, y: 0.08599552, z: 0.025162065, w: 0.01564552}
+      scale: {x: 0.99999243, y: 0.9999995, z: 0.99999964}
+    - name: Front_A_R.002
+      parentName: Front_A_R.001
+      position: {x: -0.0000000037252903, y: 0.033082727, z: -0.0000000055879354}
+      rotation: {x: 0.13044973, y: -0.07732577, z: 0.052859437, w: 0.98702055}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: Front_B.001
+      parentName: FrontRoot
+      position: {x: -0.0022840798, y: 0.05178106, z: -0.026570302}
+      rotation: {x: 0.21341217, y: -0.23638505, z: -0.23638509, w: 0.91798663}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Front_B.002
+      parentName: Front_B.001
+      position: {x: 0.000000007450581, y: 0.023669267, z: 0.000000019092113}
+      rotation: {x: 0.41524482, y: 0.836947, z: 0.34769017, w: -0.07875919}
+      scale: {x: 1, y: 0.9999997, z: 1}
+    - name: Front_L.001
+      parentName: FrontRoot
+      position: {x: -0.089277044, y: -0.061825633, z: 0.015426796}
+      rotation: {x: 0.998786, y: -0.030068254, z: -0.030050393, w: 0.024889003}
+      scale: {x: 1.0000136, y: 1.0000001, z: 1.0000106}
+    - name: Front_L.002
+      parentName: Front_L.001
+      position: {x: 0.0000000055879354, y: 0.027444534, z: 0.0000000041909516}
+      rotation: {x: 0.038728137, y: 0.080463685, z: -0.07882412, w: 0.99288094}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: Front_L.003
+      parentName: Front_L.002
+      position: {x: 0.000000005122274, y: 0.030549558, z: -0.000000004656613}
+      rotation: {x: 0.0517913, y: 0.16392429, z: -0.16332753, w: 0.9714786}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Front_R.001
+      parentName: FrontRoot
+      position: {x: 0.089277044, y: -0.061825633, z: 0.015426796}
+      rotation: {x: 0.998786, y: 0.030068254, z: 0.030050393, w: 0.024889003}
+      scale: {x: 1.0000136, y: 1.0000001, z: 1.0000106}
+    - name: Front_R.002
+      parentName: Front_R.001
+      position: {x: -0.0000000055879354, y: 0.027444534, z: 0.0000000041909516}
+      rotation: {x: 0.038728137, y: -0.080463685, z: 0.07882412, w: 0.99288094}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: Front_R.003
+      parentName: Front_R.002
+      position: {x: -0.000000005122274, y: 0.030549558, z: -0.000000004656613}
+      rotation: {x: 0.0517913, y: -0.16392429, z: 0.16332753, w: 0.9714786}
+      scale: {x: 1, y: 1, z: 1}
+    - name: PonyRoot
+      parentName: PonyHairRoot
+      position: {x: 0.0028378693, y: 0.01731801, z: -0.08365413}
+      rotation: {x: -0.40810263, y: 0.0052910466, z: 0.0065349466, w: 0.91289735}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1}
+    - name: Pony.001
+      parentName: PonyRoot
+      position: {x: 4.656613e-10, y: 0.040335014, z: 0.00000013649787}
+      rotation: {x: -0.25849304, y: 0.008000182, z: 0.028395252, w: 0.9655626}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+    - name: Pony.002
+      parentName: Pony.001
+      position: {x: 0.0000000010477379, y: 0.046082076, z: -0.00000004367257}
+      rotation: {x: -0.54597926, y: 0.02397423, z: -0.0089354655, w: 0.83740795}
+      scale: {x: 0.9999999, y: 1, z: 1}
+    - name: Pony.003
+      parentName: Pony.002
+      position: {x: 0.0000000013969839, y: 0.07082061, z: 0.00000009341602}
+      rotation: {x: -0.1636702, y: 0.004799837, z: 0.006637468, w: 0.98648113}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Pony.004
+      parentName: Pony.003
+      position: {x: 0.0000000055879354, y: 0.096282884, z: -0.000000042418833}
+      rotation: {x: -0.10512923, y: 0.031348895, z: 0.00515314, w: 0.993951}
+      scale: {x: 0.99999994, y: 1, z: 0.99999994}
+    - name: Pony.005
+      parentName: Pony.004
+      position: {x: -0.0000000041909516, y: 0.12440368, z: -0.000000036496203}
+      rotation: {x: -0.04468581, y: -0.21956219, z: -0.019211575, w: 0.9743852}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1}
+    - name: Pony.006
+      parentName: Pony.005
+      position: {x: 5.418088e-10, y: 0.09654681, z: -0.000000001873258}
+      rotation: {x: 0.000000007294598, y: 0.48168945, z: 0.0000000021425153, w: 0.876342}
+      scale: {x: 1, y: 1, z: 1.0000001}
+    - name: Pony.007
+      parentName: Pony.006
+      position: {x: -0.0000000018626456, y: 0.1427816, z: -0.000000002793967}
+      rotation: {x: 2.91336e-16, y: 0.17040153, z: -5.4551013e-17, w: 0.9853747}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SideRoot
+      parentName: PonyHairRoot
+      position: {x: -3.4840723e-18, y: 0.009025693, z: 0.06}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Side_L.001
+      parentName: SideRoot
+      position: {x: -0.07153765, y: -0.1447308, z: -0.009986449}
+      rotation: {x: -0.30905166, y: -0.038452864, z: 0.93442506, w: -0.17279544}
+      scale: {x: 1.0000002, y: 1, z: 1}
+    - name: Side_L.002
+      parentName: Side_L.001
+      position: {x: -0.000000029802322, y: 0.027126193, z: 0.000000007450581}
+      rotation: {x: 0.08342795, y: -0.04702444, z: -0.040962745, w: 0.9945605}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Side_L.003
+      parentName: Side_L.002
+      position: {x: 0.000000020489097, y: 0.029177798, z: -0.0000000055879354}
+      rotation: {x: 0.08668887, y: -0.22023174, z: -0.38077727, w: 0.8938634}
+      scale: {x: 0.9999998, y: 0.9999999, z: 0.9999999}
+    - name: Side_L.004
+      parentName: Side_L.003
+      position: {x: 0.00000015646219, y: 0.0544544, z: 0.000000014901161}
+      rotation: {x: 0.22658275, y: 0.2565379, z: 0.6993578, w: 0.62749285}
+      scale: {x: 1.0000001, y: 1, z: 1.0000001}
+    - name: Side_L.005
+      parentName: Side_L.004
+      position: {x: 0.000000052154064, y: 0.05125607, z: -0.000000007450581}
+      rotation: {x: 0.44596994, y: 0.25441873, z: 0.70624804, w: -0.4874378}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1}
+    - name: Side_L.006
+      parentName: Side_L.005
+      position: {x: 0.000000013038516, y: 0.033648774, z: -0.000000036512574}
+      rotation: {x: 0.311701, y: 0.0027650548, z: 0.108539976, w: 0.94395655}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Side_R.001
+      parentName: SideRoot
+      position: {x: 0.07153765, y: -0.1447308, z: -0.009986449}
+      rotation: {x: 0.30905166, y: -0.038452864, z: 0.93442506, w: 0.17279544}
+      scale: {x: 1.0000002, y: 1, z: 1}
+    - name: Side_R.002
+      parentName: Side_R.001
+      position: {x: 0.000000029802322, y: 0.027126193, z: 0.000000007450581}
+      rotation: {x: 0.08342795, y: 0.04702444, z: 0.040962745, w: 0.9945605}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Side_R.003
+      parentName: Side_R.002
+      position: {x: -0.000000020489097, y: 0.029177798, z: -0.0000000055879354}
+      rotation: {x: 0.08668883, y: 0.22023174, z: 0.38077718, w: 0.8938634}
+      scale: {x: 0.99999976, y: 0.9999998, z: 1}
+    - name: Side_R.004
+      parentName: Side_R.003
+      position: {x: -0.000000033993274, y: 0.05445444, z: -0.00000002514571}
+      rotation: {x: 0.22658247, y: -0.25653806, z: -0.69935787, w: 0.6274928}
+      scale: {x: 0.99999994, y: 0.9999999, z: 0.99999994}
+    - name: Side_R.005
+      parentName: Side_R.004
+      position: {x: -0.00000010873191, y: 0.05125612, z: 0.000000007450581}
+      rotation: {x: -0.44596973, y: 0.25441897, z: 0.70624804, w: 0.48743787}
+      scale: {x: 0.99999994, y: 0.9999999, z: 1.0000001}
+    - name: Side_R.006
+      parentName: Side_R.005
+      position: {x: -0.000000037252903, y: 0.03364876, z: -4.0017767e-11}
+      rotation: {x: 0.3117009, y: -0.0027651354, z: -0.10853991, w: 0.94395655}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: Hair_Back
+      parentName: FluffyPonyTail_by_KanNya(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Hair_Front
+      parentName: FluffyPonyTail_by_KanNya(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Hair_Side
+      parentName: FluffyPonyTail_by_KanNya(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

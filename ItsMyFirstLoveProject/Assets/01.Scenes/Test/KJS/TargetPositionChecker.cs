@@ -65,7 +65,7 @@ public class TargetPositionChecker : MonoBehaviour
 
             Debug.Log(rot.eulerAngles);
 
-            if(_nowDistance >= 0.01)
+            if(_nowDistance >= 0.3f)
             {
                 transform.SetPositionAndRotation(_player.transform.position, rot);
                 TargetPositionSet();
