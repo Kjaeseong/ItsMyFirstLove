@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class VPSEffect : MonoBehaviour
 {
+    // 인스펙터 창에서 오브젝트풀을 통제하기 위한 변수
+    // List에 등록된 프리팹이 없다면(List 크기가 0이면) 풀이 생성되지 않음
+    // 1. 인스펙터상 List(1, 2, 3그룹)에 풀에 포함시킬 프리팹 추가,
+    // 2. PoolSize : 해당 그룹의 프리팹을 담을 풀의 사이즈
+    // 3. PosRange : 랜덤배치할 범위
+    // 4. Height : 배치 높이
+    // 5. 이 외 직접 배치하는 오브젝트들은 VPSEffect 프리팹에 직접 추가
+
     [SerializeField] private List<GameObject> _firstPrefabGroup = new List<GameObject>();
     [SerializeField] private int _firstPoolSize;
     [SerializeField][Range(0, 30)] private float _firstPosRange;
@@ -31,14 +39,18 @@ public class VPSEffect : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// index : 풀에 추가할 프리팹 그룹, 1 ~ 3중 입력.<br/>
+    /// Start() 함수에서 자동 실행중임.
+    /// </summary>
     private void CreatePool(int index)
     {
-        PoolSettingCheck(index);
+        PoolSettingCheck(index - 1);
 
         int count = 0;
         for(int i = 0; i < _poolSize; i++)
         {
-            switch(index)
+            switch(index - 1)
             {
                 case 0:
                     _pool.Add(Instantiate(_firstPrefabGroup[count]));
