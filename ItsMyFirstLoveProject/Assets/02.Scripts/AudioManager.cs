@@ -12,12 +12,10 @@ public class AudioManager : MonoBehaviour
 
     private void Start() 
     {
-        DontDestroyOnLoad(gameObject);
-        DicLoadFile();
+        LoadFile();
     }
 
-    // 딕셔너리 Ver
-    private void DicLoadFile()
+    private void LoadFile()
     {
         object[] audiolist = Resources.LoadAll("Audio");
 
@@ -46,7 +44,7 @@ public class AudioManager : MonoBehaviour
     /// <summary>
     /// 변수로 파일 명 입력
     /// </summary>
-    public void DicPlay(string FileName)
+    public void Play(string FileName)
     {
         switch(FileName[0])
         {
