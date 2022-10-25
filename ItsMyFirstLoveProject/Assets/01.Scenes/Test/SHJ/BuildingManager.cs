@@ -10,11 +10,11 @@ public class BuildingManager : MonoBehaviour
     [SerializeField] private MeshRenderer[] _mesh;
     [SerializeField] private Material[]     _mat = new Material[2];
     [SerializeField] private GameObject[]   _protoTypeLocation;
-    [SerializeField] private GameObject     _character;
+    [SerializeField] private LocationFinder _character;
+    public Vector3 TestPos;
 
     private LatLng _latLng;
 
-    public string[] Destination_Name;
     public string Location_Name;
 
     private void Start()
@@ -50,10 +50,13 @@ public class BuildingManager : MonoBehaviour
         GameObject BuildingForLocation = GameObject.Find(Location_Name);
         Vector3 LocationPos = BuildingForLocation.transform.position;
 
-        Instantiate(_protoTypeLocation[0], new Vector3(LocationPos.x - 5, 0.5f, LocationPos.z - 12), Quaternion.Euler(0, 0, 0));
-        Instantiate(_protoTypeLocation[1], new Vector3(LocationPos.x + 17, 0.5f, LocationPos.z - 18), Quaternion.Euler(0, 0, 0));
-        Instantiate(_protoTypeLocation[2], new Vector3(LocationPos.x + 43, 0.5f, LocationPos.z + 86), Quaternion.Euler(0, 0, 0));
-        Instantiate(_protoTypeLocation[3], new Vector3(LocationPos.x + 50, 0.5f, LocationPos.z + 106), Quaternion.Euler(0, 0, 0));
+        // 프로토타입 경로
+        _character._destinations[0] = Instantiate(_protoTypeLocation[0], new Vector3(LocationPos.x - 5, 0.5f, LocationPos.z - 12), Quaternion.Euler(0, 0, 0));
+        _character._destinations[1] = Instantiate(_protoTypeLocation[1], new Vector3(LocationPos.x + 17, 0.5f, LocationPos.z - 18), Quaternion.Euler(0, 0, 0));
+        _character._destinations[2] = Instantiate(_protoTypeLocation[2], new Vector3(LocationPos.x + 43, 0.5f, LocationPos.z + 86), Quaternion.Euler(0, 0, 0));
+        _character._destinations[3] = Instantiate(_protoTypeLocation[3], new Vector3(LocationPos.x + 50, 0.5f, LocationPos.z + 106), Quaternion.Euler(0, 0, 0));
+
+        TestPos = _character._destinations[0].transform.position;
     }
 
     // 아래 함수는 캐릭터 생성하는 테스트 함수. 추후에 게임매니저로 이동 가능.

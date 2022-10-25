@@ -6,8 +6,8 @@ using UnityEngine.AI;
 public class LocationFinder : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent _ai;
-    [SerializeField] private GameObject[] _destinations;
     [SerializeField] private GameObject   _player;
+    public GameObject[] _destinations;
 
     private int   _locationCount = 0;
     private float _elaspedTime = 0f;
@@ -16,12 +16,14 @@ public class LocationFinder : MonoBehaviour
     private void Awake()
     {
         _ai = GetComponent<NavMeshAgent>();
-        _isClose = false;
     }
 
     private void Start()
     {
+        _player = GameObject.Find("Player");
+        _isClose = false;
         MoveWayPoint();
+
     }
 
     private void Update()
@@ -32,7 +34,6 @@ public class LocationFinder : MonoBehaviour
         if (_isClose == false)
         {
             PlayerStopped(_player);
-
             // 15초가 지나면 데이트 이벤트 종료.
             if (_elaspedTime > 15f)
             {
@@ -40,11 +41,6 @@ public class LocationFinder : MonoBehaviour
                 _elaspedTime = 0f;
             }
         }
-    }
-
-    private void Delay()
-    {
-        _ai.ResetPath();
     }
 
     // 이동 가능하게 해준다.
@@ -58,11 +54,17 @@ public class LocationFinder : MonoBehaviour
         _ai.destination = _destinations[0].transform.position;
     }
 
+    // 플레이어가 경로대로 움직이지 않으면 실행.
+    private void PlayerStopped(GameObject player)
+    {
+        _ai.speed = 0f;
+        Debug.Log("왜 안와?");
+        transform.LookAt(player.transform.position);
+    }
+
     // 캐릭터가 목적지 포인트에 도착하면 다음 목적지로 변경해준다.
     private void OnTriggerEnter(Collider other)
     {
-        _isClose = true;
-
         if (other.tag == "Location")
         {
             Debug.Log("도착");
@@ -87,7 +89,13 @@ public class LocationFinder : MonoBehaviour
             }
         }
 
+        if(other.tag == "Player")
+        {
+            _isClose = true;
+        }
+
     }
+
 
     // 캐릭터근처에 플레이어가 있으면 이동한다.
     private void OnTriggerStay(Collider other)
@@ -104,14 +112,6 @@ public class LocationFinder : MonoBehaviour
         if (other.tag == "Player")
         {
             _isClose = false;
-            _ai.speed = 0f;
         }
-    }
-
-    // 플레이어가 경로대로 움직이지 않으면 실행.
-    private void PlayerStopped(GameObject player)
-    {
-        Debug.Log("왜 안와?");
-        transform.LookAt(player.transform.position);
     }
 }

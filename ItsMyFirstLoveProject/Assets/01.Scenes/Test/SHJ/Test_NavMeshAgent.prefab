@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: 7576798359452175564}
   - component: {fileID: 7576798359452175565}
   - component: {fileID: 7576798359452175555}
-  - component: {fileID: 7576798359452175554}
+  - component: {fileID: 1418073471371502697}
+  - component: {fileID: 8219831878209769426}
   m_Layer: 0
   m_Name: Test_NavMeshAgent
   m_TagString: Untagged
@@ -151,15 +152,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ai: {fileID: 7576798359452175565}
+  _player: {fileID: 0}
   _destinations:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  _player: {fileID: 7576798359452175562}
---- !u!96 &7576798359452175554
-TrailRenderer:
-  serializedVersion: 2
+--- !u!114 &1418073471371502697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7576798359452175562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb49795e95b7fcb4994344b9030b5565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ai: {x: 0, y: 0, z: 0}
+--- !u!120 &8219831878209769426
+LineRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -177,7 +190,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 292de773d362d441aada9e607f55e85b, type: 2}
+  - {fileID: 2100000, guid: e6b4ffaa90ac60247b1992ef9b9478dd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -198,7 +211,9 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 5
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -252,9 +267,8 @@ TrailRenderer:
     textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
-  m_MinVertexDistance: 0.1
-  m_Autodestruct: 0
-  m_Emitting: 1
+  m_UseWorldSpace: 1
+  m_Loop: 0
 --- !u!1 &7576798359985670631
 GameObject:
   m_ObjectHideFlags: 0

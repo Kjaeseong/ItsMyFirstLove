@@ -23,7 +23,6 @@ public class TargetPositionChecker : MonoBehaviour
     private bool _isSwitchOn;
     private int _direction;
 
-
     private void Start() 
     {
         MoveTargetSwitch(true);
