@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000010714891294}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -8.84, y: 0.55, z: 0.0006417077}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -99,7 +99,7 @@ MonoBehaviour:
   isRotating: 1
   isFloating: 1
   isScaling: 1
-  rotationAngle: {x: 0, y: 0, z: 10}
+  rotationAngle: {x: 0, y: 0, z: 90}
   rotationSpeed: 10
   floatSpeed: 0.04
   floatRate: 0.5
