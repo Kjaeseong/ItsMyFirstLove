@@ -52,7 +52,11 @@ public class VPSEffect : MonoBehaviour
             }
             _pool[_pool.Count - 1].transform.parent = gameObject.transform;
             _pool[_pool.Count - 1].transform.position = RandPos(_posRange, _height);
-            _pool[_pool.Count - 1].transform.rotation = Quaternion.Euler(0f, Random.Range(-180, 180), 0f);
+            _pool[_pool.Count - 1].transform.rotation = Quaternion.Euler(
+                _pool[_pool.Count - 1].transform.rotation.eulerAngles.x, 
+                Random.Range(-180, 180), 
+                _pool[_pool.Count - 1].transform.rotation.eulerAngles.z
+            );
             count = (count + 1) % _formula;
         }
     }
@@ -90,4 +94,6 @@ public class VPSEffect : MonoBehaviour
 
         return position;
     }
+
+
 }
