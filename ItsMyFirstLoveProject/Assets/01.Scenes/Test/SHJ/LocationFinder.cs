@@ -39,7 +39,7 @@ public class LocationFinder : MonoBehaviour
     }
 
     private void Delay()
-    {
+    {   
         _ai.ResetPath();
     }
 

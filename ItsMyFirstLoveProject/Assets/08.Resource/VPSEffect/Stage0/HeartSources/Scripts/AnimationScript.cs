@@ -26,8 +26,10 @@ public class AnimationScript : MonoBehaviour {
     private float scaleTimer;
 
 	// Use this for initialization
-	void Start () {
-	
+	void Start () 
+    {
+        floatSpeed = Random.Range(0.01f, 0.04f);
+        rotationSpeed = 2f;
 	}
 	
 	// Update is called once per frame
