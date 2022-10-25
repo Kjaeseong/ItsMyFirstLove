@@ -7,75 +7,81 @@ using NavMeshBuilder = UnityEngine.AI.NavMeshBuilder;
 [DefaultExecutionOrder(-102)]
 public class LocalNavMeshBuilder : MonoBehaviour
 {
-    public Transform m_Tracked;
+    [SerializeField] private Transform _meshTracked;
+    [SerializeField] private Vector3 _meshSize = new Vector3(200.0f, 200.0f, 200.0f);
 
-    public Vector3 m_Size = new Vector3(200.0f, 200.0f, 200.0f);
+    private NavMeshData _meshOfNavMesh;
+    private AsyncOperation _meshOfOperation;
+    private NavMeshDataInstance _meshOfInstance;
+    private List<NavMeshBuildSource> _meshOfSources = new List<NavMeshBuildSource>();
 
-    NavMeshData m_NavMesh;
-    AsyncOperation m_Operation;
-    NavMeshDataInstance m_Instance;
-    List<NavMeshBuildSource> m_Sources = new List<NavMeshBuildSource>();
-
-    IEnumerator Start()
+    private IEnumerator Start()
     {
         while (true)
         {
             UpdateNavMesh(true);
-            yield return m_Operation;
+            yield return _meshOfOperation;
         }
     }
-
-    void OnEnable()
+    private void OnEnable()
     {
-        m_NavMesh = new NavMeshData();
-        m_Instance = NavMesh.AddNavMeshData(m_NavMesh);
-        if (m_Tracked == null)
-            m_Tracked = transform;
+        _meshOfNavMesh = new NavMeshData();
+        _meshOfInstance = NavMesh.AddNavMeshData(_meshOfNavMesh);
+
+        if (_meshTracked == null)
+        {
+            _meshTracked = transform;
+        }
+
         UpdateNavMesh(false);
     }
-
-    void OnDisable()
+    private void OnDisable()
     {
-        m_Instance.Remove();
+        _meshOfInstance.Remove();
     }
 
-    void UpdateNavMesh(bool asyncUpdate = false)
+    // 네비메쉬 렌더를 실시간으로 업데이트한다.
+    private void UpdateNavMesh(bool asyncUpdate = false)
     {
-        NavMeshSourceTag.Collect(ref m_Sources);
+        NavMeshSourceTag.Collect(ref _meshOfSources);
         var defaultBuildSettings = NavMesh.GetSettingsByID(0);
         var bounds = QuantizedBounds();
 
         if (asyncUpdate)
         {
-            m_Operation = NavMeshBuilder.UpdateNavMeshDataAsync(m_NavMesh, defaultBuildSettings, m_Sources, bounds);
+            _meshOfOperation = NavMeshBuilder.UpdateNavMeshDataAsync(_meshOfNavMesh, defaultBuildSettings, _meshOfSources, bounds);
         }
 
         else
         {
-            NavMeshBuilder.UpdateNavMeshData(m_NavMesh, defaultBuildSettings, m_Sources, bounds);
+            NavMeshBuilder.UpdateNavMeshData(_meshOfNavMesh, defaultBuildSettings, _meshOfSources, bounds);
         }
     }
 
-    static Vector3 Quantize(Vector3 v, Vector3 quant)
+    // 네비메쉬를 Bake 할 영역 지정
+    private static Vector3 Quantize(Vector3 vector, Vector3 quant)
     {
-        float x = quant.x * Mathf.Floor(v.x / quant.x);
-        float y = quant.y * Mathf.Floor(v.y / quant.y);
-        float z = quant.z * Mathf.Floor(v.z / quant.z);
+        float x = quant.x * Mathf.Floor(vector.x / quant.x);
+        float y = quant.y * Mathf.Floor(vector.y / quant.y);
+        float z = quant.z * Mathf.Floor(vector.z / quant.z);
+
         return new Vector3(x, y, z);
     }
 
-    Bounds QuantizedBounds()
+    // 새로운 오브젝트가 들어오면 Tag 가 들어있는 곳을 Bake
+    private Bounds QuantizedBounds()
     {
-        var center = m_Tracked ? m_Tracked.position : transform.position;
-        return new Bounds(Quantize(center, 0.1f * m_Size), m_Size);
+        var center = _meshTracked ? _meshTracked.position : transform.position;
+        return new Bounds(Quantize(center, 0.1f * _meshSize), _meshSize);
     }
 
-    void OnDrawGizmosSelected()
+    // 오브젝트의 기즈모(점)를 선택해준다.
+    private void OnDrawGizmosSelected()
     {
-        if (m_NavMesh)
+        if (_meshOfNavMesh)
         {
             Gizmos.color = Color.green;
-            Gizmos.DrawWireCube(m_NavMesh.sourceBounds.center, m_NavMesh.sourceBounds.size);
+            Gizmos.DrawWireCube(_meshOfNavMesh.sourceBounds.center, _meshOfNavMesh.sourceBounds.size);
         }
 
         Gizmos.color = Color.yellow;
@@ -83,7 +89,7 @@ public class LocalNavMeshBuilder : MonoBehaviour
         Gizmos.DrawWireCube(bounds.center, bounds.size);
 
         Gizmos.color = Color.green;
-        var center = m_Tracked ? m_Tracked.position : transform.position;
-        Gizmos.DrawWireCube(center, m_Size);
+        var center = _meshTracked ? _meshTracked.position : transform.position;
+        Gizmos.DrawWireCube(center, _meshSize);
     }
 }
