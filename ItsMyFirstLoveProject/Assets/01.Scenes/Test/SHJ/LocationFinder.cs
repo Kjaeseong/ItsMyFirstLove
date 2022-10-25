@@ -6,12 +6,14 @@ using UnityEngine.AI;
 public class LocationFinder : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent _ai;
-    [SerializeField] private GameObject   _player;
+    [SerializeField] private GameObject _player;
+    private LineRenderer _lineRenderer;
+
     public GameObject[] _destinations;
 
-    private int   _locationCount = 0;
+    private int _locationCount = 0;
     private float _elaspedTime = 0f;
-    private bool  _isClose;
+    private bool _isClose;
 
     private void Awake()
     {
@@ -24,12 +26,16 @@ public class LocationFinder : MonoBehaviour
         _isClose = false;
         MoveWayPoint();
 
+        _lineRenderer = this.GetComponent<LineRenderer>();
+        _lineRenderer.startWidth = _lineRenderer.endWidth = 0.1f;
+        _lineRenderer.material.color = Color.blue;
+        _lineRenderer.enabled = false;
+
     }
 
     private void Update()
     {
         _elaspedTime += Time.deltaTime;
-
         // 캐릭터근처에 플레이어가 없다면 실행된다.
         if (_isClose == false)
         {
@@ -41,6 +47,7 @@ public class LocationFinder : MonoBehaviour
                 _elaspedTime = 0f;
             }
         }
+        makePath();
     }
 
     // 이동 가능하게 해준다.
@@ -52,6 +59,35 @@ public class LocationFinder : MonoBehaviour
             return;
         }
         _ai.destination = _destinations[0].transform.position;
+    }
+
+    //  makePathCoroutine()을 시작하는 함수
+    private void makePath()
+    {
+        _lineRenderer.enabled = true;
+        StartCoroutine(makePathCoroutine());
+    }
+
+    // 라인을 그려주는 함수
+    private void drawPath()
+    {
+        int length = _ai.path.corners.Length;
+        _lineRenderer.positionCount = length;
+
+        for (int i = 1; i < length; i++)
+        {
+            _lineRenderer.SetPosition(i, _ai.path.corners[i]);
+        }
+    }
+
+    // 현재 위치에서 다음 목적지까지 그려주는 코루틴
+    private IEnumerator makePathCoroutine()
+    {
+        _lineRenderer.SetPosition(0, this.transform.position);
+
+        yield return new WaitForSeconds(0.1f);
+
+        drawPath();
     }
 
     // 플레이어가 경로대로 움직이지 않으면 실행.
@@ -72,14 +108,12 @@ public class LocationFinder : MonoBehaviour
             if (_locationCount < 3)
             {
                 _locationCount++;
-                Debug.Log($"{_locationCount}");
                 _ai.destination = _destinations[_locationCount].transform.position;
             }
 
             else if (_locationCount == 3)
             {
                 _locationCount = 0;
-                Debug.Log($"{_locationCount}");
                 _ai.destination = _destinations[_locationCount].transform.position;
             }
 
@@ -89,13 +123,12 @@ public class LocationFinder : MonoBehaviour
             }
         }
 
-        if(other.tag == "Player")
+        if (other.tag == "Player")
         {
             _isClose = true;
         }
 
     }
-
 
     // 캐릭터근처에 플레이어가 있으면 이동한다.
     private void OnTriggerStay(Collider other)
@@ -114,4 +147,7 @@ public class LocationFinder : MonoBehaviour
             _isClose = false;
         }
     }
+
 }
+
+    
