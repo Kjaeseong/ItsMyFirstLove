@@ -39,7 +39,7 @@ public class FadeOutScript : MonoBehaviour
             this.gameObject.SetActive(false);
             this.GetComponent<Image>().color = new Color(0, 0, 0, 0.2f);
     }
-
+    //코루틴 실행중 한번 더 클릭 시 멈추고 다시 실행 
     public void OnclickFadeOut()
     {
         if (_startFadeOut != null)

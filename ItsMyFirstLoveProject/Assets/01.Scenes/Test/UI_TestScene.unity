@@ -1069,6 +1069,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4067555327267951999, guid: fbd38fb7c8f4ee542a8397fbd3f49cc6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4067555327321943242, guid: fbd38fb7c8f4ee542a8397fbd3f49cc6, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1201,6 +1205,14 @@ PrefabInstance:
       propertyPath: m_PixelsPerUnitMultiplier
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 6857858507238102788, guid: fbd38fb7c8f4ee542a8397fbd3f49cc6, type: 3}
+      propertyPath: ClearTIme
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6857858507238102788, guid: fbd38fb7c8f4ee542a8397fbd3f49cc6, type: 3}
+      propertyPath: ClearReward
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 7027827855278539966, guid: fbd38fb7c8f4ee542a8397fbd3f49cc6, type: 3}
       propertyPath: m_Text
       value: "\uC624\uB298\uC740 \uC5B4\uB514 \uAC08\uAE4C?"
@@ -1286,11 +1298,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4923678657022287570, guid: fadd60f6708966840acaf3f1bded463f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.12
+      value: 1.093
       objectReference: {fileID: 0}
     - target: {fileID: 4923678657022287570, guid: fadd60f6708966840acaf3f1bded463f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 16.105
+      value: 16.031
       objectReference: {fileID: 0}
     - target: {fileID: 4923678657022287570, guid: fadd60f6708966840acaf3f1bded463f, type: 3}
       propertyPath: m_LocalRotation.w
