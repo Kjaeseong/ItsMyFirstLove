@@ -27,8 +27,8 @@ public class LocationFinder : MonoBehaviour
         MoveWayPoint();
 
         _lineRenderer = this.GetComponent<LineRenderer>();
-        _lineRenderer.startWidth = _lineRenderer.endWidth = 0.1f;
-        _lineRenderer.material.color = Color.blue;
+        _lineRenderer.startWidth = _lineRenderer.endWidth = 4f;
+        _lineRenderer.material.color = Color.black;
         _lineRenderer.enabled = false;
 
     }
@@ -47,7 +47,7 @@ public class LocationFinder : MonoBehaviour
                 _elaspedTime = 0f;
             }
         }
-        makePath();
+        MakePath();
     }
 
     // 이동 가능하게 해준다.
@@ -62,14 +62,14 @@ public class LocationFinder : MonoBehaviour
     }
 
     //  makePathCoroutine()을 시작하는 함수
-    private void makePath()
+    private void MakePath()
     {
         _lineRenderer.enabled = true;
-        StartCoroutine(makePathCoroutine());
+        StartCoroutine(MakePathCoroutine());
     }
 
     // 라인을 그려주는 함수
-    private void drawPath()
+    private void DrawPath()
     {
         int length = _ai.path.corners.Length;
         _lineRenderer.positionCount = length;
@@ -81,13 +81,13 @@ public class LocationFinder : MonoBehaviour
     }
 
     // 현재 위치에서 다음 목적지까지 그려주는 코루틴
-    private IEnumerator makePathCoroutine()
+    private IEnumerator MakePathCoroutine()
     {
         _lineRenderer.SetPosition(0, this.transform.position);
 
         yield return new WaitForSeconds(0.1f);
 
-        drawPath();
+        DrawPath();
     }
 
     // 플레이어가 경로대로 움직이지 않으면 실행.

@@ -5,71 +5,78 @@ using System.Collections.Generic;
 [DefaultExecutionOrder(-200)]
 public class NavMeshSourceTag : MonoBehaviour
 {
-    public static List<MeshFilter> m_Meshes = new List<MeshFilter>();
-    public static List<Terrain> m_Terrains = new List<Terrain>();
+    public static List<MeshFilter> Meshes = new List<MeshFilter>();
+    public static List<Terrain> Terrains = new List<Terrain>();
 
-    void OnEnable()
+    private void OnEnable()
     {
-        var m = GetComponent<MeshFilter>();
-        if (m != null)
+        var meshfilter = GetComponent<MeshFilter>();
+        if (meshfilter != null)
         {
-            m_Meshes.Add(m);
+            Meshes.Add(meshfilter);
         }
 
-        var t = GetComponent<Terrain>();
-        if (t != null)
+        var terrain = GetComponent<Terrain>();
+        if (terrain != null)
         {
-            m_Terrains.Add(t);
+            Terrains.Add(terrain);
         }
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
-        var m = GetComponent<MeshFilter>();
-        if (m != null)
+        var meshfilter = GetComponent<MeshFilter>();
+        if (meshfilter != null)
         {
-            m_Meshes.Remove(m);
+            Meshes.Remove(meshfilter);
         }
 
-        var t = GetComponent<Terrain>();
-        if (t != null)
+        var terrain = GetComponent<Terrain>();
+        if (terrain != null)
         {
-            m_Terrains.Remove(t);
+            Terrains.Remove(terrain);
         }
     }
 
+    // 메쉬가 선택이 가능하다면 해준다. 
     public static void Collect(ref List<NavMeshBuildSource> sources)
     {
         sources.Clear();
 
-        for (var i = 0; i < m_Meshes.Count; ++i)
+        for (var i = 0; i < Meshes.Count; ++i)
         {
-            var mf = m_Meshes[i];
-            if (mf == null) continue;
+            var meshfilter = Meshes[i];
+            if (meshfilter == null)
+            {
+                continue;
+            }
 
-            var m = mf.sharedMesh;
-            if (m == null) continue;
+            var mesh = meshfilter.sharedMesh;
+            if (mesh == null)
+            {
+                continue;
+            }
 
-            var s = new NavMeshBuildSource();
-            s.shape = NavMeshBuildSourceShape.Mesh;
-            s.sourceObject = m;
-            s.transform = mf.transform.localToWorldMatrix;
-            s.area = 0;
-            sources.Add(s);
+            var shapes = new NavMeshBuildSource();
+            shapes.shape = NavMeshBuildSourceShape.Mesh;
+            shapes.sourceObject = mesh;
+            shapes.transform = meshfilter.transform.localToWorldMatrix;
+            shapes.area = 0;
+            sources.Add(shapes);
         }
 
-        for (var i = 0; i < m_Terrains.Count; ++i)
+        for (var i = 0; i < Terrains.Count; ++i)
         {
-            var t = m_Terrains[i];
-            if (t == null) continue;
+            var terrains = Terrains[i];
+            if (terrains == null) continue;
 
-            var s = new NavMeshBuildSource();
-            s.shape = NavMeshBuildSourceShape.Terrain;
-            s.sourceObject = t.terrainData;
-            s.transform = Matrix4x4.TRS(t.transform.position, Quaternion.identity, Vector3.one);
-            s.area = 0;
+            var shapes = new NavMeshBuildSource();
+            shapes.shape = NavMeshBuildSourceShape.Terrain;
+            shapes.sourceObject = terrains.terrainData;
+            shapes.transform = Matrix4x4.TRS(terrains.transform.position, Quaternion.identity, Vector3.one);
+            shapes.area = 0;
 
-            sources.Add(s);
+            sources.Add(shapes);
         }
     }
 }
