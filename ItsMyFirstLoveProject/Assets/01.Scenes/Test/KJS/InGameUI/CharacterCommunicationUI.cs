@@ -53,6 +53,7 @@ public class CharacterCommunicationUI : MonoBehaviour
         if(_slide.Count <= 0)
         {
             gameObject.SetActive(false);
+            return;
         }
 
         switch(_slide.Dequeue())

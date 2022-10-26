@@ -20,6 +20,7 @@ public class GameManager : SingletonBehaviour<GameManager>
     // 케릭터 및 플레이어 관련 변수     ----------------
     public float LoveGauge { get; private set; }
     public float Level { get; private set; }
+    public bool _isActCharacterWalkMode { get; private set; }
 
 
     private void Awake()
@@ -65,6 +66,21 @@ public class GameManager : SingletonBehaviour<GameManager>
     public void AddMapRotateY(float rotateY)
     {
         MapRotateY += rotateY;
+    }
+
+    /// <summary>
+    /// 산책 모드에서 케릭터 활성화 여부
+    /// </summary>
+    public void ActivateCharacterInWalk()
+    {
+        if(_isActCharacterWalkMode)
+        {
+            _isActCharacterWalkMode = false;
+        }
+        else
+        {
+            _isActCharacterWalkMode = true;
+        }
     }
 
     /// <summary>

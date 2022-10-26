@@ -21,7 +21,7 @@ public class InGameUI : MonoBehaviour
             _uiDic.Add(_uiList[i].name, _uiList[i]);
         }
 
-        GameManager.Instance.SetObjectProperty("Map", gameObject);
+        //GameManager.Instance.SetObjectProperty("Map", gameObject);
     }
 
     /// <summary>
@@ -130,8 +130,36 @@ public class InGameUI : MonoBehaviour
         ActUI("NormalUI");
     }
 
+    /// <summary>
+    /// Inventory UI 호출
+    /// </summary>
+    public void Inventory()
+    {
+        if(_uiDic["InventoryUI"].activeSelf == false)
+        {
+            ActUI("InventoryUI");
+        }
+        else
+        {
+            DeactUI("InventoryUI");
+        }
+    }
+
+    /// <summary>
+    /// 산책모드 UI 호출
+    /// </summary>
+    public void Walk()
+    {
+        ActUI("WalkUI");
+    }
+
     private void ActUI(string ui)
     {
         _uiDic[ui].SetActive(true);
+    }
+
+    private void DeactUI(string ui)
+    {
+        _uiDic[ui].SetActive(false);
     }
 }
