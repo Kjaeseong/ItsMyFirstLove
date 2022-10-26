@@ -18,10 +18,14 @@ namespace Google.Maps.Examples {
 
         private MapsService _mapsService;
 
+        private BuildingManager _buildingManager;
+
         /// <summary>
         /// Use <see cref="MapsService"/> to load geometry.
         /// </summary>
         private void Start() {
+
+            _buildingManager = GetComponent<BuildingManager>();
             // Get required MapsService component on this GameObject.
             _mapsService = GetComponent<MapsService>();
 
@@ -33,7 +37,8 @@ namespace Google.Maps.Examples {
 
             // Load map with default options.
             // 유니티상 테스트를 위해 다시 작성, 추후 GPS 적용시 아래 함수 사용
-            _mapsService.LoadMap(ExampleDefaults.DefaultBounds, ExampleDefaults.DefaultGameObjectOptions);
+            LoadMap(_latLng.Lat, _latLng.Lng);
+            // _mapsService.LoadMap(ExampleDefaults.DefaultBounds, ExampleDefaults.DefaultGameObjectOptions);
         }
 
         /// <summary>
@@ -57,6 +62,9 @@ namespace Google.Maps.Examples {
         public void OnLoaded(MapLoadedArgs args) {
             // The Map is loaded - you can start/resume gameplay from that point.
             // The new geometry is added under the GameObject that has MapsService as a component.
+            _buildingManager.GetMesh();
+            _buildingManager.FindBuilding();
+            //_buildingManager.AddCharacter();
         }
     }
 }
