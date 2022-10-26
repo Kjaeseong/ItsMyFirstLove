@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class HeightCheckUI : MonoBehaviour
 {
-    private HeightChecker _checker;
+    private HeightCheck _checker;
     [SerializeField] private GameObject _okButton;
 
     private void Start() 
     {
-        _checker = GetComponentInChildren<HeightChecker>();
+        _checker = GetComponentInChildren<HeightCheck>();
     }
 
     private void Update() 
