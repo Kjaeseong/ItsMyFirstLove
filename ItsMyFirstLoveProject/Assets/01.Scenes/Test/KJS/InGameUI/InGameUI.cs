@@ -24,14 +24,28 @@ public class InGameUI : MonoBehaviour
         }
     }
 
-    private void Update() 
+    /// <summary>
+    /// 대화UI창 출력
+    /// name : 대화창 이름 <br/>
+    /// talk : 대화 내용 <br/>
+    /// </summary>
+    public void CommuTalkSet(string name, string talk)
     {
-        ActUI("PopUpUI");
+        ActUI("CharacterCommunicationUI");
+        _charCommunicationUI.TalkSet(name, talk);
     }
 
-    public void Communication()
+    /// <summary>
+    /// 선택지 UI창 출력 <br/>
+    /// name : 대화창 이름 <br/>
+    /// talk : 대화 내용 <br/>
+    /// button1 : 첫 번째 버튼 텍스트 <br/>
+    /// button2 : 두 번째 버튼 텍스트 <br/>
+    /// </summary>
+    public void CommuSelectSet(string name, string talk, string button1, string button2)
     {
-
+        ActUI("CharacterCommunicationUI");
+        _charCommunicationUI.SelectionSet(name, talk, button1, button2);
     }
 
     /// <summary>
@@ -42,8 +56,8 @@ public class InGameUI : MonoBehaviour
     /// </summary>
     public void EndPoint(string comment, string name, string location)
     {
+        ActUI("EndPointUI");
         _endPointUI.TextSet(comment, name, location);
-        _uiDic["EndPointUI"].SetActive(true);
     }
 
     /// <summary>
@@ -54,42 +68,48 @@ public class InGameUI : MonoBehaviour
     /// </summary>
     public void StartPoint(string comment, string name, string location)
     {
+        ActUI("StartPointUI");
         _startPointUI.TextSet(comment, name, location);
-        _uiDic["StartPointUI"].SetActive(true);
     }
 
+    /// <summary>
+    /// HeightCheck 호출
+    /// </summary>
     public void HeightCheck()
     {
-        
+        ActUI("HeightCheckerUI");
     }
 
+    /// <summary>
+    /// 지도 회전 UI 출력
+    /// </summary>
     public void RotationCheck()
     {
-        
+        ActUI("RotationCheckUI");
     }
 
-    public void PopUp()
+    /// <summary>
+    /// 팝업 UI 출력 <br/>
+    /// Text : 팝업창에 출력할 텍스트 입력
+    /// </summary>
+    public void PopUp(string Text)
     {
-        
+        ActUI("PopUpUI");
+        _popUpUI.SetText(Text);
     }
 
-    public void VPSUI()
+    /// <summary>
+    /// VPS 연출 종료 UI 출력 <br/>
+    /// effect : VPS 오브젝트
+    /// </summary>
+    public void VPSUI(GameObject effect)
     {
-        
+        ActUI("VPSUI");
+        _vpsUI.EffectObjectSet(effect);
     }
 
     private void ActUI(string ui)
     {
         _uiDic[ui].SetActive(true);
     }
-
-
-
-    
-
-
-
-
-
-
 }

@@ -16,8 +16,6 @@ public class CharacterCommunicationUI : MonoBehaviour
 
     private bool _isSelection;
 
-
-
     /// <summary>
     /// UI창을 대화 모드로 변경 <br/>
     /// name : 대화창 이름 <br/>
