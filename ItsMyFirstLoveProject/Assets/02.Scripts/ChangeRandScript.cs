@@ -26,7 +26,7 @@ public class ChangeRandScript : MonoBehaviour
 
     private void Update()
     {
-        if(_nowTime > _coolTime)
+        if(_nowTime > _coolTime )
         {
             CallTextBoxInTime();
             _fadeOutScript.OnclickFadeOut();

@@ -5,7 +5,8 @@ using UnityEngine;
 public class ChapterNum : MonoBehaviour
 {
     //챕터를 클릭하면 스테이지매니저에 전송
-    public StageManager[] StageManager;
+    [SerializeField]
+    private StageManager[] StageManager;
     public void ReturnChapterNum(int ChapterNum)
     {
        for(int i = 0; i < StageManager.Length; i++)

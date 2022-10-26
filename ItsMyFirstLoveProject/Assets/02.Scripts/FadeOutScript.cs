@@ -34,7 +34,7 @@ public class FadeOutScript : MonoBehaviour
                 _color.a = (f * _colorA);
                 this.GetComponent<Image>().color = _color;
                 yield return null;
-                Debug.Log("A");
+                Debug.Log("페이드아웃");
             }
             this.gameObject.SetActive(false);
             this.GetComponent<Image>().color = new Color(0, 0, 0, 0.2f);
