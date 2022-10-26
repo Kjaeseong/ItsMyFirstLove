@@ -6,7 +6,7 @@ public class GameManager : SingletonBehaviour<GameManager>
 {
     private AudioManager _audio;
     private CsvManager _csv;
-    private SceneChanger _scene;
+    public SceneChanger _scene { get; private set; }
     
     [field: SerializeField] public GameObject Map { get; private set; }
 
@@ -59,5 +59,17 @@ public class GameManager : SingletonBehaviour<GameManager>
     public void AddMapRotateY(float rotateY)
     {
         MapRotateY += rotateY;
+    }
+
+    /// <summary>
+    /// GameObject 타입 프로퍼티에 오브젝트를 넣어주기 위한 함수 <br/>
+    /// name : 프로퍼티(변수) 명 <br/>
+    /// object : gameObject
+    /// </summary>
+    public void SetObjectProperty(string name, GameObject Object)
+    {
+        //GameObject temp
+        //GetType().GetField(name).GetValue(Object);
+        // TODO : 방법 찾아야 함..분명 있을것같음
     }
 }

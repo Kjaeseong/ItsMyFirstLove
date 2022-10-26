@@ -22,6 +22,8 @@ public class InGameUI : MonoBehaviour
             _uiList[i].SetActive(false);
             _uiDic.Add(_uiList[i].name, _uiList[i]);
         }
+
+        GameManager.Instance.SetObjectProperty("Map", gameObject);
     }
 
     /// <summary>
@@ -112,6 +114,14 @@ public class InGameUI : MonoBehaviour
     {
         ActUI("VPSUI");
         _vpsUI.EffectObjectSet(effect);
+    }
+
+    /// <summary>
+    /// 일시정지 UI 호출
+    /// </summary>
+    public void Pause()
+    {
+        ActUI("PauseUI");
     }
 
     private void ActUI(string ui)
