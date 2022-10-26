@@ -978,6 +978,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Init
       objectReference: {fileID: 0}
+    - target: {fileID: 3773338801019231297, guid: 06aa96290a66a3144a25832ce8d94251, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3773338801019231299, guid: 06aa96290a66a3144a25832ce8d94251, type: 3}
       propertyPath: m_RootOrder
       value: 10
