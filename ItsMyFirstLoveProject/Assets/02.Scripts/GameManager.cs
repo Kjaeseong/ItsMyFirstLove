@@ -10,11 +10,17 @@ public class GameManager : SingletonBehaviour<GameManager>
     
     [field: SerializeField] public GameObject Map { get; private set; }
 
+    // 지도/위치 관련 변수              ----------------
     public float CameraHeight { get; private set; }
     public float MapRotateY { get; private set; }
     public double Lat { get; private set; }
     public double Long { get; private set; }
     public float Azimuth { get; private set; }
+
+    // 케릭터 및 플레이어 관련 변수     ----------------
+    public float LoveGauge { get; private set; }
+    public float Level { get; private set; }
+
 
     private void Awake()
     {

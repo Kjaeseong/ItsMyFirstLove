@@ -10,8 +10,6 @@ public class InGameUI : MonoBehaviour
     [SerializeField]private CharacterCommunicationUI _charCommunicationUI;
     [SerializeField]private StartEndPointUI _endPointUI;
     [SerializeField]private StartEndPointUI _startPointUI;
-    [SerializeField]private HeightCheckUI _heightChecker;
-    [SerializeField]private RotationCheckUI _rotationCheckUI;
     [SerializeField]private PopUpUI _popUpUI;
     [SerializeField]private VPSUI _vpsUI;
 
@@ -122,6 +120,14 @@ public class InGameUI : MonoBehaviour
     public void Pause()
     {
         ActUI("PauseUI");
+    }
+
+    /// <summary>
+    /// Normal UI 호출
+    /// </summary>
+    public void Normal()
+    {
+        ActUI("NormalUI");
     }
 
     private void ActUI(string ui)
