@@ -780,7 +780,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7740459560362731440}
         m_TargetAssemblyTypeName: CharacterCommunicationUI, Assembly-CSharp
-        m_MethodName: SlideInit
+        m_MethodName: BackGroundTouch
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

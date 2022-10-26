@@ -7,8 +7,8 @@ public class CharacterCommunicationUI : MonoBehaviour
 {
     private enum SlideForm
     {
-        Talk,
-        Select
+        TALK,
+        SELECT
     }
     [SerializeField] private GameObject _talkCanvas;
     [SerializeField] private GameObject _SelectionCanvas;
@@ -32,6 +32,22 @@ public class CharacterCommunicationUI : MonoBehaviour
         SlideInit();
     }
 
+    /// <summary>
+    /// 대화 슬라이드 배경 터치시 동작
+    /// 선택 모드가 아닐때만 터치 반응
+    /// </summary>
+    public void BackGroundTouch()
+    {
+        if(!_isSelection)
+        {
+            SlideInit();
+        }
+    }
+
+    /// <summary>
+    /// 대화 슬라이드 내용 초기화 및 설정
+    /// 큐에 내용이 없다면 UI비활성화
+    /// </summary>
     public void SlideInit()
     {
         if(_slide.Count <= 0)
@@ -39,25 +55,22 @@ public class CharacterCommunicationUI : MonoBehaviour
             gameObject.SetActive(false);
         }
 
-        int slide = _slide.Dequeue();
-
-        if(slide == (int)SlideForm.Talk)
+        switch(_slide.Dequeue())
         {
-            _isSelection = false;
-            BoxFormChange();
-
-            _name.text = _nameQueue.Dequeue();
-            _talk.text = _talkQueue.Dequeue();
-        }
-        else if(slide == (int)SlideForm.Select)
-        {
-            _isSelection = true;
-            BoxFormChange();
-
-            _name.text = _nameQueue.Dequeue();
-            _selectionText.text = _talkQueue.Dequeue();
-            _selectButton1.text = _button1Queue.Dequeue();
-            _selectButton2.text = _button2Queue.Dequeue();
+            case (int)SlideForm.TALK:
+                _isSelection = false;
+                BoxFormChange();
+                _name.text = _nameQueue.Dequeue();
+                _talk.text = _talkQueue.Dequeue();
+                break;
+            case (int)SlideForm.SELECT:
+                _isSelection = true;
+                BoxFormChange();
+                _name.text = _nameQueue.Dequeue();
+                _selectionText.text = _talkQueue.Dequeue();
+                _selectButton1.text = _button1Queue.Dequeue();
+                _selectButton2.text = _button2Queue.Dequeue();
+                break;
         }
     }
 
@@ -71,7 +84,7 @@ public class CharacterCommunicationUI : MonoBehaviour
     {
         _nameQueue.Enqueue(name);
         _talkQueue.Enqueue(talk);
-        _slide.Enqueue((int)SlideForm.Talk);
+        _slide.Enqueue((int)SlideForm.TALK);
     }
 
     /// <summary>
@@ -85,9 +98,9 @@ public class CharacterCommunicationUI : MonoBehaviour
     {
         _nameQueue.Enqueue(name);
         _talkQueue.Enqueue(talk);
-        _talkQueue.Enqueue(button1);
-        _talkQueue.Enqueue(button2);
-        _slide.Enqueue((int)SlideForm.Talk);
+        _button1Queue.Enqueue(button1);
+        _button2Queue.Enqueue(button2);
+        _slide.Enqueue((int)SlideForm.SELECT);
     }
 
     /// <summary>
