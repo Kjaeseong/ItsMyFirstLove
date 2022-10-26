@@ -8,16 +8,19 @@ public class LocationFinder : MonoBehaviour
     [SerializeField] private NavMeshAgent _ai;
     [SerializeField] private GameObject _player;
     private LineRenderer _lineRenderer;
-
-    public GameObject[] _destinations;
-
+    private AnimationSupport _animationSupport;
     private int _locationCount = 0;
     private float _elaspedTime = 0f;
     private bool _isClose;
 
+
+    public GameObject[] _destinations;
+
+
     private void Awake()
     {
         _ai = GetComponent<NavMeshAgent>();
+        _animationSupport = GetComponentInChildren<AnimationSupport>();
     }
 
     private void Start()
@@ -91,6 +94,7 @@ public class LocationFinder : MonoBehaviour
     // 플레이어가 경로대로 움직이지 않으면 실행.
     private void PlayerStopped(GameObject player)
     {
+        _animationSupport.Play("Idle");
         _ai.speed = 0f;
         Debug.Log("왜 안와?");
         transform.LookAt(player.transform.position);
@@ -133,7 +137,8 @@ public class LocationFinder : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            _ai.speed = 6f;
+            _ai.speed = 1f;
+            _animationSupport.Play("Move");
         }
     }
 

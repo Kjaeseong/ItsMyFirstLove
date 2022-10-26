@@ -17242,7 +17242,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1580021252547560875}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.3, y: 1.4, z: 0.3}
@@ -17257,7 +17257,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 1
   m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -17380,8 +17380,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetPosition: {fileID: 0}
-  _walkSpeed: 1.5
-  _runSpeed: 4
+  _walkSpeed: 0
+  _runSpeed: 0
 --- !u!114 &-9036944996583800542
 MonoBehaviour:
   m_ObjectHideFlags: 0

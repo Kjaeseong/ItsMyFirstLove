@@ -11,10 +11,9 @@ public class BuildingManager : MonoBehaviour
     [SerializeField] private Material[]     _mat = new Material[2];
     [SerializeField] private GameObject[]   _protoTypeLocation;
     [SerializeField] private LocationFinder _character;
-    public Vector3 TestPos;
-
     private LatLng _latLng;
 
+    public Vector3 TestPos;
     public string Location_Name;
 
     private void Start()

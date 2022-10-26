@@ -30,7 +30,13 @@ public class AnimationSupport : MonoBehaviour
 
     private void Move()
     {
-        _anim.SetInteger("MoveStep", _move.GetMoveStep());
+        //_anim.SetInteger("MoveStep", _move.GetMoveStep());
+        _anim.SetInteger("MoveStep", 1);
+    }
+
+    private void Idle()
+    {
+        _anim.SetInteger("MoveStep", 0);
     }
 
     private void Kiss()

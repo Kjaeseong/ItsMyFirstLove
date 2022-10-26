@@ -8,11 +8,11 @@ using NavMeshBuilder = UnityEngine.AI.NavMeshBuilder;
 public class LocalNavMeshBuilder : MonoBehaviour
 {
     [SerializeField] private Transform _meshTracked;
-    [SerializeField] private Vector3 _meshSize = new Vector3(200.0f, 200.0f, 200.0f);
+    [SerializeField] private Vector3   _meshSize = new Vector3(200.0f, 200.0f, 200.0f);
 
-    private NavMeshData _meshOfNavMesh;
-    private AsyncOperation _meshOfOperation;
-    private NavMeshDataInstance _meshOfInstance;
+    private NavMeshData              _meshOfNavMesh;
+    private AsyncOperation           _meshOfOperation;
+    private NavMeshDataInstance      _meshOfInstance;
     private List<NavMeshBuildSource> _meshOfSources = new List<NavMeshBuildSource>();
 
     private IEnumerator Start()
