@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
-public class HeightChecker : MonoBehaviour
+public class HeightCheck : MonoBehaviour
 {
     [SerializeField] private ARRaycastManager _arRaycaster;
     [SerializeField] private GameObject _map;
