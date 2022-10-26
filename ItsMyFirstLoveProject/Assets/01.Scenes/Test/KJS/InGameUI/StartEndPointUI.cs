@@ -15,9 +15,9 @@ public class StartEndPointUI : MonoBehaviour
     /// name : 상호명 <br/>
     /// location : 주소 <br/>
     /// </summary>
-    public void TextSet(string coment, string name, string location)
+    public void TextSet(string comment, string name, string location)
     {
-        _coment.text = coment;
+        _coment.text = comment;
         _name.text = name;
         _location.text = location;
     }
