@@ -14,11 +14,12 @@ public class GameInit : MonoBehaviour
 
     private float _tryInitTime = 0.1f;
 
-    private void Awake()
-    {
-        StartCoroutine(InitGame());
-    }
+    //private void Awake()
+    //{
+    //    StartCoroutine(InitGame());
+    //}
 
+    // 바닥 인식 후 코루틴 실행 요망, 코루틴 종료되면 UI로 건물위치 미세 수정 필요
     IEnumerator InitGame()
     {
         while(true)
