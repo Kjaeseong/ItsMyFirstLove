@@ -7,6 +7,8 @@ public class GameManager : SingletonBehaviour<GameManager>
     private AudioManager _audio;
     private CsvManager _csv;
     private SceneChanger _scene;
+    
+    [field: SerializeField] public GameObject Map { get; private set; }
 
     public float CameraHeight { get; private set; }
     public float MapRotateY { get; private set; }
@@ -49,5 +51,13 @@ public class GameManager : SingletonBehaviour<GameManager>
     public void SetMapRotateY(float rotateY)
     {
         MapRotateY = rotateY;
+    }
+
+    /// <summary>
+    /// 현재 맵의 회전 각도(y축)를 더함
+    /// </summary>
+    public void AddMapRotateY(float rotateY)
+    {
+        MapRotateY += rotateY;
     }
 }
