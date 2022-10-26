@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
-public class HeightChecker : MonoBehaviour
+public class HeightCheck : MonoBehaviour
 {
     [SerializeField] private GameObject _checkPlane;
     [SerializeField] private GameObject _normalPlane;

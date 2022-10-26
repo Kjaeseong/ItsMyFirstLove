@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RotationCheckUI : MonoBehaviour
 {
-    [SerializeField] private bool _isButtonDown;
+    private bool _isButtonDown;
     private int _direction;
     private GameObject _map;
 
