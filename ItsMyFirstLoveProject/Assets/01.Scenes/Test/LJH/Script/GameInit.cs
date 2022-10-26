@@ -14,21 +14,21 @@ public class GameInit : MonoBehaviour
 
     private float _tryInitTime = 0.1f;
 
-    //private void Awake()
-    //{
-    //    StartCoroutine(InitGame());
-    //}
+    private void Start()
+    {
+        StartCoroutine(InitGame());
+    }
 
     // 바닥 인식 후 코루틴 실행 요망, 코루틴 종료되면 UI로 건물위치 미세 수정 필요
     IEnumerator InitGame()
     {
-        while(true)
+        while (true)
         {
-
             // GPS 값 받아온 후
-            if(_pos.GetIsGpsStart())
+            //if(_pos.GetIsGpsStart())
+            //{
+            if(_pos.GetLat() != 0 && _pos.GetLong() != 0)
             {
-                // 맵 로드
                 _mapLoader.LoadMap(_pos.GetLat(), _pos.GetLong());
 
                 // 맵 회전
@@ -36,6 +36,9 @@ public class GameInit : MonoBehaviour
 
                 break;
             }
+            // 맵 로드
+            
+            //}
             yield return new WaitForSeconds(_tryInitTime);
         }
         StopCoroutine(InitGame());

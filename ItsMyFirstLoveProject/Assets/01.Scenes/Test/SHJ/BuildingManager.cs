@@ -18,11 +18,11 @@ public class BuildingManager : MonoBehaviour
 
     private void Start()
     {
-        Invoke("GetMesh", 1f);
+        //Invoke("GetMesh", 1f);
     }
 
     // 건물에 메쉬, 콜라이더, 네비판단태그를 넣는다.
-    private void GetMesh()
+    public void GetMesh()
     {
         _mesh = GetComponentsInChildren<MeshRenderer>();
         _latLng = new LatLng((double)_latLng.Lat, (double)_latLng.Lng);
@@ -34,18 +34,18 @@ public class BuildingManager : MonoBehaviour
             renderer.gameObject.AddComponent<NavMeshSourceTag>();
         }
 
-        FindBuilding();
-        Invoke("AddCharacter", 2f);
+        //FindBuilding();
+        //Invoke("AddCharacter", 2.5f);
         //AddCharacter();
     }
 
     public void OnLoaded(MapLoadedArgs args)
     {
-
+        
     }
 
     // 빌딩의 이름과 위치를 받아오고, 그 위치를 기준으로 오브젝트 생성
-    private void FindBuilding()
+    public void FindBuilding()
     {
         GameObject BuildingForLocation = GameObject.Find(Location_Name);
         Vector3 LocationPos = BuildingForLocation.transform.position;
@@ -60,9 +60,11 @@ public class BuildingManager : MonoBehaviour
     }
 
     // 아래 함수는 캐릭터 생성하는 테스트 함수. 추후에 게임매니저로 이동 가능.
-    private void AddCharacter()
+    public void AddCharacter()
     {
         Instantiate(_character, new Vector3(-2f,1.5f,-2f) + Camera.main.transform.position, Quaternion.identity);
     }
+
+    
 }
 

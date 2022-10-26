@@ -16,25 +16,25 @@ public class LocationFinder : MonoBehaviour
 
     public GameObject[] _destinations;
 
-
-    private void Awake()
-    {
-        _ai = GetComponent<NavMeshAgent>();
-        _animationSupport = GetComponentInChildren<AnimationSupport>();
-    }
-
     private void Start()
     {
         _player = GameObject.Find("Player");
         _isClose = false;
         MoveWayPoint();
 
-        _lineRenderer = this.GetComponent<LineRenderer>();
+        _lineRenderer = GetComponent<LineRenderer>();
         _lineRenderer.startWidth = _lineRenderer.endWidth = 4f;
         //_lineRenderer.material.color = Color.black;
         _lineRenderer.enabled = false;
 
     }
+
+    private void OnEnable()
+    {
+        _ai = GetComponent<NavMeshAgent>();
+        _animationSupport = GetComponentInChildren<AnimationSupport>();
+    }
+
 
     private void Update()
     {
@@ -107,6 +107,12 @@ public class LocationFinder : MonoBehaviour
         _elaspedTime = 0f;
     }
 
+    private void MoveHana()
+    {
+        SetGameOverToTime();
+        _ai.speed = 1f;
+        _animationSupport.Play("Move");
+    }
     // 캐릭터가 목적지 포인트에 도착하면 다음 목적지로 변경해준다.
     private void OnTriggerEnter(Collider other)
     {
@@ -135,6 +141,7 @@ public class LocationFinder : MonoBehaviour
         if (other.tag == "Player")
         {
             _isClose = true;
+            Invoke("MoveHana", 2f);
         }
 
     }
@@ -144,9 +151,7 @@ public class LocationFinder : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            SetGameOverToTime();
-            _ai.speed = 1f;
-            _animationSupport.Play("Move");
+
         }
     }
 
