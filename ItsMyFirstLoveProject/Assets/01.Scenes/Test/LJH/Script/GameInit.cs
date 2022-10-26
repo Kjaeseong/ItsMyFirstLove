@@ -23,6 +23,7 @@ public class GameInit : MonoBehaviour
     {
         while(true)
         {
+
             // GPS 값 받아온 후
             if(_pos.GetIsGpsStart())
             {
