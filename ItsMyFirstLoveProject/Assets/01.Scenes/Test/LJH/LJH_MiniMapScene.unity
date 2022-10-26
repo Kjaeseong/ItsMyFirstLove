@@ -376,7 +376,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1257,7 +1257,7 @@ PrefabInstance:
     - target: {fileID: 7101055344760649530, guid: 0791e138201e8394ea882e015fc65c4d, type: 3}
       propertyPath: _character
       value: 
-      objectReference: {fileID: -9036944996583800542, guid: 921e533e97f5bfa479ebba218fd69a80, type: 3}
+      objectReference: {fileID: -9036944996583800542, guid: 734461f101e01224c9523a237e2bbef4, type: 3}
     - target: {fileID: 7101055344760649530, guid: 0791e138201e8394ea882e015fc65c4d, type: 3}
       propertyPath: Location_Name
       value: ExtrudedStructure (ChIJN2LvIVWlfDUR1hQoEQLTi3A)
