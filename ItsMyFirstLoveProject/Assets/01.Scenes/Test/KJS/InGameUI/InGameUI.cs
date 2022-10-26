@@ -25,27 +25,33 @@ public class InGameUI : MonoBehaviour
     }
 
     /// <summary>
-    /// 대화UI창 출력
-    /// name : 대화창 이름 <br/>
-    /// talk : 대화 내용 <br/>
+    /// 대화UI창 활성화
     /// </summary>
-    public void CommuTalkSet(string name, string talk)
+    public void CommuUI()
     {
         ActUI("CharacterCommunicationUI");
-        _charCommunicationUI.TalkSet(name, talk);
     }
 
     /// <summary>
-    /// 선택지 UI창 출력 <br/>
+    /// 대화UI창 내용 추가
+    /// name : 대화창 이름 <br/>
+    /// talk : 대화 내용 <br/>
+    /// </summary>
+    public void AddCommuTalk(string name, string talk)
+    {
+        _charCommunicationUI.AddTalk(name, talk);
+    }
+
+    /// <summary>
+    /// 선택지 UI창 내용 추가 <br/>
     /// name : 대화창 이름 <br/>
     /// talk : 대화 내용 <br/>
     /// button1 : 첫 번째 버튼 텍스트 <br/>
     /// button2 : 두 번째 버튼 텍스트 <br/>
     /// </summary>
-    public void CommuSelectSet(string name, string talk, string button1, string button2)
+    public void AddCommuSelect(string name, string talk, string button1, string button2)
     {
-        ActUI("CharacterCommunicationUI");
-        _charCommunicationUI.SelectionSet(name, talk, button1, button2);
+        _charCommunicationUI.AddSelection(name, talk, button1, button2);
     }
 
     /// <summary>
