@@ -8,16 +8,19 @@ public class LocationFinder : MonoBehaviour
     [SerializeField] private NavMeshAgent _ai;
     [SerializeField] private GameObject _player;
     private LineRenderer _lineRenderer;
-
-    public GameObject[] _destinations;
-
+    private AnimationSupport _animationSupport;
     private int _locationCount = 0;
     private float _elaspedTime = 0f;
     private bool _isClose;
 
+
+    public GameObject[] _destinations;
+
+
     private void Awake()
     {
         _ai = GetComponent<NavMeshAgent>();
+        _animationSupport = GetComponentInChildren<AnimationSupport>();
     }
 
     private void Start()
@@ -40,6 +43,7 @@ public class LocationFinder : MonoBehaviour
         if (_isClose == false)
         {
             PlayerStopped(_player);
+
             // 15초가 지나면 데이트 이벤트 종료.
             if (_elaspedTime > 15f)
             {
@@ -91,9 +95,16 @@ public class LocationFinder : MonoBehaviour
     // 플레이어가 경로대로 움직이지 않으면 실행.
     private void PlayerStopped(GameObject player)
     {
+        _animationSupport.Play("Idle");
         _ai.speed = 0f;
         Debug.Log("왜 안와?");
         transform.LookAt(player.transform.position);
+    }
+
+    // 경과시간 초기화 함수
+    private void SetGameOverToTime()
+    {
+        _elaspedTime = 0f;
     }
 
     // 캐릭터가 목적지 포인트에 도착하면 다음 목적지로 변경해준다.
@@ -133,7 +144,9 @@ public class LocationFinder : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            _ai.speed = 6f;
+            SetGameOverToTime();
+            _ai.speed = 1f;
+            _animationSupport.Play("Move");
         }
     }
 
