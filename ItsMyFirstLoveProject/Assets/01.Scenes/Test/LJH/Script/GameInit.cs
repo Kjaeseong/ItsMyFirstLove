@@ -9,8 +9,20 @@ public class GameInit : MonoBehaviour
     [SerializeField] private Transform _arCameraTransform;
     [SerializeField] private PositionSensor _pos;
 
+    private float tryInitTime = 0.1f;
 
 
+    IEnumerator InitGame()
+    {
+        while(true)
+        {
+            if(_pos.GetIsGpsStart())
+            {
+                InitMapRotate();
+            }
+            yield return new WaitForSeconds(tryInitTime);
+        }
+    }
 
     /// <summary>
     /// Extensions상의 북쪽과 현재 AR 카메라의 각도 차를 이용하여 맵을 회전시키는 함수

@@ -14,7 +14,7 @@ namespace Google.Maps.Examples {
   [RequireComponent(typeof(MapsService))]
   public class BasicExample : MonoBehaviour {
     [Tooltip("LatLng to load (must be set before hitting play).")]
-    public LatLng LatLng = new LatLng(40.6892199, -74.044601);
+    public LatLng LatLng;
 
     /// <summary>
     /// Use <see cref="MapsService"/> to load geometry.

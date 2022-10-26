@@ -10,7 +10,7 @@ public class PositionSensor : MonoBehaviour
     private double _nowLat;
     private double _nowLong;
     private GeospatialPose _pose;
-    private bool _gpsStarted = false;
+    private bool _isGpsStarted = false;
     private bool _gpsOn = false;
 
     private WaitForSeconds _retry;
@@ -78,9 +78,9 @@ public class PositionSensor : MonoBehaviour
         else
         {
             //접근 허가, 현재 위치 갱신
-            _gpsStarted = true;
+            _isGpsStarted = true;
 
-            while (_gpsStarted)
+            while (_isGpsStarted)
             {
                 NowPositionSet();
                 AzimuthSet();
@@ -108,7 +108,7 @@ public class PositionSensor : MonoBehaviour
     {
         if (Input.location.isEnabledByUser)
         {
-            _gpsStarted = false;
+            _isGpsStarted = false;
             Input.location.Stop();
             StopCoroutine(GpsStart());
         }
@@ -124,7 +124,7 @@ public class PositionSensor : MonoBehaviour
     public double GetLong()
     {
         return _nowLong;
-    }
+    }   
 
     public Vector2 GetEarthPos()
     {
@@ -134,6 +134,11 @@ public class PositionSensor : MonoBehaviour
     public double GetAzimuth()
     {
         return _pose.Heading;
+    }
+
+    public bool GetIsGpsStart()
+    {
+        return _isGpsStarted;
     }
 
 

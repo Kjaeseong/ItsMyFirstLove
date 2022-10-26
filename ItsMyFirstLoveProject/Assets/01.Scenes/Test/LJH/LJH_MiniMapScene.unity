@@ -842,7 +842,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7101055344760649473, guid: 0791e138201e8394ea882e015fc65c4d, type: 3}
       propertyPath: m_Name
-      value: Basic Example Script
+      value: Map
       objectReference: {fileID: 0}
     - target: {fileID: 7101055344760649476, guid: 0791e138201e8394ea882e015fc65c4d, type: 3}
       propertyPath: m_RootOrder
