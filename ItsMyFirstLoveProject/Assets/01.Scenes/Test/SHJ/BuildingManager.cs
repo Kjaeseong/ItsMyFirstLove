@@ -50,8 +50,8 @@ public class BuildingManager : MonoBehaviour
         Vector3 LocationPos = BuildingForLocation.transform.position;
 
         // 프로토타입 경로
-        _character._destinations[0] = Instantiate(_protoTypeLocation[0], new Vector3(LocationPos.x - 5, 0.5f, LocationPos.z - 12), Quaternion.Euler(0, 0, 0));
-        _character._destinations[1] = Instantiate(_protoTypeLocation[1], new Vector3(LocationPos.x + 17, 0.5f, LocationPos.z - 18), Quaternion.Euler(0, 0, 0));
+        _character._destinations[0] = Instantiate(_protoTypeLocation[0], new Vector3(LocationPos.x - 5.5f, 0.5f, LocationPos.z - 14), Quaternion.Euler(0, 0, 0));
+        _character._destinations[1] = Instantiate(_protoTypeLocation[1], new Vector3(LocationPos.x + 18.3f, 0.5f, LocationPos.z - 23.7f), Quaternion.Euler(0, 0, 0));
         _character._destinations[2] = Instantiate(_protoTypeLocation[2], new Vector3(LocationPos.x + 43, 0.5f, LocationPos.z + 86), Quaternion.Euler(0, 0, 0));
         _character._destinations[3] = Instantiate(_protoTypeLocation[3], new Vector3(LocationPos.x + 50, 0.5f, LocationPos.z + 106), Quaternion.Euler(0, 0, 0));
 

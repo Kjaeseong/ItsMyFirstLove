@@ -43,6 +43,7 @@ public class LocationFinder : MonoBehaviour
         if (_isClose == false)
         {
             PlayerStopped(_player);
+
             // 15초가 지나면 데이트 이벤트 종료.
             if (_elaspedTime > 15f)
             {
@@ -100,6 +101,12 @@ public class LocationFinder : MonoBehaviour
         transform.LookAt(player.transform.position);
     }
 
+    // 경과시간 초기화 함수
+    private void SetGameOverToTime()
+    {
+        _elaspedTime = 0f;
+    }
+
     // 캐릭터가 목적지 포인트에 도착하면 다음 목적지로 변경해준다.
     private void OnTriggerEnter(Collider other)
     {
@@ -137,6 +144,7 @@ public class LocationFinder : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            SetGameOverToTime();
             _ai.speed = 1f;
             _animationSupport.Play("Move");
         }
