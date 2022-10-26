@@ -23,7 +23,7 @@ public class LocationEventSystem : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("EventTrigger"))
         {
             Debug.Log("이벤트 실행");
             // VPS 연출

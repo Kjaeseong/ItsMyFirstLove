@@ -35,7 +35,8 @@ public class BuildingManager : MonoBehaviour
         }
 
         FindBuilding();
-        AddCharacter();
+        Invoke("AddCharacter", 2f);
+        //AddCharacter();
     }
 
     public void OnLoaded(MapLoadedArgs args)
@@ -61,7 +62,7 @@ public class BuildingManager : MonoBehaviour
     // 아래 함수는 캐릭터 생성하는 테스트 함수. 추후에 게임매니저로 이동 가능.
     private void AddCharacter()
     {
-        Instantiate(_character, new Vector3(-24.58f, 0.5f, 21.37f), Quaternion.identity);
+        Instantiate(_character, new Vector3(-3f,1.5f,-3f) + Camera.main.transform.position, Quaternion.identity);
     }
 }
 

@@ -14,7 +14,7 @@ namespace Google.Maps.Examples {
     [RequireComponent(typeof(MapsService))]
     public class BasicExample : MonoBehaviour {
         [Tooltip("LatLng to load (must be set before hitting play).")]
-        private LatLng _latLng = new LatLng(0,0);
+        private LatLng _latLng = new LatLng(37.539970, 127.122938);
 
         private MapsService _mapsService;
 
@@ -32,7 +32,7 @@ namespace Google.Maps.Examples {
             _mapsService.Events.MapEvents.Loaded.AddListener(OnLoaded);
 
             // Load map with default options.
-            // mapsService.LoadMap(ExampleDefaults.DefaultBounds, ExampleDefaults.DefaultGameObjectOptions);
+            _mapsService.LoadMap(ExampleDefaults.DefaultBounds, ExampleDefaults.DefaultGameObjectOptions);
         }
 
         /// <summary>
