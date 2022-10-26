@@ -31,7 +31,7 @@ public class LocationFinder : MonoBehaviour
 
         _lineRenderer = this.GetComponent<LineRenderer>();
         _lineRenderer.startWidth = _lineRenderer.endWidth = 4f;
-        _lineRenderer.material.color = Color.black;
+        //_lineRenderer.material.color = Color.black;
         _lineRenderer.enabled = false;
 
     }
