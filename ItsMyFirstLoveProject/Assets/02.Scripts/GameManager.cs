@@ -14,7 +14,7 @@ public class GameManager : SingletonBehaviour<GameManager>
     public double Long { get; private set; }
     public float Azimuth { get; private set; }
 
-    private void Awake() 
+    private void Awake()
     {
         DontDestroyOnLoad(gameObject);
         _audio = GetComponentInChildren<AudioManager>();
