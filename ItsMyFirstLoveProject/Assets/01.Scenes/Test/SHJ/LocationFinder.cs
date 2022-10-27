@@ -121,15 +121,25 @@ public class LocationFinder : MonoBehaviour
         _ai.speed = 1f;
         _animationSupport.Play("Move");
     }
+
+    IEnumerator CollOnOff(CapsuleCollider coll)
+    {
+        coll.enabled = false;
+        yield return new WaitForSecondsRealtime(3f);
+        coll.enabled = true;
+    }
+
     // 캐릭터가 목적지 포인트에 도착하면 다음 목적지로 변경해준다.
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Location")
         {
             Debug.Log("도착");
-            other.gameObject.SetActive(false);
             if (_locationCount < 3)
             {
+                _destinations[_locationCount].SetActive(false);
+                StartCoroutine(CollOnOff(transform.GetComponent<CapsuleCollider>()));
+                
                 _locationCount++;
                 _ai.destination = _destinations[_locationCount].transform.position;
                 _destinationUI.transform.position = _ai.destination;

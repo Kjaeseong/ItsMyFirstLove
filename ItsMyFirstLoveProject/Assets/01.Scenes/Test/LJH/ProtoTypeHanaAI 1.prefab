@@ -17191,10 +17191,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1580021252547560876}
   - component: {fileID: 1580021252547560877}
-  - component: {fileID: 1580021252547560874}
   - component: {fileID: 882265395843597116}
   - component: {fileID: 2618503091516827704}
   - component: {fileID: -9036944996583800542}
+  - component: {fileID: 1909879339614347163}
   m_Layer: 7
   m_Name: ProtoTypeHanaAI 1
   m_TagString: Untagged
@@ -17233,19 +17233,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!65 &1580021252547560874
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1580021252547560875}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3, y: 1.4, z: 0.3}
-  m_Center: {x: 0, y: 0.66, z: 0}
 --- !u!195 &882265395843597116
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -17386,6 +17373,20 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!136 &1909879339614347163
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580021252547560875}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.3
+  m_Height: 1.58
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.69, z: 0}
 --- !u!1 &1602941513248466169
 GameObject:
   m_ObjectHideFlags: 0
