@@ -22,7 +22,7 @@ public class InGameUI : MonoBehaviour
             _uiDic.Add(_uiList[i].name, _uiList[i]);
         }
 
-        HeightCheck();
+        //HeightCheck();
         //GameManager.Instance.SetObjectProperty("Map", gameObject);
     }
 

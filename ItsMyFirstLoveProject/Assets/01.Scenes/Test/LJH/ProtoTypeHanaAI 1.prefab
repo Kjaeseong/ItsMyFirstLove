@@ -17194,7 +17194,6 @@ GameObject:
   - component: {fileID: 1580021252547560874}
   - component: {fileID: 882265395843597116}
   - component: {fileID: 2618503091516827704}
-  - component: {fileID: 1580021252547560885}
   - component: {fileID: -9036944996583800542}
   m_Layer: 7
   m_Name: ProtoTypeHanaAI 1
@@ -17367,21 +17366,6 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!114 &1580021252547560885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1580021252547560875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a0959c3a2f8452438448e6e285cb8ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetPosition: {fileID: 0}
-  _walkSpeed: 0
-  _runSpeed: 0
 --- !u!114 &-9036944996583800542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17396,6 +17380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ai: {fileID: 882265395843597116}
   _player: {fileID: 0}
+  _destinationUI: {fileID: 0}
   _destinations:
   - {fileID: 0}
   - {fileID: 0}

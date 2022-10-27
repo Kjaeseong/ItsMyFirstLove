@@ -582,6 +582,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: '@GameManager'
       objectReference: {fileID: 0}
+    - target: {fileID: 5534870979558091615, guid: 64668f5810e9ded47951c71ed3da0146, type: 3}
+      propertyPath: _fileNameList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5534870979558091615, guid: 64668f5810e9ded47951c71ed3da0146, type: 3}
+      propertyPath: _fileNameList.Array.data[0]
+      value: ProtoLine
+      objectReference: {fileID: 0}
     - target: {fileID: 6831772944734708191, guid: 64668f5810e9ded47951c71ed3da0146, type: 3}
       propertyPath: Loop
       value: 1
@@ -1576,7 +1584,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4067555326733938255, guid: fbd38fb7c8f4ee542a8397fbd3f49cc6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: LJH_MiniMapScene
+      value: Proto_StageScene
       objectReference: {fileID: 0}
     - target: {fileID: 4067555326733938255, guid: fbd38fb7c8f4ee542a8397fbd3f49cc6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
