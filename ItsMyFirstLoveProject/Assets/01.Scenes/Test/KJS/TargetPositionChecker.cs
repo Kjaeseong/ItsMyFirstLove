@@ -11,7 +11,7 @@ public class TargetPositionChecker : MonoBehaviour
         RIGHT
     }
 
-    [SerializeField] private GameObject _player;
+    //[SerializeField] private GameObject _player;
     [SerializeField] private GameObject _target;
     [SerializeField] private float _checkCycle;
     
@@ -53,10 +53,11 @@ public class TargetPositionChecker : MonoBehaviour
     {
         while(true)
         {
-            
             _prevPosition = _nowPosition;
             _prevDistance = _nowDistance;
-            _nowPosition = _player.transform.position;
+            
+            //_nowPosition = _player.transform.position;
+            _nowPosition = Camera.main.transform.position;
 
             Vector3 dir = _nowPosition - _prevPosition;
             dir.y = 0f;
@@ -67,7 +68,8 @@ public class TargetPositionChecker : MonoBehaviour
 
             if(_nowDistance >= 0.3f)
             {
-                transform.SetPositionAndRotation(_player.transform.position, rot);
+                //transform.SetPositionAndRotation(_player.transform.position, rot);
+                transform.SetPositionAndRotation(Camera.main.transform.position, rot);
                 TargetPositionSet();
             }
             else if(true)
