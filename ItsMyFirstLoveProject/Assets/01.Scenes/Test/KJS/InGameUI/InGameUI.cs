@@ -135,14 +135,12 @@ public class InGameUI : MonoBehaviour
     /// </summary>
     public void Inventory()
     {
-        if(_uiDic["InventoryUI"].activeSelf == false)
-        {
             ActUI("InventoryUI");
-        }
-        else
-        {
-            DeactUI("InventoryUI");
-        }
+    }
+
+    public void CloseInventory()
+    {
+        DeactUI("InventoryUI");
     }
 
     /// <summary>
