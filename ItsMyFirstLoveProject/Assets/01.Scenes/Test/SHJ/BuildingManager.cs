@@ -58,13 +58,5 @@ public class BuildingManager : MonoBehaviour
 
         TestPos = _character._destinations[0].transform.position;
     }
-
-    // 아래 함수는 캐릭터 생성하는 테스트 함수. 추후에 게임매니저로 이동 가능.
-    public void AddCharacter()
-    {
-        Instantiate(_character, new Vector3(-2f,1.5f,-2f) + Camera.main.transform.position, Quaternion.identity);
-    }
-
-    
 }
 
