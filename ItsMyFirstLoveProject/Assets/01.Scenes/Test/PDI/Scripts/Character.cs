@@ -10,7 +10,6 @@ public class Character : MonoBehaviour
     private string _favor;
     private string _hate;
 
-    [SerializeField] PDI_UIManager _ui;
 
     private void Start()
     {
@@ -31,7 +30,6 @@ public class Character : MonoBehaviour
             {
                 Favorability -= 100;
                 ++Level;
-                _ui.ChangeLevel(Level);
             }
         }
 
@@ -44,6 +42,5 @@ public class Character : MonoBehaviour
         {
             Favorability = 0;
         }
-        _ui.ChangeFavorability(Favorability);
     }
 }
