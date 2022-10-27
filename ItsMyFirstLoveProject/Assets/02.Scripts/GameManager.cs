@@ -21,6 +21,7 @@ public class GameManager : SingletonBehaviour<GameManager>
     public float LoveGauge { get; private set; }
     public float Level { get; private set; }
     public bool _isActCharacterWalkMode { get; private set; }
+    public GameObject _characterModel { get; private set; }
 
 
     private void Awake()
@@ -81,6 +82,17 @@ public class GameManager : SingletonBehaviour<GameManager>
         {
             _isActCharacterWalkMode = true;
         }
+
+        _characterModel.transform.position = new Vector3(
+            Camera.main.transform.position.x,
+            Camera.main.transform.position.y - 1.3f,
+            Camera.main.transform.position.z + 4f);
+
+        _characterModel.SetActive(_isActCharacterWalkMode);
+    }
+    public void SetCharObject(GameObject Char)
+    {
+        _characterModel = Char;
     }
 
     /// <summary>
@@ -94,4 +106,5 @@ public class GameManager : SingletonBehaviour<GameManager>
         //GetType().GetField(name).GetValue(Object);
         // TODO : 방법 찾아야 함..분명 있을것같음
     }
+
 }

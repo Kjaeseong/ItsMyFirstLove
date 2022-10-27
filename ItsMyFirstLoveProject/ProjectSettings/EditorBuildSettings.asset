@@ -8,9 +8,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/01.Scenes/Test/LJH/LJH_MiniMapScene.unity
     guid: 6816e6e6014c0014e907da70d13419c8
-  - enabled: 1
+  - enabled: 0
     path: Assets/01.Scenes/Test/PDI/Inventory.unity
     guid: 686b3f21e0dfecb4293af7fa802ca64a
+  - enabled: 1
+    path: Assets/01.Scenes/ProtoType/Proto_WalkScene.unity
+    guid: 1b5e1b0cd4fad604db9c5aa353c3a2d1
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: b959e095d94abbd478eb3bfe18850dcc, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 23460753dc929494884b0d7471a3bd60, type: 2}

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -775,8 +775,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 868a8dad48889784c81f83a3098f5130, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rangeX: 2
-  _rangeZ: 3
+  _rangeX: 0.35
+  _rangeZ: 2
 --- !u!114 &1402218806 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 519570875411242272, guid: cefc7380ede424d4bb25ca7581f358a8, type: 3}
@@ -1630,6 +1630,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ProtoTypeHana
       objectReference: {fileID: 0}
+    - target: {fileID: 5359458024664255889, guid: 5e6e63ff5420d7c42964ade39a03c35f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5359458024664255894, guid: 5e6e63ff5420d7c42964ade39a03c35f, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -1915,10 +1919,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 398999607753741429, guid: 458b3ea411a302f4794eae4d4178723a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2614791037218789680, guid: 458b3ea411a302f4794eae4d4178723a, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -1966,14 +1966,6 @@ PrefabInstance:
     - target: {fileID: 2614791037218789682, guid: 458b3ea411a302f4794eae4d4178723a, type: 3}
       propertyPath: m_Name
       value: InGameUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 5057251317987783996, guid: 458b3ea411a302f4794eae4d4178723a, type: 3}
-      propertyPath: _inven
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5057251317987783996, guid: 458b3ea411a302f4794eae4d4178723a, type: 3}
-      propertyPath: _hanaChan
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 458b3ea411a302f4794eae4d4178723a, type: 3}

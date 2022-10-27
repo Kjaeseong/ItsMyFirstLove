@@ -14,6 +14,11 @@ public class ProtoTypeHanaMovement : MonoBehaviour
     private bool _canMove;
     private float DistToTarget;
 
+    private void Awake()
+    {
+        GameManager.Instance.SetCharObject(gameObject);
+    }
+
     private void Start() 
     {
         _anim = GetComponentInChildren<AnimationSupport>();

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InGameUI : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class InGameUI : MonoBehaviour
             _uiDic.Add(_uiList[i].name, _uiList[i]);
         }
 
+        HeightCheck();
         //GameManager.Instance.SetObjectProperty("Map", gameObject);
     }
 
@@ -83,7 +85,16 @@ public class InGameUI : MonoBehaviour
     /// </summary>
     public void HeightCheck()
     {
-        ActUI("HeightCheckerUI");
+        ActUI("HeightCheckUI");
+    }
+
+    /// <summary>
+    /// HeightCheck 비활성화 및 RotationCheck실행
+    /// </summary>
+    public void CompleteHeightCheck()
+    {
+        DeactUI("HeightCheckUI");
+        RotationCheck();
     }
 
     /// <summary>
@@ -92,6 +103,27 @@ public class InGameUI : MonoBehaviour
     public void RotationCheck()
     {
         ActUI("RotationCheckUI");
+    }
+
+    public void CompleteRotationCheck()
+    {
+        DeactUI("RotationCheckUI");
+        CheckNowScene();
+    }
+
+    private void CheckNowScene()
+    {
+        if (SceneManager.GetActiveScene().name == "Proto_WalkScene")
+        {
+            ActUI("WalkUI");
+            ActUI("NormalUI");
+        }
+
+        if (SceneManager.GetActiveScene().name == "Proto_StageScene")
+        {
+            ActUI("StroyUI");
+            ActUI("NormalUI");
+        }
     }
 
     /// <summary>
@@ -138,6 +170,9 @@ public class InGameUI : MonoBehaviour
             ActUI("InventoryUI");
     }
 
+    /// <summary>
+    /// Inventory 닫기
+    /// </summary>
     public void CloseInventory()
     {
         DeactUI("InventoryUI");
