@@ -8,22 +8,22 @@ using Google.Maps.Examples.Shared;
 public class BuildingManager : MonoBehaviour
 {
     [SerializeField] private MeshRenderer[] _mesh;
-    [SerializeField] private Material[]     _mat = new Material[2];
-    [SerializeField] private GameObject[]   _protoTypeLocation;
+    [SerializeField] private Material[] _mat = new Material[2];
+    [SerializeField] private GameObject[] _protoTypeLocation;
     [SerializeField] private LocationFinder _character;
     [SerializeField] private GameObject     _miniMapBuildingObject;
     private GameObject _miniMapBuilding;
     private LatLng _latLng;
 
     public Vector3 TestPos;
-    public string Location_Name;
+    public string LocationName;
 
     private void Start()
     {
         //Invoke("GetMesh", 1f);
     }
 
-    // °Ç¹°¿¡ ¸Ş½¬, Äİ¶óÀÌ´õ, ³×ºñÆÇ´ÜÅÂ±×¸¦ ³Ö´Â´Ù.
+    // ê±´ë¬¼ì— ë©”ì‰¬, ì½œë¼ì´ë”, ë„¤ë¹„íŒë‹¨íƒœê·¸ë¥¼ ë„£ëŠ”ë‹¤.
     public void GetMesh()
     {
         _mesh = GetComponentsInChildren<MeshRenderer>();
@@ -47,16 +47,16 @@ public class BuildingManager : MonoBehaviour
 
     public void OnLoaded(MapLoadedArgs args)
     {
-        
+
     }
 
-    // ºôµùÀÇ ÀÌ¸§°ú À§Ä¡¸¦ ¹Ş¾Æ¿À°í, ±× À§Ä¡¸¦ ±âÁØÀ¸·Î ¿ÀºêÁ§Æ® »ı¼º
+    // ë¹Œë”©ì˜ ì´ë¦„ê³¼ ìœ„ì¹˜ë¥¼ ë°›ì•„ì˜¤ê³ , ê·¸ ìœ„ì¹˜ë¥¼ ê¸°ì¤€ìœ¼ë¡œ ì˜¤ë¸Œì íŠ¸ ìƒì„±
     public void FindBuilding()
     {
-        GameObject BuildingForLocation = GameObject.Find(Location_Name);
+        GameObject BuildingForLocation = GameObject.Find(LocationName);
         Vector3 LocationPos = BuildingForLocation.transform.position;
 
-        // ÇÁ·ÎÅäÅ¸ÀÔ °æ·Î
+        // í”„ë¡œí† íƒ€ì… ê²½ë¡œ
         _character._destinations[0] = Instantiate(_protoTypeLocation[0], new Vector3(LocationPos.x - 5.5f, 0.5f, LocationPos.z - 14), Quaternion.Euler(0, 0, 0));
         _character._destinations[1] = Instantiate(_protoTypeLocation[1], new Vector3(LocationPos.x + 18.3f, 0.5f, LocationPos.z - 23.7f), Quaternion.Euler(0, 0, 0));
         _character._destinations[2] = Instantiate(_protoTypeLocation[2], new Vector3(LocationPos.x + 43, 0.5f, LocationPos.z + 86), Quaternion.Euler(0, 0, 0));
@@ -64,5 +64,6 @@ public class BuildingManager : MonoBehaviour
 
         TestPos = _character._destinations[0].transform.position;
     }
+
 }
 

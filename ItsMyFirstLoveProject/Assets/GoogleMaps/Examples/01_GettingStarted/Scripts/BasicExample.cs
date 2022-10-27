@@ -20,10 +20,14 @@ namespace Google.Maps.Examples {
 
         private BuildingManager _buildingManager;
 
+        private FindBuildingOfBusinessName _findBuildingOfBusinessName;
+
         /// <summary>
         /// Use <see cref="MapsService"/> to load geometry.
         /// </summary>
         private void Start() {
+
+            _findBuildingOfBusinessName = GetComponent<FindBuildingOfBusinessName>();
 
             _buildingManager = GetComponent<BuildingManager>();
             // Get required MapsService component on this GameObject.
@@ -64,6 +68,7 @@ namespace Google.Maps.Examples {
             // The new geometry is added under the GameObject that has MapsService as a component.
             _buildingManager.GetMesh();
             _buildingManager.FindBuilding();
+            _findBuildingOfBusinessName.FindBusinessName();
             //_buildingManager.AddCharacter();
         }
     }
