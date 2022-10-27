@@ -34,6 +34,11 @@ public class AnimationSupport : MonoBehaviour
         _anim.SetInteger("MoveStep", 1);
     }
 
+    private void MoveRun()
+    {
+        _anim.SetInteger("MoveStep", 2);
+    }
+
     private void Idle()
     {
         _anim.SetInteger("MoveStep", 0);
