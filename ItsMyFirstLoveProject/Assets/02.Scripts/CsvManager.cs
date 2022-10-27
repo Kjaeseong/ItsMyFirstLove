@@ -33,4 +33,12 @@ public class CsvManager : MonoBehaviour
     {
         return _csvList[Filename][index][Category].ToString();
     }
+    /// <summary>
+    /// CSV 리스트 크기 반환
+    /// </summary>
+    /// <returns></returns>
+    public int GetCSVLength(string FileName)
+    {
+        return _csvList[FileName].Count;
+    }
 }

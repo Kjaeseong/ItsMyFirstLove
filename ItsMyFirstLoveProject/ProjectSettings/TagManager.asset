@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Location
   - EventTrigger
+  - Building
   - Destination
   layers:
   - Default
@@ -16,6 +17,7 @@ TagManager:
   - UI
   - 
   - Path
+  - OnlyMiniMap
   - Destination
   - 
   - 

@@ -11,6 +11,8 @@ public class BuildingManager : MonoBehaviour
     [SerializeField] private Material[] _mat = new Material[2];
     [SerializeField] private GameObject[] _protoTypeLocation;
     [SerializeField] private LocationFinder _character;
+    [SerializeField] private GameObject     _miniMapBuildingObject;
+    private GameObject _miniMapBuilding;
     private LatLng _latLng;
 
     public Vector3 TestPos;
@@ -21,7 +23,7 @@ public class BuildingManager : MonoBehaviour
         //Invoke("GetMesh", 1f);
     }
 
-    // °Ç¹°¿¡ ¸Ş½¬, Äİ¶óÀÌ´õ, ³×ºñÆÇ´ÜÅÂ±×¸¦ ³Ö´Â´Ù.
+    // ê±´ë¬¼ì— ë©”ì‰¬, ì½œë¼ì´ë”, ë„¤ë¹„íŒë‹¨íƒœê·¸ë¥¼ ë„£ëŠ”ë‹¤.
     public void GetMesh()
     {
         _mesh = GetComponentsInChildren<MeshRenderer>();
@@ -29,14 +31,18 @@ public class BuildingManager : MonoBehaviour
 
         foreach (var renderer in _mesh)
         {
+            _miniMapBuilding = renderer.gameObject;
+            if (_miniMapBuilding.name[0] == 'E')
+            {
+                _miniMapBuilding.tag = "Building";
+            }
+            _miniMapBuilding.layer = 8;
+            Instantiate(_miniMapBuilding, _miniMapBuildingObject.transform);
+            renderer.gameObject.layer = 0;
             renderer.materials = _mat;
             renderer.gameObject.AddComponent<MeshCollider>();
             renderer.gameObject.AddComponent<NavMeshSourceTag>();
         }
-
-        //FindBuilding();
-        //Invoke("AddCharacter", 2.5f);
-        //AddCharacter();
     }
 
     public void OnLoaded(MapLoadedArgs args)
@@ -44,13 +50,13 @@ public class BuildingManager : MonoBehaviour
 
     }
 
-    // ºôµùÀÇ ÀÌ¸§°ú À§Ä¡¸¦ ¹Ş¾Æ¿À°í, ±× À§Ä¡¸¦ ±âÁØÀ¸·Î ¿ÀºêÁ§Æ® »ı¼º
+    // ë¹Œë”©ì˜ ì´ë¦„ê³¼ ìœ„ì¹˜ë¥¼ ë°›ì•„ì˜¤ê³ , ê·¸ ìœ„ì¹˜ë¥¼ ê¸°ì¤€ìœ¼ë¡œ ì˜¤ë¸Œì íŠ¸ ìƒì„±
     public void FindBuilding()
     {
         GameObject BuildingForLocation = GameObject.Find(LocationName);
         Vector3 LocationPos = BuildingForLocation.transform.position;
 
-        // ÇÁ·ÎÅäÅ¸ÀÔ °æ·Î
+        // í”„ë¡œí† íƒ€ì… ê²½ë¡œ
         _character._destinations[0] = Instantiate(_protoTypeLocation[0], new Vector3(LocationPos.x - 5.5f, 0.5f, LocationPos.z - 14), Quaternion.Euler(0, 0, 0));
         _character._destinations[1] = Instantiate(_protoTypeLocation[1], new Vector3(LocationPos.x + 18.3f, 0.5f, LocationPos.z - 23.7f), Quaternion.Euler(0, 0, 0));
         _character._destinations[2] = Instantiate(_protoTypeLocation[2], new Vector3(LocationPos.x + 43, 0.5f, LocationPos.z + 86), Quaternion.Euler(0, 0, 0));
@@ -59,9 +65,5 @@ public class BuildingManager : MonoBehaviour
         TestPos = _character._destinations[0].transform.position;
     }
 
-    public void AddCharacter()
-    {
-        Instantiate(_character, new Vector3(-2f, 1.5f, -2f) + Camera.main.transform.position, Quaternion.identity);
-    }
 }
 
