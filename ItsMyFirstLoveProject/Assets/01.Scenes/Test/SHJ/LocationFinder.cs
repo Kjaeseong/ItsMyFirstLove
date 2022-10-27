@@ -118,7 +118,7 @@ public class LocationFinder : MonoBehaviour
     private void MoveHana()
     {
         SetGameOverToTime();
-        _ai.speed = 1f;
+        _ai.speed = 0.3f;
         _animationSupport.Play("Move");
     }
     // 캐릭터가 목적지 포인트에 도착하면 다음 목적지로 변경해준다.

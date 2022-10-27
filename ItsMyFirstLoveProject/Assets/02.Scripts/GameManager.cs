@@ -93,6 +93,7 @@ public class GameManager : SingletonBehaviour<GameManager>
     public void SetCharObject(GameObject Char)
     {
         _characterModel = Char;
+        _characterModel.SetActive(false);
     }
 
     /// <summary>

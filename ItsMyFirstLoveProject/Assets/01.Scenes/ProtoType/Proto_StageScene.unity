@@ -345,7 +345,6 @@ GameObject:
   m_Component:
   - component: {fileID: 556592039}
   - component: {fileID: 556592038}
-  - component: {fileID: 556592042}
   - component: {fileID: 556592041}
   - component: {fileID: 556592040}
   m_Layer: 0
@@ -408,20 +407,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RaycastPrefab: {fileID: 0}
---- !u!114 &556592042
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 556592037}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1760703bbd54c04488a8d10600262ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PlanePrefab: {fileID: 8476947394812829524, guid: c4c905d68d516494fa74a4eecfc28416, type: 3}
-  m_DetectionMode: -1
 --- !u!1 &777426992
 GameObject:
   m_ObjectHideFlags: 0
