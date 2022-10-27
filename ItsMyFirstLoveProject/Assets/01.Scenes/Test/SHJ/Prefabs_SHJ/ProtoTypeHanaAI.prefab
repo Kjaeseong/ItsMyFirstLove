@@ -17396,6 +17396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ai: {fileID: 882265395843597116}
   _player: {fileID: 0}
+  _destinationUI: {fileID: 0}
   _destinations:
   - {fileID: 0}
   - {fileID: 0}

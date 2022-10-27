@@ -8,13 +8,13 @@ using Google.Maps.Examples.Shared;
 public class BuildingManager : MonoBehaviour
 {
     [SerializeField] private MeshRenderer[] _mesh;
-    [SerializeField] private Material[]     _mat = new Material[2];
-    [SerializeField] private GameObject[]   _protoTypeLocation;
+    [SerializeField] private Material[] _mat = new Material[2];
+    [SerializeField] private GameObject[] _protoTypeLocation;
     [SerializeField] private LocationFinder _character;
     private LatLng _latLng;
 
     public Vector3 TestPos;
-    public string Location_Name;
+    public string LocationName;
 
     private void Start()
     {
@@ -41,13 +41,13 @@ public class BuildingManager : MonoBehaviour
 
     public void OnLoaded(MapLoadedArgs args)
     {
-        
+
     }
 
     // 빌딩의 이름과 위치를 받아오고, 그 위치를 기준으로 오브젝트 생성
     public void FindBuilding()
     {
-        GameObject BuildingForLocation = GameObject.Find(Location_Name);
+        GameObject BuildingForLocation = GameObject.Find(LocationName);
         Vector3 LocationPos = BuildingForLocation.transform.position;
 
         // 프로토타입 경로
@@ -59,12 +59,9 @@ public class BuildingManager : MonoBehaviour
         TestPos = _character._destinations[0].transform.position;
     }
 
-    // 아래 함수는 캐릭터 생성하는 테스트 함수. 추후에 게임매니저로 이동 가능.
     public void AddCharacter()
     {
-        Instantiate(_character, new Vector3(-2f,1.5f,-2f) + Camera.main.transform.position, Quaternion.identity);
+        Instantiate(_character, new Vector3(-2f, 1.5f, -2f) + Camera.main.transform.position, Quaternion.identity);
     }
-
-    
 }
 
