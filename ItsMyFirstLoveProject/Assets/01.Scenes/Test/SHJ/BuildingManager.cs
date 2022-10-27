@@ -11,6 +11,8 @@ public class BuildingManager : MonoBehaviour
     [SerializeField] private Material[]     _mat = new Material[2];
     [SerializeField] private GameObject[]   _protoTypeLocation;
     [SerializeField] private LocationFinder _character;
+    [SerializeField] private GameObject     _miniMapBuildingObject;
+    private GameObject _miniMapBuilding;
     private LatLng _latLng;
 
     public Vector3 TestPos;
@@ -29,14 +31,18 @@ public class BuildingManager : MonoBehaviour
 
         foreach (var renderer in _mesh)
         {
+            _miniMapBuilding = renderer.gameObject;
+            if (_miniMapBuilding.name[0] == 'E')
+            {
+                _miniMapBuilding.tag = "Building";
+            }
+            _miniMapBuilding.layer = 8;
+            Instantiate(_miniMapBuilding, _miniMapBuildingObject.transform);
+            renderer.gameObject.layer = 0;
             renderer.materials = _mat;
             renderer.gameObject.AddComponent<MeshCollider>();
             renderer.gameObject.AddComponent<NavMeshSourceTag>();
         }
-
-        //FindBuilding();
-        //Invoke("AddCharacter", 2.5f);
-        //AddCharacter();
     }
 
     public void OnLoaded(MapLoadedArgs args)

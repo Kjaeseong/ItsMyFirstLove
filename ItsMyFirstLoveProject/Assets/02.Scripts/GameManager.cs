@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GameManager : SingletonBehaviour<GameManager>
 {
-    private AudioManager _audio;
-    private CsvManager _csv;
+    public AudioManager _audio { get; private set; }
+    public CsvManager _csv { get; private set; }
     public SceneChanger _scene { get; private set; }
     
     [field: SerializeField] public GameObject Map { get; private set; }
