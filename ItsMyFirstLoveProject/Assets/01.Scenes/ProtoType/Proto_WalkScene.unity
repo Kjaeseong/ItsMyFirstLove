@@ -775,8 +775,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 868a8dad48889784c81f83a3098f5130, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rangeX: 0.35
-  _rangeZ: 2
+  _rangeX: 0.15
+  _rangeZ: 3
 --- !u!114 &1402218806 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 519570875411242272, guid: cefc7380ede424d4bb25ca7581f358a8, type: 3}

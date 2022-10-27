@@ -118,7 +118,7 @@ public class LocationFinder : MonoBehaviour
     private void MoveHana()
     {
         SetGameOverToTime();
-        _ai.speed = 0.3f;
+        _ai.speed = 0.5f;
         _animationSupport.Play("Move");
     }
     // 캐릭터가 목적지 포인트에 도착하면 다음 목적지로 변경해준다.
@@ -146,13 +146,6 @@ public class LocationFinder : MonoBehaviour
                 return;
             }
         }
-
-        if (other.tag == "Player")
-        {
-            _isClose = true;
-            Invoke("MoveHana", 2f);
-        }
-
     }
 
     // 캐릭터근처에 플레이어가 있으면 이동한다.
@@ -160,7 +153,8 @@ public class LocationFinder : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-
+            _isClose = true;
+            MoveHana();
         }
     }
 
