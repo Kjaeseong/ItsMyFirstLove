@@ -620,7 +620,7 @@ Transform:
   m_GameObject: {fileID: 1350700971}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2, y: 0, z: 2}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 596417447}
   m_RootOrder: 0
@@ -637,7 +637,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 1.86
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 3.07, z: 0}
 --- !u!23 &1350700974
 MeshRenderer:
   m_ObjectHideFlags: 0
