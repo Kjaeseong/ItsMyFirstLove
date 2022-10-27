@@ -6,15 +6,22 @@ public class GameManager : SingletonBehaviour<GameManager>
 {
     private AudioManager _audio;
     private CsvManager _csv;
-    private SceneChanger _scene;
+    public SceneChanger _scene { get; private set; }
     
     [field: SerializeField] public GameObject Map { get; private set; }
 
+    // 지도/위치 관련 변수              ----------------
     public float CameraHeight { get; private set; }
     public float MapRotateY { get; private set; }
     public double Lat { get; private set; }
     public double Long { get; private set; }
     public float Azimuth { get; private set; }
+
+    // 케릭터 및 플레이어 관련 변수     ----------------
+    public float LoveGauge { get; private set; }
+    public float Level { get; private set; }
+    public bool _isActCharacterWalkMode { get; private set; }
+
 
     private void Awake()
     {
@@ -59,5 +66,32 @@ public class GameManager : SingletonBehaviour<GameManager>
     public void AddMapRotateY(float rotateY)
     {
         MapRotateY += rotateY;
+    }
+
+    /// <summary>
+    /// 산책 모드에서 케릭터 활성화 여부
+    /// </summary>
+    public void ActivateCharacterInWalk()
+    {
+        if(_isActCharacterWalkMode)
+        {
+            _isActCharacterWalkMode = false;
+        }
+        else
+        {
+            _isActCharacterWalkMode = true;
+        }
+    }
+
+    /// <summary>
+    /// GameObject 타입 프로퍼티에 오브젝트를 넣어주기 위한 함수 <br/>
+    /// name : 프로퍼티(변수) 명 <br/>
+    /// object : gameObject
+    /// </summary>
+    public void SetObjectProperty(string name, GameObject Object)
+    {
+        //GameObject temp
+        //GetType().GetField(name).GetValue(Object);
+        // TODO : 방법 찾아야 함..분명 있을것같음
     }
 }
