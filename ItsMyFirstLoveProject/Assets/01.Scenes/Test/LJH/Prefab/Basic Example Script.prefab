@@ -48,9 +48,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d998febeff6e423baf0d081cd85e448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LatLng:
-    _Lat: 37.539968
-    _Lng: 127.12293899999997
 --- !u!114 &7101055344760649478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,7 +215,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7101055344760649473}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 97c63ed87876eb6469febfe085a300af, type: 3}
   m_Name: 
@@ -227,12 +224,19 @@ MonoBehaviour:
   _mat:
   - {fileID: 2100000, guid: 87d17e3816f76214a82c30adfe680a2d, type: 2}
   - {fileID: 2100000, guid: 87d17e3816f76214a82c30adfe680a2d, type: 2}
-  Destination_Name: []
-  Location_Name: ExtrudedStructure (ChIJgSzkDFWlfDURRsMWV9utxY8)
+  _protoTypeLocation:
+  - {fileID: 5160470122041416206, guid: cd74aed7c08914d47bbb8da1b8c772df, type: 3}
+  - {fileID: 1763630882169210116, guid: 276afaf78fce1544dbb8457aae6cc6e5, type: 3}
+  - {fileID: 6351592290447950112, guid: fdb09aa87529b564d8ca4fad48da9313, type: 3}
+  - {fileID: 2243726003355663240, guid: 80da8a9a368dad74bbd2668d8009fa91, type: 3}
+  _character: {fileID: -9036944996583800542, guid: 734461f101e01224c9523a237e2bbef4, type: 3}
+  _miniMapBuildingObject: {fileID: 7101055344760649473}
+  TestPos: {x: 0, y: 0, z: 0}
+  Location_Name: ExtrudedStructure (ChIJN2LvIVWlfDUR1hQoEQLTi3A)
 --- !u!1 &7101055346186774835
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 1856110706849772, guid: 4f9689a616d164dd2a51b4d65fd195ab, type: 2}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
@@ -249,7 +253,7 @@ GameObject:
 --- !u!4 &7101055346186774832
 Transform:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 4794806126001668, guid: 4f9689a616d164dd2a51b4d65fd195ab, type: 2}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7101055346186774835}
@@ -263,7 +267,7 @@ Transform:
 --- !u!114 &7101055346186774833
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114524810782280486, guid: 4f9689a616d164dd2a51b4d65fd195ab, type: 2}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7101055346186774835}

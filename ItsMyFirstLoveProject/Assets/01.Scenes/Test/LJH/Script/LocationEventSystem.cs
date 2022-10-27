@@ -20,7 +20,8 @@ public class LocationEventSystem : MonoBehaviour
 
     [SerializeField] private bool _lineEventOn;
     //[SerializeField] private string[] _line; // 임시로 이렇게 해 놓음. 추후 _csvReader 에서 받아온 대사 넣으면 될 것 같습니다. ps. SerializeField는 줄 맞춤용으로 써놓은 것입니다.
-    [SerializeField] private int _charID;
+    [SerializeField] private int _startCharID;
+    [SerializeField] private int _endCharID;
 
     [SerializeField] private bool _audioEventOn;
     [SerializeField] private string _audioName;
@@ -33,16 +34,17 @@ public class LocationEventSystem : MonoBehaviour
         {
             Debug.Log("이벤트 실행");
             // VPS 연출
-            if(_vpsEventOn)
+            if (_vpsEventOn)
             {
                 _vpsEffectManager.ActivatedEffect(_vpsIndex, transform.position);
             }
             // 대사 연출
-            if(_lineEventOn)
+            if (_lineEventOn)
             {
                 for (int i = 0; i < GameManager.Instance._csv.GetCSVLength("ProtoLine"); i++)
                 {
-                    if (GameManager.Instance._csv.GetCSV("ProtoLine", i, "charID") == _charID.ToString())
+                    if (int.Parse(GameManager.Instance._csv.GetCSV("ProtoLine", i, "charID")) >= _startCharID &&
+                        int.Parse(GameManager.Instance._csv.GetCSV("ProtoLine", i, "charID")) <= _endCharID)
                     {
                         _ui.AddCommuTalk(GameManager.Instance._csv.GetCSV("ProtoLine", i, "Talker"), GameManager.Instance._csv.GetCSV("ProtoLine", i, "Talk"));
                     }
@@ -51,14 +53,14 @@ public class LocationEventSystem : MonoBehaviour
                 _ui.CommuUI();
             }
             // 사운드 출력
-            if(_audioEventOn)
+            if (_audioEventOn)
             {
                 GameManager.Instance._audio.Play(_audioName);
             }
             // 취향 이벤트
 
             // 기타 추가 이벤트
-            Debug.Log($"{_audioName.Substring(0, _audioName.LastIndexOf('_'))}");
+            //Debug.Log($"{_audioName.Substring(0, _audioName.LastIndexOf('_'))}");
         }
     }
 
@@ -66,9 +68,15 @@ public class LocationEventSystem : MonoBehaviour
     {
         if (other.CompareTag("EventTrigger"))
         {
-            Debug.Log($"{_audioName.Substring(0, _audioName.LastIndexOf('_'))}");
-            _vpsEffectManager.DeactivateEffect(_vpsIndex);
-            GameManager.Instance._audio.Stop(_audioName.Substring(0, _audioName.LastIndexOf('_')));
+            //Debug.Log($"{_audioName.Substring(0, _audioName.LastIndexOf('_'))}");
+            if (_vpsEventOn)
+            {
+                _vpsEffectManager.DeactivateEffect(_vpsIndex);
+            }
+            if (_audioEventOn)
+            {
+                GameManager.Instance._audio.Stop(_audioName.Substring(0, _audioName.LastIndexOf('_')));
+            }
         }
 
         if (_isPlayOneTime)
