@@ -7,17 +7,19 @@ public class LocationFinder : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent _ai;
     [SerializeField] private GameObject _player;
+    [SerializeField] private GameObject _destinationUI;
+
     private LineRenderer _lineRenderer;
     private AnimationSupport _animationSupport;
     private int _locationCount = 0;
     private float _elaspedTime = 0f;
     private bool _isClose;
 
-
     public GameObject[] _destinations;
 
     private void Start()
     {
+        _destinationUI = GameObject.Find("DestinationUI");
         _player = GameObject.Find("Player");
         _isClose = false;
         MoveWayPoint();
@@ -51,7 +53,16 @@ public class LocationFinder : MonoBehaviour
                 _elaspedTime = 0f;
             }
         }
-        MakePath();
+
+        if (_lineRenderer.enabled == false)
+        {
+            _lineRenderer.enabled = true;
+        }
+
+        if (_lineRenderer.enabled == true)
+        {
+            MakePath();
+        }
     }
     private void MoveWayPoint()
     {
@@ -61,13 +72,7 @@ public class LocationFinder : MonoBehaviour
             return;
         }
         _ai.destination = _destinations[0].transform.position;
-    }
-
-    //  makePathCoroutine()을 시작하는 함수
-    private void MakePath()
-    {
-        _lineRenderer.enabled = true;
-        StartCoroutine(MakePathCoroutine());
+        _destinationUI.transform.position = _ai.destination;
     }
 
     // 라인을 그려주는 함수
@@ -82,15 +87,14 @@ public class LocationFinder : MonoBehaviour
         }
     }
 
-    // 현재 위치에서 다음 목적지까지 그려주는 코루틴
-    private IEnumerator MakePathCoroutine()
+    // 다음 라인과 이어주는 함수
+    private void MakePath()
     {
         _lineRenderer.SetPosition(0, this.transform.position);
-
-        yield return new WaitForSeconds(0.1f);
-
         DrawPath();
     }
+
+
 
     // 플레이어가 경로대로 움직이지 않으면 실행.
     private void PlayerStopped(GameObject player)
@@ -124,6 +128,7 @@ public class LocationFinder : MonoBehaviour
             {
                 _locationCount++;
                 _ai.destination = _destinations[_locationCount].transform.position;
+                _destinationUI.transform.position = _ai.destination;
             }
 
             else if (_locationCount == 3)
@@ -166,4 +171,3 @@ public class LocationFinder : MonoBehaviour
 
 }
 
-    
