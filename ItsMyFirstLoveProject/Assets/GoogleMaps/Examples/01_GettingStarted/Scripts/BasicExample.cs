@@ -2,6 +2,7 @@
 using Google.Maps.Event;
 using Google.Maps.Examples.Shared;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Google.Maps.Examples {
     /// <summary>
@@ -67,8 +68,16 @@ namespace Google.Maps.Examples {
             // The Map is loaded - you can start/resume gameplay from that point.
             // The new geometry is added under the GameObject that has MapsService as a component.
             _buildingManager.GetMesh();
-            _buildingManager.FindBuilding();
-            _findBuildingOfBusinessName.FindBusinessName();
+            if (SceneManager.GetActiveScene().name == "Proto_StageScene")
+            {
+                _buildingManager.FindBuilding();
+                _findBuildingOfBusinessName.FindBusinessName();
+            }
+
+            transform.position = new Vector3(
+                transform.position.x,
+                transform.position.y - 1.3f,
+                transform.position.z);
             //_buildingManager.AddCharacter();
         }
     }

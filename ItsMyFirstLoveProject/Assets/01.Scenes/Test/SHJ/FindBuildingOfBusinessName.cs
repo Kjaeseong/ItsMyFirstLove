@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FindBuildingOfBusinessName : MonoBehaviour
 {
@@ -17,6 +18,11 @@ public class FindBuildingOfBusinessName : MonoBehaviour
     /// </summary>
     public void FindBusinessName()
     {
+        if(SceneManager.GetActiveScene().name == "Proto_WalkScene")
+        {
+            return;
+        }
+
         GameObject[] BusinessNames = new GameObject[BusinessName.Length];
         Vector3[] BusinessLocation = new Vector3[BusinessName.Length];
 

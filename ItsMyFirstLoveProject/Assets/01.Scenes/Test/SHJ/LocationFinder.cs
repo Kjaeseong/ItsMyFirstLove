@@ -102,7 +102,11 @@ public class LocationFinder : MonoBehaviour
         _animationSupport.Play("Idle");
         _ai.speed = 0f;
         Debug.Log("왜 안와?");
-        transform.LookAt(player.transform.position);
+        Vector3 target = new Vector3(
+            player.transform.position.x,
+            transform.position.y,
+            player.transform.position.z);
+        transform.LookAt(target);
     }
 
     // 경과시간 초기화 함수

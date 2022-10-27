@@ -824,6 +824,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VPSEffectManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6974566384256870432, guid: d2bb8860f76ab2047a9249a96e8dca6a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6974566384256870433, guid: d2bb8860f76ab2047a9249a96e8dca6a, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -1696,6 +1700,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Location Event System
       objectReference: {fileID: 0}
+    - target: {fileID: 5368421369626723523, guid: 7111aa048c317674c9bf50635fe4991d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5368421369626723524, guid: 7111aa048c317674c9bf50635fe4991d, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -1825,6 +1833,10 @@ PrefabInstance:
       propertyPath: _character
       value: 
       objectReference: {fileID: -9036944996583800542, guid: 734461f101e01224c9523a237e2bbef4, type: 3}
+    - target: {fileID: 7101055344760649530, guid: 0791e138201e8394ea882e015fc65c4d, type: 3}
+      propertyPath: LocationName
+      value: ExtrudedStructure (ChIJN2LvIVWlfDUR1hQoEQLTi3A)
+      objectReference: {fileID: 0}
     - target: {fileID: 7101055344760649530, guid: 0791e138201e8394ea882e015fc65c4d, type: 3}
       propertyPath: Location_Name
       value: ExtrudedStructure (ChIJN2LvIVWlfDUR1hQoEQLTi3A)
