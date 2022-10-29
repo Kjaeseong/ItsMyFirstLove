@@ -15,6 +15,8 @@ public class ProtoTypeHanaMovement : MonoBehaviour
     private bool _canMove;
     private float DistToTarget;
 
+    private TargetPositionChecker _positionChecker;
+
     private void Awake()
     {
         if (SceneManager.GetActiveScene().name == "Proto_WalkScene")
@@ -25,6 +27,7 @@ public class ProtoTypeHanaMovement : MonoBehaviour
 
     private void Start() 
     {
+        _positionChecker = _targetPosition.GetComponentInParent<TargetPositionChecker>();
         _anim = GetComponentInChildren<AnimationSupport>();
     }
 
@@ -32,6 +35,11 @@ public class ProtoTypeHanaMovement : MonoBehaviour
     {
         GetDistToTarget();
         MoveToTarget(_canMove);
+        transform.position = new Vector3(
+            transform.position.x,
+            Camera.main.transform.position.y - 1.3f,
+            transform.position.z
+        );
 
     }
 
@@ -62,8 +70,6 @@ public class ProtoTypeHanaMovement : MonoBehaviour
         DistToTarget = Vector2.Distance(target, charPos);
     }
 
-
-
     private void MoveToTarget(bool canMove)
     {
         SetCanMove();
@@ -71,13 +77,14 @@ public class ProtoTypeHanaMovement : MonoBehaviour
         {
             if(DistToTarget > 0.5f)
             {
-                if(DistToTarget > 1.5f)
+                if(DistToTarget > 2f)
                 {
                     MoveSet((int)MoveStep.RUN);
                     _anim.Play("MoveRun");
                 }
                 else
                 {
+                    Debug.Log("----");
                     MoveSet((int)MoveStep.WALK);
                     _anim.Play("Move");
                 }
@@ -90,34 +97,41 @@ public class ProtoTypeHanaMovement : MonoBehaviour
         }
     }
 
+    // TODO : 케릭터 이동조건 추가 요함.
     private void MoveSet(int state)
     {
-
+        Vector3 TargetPosition = new Vector3(
+            _targetPosition.transform.position.x,
+            transform.position.y,
+            _targetPosition.transform.position.z
+        );
         
+        float distToTarget = Vector3.Distance(TargetPosition, transform.position);
         switch(state)
         {
             case 0:
                 _moveSpeed = 0f;
                 break;
             case 1:
-                _moveSpeed = _walkSpeed;
+                _moveSpeed = distToTarget;
+
                 break;
             case 2:
-                _moveSpeed = _runSpeed;
+                _moveSpeed = distToTarget * 2;
                 break;
         }
 
         _moveStep = state;
-        
-Debug.Log(_moveStep);
+
         if(state != 0)
         {
             transform.Translate(0f, 0f, _moveSpeed * Time.deltaTime);
             RotateTo(_targetPosition);
+            StopCoroutine(RotateToPlayerDontMove());
         }
         else
         {
-            RotateTo(Camera.main.gameObject);
+            StartCoroutine(RotateToPlayerDontMove());
         }
     }
 
@@ -140,5 +154,12 @@ Debug.Log(_moveStep);
             y,
             transform.position.z
         );
+    }
+
+    private IEnumerator RotateToPlayerDontMove()
+    {
+        yield return new WaitForSeconds(2f);
+
+        RotateTo(Camera.main.gameObject);
     }
 }

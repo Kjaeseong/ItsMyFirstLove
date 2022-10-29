@@ -14,6 +14,7 @@ public class TargetPositionChecker : MonoBehaviour
     //[SerializeField] private GameObject _player;
     [SerializeField] private GameObject _target;
     [SerializeField] private float _checkCycle;
+    [SerializeField] private float _moveSpeed;
     
 
     private Vector3 _nowPosition;
@@ -23,12 +24,13 @@ public class TargetPositionChecker : MonoBehaviour
     private bool _isSwitchOn;
     private int _direction;
 
+    private bool _isMove;
+
     private void Start() 
     {
         MoveTargetSwitch(true);
         _direction = (int)Direction.RIGHT;
     }
-
     private void TargetPositionSet()
     {
         //_movingTarget.transform.position = transform.forward * 2;
@@ -64,21 +66,21 @@ public class TargetPositionChecker : MonoBehaviour
             _nowDistance = dir.magnitude;
             Quaternion rot = Quaternion.LookRotation(dir.normalized);
 
-            Debug.Log(rot.eulerAngles);
-
             if(_nowDistance >= 0.3f)
             {
                 //transform.SetPositionAndRotation(_player.transform.position, rot);
                 transform.SetPositionAndRotation(Camera.main.transform.position, rot);
                 TargetPositionSet();
+                _isMove = true;
             }
-            else if(true)
+            else if(_nowDistance <= 0)
             {
-
+                _isMove = false;
             }
             
             yield return new WaitForSeconds(_checkCycle);
         }
     }
 
+    public bool GetIsMove() => _isMove;
 }
