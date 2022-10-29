@@ -780,7 +780,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rangeX: 0.35
-  _rangeZ: 0.78
+  _rangeZ: 3.44
 --- !u!1 &1452997714 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5359458024664255889, guid: 5e6e63ff5420d7c42964ade39a03c35f, type: 3}

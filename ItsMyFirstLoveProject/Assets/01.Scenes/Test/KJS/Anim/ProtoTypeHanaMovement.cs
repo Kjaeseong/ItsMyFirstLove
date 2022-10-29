@@ -94,6 +94,7 @@ public class ProtoTypeHanaMovement : MonoBehaviour
         }
     }
 
+    // TODO : 케릭터 이동조건 추가 요함.
     private void MoveSet(int state)
     {
         Vector3 TargetPosition = new Vector3(
