@@ -14,13 +14,17 @@ public class ProtoTypeHanaMovement : MonoBehaviour
     private bool _canMove;
     private float DistToTarget;
 
+    private TargetPositionChecker _positionChecker;
+
     private void Awake()
     {
-        GameManager.Instance.SetCharObject(gameObject);
+        //GameManager.Instance.SetCharObject(gameObject);
+        
     }
 
     private void Start() 
     {
+        _positionChecker = _targetPosition.GetComponentInParent<TargetPositionChecker>();
         _anim = GetComponentInChildren<AnimationSupport>();
     }
 
@@ -58,8 +62,6 @@ public class ProtoTypeHanaMovement : MonoBehaviour
         DistToTarget = Vector2.Distance(target, charPos);
     }
 
-
-
     private void MoveToTarget(bool canMove)
     {
         SetCanMove();
@@ -74,6 +76,7 @@ public class ProtoTypeHanaMovement : MonoBehaviour
                 }
                 else
                 {
+                    Debug.Log("----");
                     MoveSet((int)MoveStep.WALK);
                     _anim.Play("Move");
                 }
@@ -88,32 +91,33 @@ public class ProtoTypeHanaMovement : MonoBehaviour
 
     private void MoveSet(int state)
     {
-
-        
         switch(state)
         {
             case 0:
                 _moveSpeed = 0f;
                 break;
             case 1:
-                _moveSpeed = _walkSpeed;
+                _moveSpeed = _positionChecker.GetPlayerSpeed();
+                Debug.Log(_positionChecker.GetPlayerSpeed());
+
                 break;
             case 2:
-                _moveSpeed = _runSpeed;
+                _moveSpeed = _positionChecker.GetPlayerSpeed() * 2;
+                Debug.Log(_positionChecker.GetPlayerSpeed());
                 break;
         }
 
         _moveStep = state;
-        
-Debug.Log(_moveStep);
+
         if(state != 0)
         {
             transform.Translate(0f, 0f, _moveSpeed * Time.deltaTime);
             RotateTo(_targetPosition);
+            StopCoroutine(RotateToPlayerDontMove());
         }
         else
         {
-            RotateTo(Camera.main.gameObject);
+            StartCoroutine(RotateToPlayerDontMove());
         }
     }
 
@@ -136,5 +140,12 @@ Debug.Log(_moveStep);
             y,
             transform.position.z
         );
+    }
+
+    private IEnumerator RotateToPlayerDontMove()
+    {
+        yield return new WaitForSeconds(2f);
+
+        RotateTo(Camera.main.gameObject);
     }
 }

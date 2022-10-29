@@ -13,7 +13,14 @@ public class MovingTarget : MonoBehaviour
     [SerializeField][Range(0, 5)] private float _rangeX;
     [SerializeField][Range(0, 5)] private float _rangeZ;
 
+    private TargetPositionChecker _checker;
+
     private int _direction = (int)SideDirection.RIGHT;
+
+    private void Start() 
+    {
+        _checker = GetComponentInParent<TargetPositionChecker>();   
+    }
 
     private void OnTriggerEnter(Collider other) 
     {
@@ -32,9 +39,22 @@ public class MovingTarget : MonoBehaviour
 
     private void Update() 
     {
-        transform.localPosition = new Vector3(
-            _rangeX * _direction,
-            transform.localPosition.y,
-            _rangeZ);
+        if(_checker.GetIsMove())
+        {
+            transform.localPosition = new Vector3(
+                _rangeX * _direction,
+                transform.localPosition.y,
+                _rangeZ
+            );
+        }
+        else
+        {
+            transform.localPosition = new Vector3(
+                _rangeX * _direction,
+                transform.localPosition.y,
+                1f
+            );
+        }
+        
     }
 }
