@@ -85,6 +85,7 @@ public class TargetPositionChecker : MonoBehaviour
     }
 
     public float GetPlayerSpeed() => _moveSpeed;
+    public float GetDistToPlayer() => _nowDistance;
     public bool GetIsMove() => _isMove;
 
 }

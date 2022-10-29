@@ -32,6 +32,11 @@ public class ProtoTypeHanaMovement : MonoBehaviour
     {
         GetDistToTarget();
         MoveToTarget(_canMove);
+        transform.position = new Vector3(
+            transform.position.x,
+            Camera.main.transform.position.y - 1.3f,
+            transform.position.z
+        );
 
     }
 
@@ -69,7 +74,7 @@ public class ProtoTypeHanaMovement : MonoBehaviour
         {
             if(DistToTarget > 0.5f)
             {
-                if(DistToTarget > 1.5f)
+                if(DistToTarget > 2f)
                 {
                     MoveSet((int)MoveStep.RUN);
                     _anim.Play("MoveRun");
@@ -89,20 +94,28 @@ public class ProtoTypeHanaMovement : MonoBehaviour
         }
     }
 
+    // TODO : 케릭터 이동조건 추가 요함.
     private void MoveSet(int state)
     {
+        Vector3 TargetPosition = new Vector3(
+            _targetPosition.transform.position.x,
+            transform.position.y,
+            _targetPosition.transform.position.z
+        );
+        
+        float distToTarget = Vector3.Distance(TargetPosition, transform.position);
         switch(state)
         {
             case 0:
                 _moveSpeed = 0f;
                 break;
             case 1:
-                _moveSpeed = _positionChecker.GetPlayerSpeed();
+                _moveSpeed = distToTarget;
                 Debug.Log(_positionChecker.GetPlayerSpeed());
 
                 break;
             case 2:
-                _moveSpeed = _positionChecker.GetPlayerSpeed() * 2;
+                _moveSpeed = distToTarget * 2;
                 Debug.Log(_positionChecker.GetPlayerSpeed());
                 break;
         }
