@@ -22,7 +22,7 @@ public class InGameUI : MonoBehaviour
             _uiDic.Add(_uiList[i].name, _uiList[i]);
         }
 
-        HeightCheck();
+        CheckNowScene();
         //GameManager.Instance.SetObjectProperty("Map", gameObject);
     }
 
@@ -121,7 +121,7 @@ public class InGameUI : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "Proto_StageScene")
         {
-            ActUI("StroyUI");
+            ActUI("StoryUI");
             ActUI("NormalUI");
         }
     }

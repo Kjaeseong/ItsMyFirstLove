@@ -4,6 +4,7 @@ using UnityEngine;
 using Google.Maps.Coord;
 using Google.Maps.Event;
 using Google.Maps.Examples.Shared;
+using UnityEngine.SceneManagement;
 
 public class BuildingManager : MonoBehaviour
 {
@@ -53,6 +54,11 @@ public class BuildingManager : MonoBehaviour
     // 빌딩의 이름과 위치를 받아오고, 그 위치를 기준으로 오브젝트 생성
     public void FindBuilding()
     {
+        if(SceneManager.GetActiveScene().name == "Proto_WalkScene")
+        {
+            return;
+        }
+
         GameObject BuildingForLocation = GameObject.Find(LocationName);
         Vector3 LocationPos = BuildingForLocation.transform.position;
 

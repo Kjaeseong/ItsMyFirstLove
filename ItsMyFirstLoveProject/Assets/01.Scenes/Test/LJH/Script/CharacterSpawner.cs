@@ -10,7 +10,7 @@ public class CharacterSpawner : MonoBehaviour
 
     private void AddCharacter()
     {
-        Instantiate(_character, new Vector3(-2f, 1.5f, -2f) + Camera.main.transform.position, Quaternion.identity);
+        Instantiate(_character, Camera.main.transform.position, Quaternion.identity);
     }
 
     private void OnTriggerEnter(Collider other)

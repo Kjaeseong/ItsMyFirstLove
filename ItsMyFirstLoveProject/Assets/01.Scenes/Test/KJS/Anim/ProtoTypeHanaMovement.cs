@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ProtoTypeHanaMovement : MonoBehaviour
 {
@@ -16,7 +17,10 @@ public class ProtoTypeHanaMovement : MonoBehaviour
 
     private void Awake()
     {
-        GameManager.Instance.SetCharObject(gameObject);
+        if (SceneManager.GetActiveScene().name == "Proto_WalkScene")
+        {
+            GameManager.Instance.SetCharObject(gameObject);
+        }
     }
 
     private void Start() 

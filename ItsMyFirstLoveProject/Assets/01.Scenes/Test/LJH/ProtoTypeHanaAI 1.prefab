@@ -17191,11 +17191,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1580021252547560876}
   - component: {fileID: 1580021252547560877}
-  - component: {fileID: 1580021252547560874}
   - component: {fileID: 882265395843597116}
   - component: {fileID: 2618503091516827704}
-  - component: {fileID: 1580021252547560885}
   - component: {fileID: -9036944996583800542}
+  - component: {fileID: 1909879339614347163}
   m_Layer: 7
   m_Name: ProtoTypeHanaAI 1
   m_TagString: Untagged
@@ -17234,19 +17233,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!65 &1580021252547560874
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1580021252547560875}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3, y: 1.4, z: 0.3}
-  m_Center: {x: 0, y: 0.66, z: 0}
 --- !u!195 &882265395843597116
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -17367,21 +17353,6 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!114 &1580021252547560885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1580021252547560875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a0959c3a2f8452438448e6e285cb8ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetPosition: {fileID: 0}
-  _walkSpeed: 0
-  _runSpeed: 0
 --- !u!114 &-9036944996583800542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17396,11 +17367,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ai: {fileID: 882265395843597116}
   _player: {fileID: 0}
+  _destinationUI: {fileID: 0}
   _destinations:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!136 &1909879339614347163
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580021252547560875}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.3
+  m_Height: 1.58
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.69, z: 0}
 --- !u!1 &1602941513248466169
 GameObject:
   m_ObjectHideFlags: 0
