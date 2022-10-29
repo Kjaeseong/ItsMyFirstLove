@@ -102,7 +102,11 @@ public class LocationFinder : MonoBehaviour
         _animationSupport.Play("Idle");
         _ai.speed = 0f;
         Debug.Log("왜 안와?");
-        transform.LookAt(player.transform.position);
+        Vector3 target = new Vector3(
+            player.transform.position.x,
+            transform.position.y,
+            player.transform.position.z);
+        transform.LookAt(target);
     }
 
     // 경과시간 초기화 함수
@@ -117,15 +121,25 @@ public class LocationFinder : MonoBehaviour
         _ai.speed = 1f;
         _animationSupport.Play("Move");
     }
+
+    IEnumerator CollOnOff(CapsuleCollider coll)
+    {
+        coll.enabled = false;
+        yield return new WaitForSecondsRealtime(3f);
+        coll.enabled = true;
+    }
+
     // 캐릭터가 목적지 포인트에 도착하면 다음 목적지로 변경해준다.
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Location")
         {
             Debug.Log("도착");
-
             if (_locationCount < 3)
             {
+                _destinations[_locationCount].SetActive(false);
+                StartCoroutine(CollOnOff(transform.GetComponent<CapsuleCollider>()));
+                
                 _locationCount++;
                 _ai.destination = _destinations[_locationCount].transform.position;
                 _destinationUI.transform.position = _ai.destination;
@@ -140,15 +154,8 @@ public class LocationFinder : MonoBehaviour
             if (_destinations == null)
             {
                 return;
-            }
+            }   
         }
-
-        if (other.tag == "Player")
-        {
-            _isClose = true;
-            Invoke("MoveHana", 2f);
-        }
-
     }
 
     // 캐릭터근처에 플레이어가 있으면 이동한다.
@@ -156,7 +163,8 @@ public class LocationFinder : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-
+            _isClose = true;
+            MoveHana();
         }
     }
 
