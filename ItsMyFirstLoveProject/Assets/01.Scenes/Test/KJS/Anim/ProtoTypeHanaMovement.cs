@@ -94,7 +94,6 @@ public class ProtoTypeHanaMovement : MonoBehaviour
         }
     }
 
-    // TODO : 케릭터 이동조건 추가 요함.
     private void MoveSet(int state)
     {
         Vector3 TargetPosition = new Vector3(
@@ -111,12 +110,10 @@ public class ProtoTypeHanaMovement : MonoBehaviour
                 break;
             case 1:
                 _moveSpeed = distToTarget;
-                Debug.Log(_positionChecker.GetPlayerSpeed());
 
                 break;
             case 2:
                 _moveSpeed = distToTarget * 2;
-                Debug.Log(_positionChecker.GetPlayerSpeed());
                 break;
         }
 

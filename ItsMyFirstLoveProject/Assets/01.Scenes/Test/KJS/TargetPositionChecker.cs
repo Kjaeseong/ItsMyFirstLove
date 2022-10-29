@@ -14,7 +14,7 @@ public class TargetPositionChecker : MonoBehaviour
     //[SerializeField] private GameObject _player;
     [SerializeField] private GameObject _target;
     [SerializeField] private float _checkCycle;
-    [SerializeField] private float _moveSpeed;
+
     
 
     private Vector3 _nowPosition;
@@ -24,7 +24,6 @@ public class TargetPositionChecker : MonoBehaviour
     private bool _isSwitchOn;
     private int _direction;
 
-    private bool _isMove;
 
     private void Start() 
     {
@@ -71,21 +70,13 @@ public class TargetPositionChecker : MonoBehaviour
                 //transform.SetPositionAndRotation(_player.transform.position, rot);
                 transform.SetPositionAndRotation(Camera.main.transform.position, rot);
                 TargetPositionSet();
-                _moveSpeed = _nowDistance;
-                _isMove = true;
             }
             else if(_nowDistance <= 0)
             {
-                Debug.Log("속도갱신 없음");
-                _isMove = false;
             }
             
             yield return new WaitForSeconds(_checkCycle);
         }
     }
-
-    public float GetPlayerSpeed() => _moveSpeed;
-    public float GetDistToPlayer() => _nowDistance;
-    public bool GetIsMove() => _isMove;
 
 }
