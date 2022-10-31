@@ -11,7 +11,7 @@ public class ChapterNum : MonoBehaviour
     {
        for(int i = 0; i < StageManager.Length; i++)
         {
-            StageManager[i].ChpaterNumber = ChapterNum;
+            //StageManager[i].ChpaterNumber = ChapterNum;
         }
 
     }
