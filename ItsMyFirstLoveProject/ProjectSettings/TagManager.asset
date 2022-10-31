@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Location
+  - EventTrigger
+  - Building
+  - Destination
   layers:
   - Default
   - TransparentFX
@@ -12,8 +16,9 @@ TagManager:
   - Water
   - UI
   - 
-  - 
-  - 
+  - Path
+  - OnlyMiniMap
+  - Destination
   - 
   - 
   - 
