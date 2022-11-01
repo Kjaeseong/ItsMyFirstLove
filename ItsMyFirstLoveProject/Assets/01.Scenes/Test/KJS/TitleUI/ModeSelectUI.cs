@@ -10,6 +10,8 @@ public class ModeSelectUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _level;
     [SerializeField] private Image _favorability;
     [SerializeField] private GameObject _talkBox;
+    [field: SerializeField] public float DeactBoxTextTime { get; private set; }
+    [SerializeField] private float _actBoxTextTime;
     private TitleUIManager _title;
     private TextMeshProUGUI _talkBoxText;
     private List<string> _BoxText = new List<string>();
@@ -19,9 +21,47 @@ public class ModeSelectUI : MonoBehaviour
         _title = GetComponentInParent<TitleUIManager>();
         _talkBoxText = _talkBox.GetComponentInChildren<TextMeshProUGUI>();
     }
-    public void StartWalkMode()
+    
+    /// <summary>
+    ///
+    /// </summary>
+    public void PlayWalkMode()
     {
-        GameManager.Instance._scene.Change("WalkMode");
+        _title.PlayWalkMode();
+    }
+
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public void ActivateTalkBox(string Text)
+    {
+        _talkBoxText.text = Text;
+        _talkBox.SetActive(true);
+    }
+
+    /// <summary>
+    ///
+    /// </summary>
+    public void ActivateChapterSelect()
+    {
+        _title.ActivateChapterSelect();
+    }
+
+    /// <summary>
+    ///
+    /// </summary>
+    public void PlayWalkMode()
+    {
+        _title.PlayWalkMode();
+    }
+
+    /// <summary>
+    ///
+    /// </summary>
+    public void ActivateOption()
+    {
+        _title.ActivateOption();
     }
 
     private void CharacterTouch()
@@ -29,25 +69,17 @@ public class ModeSelectUI : MonoBehaviour
         ActivateTalkBox(_BoxText[Random.Range(0, _BoxText.Count)]);
     }
 
-    public void ActivateTalkBox(string Text)
+    private IEnumerator ActivateBoxAuto()
     {
-        _talkBoxText.text = Text;
+        yield return new WaitForSeconds(_actBoxTextTime);
+        ActivateTalkBox(_BoxText[Random.Range(0, _BoxText.Count)]);
         _talkBox.SetActive(true);
     }
 
-    public void ActivateChapterSelect()
+    public void ActivateBoxTouch()
     {
-        _title.ActivateChapterSelect();
-    }
-    
-    public void PlayWalkMode()
-    {
-        _title.PlayWalkMode();
-    }
-
-    public void ActivateOption()
-    {
-        _title.ActivateOption();
+        ActivateTalkBox(_BoxText[Random.Range(0, _BoxText.Count)]);
+        _talkBox.SetActive(true);
     }
 
 }
