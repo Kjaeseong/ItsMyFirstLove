@@ -14,20 +14,8 @@ public class HeightCheckUI : MonoBehaviour
 
     private void Update() 
     {
-        ActivateButton();
+        _okButton.SetActive(_checker.DetectionPlane());
         BoxTextSet($"Cam height : {_checker.GetHeight() + 0.4f.ToString()}");
-    }
-
-    private void ActivateButton()
-    {
-        if(_checker.DetectionPlane())
-        {
-            _okButton.SetActive(true);
-        }
-        else
-        {
-            _okButton.SetActive(false);
-        }
     }
 
     private void BoxTextSet(string Text)
@@ -35,10 +23,7 @@ public class HeightCheckUI : MonoBehaviour
         _boxText.text = Text;
     }
 
-    /// <summary>
-    /// 버튼 누르면 UI비활성화 및 게임매니저 높이 관련 프로퍼티 세팅
-    /// </summary>
-    public void DeactivateUI()
+    private void OnDisable()
     {
         GameManager.Instance.SetCameraHeight(_checker.GetHeight());
         gameObject.SetActive(false);
