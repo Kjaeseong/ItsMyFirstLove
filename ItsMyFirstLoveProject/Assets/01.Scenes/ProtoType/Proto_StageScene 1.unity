@@ -709,18 +709,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe1a66d44e8f47841b978f811562716d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BusinessNameObject:
+  _protoTypeLocation: []
+  _businessNameObject:
   - {fileID: 514007847}
   - {fileID: 154832318}
   - {fileID: 1947724726}
   - {fileID: 1601888344}
   - {fileID: 1066400099}
+  _character: {fileID: -9036944996583800542, guid: 734461f101e01224c9523a237e2bbef4, type: 3}
+  TestPos: {x: 0, y: 0, z: 0}
+  LocationName: ExtrudedStructure (ChIJN2LvIVWlfDUR1hQoEQLTi3A)
   BusinessName:
   - ExtrudedStructure (ChIJ77il4FSlfDURtTHgEqw1GqM)
   - ExtrudedStructure (ChIJl-L0HlWlfDURRtr_nkpNSdc)
   - ExtrudedStructure (ChIJ1-UyJFWlfDURhYSOGUpdcag)
   - ExtrudedStructure (ChIJlQ2kLVWlfDURPWzreu8o_ow)
   - ExtrudedStructure (ChIJb56rMlWlfDURx1D3fqca5Uc)
+  LocationPosX:
+  - 0
 --- !u!114 &910068127 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7101055344760649479, guid: 0791e138201e8394ea882e015fc65c4d, type: 3}

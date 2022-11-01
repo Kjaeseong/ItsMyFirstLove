@@ -5,15 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class BuildingFinder : MonoBehaviour
 {
-    [SerializeField] private GameObject[] _protoTypeLocation;
-    [SerializeField] private GameObject[] BusinessNameObject;
+    [SerializeField] private GameObject[]   _protoTypeLocation;
+    [SerializeField] private GameObject[]   _businessNameObject;
     [SerializeField] private LocationFinder _character;
 
-    public Vector3 TestPos;
-    public string LocationName;
+    public Vector3  TestPos;
+    public string   LocationName;
     public string[] BusinessName;
-    public float[] LocationPosX;
-    
 
     private void Start()
     {
@@ -67,15 +65,15 @@ public class BuildingFinder : MonoBehaviour
 
             if (i < 4)
             {
-                BusinessNameObject[0].transform.position = new Vector3(BusinessLocation[0].x + 23, BusinessLocation[0].y, BusinessLocation[0].z - 5);
-                BusinessNameObject[1].transform.position = new Vector3(BusinessLocation[1].x + 11.8f, BusinessLocation[1].y, BusinessLocation[1].z - 5);
-                BusinessNameObject[2].transform.position = new Vector3(BusinessLocation[2].x + 5.7f, BusinessLocation[2].y, BusinessLocation[2].z - 3.4f);
-                BusinessNameObject[3].transform.position = new Vector3(BusinessLocation[3].x + 7, BusinessLocation[3].y, BusinessLocation[3].z - 3.8f);
+                _businessNameObject[0].transform.position = new Vector3(BusinessLocation[0].x + 23, BusinessLocation[0].y, BusinessLocation[0].z - 5);
+                _businessNameObject[1].transform.position = new Vector3(BusinessLocation[1].x + 11.8f, BusinessLocation[1].y, BusinessLocation[1].z - 5);
+                _businessNameObject[2].transform.position = new Vector3(BusinessLocation[2].x + 5.7f, BusinessLocation[2].y, BusinessLocation[2].z - 3.4f);
+                _businessNameObject[3].transform.position = new Vector3(BusinessLocation[3].x + 7, BusinessLocation[3].y, BusinessLocation[3].z - 3.8f);
             }
 
             else
             {
-                BusinessNameObject[i].transform.position = BusinessLocation[i];
+                _businessNameObject[i].transform.position = BusinessLocation[i];
             }
 
         }

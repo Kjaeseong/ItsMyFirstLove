@@ -9,8 +9,9 @@ using UnityEngine.SceneManagement;
 public class BuildingManager : MonoBehaviour
 {
     [SerializeField] private MeshRenderer[] _mesh;
-    [SerializeField] private Material[] _mat = new Material[2];
+    [SerializeField] private Material[]     _mat = new Material[2];
     [SerializeField] private GameObject     _miniMapBuildingObject;
+
     private GameObject _miniMapBuilding;
     private LatLng _latLng;
 

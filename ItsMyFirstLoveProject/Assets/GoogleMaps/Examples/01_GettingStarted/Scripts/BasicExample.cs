@@ -28,7 +28,7 @@ namespace Google.Maps.Examples {
         /// </summary>
         private void Start() {
 
-            _findBuildingOfBusinessName = GetComponent<FindBuildingOfBusinessName>();
+            _buildingFinder = GetComponent<BuildingFinder>();
 
             _buildingManager = GetComponent<BuildingManager>();
             // Get required MapsService component on this GameObject.
