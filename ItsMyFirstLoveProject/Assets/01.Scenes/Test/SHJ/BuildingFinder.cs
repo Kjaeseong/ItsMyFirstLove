@@ -7,6 +7,7 @@ public class BuildingFinder : MonoBehaviour
 {
     [SerializeField] private GameObject[]   _protoTypeLocation;
     [SerializeField] private GameObject[]   _businessNameObject;
+    [SerializeField] private GameObject     _TESTlocations;
     [SerializeField] private LocationFinder _character;
 
     public Vector3  TestPos;
@@ -32,15 +33,19 @@ public class BuildingFinder : MonoBehaviour
         Vector3 LocationPos = BuildingForLocation.transform.position;
 
         // 프로토타입 경로
-        _character._destinations[0] = Instantiate(_protoTypeLocation[0], new Vector3(LocationPos.x - 5.5f, 0.5f, LocationPos.z - 14), Quaternion.Euler(0, 0, 0));
-        _character._destinations[1] = Instantiate(_protoTypeLocation[1], new Vector3(LocationPos.x + 18.3f, 0.5f, LocationPos.z - 23.7f), Quaternion.Euler(0, 0, 0));
-        _character._destinations[2] = Instantiate(_protoTypeLocation[2], new Vector3(LocationPos.x + 43, 0.5f, LocationPos.z + 86), Quaternion.Euler(0, 0, 0));
-        _character._destinations[3] = Instantiate(_protoTypeLocation[3], new Vector3(LocationPos.x + 50, 0.5f, LocationPos.z + 106), Quaternion.Euler(0, 0, 0));
+        //_character._destinations[0] = Instantiate(_protoTypeLocation[0], new Vector3(LocationPos.x - 5.5f, 0.5f, LocationPos.z - 14), Quaternion.Euler(0, 0, 0));
+        //_character._destinations[1] = Instantiate(_protoTypeLocation[1], new Vector3(LocationPos.x + 18.3f, 0.5f, LocationPos.z - 23.7f), Quaternion.Euler(0, 0, 0));
+        //_character._destinations[2] = Instantiate(_protoTypeLocation[2], new Vector3(LocationPos.x + 43, 0.5f, LocationPos.z + 86), Quaternion.Euler(0, 0, 0));
+        //_character._destinations[3] = Instantiate(_protoTypeLocation[3], new Vector3(LocationPos.x + 50, 0.5f, LocationPos.z + 106), Quaternion.Euler(0, 0, 0));
 
-        //for(int i = 0; i < _character._destinations.Length; i++)
-        //{
-        //    _character._destinations[i] = Instantiate(_protoTypeLocation[i], new Vector3(LocationPos.x, 0.5f, LocationPos.z), Quaternion.Euler(0, 0, 0));
-        //}
+
+        //_character._destinations[2] = _TESTlocations.transform.GetChild(0).gameObject;
+        //_character._destinations[3] = _TESTlocations.transform.GetChild(1).gameObject;
+
+        for (int i = 0; i < _character._destinations.Length; i++)
+        {
+            _character._destinations[i] = _TESTlocations.transform.GetChild(i).gameObject;
+        }
 
         TestPos = _character._destinations[0].transform.position;
     }
