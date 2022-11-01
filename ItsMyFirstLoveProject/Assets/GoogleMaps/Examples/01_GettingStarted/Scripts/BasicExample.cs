@@ -21,7 +21,7 @@ namespace Google.Maps.Examples {
 
         private BuildingManager _buildingManager;
 
-        private FindBuildingOfBusinessName _findBuildingOfBusinessName;
+        private BuildingFinder _buildingFinder;
 
         /// <summary>
         /// Use <see cref="MapsService"/> to load geometry.
@@ -68,17 +68,16 @@ namespace Google.Maps.Examples {
             // The Map is loaded - you can start/resume gameplay from that point.
             // The new geometry is added under the GameObject that has MapsService as a component.
             _buildingManager.GetMesh();
-            if (SceneManager.GetActiveScene().name == "Proto_StageScene")
+            if (SceneManager.GetActiveScene().name == "Proto_StageScene 1")
             {
-                _buildingManager.FindBuilding();
-                _findBuildingOfBusinessName.FindBusinessName();
+                _buildingFinder.FindBuilding();
+                _buildingFinder.FindBusinessName();
             }
 
             transform.position = new Vector3(
                 transform.position.x,
                 transform.position.y - 1.3f,
                 transform.position.z);
-            //_buildingManager.AddCharacter();
         }
     }
 }
