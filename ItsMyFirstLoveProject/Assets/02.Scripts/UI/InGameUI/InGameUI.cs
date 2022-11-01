@@ -8,11 +8,12 @@ public class InGameUI : MonoBehaviour
     [SerializeField] private List<GameObject> _uiList = new List<GameObject>();
     private Dictionary<string, GameObject> _uiDic = new Dictionary<string, GameObject>();
 
-    [SerializeField]private CharacterCommunicationUI _charCommunicationUI;
-    [SerializeField]private StartEndPointUI _endPointUI;
-    [SerializeField]private StartEndPointUI _startPointUI;
-    [SerializeField]private PopUpUI _popUpUI;
-    [SerializeField]private VPSUI _vpsUI;
+    [SerializeField] private CharacterCommunicationUI _charCommunicationUI;
+    [SerializeField] private StartEndPointUI _endPointUI;
+    [SerializeField] private StartEndPointUI _startPointUI;
+    [SerializeField] private PopUpUI _popUpUI;
+    [SerializeField] private VPSUI _vpsUI;
+    [SerializeField] private OptionUI _optionUI;
 
     private void Start() 
     {
@@ -183,6 +184,15 @@ public class InGameUI : MonoBehaviour
     public void Walk()
     {
         ActUI("WalkUI");
+    }
+
+    /// <summary>
+    /// 환경설정 UI 호출, 매개변수로 호출하는 씬의 오브젝트 담아서 호출함
+    /// </summary>
+    public void Option(GameObject UI)
+    {
+        ActUI("OptionUI");
+        _optionUI.ObjectSet(UI);
     }
 
     private void ActUI(string ui)

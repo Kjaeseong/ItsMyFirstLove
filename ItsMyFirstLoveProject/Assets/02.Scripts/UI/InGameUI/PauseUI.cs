@@ -1,23 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PauseUI : MonoBehaviour
 {
-    [SerializeField] private GameObject _optionUI;
-    //private OptionUI _option;
+    private InGameUI _inGameUI;
 
     private void Start()
     {
-        // _option = _optionUI.GetComponent<OptionUI>();
+        _inGameUI = GetComponentInParent<InGameUI>();
     }
 
     /// <summary>
     /// 옵션창 호출을 위한 함수 <br/>
     /// 호출시 일시정지 오브젝트를 넘겨주면 뒤로가기 버튼 구현이 쉬워진다.
     /// </summary>
-    public void ActivateOptionUI()
+    public void ActivateOptionUI(GameObject UI)
     {
+        _inGameUI.Option(gameObject);
+        gameObject.SetActive(false);
         // _optionUI.SetActive(true);
         // _option.GetObject(gameObject);
         // TODO : 위와 같은 방식으로 해당 오브젝트를 넘겨줘야 
@@ -30,6 +29,6 @@ public class PauseUI : MonoBehaviour
     /// </summary>
     public void DateExit()
     {
-        GameManager.Instance._scene.Change("Proto_Title");
+        GameManager.Instance._scene.Change("MainTitle");
     }
 }
