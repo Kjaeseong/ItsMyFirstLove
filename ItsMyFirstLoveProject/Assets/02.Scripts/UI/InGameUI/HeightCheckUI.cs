@@ -6,10 +6,12 @@ public class HeightCheckUI : MonoBehaviour
     private HeightCheck _checker;
     [SerializeField] private GameObject _okButton;
     [SerializeField] private TextMeshProUGUI _boxText;
+    private InGameUI _inGameUI;
 
     private void Start() 
     {
         _checker = GetComponentInChildren<HeightCheck>();
+        _inGameUI = GetComponentInParent<InGameUI>();
     }
 
     private void Update() 
@@ -26,6 +28,13 @@ public class HeightCheckUI : MonoBehaviour
     private void OnDisable()
     {
         GameManager.Instance.SetCameraHeight(_checker.GetHeight());
-        gameObject.SetActive(false);
+    }
+
+    /// <summary>
+    /// OK버튼 선택시 동작
+    /// </summary>
+    public void CompleteHeightCheck()
+    {
+        _inGameUI.CompleteHeightCheck();
     }
 }

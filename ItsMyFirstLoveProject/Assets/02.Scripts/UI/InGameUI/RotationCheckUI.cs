@@ -8,10 +8,21 @@ public class RotationCheckUI : MonoBehaviour
     private bool _isButtonDown;
     private int _direction;
     [SerializeField] private TextMeshProUGUI _boxText;
+    private InGameUI _inGameUI;
+
+    private void Start() 
+    {
+        _inGameUI = GetComponentInParent<InGameUI>();
+    }
 
     private void OnEnable() 
     {
         // TODO : Map 내 건물들 불투명 매트리얼 적용 코드 추가해야함.
+    }
+
+    private void OnDisable() 
+    {
+        // TODO : Map 내 건물들 투명 매트리얼 적용 코드 추가해야함
     }
 
     private void Update() 
@@ -37,6 +48,14 @@ public class RotationCheckUI : MonoBehaviour
     {
         _isButtonDown = false;
         _direction = 0;
+    }
+
+    /// <summary>
+    /// Close 버튼 클릭시 동작
+    /// </summary>
+    public void CompleteRotationCheck()
+    {
+        _inGameUI.CompleteRotationCheck();
     }
 
     private void BoxTextSet(string Text)

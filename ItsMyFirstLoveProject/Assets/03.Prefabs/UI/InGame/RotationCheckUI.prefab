@@ -809,7 +809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1e2ddcb45903d44288a21cb0d0728ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isButtonDown: 0
+  _boxText: {fileID: 5619697985619436333}
 --- !u!1 &5619697986834914163
 GameObject:
   m_ObjectHideFlags: 0
@@ -931,10 +931,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5619697986236413676}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 5619697986236413651}
+        m_TargetAssemblyTypeName: RotationCheckUI, Assembly-CSharp
+        m_MethodName: CompleteRotationCheck
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
