@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class BuildingFinder : MonoBehaviour
 {
-    [SerializeField] private GameObject     _ProtoTypeLocations;
-    [SerializeField] private GameObject     _ProtoTypeBusinessName;
+    [SerializeField] private GameObject _ProtoTypeLocations;
+    [SerializeField] private GameObject _ProtoTypeBusinessName;
     [SerializeField] private LocationFinder _character;
 
-    public string   LocationName;
+    public string LocationName;
 
     private void Start()
     {

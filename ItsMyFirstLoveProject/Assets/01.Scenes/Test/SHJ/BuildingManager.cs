@@ -33,17 +33,15 @@ public class BuildingManager : MonoBehaviour
             {
                 _miniMapBuilding.tag = "Building";
             }
+
             _miniMapBuilding.layer = 8;
             Instantiate(_miniMapBuilding, _miniMapBuildingObject.transform);
+
             renderer.gameObject.layer = 0;
             renderer.materials = _mat;
             renderer.gameObject.AddComponent<MeshCollider>();
             renderer.gameObject.AddComponent<NavMeshSourceTag>();
         }
     }
-    //public void OnLoaded(MapLoadedArgs args)
-    //{
-
-    //}
 }
 
