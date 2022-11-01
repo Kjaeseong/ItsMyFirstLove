@@ -15,23 +15,23 @@ public class HeightCheck : MonoBehaviour
 
     private bool _detectionPlane;
 
-    // void Start()
-    // {
-    //     GameObject AR = Camera.main.gameObject;
-    //     _arRaycaster = AR.GetComponentInParent<ARRaycastManager>();
-    //     _arPlaneManager = AR.GetComponentInParent<ARPlaneManager>();
-    // }
+    void Start()
+    {
+        GameObject AR = Camera.main.gameObject;
+        _arRaycaster = AR.GetComponentInParent<ARRaycastManager>();
+        _arPlaneManager = AR.GetComponentInParent<ARPlaneManager>();
+    }
 
-    // private void OnEnable() 
-    // {
-    //     PlanePrefabSet(_checkPlane);
-    //     _cameraH = 0f;
-    // }
+    private void OnEnable() 
+    {
+        PlanePrefabSet(_checkPlane);
+        _cameraH = 0f;
+    }
 
-    // private void OnDisable() 
-    // {
-    //     PlanePrefabSet(_normalPlane);
-    // }
+    private void OnDisable() 
+    {
+        PlanePrefabSet(_normalPlane);
+    }
 
     private void Update() 
     {
