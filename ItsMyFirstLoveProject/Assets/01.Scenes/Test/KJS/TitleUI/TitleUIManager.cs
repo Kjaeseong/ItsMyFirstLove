@@ -8,12 +8,12 @@ public class TitleUIManager : MonoBehaviour
     [SerializeField] private GameObject _chapterSelectUI;
     [SerializeField] private GameObject _optionUI;
 
-
     /// <summary>
     /// 모드 선택창UI 출력
     /// </summary>
     public void ActivateModeSelect()
     {
+        Debug.Log("모드 선택창 출력");
         _modeSelectUI.SetActive(true);
     }
 
@@ -22,6 +22,7 @@ public class TitleUIManager : MonoBehaviour
     /// </summary>
     public void ActivateChapterSelect()
     {
+        Debug.Log("챕터 선택창 출력");
         _chapterSelectUI.SetActive(true);
     }
 
@@ -30,15 +31,8 @@ public class TitleUIManager : MonoBehaviour
     /// </summary>
     public void ActivateOption()
     {
+        Debug.Log("환경설정 출력");
         _optionUI.SetActive(true);
-    }
-
-    /// <summary>
-    /// 스테이지모드 씬 실행
-    /// </summary>
-    public void PlayStageMode()
-    {
-        GameManager.Instance._scene.Change("StageMode");
     }
 
     /// <summary>

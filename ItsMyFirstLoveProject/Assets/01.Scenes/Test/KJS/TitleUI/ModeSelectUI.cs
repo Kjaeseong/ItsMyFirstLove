@@ -74,7 +74,7 @@ public class ModeSelectUI : MonoBehaviour
     public void ActivateBoxTouch()
     {
         StopCoroutine(ActivateBoxAuto());
-        ActivateTalkBox(_boxText[Random.Range(0, _boxText.Count)]);
+        //ActivateTalkBox(_boxText[Random.Range(0, _boxText.Count)]);
         _talkBox.SetActive(true);
     }
 
@@ -115,16 +115,21 @@ public class ModeSelectUI : MonoBehaviour
         _favorabilityGauge.fillAmount = value / 100;
     }
 
-    private void CharacterTouch()
+    /// <summary>
+    /// 배경화면 클릭시 동작
+    /// </summary>
+    public void BackGroundTouch()
     {
-        ActivateTalkBox(_boxText[Random.Range(0, _boxText.Count)]);
+        //ActivateTalkBox(_boxText[Random.Range(0, _boxText.Count)]);
+        _talkBox.SetActive(true);
+        StopCoroutine(ActivateBoxAuto());
         // TODO : 케릭터 애니메이션 실행 로직 추가해야함.
     }
 
     private IEnumerator ActivateBoxAuto()
     {
         yield return new WaitForSeconds(_actBoxTextTime);
-        ActivateTalkBox(_boxText[Random.Range(0, _boxText.Count)]);
+        //ActivateTalkBox(_boxText[Random.Range(0, _boxText.Count)]);
         _talkBox.SetActive(true);
     }
 }
