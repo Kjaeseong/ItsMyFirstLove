@@ -1,9 +1,11 @@
 using UnityEngine;
+using TMPro;
 
 public class HeightCheckUI : MonoBehaviour
 {
     private HeightCheck _checker;
     [SerializeField] private GameObject _okButton;
+    [SerializeField] private TextMeshProUGUI _boxText;
 
     private void Start() 
     {
@@ -13,6 +15,7 @@ public class HeightCheckUI : MonoBehaviour
     private void Update() 
     {
         ActivateButton();
+        BoxTextSet($"Cam height : {_checker.GetHeight() + 0.4f.ToString()}");
     }
 
     private void ActivateButton()
@@ -25,6 +28,11 @@ public class HeightCheckUI : MonoBehaviour
         {
             _okButton.SetActive(false);
         }
+    }
+
+    private void BoxTextSet(string Text)
+    {
+        _boxText.text = Text;
     }
 
     /// <summary>

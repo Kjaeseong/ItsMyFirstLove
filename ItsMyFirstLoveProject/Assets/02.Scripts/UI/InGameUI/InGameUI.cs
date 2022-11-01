@@ -113,13 +113,12 @@ public class InGameUI : MonoBehaviour
 
     private void CheckNowScene()
     {
-        if (SceneManager.GetActiveScene().name == "Proto_WalkScene")
+        if (SceneManager.GetActiveScene().name == "WalkMode")
         {
             ActUI("WalkUI");
             ActUI("NormalUI");
         }
-
-        if (SceneManager.GetActiveScene().name == "Proto_StageScene")
+        else if (SceneManager.GetActiveScene().name == "StageMode")
         {
             ActUI("StoryUI");
             ActUI("NormalUI");
