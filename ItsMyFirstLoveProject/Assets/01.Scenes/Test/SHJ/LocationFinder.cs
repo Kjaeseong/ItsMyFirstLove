@@ -133,7 +133,7 @@ public class LocationFinder : MonoBehaviour
         if (other.tag == "Location")
         {
             Debug.Log("도착");
-            if (_locationCount < 3)
+            if (_locationCount < _destinations.Length - 1)
             {
                 _destinations[_locationCount].SetActive(false);
                 StartCoroutine(CollOnOff(transform.GetComponent<CapsuleCollider>()));
@@ -143,7 +143,7 @@ public class LocationFinder : MonoBehaviour
                 _destinationUI.transform.position = _ai.destination;
             }
 
-            else if (_locationCount == 3)
+            else if (_locationCount == _destinations.Length)
             {
                 _locationCount = 0;
                 _ai.destination = _destinations[_locationCount].transform.position;
