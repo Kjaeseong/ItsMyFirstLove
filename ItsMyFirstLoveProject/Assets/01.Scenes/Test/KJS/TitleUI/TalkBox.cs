@@ -18,6 +18,11 @@ public class TalkBox : MonoBehaviour
         StartCoroutine(DeactivateBox());
     }
 
+    private void OnDisable() 
+    {
+        _modeSelectUI.OnDisableBox();
+    }
+
     private IEnumerator DeactivateBox()
     {
         yield return new WaitForSeconds(_deactBoxTime);

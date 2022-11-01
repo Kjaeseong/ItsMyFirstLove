@@ -34,14 +34,6 @@ public class TitleUIManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 산책모드 씬 실행
-    /// </summary>
-    public void PlayWalkMode()
-    {
-        GameManager.Instance._scene.Change("WalkMode");
-    }
-
-    /// <summary>
     /// 스테이지모드 씬 실행
     /// </summary>
     public void PlayStageMode()

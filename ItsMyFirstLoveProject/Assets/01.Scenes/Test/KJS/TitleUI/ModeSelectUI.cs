@@ -21,18 +21,10 @@ public class ModeSelectUI : MonoBehaviour
         _title = GetComponentInParent<TitleUIManager>();
         _talkBoxText = _talkBox.GetComponentInChildren<TextMeshProUGUI>();
     }
-    
-    /// <summary>
-    ///
-    /// </summary>
-    public void PlayWalkMode()
-    {
-        _title.PlayWalkMode();
-    }
-
 
     /// <summary>
-    /// 
+    /// TalkBox 활성화
+    /// Text : Box 내 표기할 텍스트 입력
     /// </summary>
     public void ActivateTalkBox(string Text)
     {
@@ -41,7 +33,7 @@ public class ModeSelectUI : MonoBehaviour
     }
 
     /// <summary>
-    ///
+    /// 챕터 선택창UI 출력
     /// </summary>
     public void ActivateChapterSelect()
     {
@@ -49,37 +41,50 @@ public class ModeSelectUI : MonoBehaviour
     }
 
     /// <summary>
-    ///
+    /// 산책모드 실행
     /// </summary>
     public void PlayWalkMode()
     {
-        _title.PlayWalkMode();
+        GameManager.Instance._scene.Change("WalkMode");
     }
 
     /// <summary>
-    ///
+    /// 환경설정UI 출력
     /// </summary>
     public void ActivateOption()
     {
         _title.ActivateOption();
     }
 
+
+    /// <summary>
+    /// TalkBox 비활성화시 동작
+    /// </summary>
+    public void OnDisableBox()
+    {
+        StartCoroutine(ActivateBoxAuto());
+    }
+
+    /// <summary>
+    /// 배경화면 클릭시 TalkBox 활성화 로직
+    /// </summary>
+    public void ActivateBoxTouch()
+    {
+        StopCoroutine(ActivateBoxAuto());
+        ActivateTalkBox(_BoxText[Random.Range(0, _BoxText.Count)]);
+        _talkBox.SetActive(true);
+    }
+
     private void CharacterTouch()
     {
         ActivateTalkBox(_BoxText[Random.Range(0, _BoxText.Count)]);
+        // TODO : 케릭터 애니메이션 실행 로직 추가해야함.
     }
-
+    
     private IEnumerator ActivateBoxAuto()
     {
         yield return new WaitForSeconds(_actBoxTextTime);
         ActivateTalkBox(_BoxText[Random.Range(0, _BoxText.Count)]);
         _talkBox.SetActive(true);
     }
-
-    public void ActivateBoxTouch()
-    {
-        ActivateTalkBox(_BoxText[Random.Range(0, _BoxText.Count)]);
-        _talkBox.SetActive(true);
-    }
-
 }
