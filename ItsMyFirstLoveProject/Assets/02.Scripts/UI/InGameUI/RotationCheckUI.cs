@@ -1,27 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class RotationCheckUI : MonoBehaviour
 {
     private bool _isButtonDown;
     private int _direction;
-    private GameObject _map;
-
-    private void Start() 
-    {
-        //_map = GameManager.Instance.Map;
-    }
+    [SerializeField] private TextMeshProUGUI _boxText;
 
     private void OnEnable() 
     {
-        // TODO : 구글맵 활성화시킬 목적, 다른 코드나 방법을 사용중이라면 해당 코드는 삭제해도 무방함.
-        // _map.SetActive(true);
+        // TODO : Map 내 건물들 불투명 매트리얼 적용 코드 추가해야함.
     }
 
     private void Update() 
     {
         RotateMap();
+        BoxTextSet($"Map Rot : {GameManager.Instance.MapRotateY.ToString()}");
     }
 
     /// <summary>
@@ -41,6 +37,11 @@ public class RotationCheckUI : MonoBehaviour
     {
         _isButtonDown = false;
         _direction = 0;
+    }
+
+    private void BoxTextSet(string Text)
+    {
+        _boxText.text = Text;
     }
 
     private void RotateMap()
