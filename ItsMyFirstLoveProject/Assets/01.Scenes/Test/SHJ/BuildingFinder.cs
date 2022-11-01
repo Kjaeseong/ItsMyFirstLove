@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class BuildingFinder : MonoBehaviour
 {
-    [SerializeField] private GameObject[]   _protoTypeLocation;
+    //[SerializeField] private GameObject[]   _protoTypeLocation;
     [SerializeField] private GameObject[]   _businessNameObject;
-    [SerializeField] private GameObject     _TESTlocations;
+    [SerializeField] private GameObject     _TestLocations;
     [SerializeField] private LocationFinder _character;
 
     public Vector3  TestPos;
@@ -31,6 +31,7 @@ public class BuildingFinder : MonoBehaviour
 
         GameObject BuildingForLocation = GameObject.Find(LocationName);
         Vector3 LocationPos = BuildingForLocation.transform.position;
+        _TestLocations.transform.position = LocationPos;
 
         // 프로토타입 경로
         //_character._destinations[0] = Instantiate(_protoTypeLocation[0], new Vector3(LocationPos.x - 5.5f, 0.5f, LocationPos.z - 14), Quaternion.Euler(0, 0, 0));
@@ -38,13 +39,9 @@ public class BuildingFinder : MonoBehaviour
         //_character._destinations[2] = Instantiate(_protoTypeLocation[2], new Vector3(LocationPos.x + 43, 0.5f, LocationPos.z + 86), Quaternion.Euler(0, 0, 0));
         //_character._destinations[3] = Instantiate(_protoTypeLocation[3], new Vector3(LocationPos.x + 50, 0.5f, LocationPos.z + 106), Quaternion.Euler(0, 0, 0));
 
-
-        //_character._destinations[2] = _TESTlocations.transform.GetChild(0).gameObject;
-        //_character._destinations[3] = _TESTlocations.transform.GetChild(1).gameObject;
-
         for (int i = 0; i < _character._destinations.Length; i++)
         {
-            _character._destinations[i] = _TESTlocations.transform.GetChild(i).gameObject;
+            _character._destinations[i] = _TestLocations.transform.GetChild(i).gameObject;
         }
 
         TestPos = _character._destinations[0].transform.position;

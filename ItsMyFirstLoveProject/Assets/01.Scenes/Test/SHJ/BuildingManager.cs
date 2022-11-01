@@ -15,7 +15,6 @@ public class BuildingManager : MonoBehaviour
     private GameObject _miniMapBuilding;
     private LatLng _latLng;
 
-
     private void Start()
     {
         //Invoke("GetMesh", 1f);
@@ -42,13 +41,9 @@ public class BuildingManager : MonoBehaviour
             renderer.gameObject.AddComponent<NavMeshSourceTag>();
         }
     }
+    //public void OnLoaded(MapLoadedArgs args)
+    //{
 
-    public void OnLoaded(MapLoadedArgs args)
-    {
-
-    }
-
-    
-
+    //}
 }
 
