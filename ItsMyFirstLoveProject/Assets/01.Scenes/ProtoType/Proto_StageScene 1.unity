@@ -191,7 +191,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 154832318}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 3.2, y: 0, z: -28.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 794272648}
@@ -251,7 +251,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 514007847}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -26.4, y: 0, z: 12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1214181035}
@@ -727,22 +727,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe1a66d44e8f47841b978f811562716d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _businessNameObject:
-  - {fileID: 514007847}
-  - {fileID: 154832318}
-  - {fileID: 1947724726}
-  - {fileID: 1601888344}
-  - {fileID: 1066400099}
-  _TestLocations: {fileID: 2082057937}
+  _ProtoTypeLocations: {fileID: 2082057937}
+  _ProtoTypeBusinessName: {fileID: 1077165660}
   _character: {fileID: -9036944996583800542, guid: 734461f101e01224c9523a237e2bbef4, type: 3}
   TestPos: {x: 0, y: 0, z: 0}
   LocationName: ExtrudedStructure (ChIJN2LvIVWlfDUR1hQoEQLTi3A)
-  BusinessName:
-  - ExtrudedStructure (ChIJ77il4FSlfDURtTHgEqw1GqM)
-  - ExtrudedStructure (ChIJl-L0HlWlfDURRtr_nkpNSdc)
-  - ExtrudedStructure (ChIJ1-UyJFWlfDURhYSOGUpdcag)
-  - ExtrudedStructure (ChIJlQ2kLVWlfDURPWzreu8o_ow)
-  - ExtrudedStructure (ChIJb56rMlWlfDURx1D3fqca5Uc)
 --- !u!114 &910068127 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7101055344760649479, guid: 0791e138201e8394ea882e015fc65c4d, type: 3}
@@ -1000,7 +989,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1066400099}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 42.9, y: 0, z: 105.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1310903908}
@@ -1035,7 +1024,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1077165661}
   m_Layer: 0
-  m_Name: BusinessLocation
+  m_Name: TEST__ProtoTypeBusinessLocation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1058,7 +1047,7 @@ Transform:
   - {fileID: 1601888345}
   - {fileID: 1066400100}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1085489592
 GameObject:
@@ -1375,7 +1364,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8988172156136546914, guid: 9ee6c533d47d18e44b4c382e404a37af, type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 8988172156136546914, guid: 9ee6c533d47d18e44b4c382e404a37af, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1545,7 +1534,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1601888344}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 35, y: 0, z: 89.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2027973894}
@@ -1712,7 +1701,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1947724726}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 13.8, y: 0, z: 14.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 544362731}
@@ -1860,7 +1849,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 392512695796450924, guid: a3471897f0852e64db8c99d60e59aa06, type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 392512695796450924, guid: a3471897f0852e64db8c99d60e59aa06, type: 3}
       propertyPath: m_LocalPosition.x
