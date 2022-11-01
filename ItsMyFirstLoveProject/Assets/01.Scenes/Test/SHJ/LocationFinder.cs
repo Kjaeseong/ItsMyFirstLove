@@ -174,6 +174,5 @@ public class LocationFinder : MonoBehaviour
             _isClose = false;
         }
     }
-
 }
 
