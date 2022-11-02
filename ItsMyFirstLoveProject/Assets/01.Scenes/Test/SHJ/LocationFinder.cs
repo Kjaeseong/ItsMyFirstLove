@@ -29,7 +29,6 @@ public class LocationFinder : MonoBehaviour
         _animationSupport = GetComponentInChildren<AnimationSupport>();
     }
 
-
     private void Update()
     {
         _elaspedTime += Time.deltaTime;

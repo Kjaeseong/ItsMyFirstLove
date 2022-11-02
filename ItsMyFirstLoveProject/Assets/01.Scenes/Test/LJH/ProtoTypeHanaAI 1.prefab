@@ -17196,6 +17196,7 @@ GameObject:
   - component: {fileID: 1909879339614347163}
   - component: {fileID: -9036944996583800542}
   - component: {fileID: -8255794371203536863}
+  - component: {fileID: 6134997327565035116}
   m_Layer: 7
   m_Name: ProtoTypeHanaAI 1
   m_TagString: Untagged
@@ -17398,6 +17399,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b86af2718609d684292ded59a44ecdb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6134997327565035116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580021252547560875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d3990820b05bf0489f84b9cf02e6b72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1602941513248466169
