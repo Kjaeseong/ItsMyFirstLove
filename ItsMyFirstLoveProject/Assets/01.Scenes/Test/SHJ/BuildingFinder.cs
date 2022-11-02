@@ -5,21 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class BuildingFinder : MonoBehaviour
 {
+    [SerializeField] private LocationFinder _character;
     [SerializeField] private GameObject _ProtoTypeLocations;
     [SerializeField] private GameObject _ProtoTypeBusinessName;
-    [SerializeField] private LocationFinder _character;
 
     public string LocationNameOfBenchMark;
 
     private void Start()
     {
-
+        Invoke("FindBuilding", 1f);
+        Invoke("FindBusinessName", 1f);
     }
 
-    /// <summary>
     /// 빌딩의 이름을 찾고, 그 위치에 오브젝트를 배치하는 스크립트
-    /// </summary>
-    public void FindBuilding()
+    private void FindBuilding()
     {
         if (SceneManager.GetActiveScene().name == "Proto_WalkScene 1")
         {
@@ -36,10 +35,8 @@ public class BuildingFinder : MonoBehaviour
         }
     }
 
-    /// <summary>
     /// 빌딩의 이름을 찾고, 그 위치에 상호명을 넣는 스크립트
-    /// </summary>
-    public void FindBusinessName()
+    private void FindBusinessName()
     {
         if (SceneManager.GetActiveScene().name == "Proto_WalkScene 1")
         {

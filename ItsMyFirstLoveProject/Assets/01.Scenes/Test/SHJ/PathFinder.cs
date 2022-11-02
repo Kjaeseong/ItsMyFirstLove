@@ -18,12 +18,12 @@ public class PathFinder : MonoBehaviour
 
     private void Update()
     {
-        if(_lineRenderer.enabled == false)
+        if (_lineRenderer.enabled == false)
         {
             _lineRenderer.enabled = true;
         }
 
-        if(_lineRenderer.enabled == true)
+        if (_lineRenderer.enabled == true)
         {
             MakePath();
         }

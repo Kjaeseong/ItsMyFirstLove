@@ -12,6 +12,7 @@ public class LocationFinder : MonoBehaviour
     private AnimationSupport _animationSupport;
     private int _locationCount = 0;
     private float _elaspedTime = 0f;
+    private bool _isStoryEnd = false;
 
     public GameObject[] _destinations;
 
@@ -37,7 +38,7 @@ public class LocationFinder : MonoBehaviour
         Vector3 offset = _ai.transform.position - _player.transform.position;
         float sqrLen = offset.sqrMagnitude; // 20.3
 
-        if (sqrLen > 0)
+        if (sqrLen > 0 && _isStoryEnd == false)
         {
             MoveHana();
 
@@ -108,10 +109,11 @@ public class LocationFinder : MonoBehaviour
                 _destinationUI.transform.position = _ai.destination;
             }
 
-            else if (_locationCount == _destinations.Length)
+            else if (_locationCount == _destinations.Length - 1)
             {
+                _isStoryEnd = true;
                 Debug.Log("경로끝");
-                _ai.speed = 0f;
+                PlayerStopped(_player);
             }
 
             if (_destinations == null)

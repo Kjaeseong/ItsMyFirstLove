@@ -9,15 +9,15 @@ using UnityEngine.SceneManagement;
 public class BuildingManager : MonoBehaviour
 {
     [SerializeField] private MeshRenderer[] _mesh;
-    [SerializeField] private Material[]     _mat = new Material[2];
-    [SerializeField] private GameObject     _miniMapBuildingObject;
+    [SerializeField] private Material[] _mat = new Material[2];
+    [SerializeField] private GameObject _miniMapBuildingObject;
 
     private GameObject _miniMapBuilding;
     private LatLng _latLng;
 
     private void Start()
     {
-        //Invoke("GetMesh", 1f);
+        Invoke("GetMesh", 1f);
     }
 
     // 건물에 메쉬, 콜라이더, 네비판단태그를 넣는다.
