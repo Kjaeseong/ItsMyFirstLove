@@ -34,7 +34,7 @@ public class LocationFinder : MonoBehaviour
         _elaspedTime += Time.deltaTime;
 
         // 하나 이동을 위해서 절대값 계산
-        Vector3 offset = _ai.transform.position - _player.transform.position;
+        Vector3 offset = _ai.transform.GetChild(0).position - _player.transform.position;
         float sqrLen = offset.sqrMagnitude; // 20.3
 
         if (sqrLen > 0 && _isStoryEnd == false)
