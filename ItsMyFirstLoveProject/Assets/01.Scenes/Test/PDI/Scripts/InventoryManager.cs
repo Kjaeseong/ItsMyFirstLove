@@ -53,6 +53,10 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 아이템 사용 함수
+    /// </summary>
+    /// <param name="index">인벤토리 내부에 존재하는 아이템의 Index</param>
     public void UseItem(int index)
     {
         if (_inven.ItemInInventory[index].ItemCount >= 1)
@@ -68,6 +72,10 @@ public class InventoryManager : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// 아이템 삭제 함수
+    /// </summary>
+    /// <param name="index">인벤토리 내부에 존재하는 아이템의 Index</param>
     public void DeleteItem(int index)
     {
         if (_inven.ItemInInventory[index].ItemCount >= 1)
