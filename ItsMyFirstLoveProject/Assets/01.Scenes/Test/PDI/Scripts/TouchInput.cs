@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 
-public class TestInput : MonoBehaviour
+public class TouchInput : MonoBehaviour
 {
     private Inventory _inven;
 
@@ -48,6 +48,7 @@ public class TestInput : MonoBehaviour
                     _selectObject = _hit.collider.gameObject;
                     _item = _selectObject.GetComponent<Items>();
                     _inven.AddItem(_item);
+                    _hit.collider.gameObject.SetActive(false); 
                 }
             }
         }
