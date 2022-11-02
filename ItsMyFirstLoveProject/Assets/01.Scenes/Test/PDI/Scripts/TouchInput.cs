@@ -15,16 +15,16 @@ public class TouchInput : MonoBehaviour
     private ARRaycastManager _raycastMgr;
     private List<ARRaycastHit> _hits = new List<ARRaycastHit>();
     private GameObject _selectObject;
-
-    [SerializeField] Camera _arCamera;
+    private Camera _arCamera;
 
     void Start()
     {
         _inven = GetComponent<Inventory>();
         _raycastMgr = GetComponent<ARRaycastManager>();
+        _arCamera = Camera.main;
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if (Input.touchCount == 0)
@@ -43,6 +43,7 @@ public class TouchInput : MonoBehaviour
 
             if (Physics.Raycast(_ray, out _hit))
             {
+                //모든 선물 아이템은 Collectable 태그를 가지고 있을 예정
                 if (_hit.collider.tag == "Collectable")
                 {
                     _selectObject = _hit.collider.gameObject;
@@ -50,6 +51,7 @@ public class TouchInput : MonoBehaviour
                     _inven.AddItem(_item);
                     _hit.collider.gameObject.SetActive(false); 
                 }
+                //TODO: 추후에 터치로 아이템 습득을 해야할 경우 아래애 추가
             }
         }
     }
