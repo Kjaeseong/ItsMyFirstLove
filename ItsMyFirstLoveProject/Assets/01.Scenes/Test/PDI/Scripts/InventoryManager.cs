@@ -89,6 +89,10 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 아이템 사용/삭제 패널을 띄우기 위한 함수
+    /// </summary>
+    /// <param name="index">아이템 사용/삭제 패널을 띄우기 위한 index</param>
     public void ShowPanel(int index)
     {
         _showPanel = !_showPanel;
