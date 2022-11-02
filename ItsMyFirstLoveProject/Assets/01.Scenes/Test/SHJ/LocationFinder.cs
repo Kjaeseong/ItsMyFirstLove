@@ -39,18 +39,6 @@ public class LocationFinder : MonoBehaviour
     private void Update()
     {
         _elaspedTime += Time.deltaTime;
-        // 캐릭터근처에 플레이어가 없다면 실행된다.
-        if (_isClose == false)
-        {
-            PlayerStopped(_player);
-
-            // 15초가 지나면 데이트 이벤트 종료.
-            if (_elaspedTime > 15f)
-            {
-                Debug.Log("데이트가 종료됩니다.");
-                _elaspedTime = 0f;
-            }
-        }
 
         if (_lineRenderer.enabled == false)
         {
@@ -61,7 +49,29 @@ public class LocationFinder : MonoBehaviour
         {
             MakePath();
         }
+
+        // 하나 이동을 위해서 절대값 계산
+        Vector3 offset = _ai.transform.position - _player.transform.position;
+        float sqrLen = offset.sqrMagnitude; // 20.3
+
+        if (sqrLen > 0)
+        {
+            MoveHana();
+
+            if (sqrLen > 20)
+            {
+                PlayerStopped(_player);
+
+                //15초가 지나면 데이트 이벤트 종료.
+                if (_elaspedTime > 15f)
+                {
+                    Debug.Log("데이트가 종료됩니다.");
+                    _elaspedTime = 0f;
+                }
+            }
+        }
     }
+
     private void MoveWayPoint()
     {
         // 유효한 경로가 아닐 경우 리턴한다.
@@ -92,8 +102,6 @@ public class LocationFinder : MonoBehaviour
         DrawPath();
     }
 
-
-
     // 플레이어가 경로대로 움직이지 않으면 실행.
     private void PlayerStopped(GameObject player)
     {
@@ -113,6 +121,7 @@ public class LocationFinder : MonoBehaviour
         _elaspedTime = 0f;
     }
 
+    // 캐릭터 이동 함수
     private void MoveHana()
     {
         SetGameOverToTime();
@@ -120,6 +129,7 @@ public class LocationFinder : MonoBehaviour
         _animationSupport.Play("Move");
     }
 
+    // 콜라이더를 끄는 코루틴
     IEnumerator CollOnOff(CapsuleCollider coll)
     {
         coll.enabled = false;
@@ -132,12 +142,11 @@ public class LocationFinder : MonoBehaviour
     {
         if (other.tag == "Location")
         {
-            Debug.Log("도착");
             if (_locationCount < _destinations.Length - 1)
             {
                 _destinations[_locationCount].SetActive(false);
                 StartCoroutine(CollOnOff(transform.GetComponent<CapsuleCollider>()));
-                
+
                 _locationCount++;
                 _ai.destination = _destinations[_locationCount].transform.position;
                 _destinationUI.transform.position = _ai.destination;
@@ -145,33 +154,14 @@ public class LocationFinder : MonoBehaviour
 
             else if (_locationCount == _destinations.Length)
             {
-                _locationCount = 0;
-                _ai.destination = _destinations[_locationCount].transform.position;
+                Debug.Log("경로끝");
+                _ai.speed = 0f;
             }
 
             if (_destinations == null)
             {
                 return;
-            }   
-        }
-    }
-
-    // 캐릭터근처에 플레이어가 있으면 이동한다.
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            _isClose = true;
-            MoveHana();
-        }
-    }
-
-    // 캐릭터 근처에 플레이어가 없으면 실행.
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            _isClose = false;
+            }
         }
     }
 }

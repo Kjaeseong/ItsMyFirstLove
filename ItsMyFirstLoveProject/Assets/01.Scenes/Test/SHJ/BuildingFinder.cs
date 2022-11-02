@@ -9,7 +9,7 @@ public class BuildingFinder : MonoBehaviour
     [SerializeField] private GameObject _ProtoTypeBusinessName;
     [SerializeField] private LocationFinder _character;
 
-    public string LocationName;
+    public string LocationNameOfBenchMark;
 
     private void Start()
     {
@@ -26,7 +26,7 @@ public class BuildingFinder : MonoBehaviour
             return;
         }
 
-        GameObject BuildingForLocation = GameObject.Find(LocationName);
+        GameObject BuildingForLocation = GameObject.Find(LocationNameOfBenchMark);
         Vector3 LocationPos = BuildingForLocation.transform.position;
         _ProtoTypeLocations.transform.position = LocationPos;
 
@@ -46,7 +46,7 @@ public class BuildingFinder : MonoBehaviour
             return;
         }
 
-        GameObject BuildingForLocation = GameObject.Find(LocationName);
+        GameObject BuildingForLocation = GameObject.Find(LocationNameOfBenchMark);
         Vector3 LocationPos = BuildingForLocation.transform.position;
         _ProtoTypeBusinessName.transform.position = LocationPos;
     }

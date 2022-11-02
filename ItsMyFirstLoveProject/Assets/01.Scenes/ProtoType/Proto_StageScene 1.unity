@@ -493,7 +493,7 @@ MonoBehaviour:
   _ProtoTypeLocations: {fileID: 2082057937}
   _ProtoTypeBusinessName: {fileID: 1077165660}
   _character: {fileID: -9036944996583800542, guid: 734461f101e01224c9523a237e2bbef4, type: 3}
-  LocationName: ExtrudedStructure (ChIJN2LvIVWlfDUR1hQoEQLTi3A)
+  LocationNameOfBenchMark: ExtrudedStructure (ChIJN2LvIVWlfDUR1hQoEQLTi3A)
 --- !u!114 &910068127 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7101055344760649479, guid: 0791e138201e8394ea882e015fc65c4d, type: 3}
