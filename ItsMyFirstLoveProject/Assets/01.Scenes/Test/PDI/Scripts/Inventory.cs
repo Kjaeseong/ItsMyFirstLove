@@ -7,11 +7,15 @@ public class Inventory : MonoBehaviour
 {
     public Items[] ItemInInventory { get; private set; }
 
-    void Awake()
+    private void Awake()
     {
         ItemInInventory = new Items[8];
     }
 
+    /// <summary>
+    /// 아이템을 획득한 뒤에 인벤토리에 추가하는 함수
+    /// </summary>
+    /// <param name="item">item 스크립트에 있는 item정보</param>
     public void AddItem(Items item)
     {
         for (int i = 0; i < ItemInInventory.Length; ++i)
@@ -29,7 +33,21 @@ public class Inventory : MonoBehaviour
                 return;
             }
         }
+    }
 
-        Debug.Log("인벤토리 가득 참");
+    /// <summary>
+    /// 게임매니저에 있는 인벤토리 Load
+    /// </summary>
+    public void LoadInventory()
+    {
+        ItemInInventory = GameManager.Instance._dataMgr.LoadInvenData();
+    }
+
+    /// <summary>
+    /// 인벤토리를 게임매니저에 Save
+    /// </summary>
+    public void SaveInventory()
+    {
+        GameManager.Instance._dataMgr.SaveInvenData(ItemInInventory);
     }
 }

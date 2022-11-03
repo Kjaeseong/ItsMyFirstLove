@@ -7,6 +7,7 @@ public class GameManager : SingletonBehaviour<GameManager>
     public AudioManager _audio { get; private set; }
     public CsvManager _csv { get; private set; }
     public SceneChanger _scene { get; private set; }
+    public DataManager _dataMgr { get; private set; }
     
     [field: SerializeField] public GameObject Map { get; private set; }
 
@@ -30,6 +31,7 @@ public class GameManager : SingletonBehaviour<GameManager>
         _audio = GetComponentInChildren<AudioManager>();
         _csv = GetComponentInChildren<CsvManager>();
         _scene = GetComponentInChildren<SceneChanger>();
+        _dataMgr = GetComponentInChildren<DataManager>();
     }
 
     /// <summary>

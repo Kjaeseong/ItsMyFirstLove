@@ -582,22 +582,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: '@GameManager'
       objectReference: {fileID: 0}
-    - target: {fileID: 5534870979558091615, guid: 64668f5810e9ded47951c71ed3da0146, type: 3}
-      propertyPath: _fileNameList.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5534870979558091615, guid: 64668f5810e9ded47951c71ed3da0146, type: 3}
-      propertyPath: _fileNameList.Array.data[0]
-      value: ProtoLine
-      objectReference: {fileID: 0}
-    - target: {fileID: 6831772944734708191, guid: 64668f5810e9ded47951c71ed3da0146, type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6831772944734708191, guid: 64668f5810e9ded47951c71ed3da0146, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 72f463af0fe9e394ea5054ea510b32bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64668f5810e9ded47951c71ed3da0146, type: 3}
 --- !u!114 &1582602258 stripped

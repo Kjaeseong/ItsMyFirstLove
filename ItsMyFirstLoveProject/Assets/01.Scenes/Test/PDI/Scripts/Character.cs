@@ -43,4 +43,5 @@ public class Character : MonoBehaviour
             Favorability = 0;
         }
     }
+    //TODO: CSV파일형식으로 변경해야함
 }
