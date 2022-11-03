@@ -51,9 +51,9 @@ public class LocationEventSystem : MonoBehaviour
             }
             if (_isPlayOneTime)
             {
-                Debug.Log("¿ÀºêÁ§Æ® ²¨Áü");
                 gameObject.SetActive(false);
             }
+            _isActivedEvent = false;
         }
     }
 
