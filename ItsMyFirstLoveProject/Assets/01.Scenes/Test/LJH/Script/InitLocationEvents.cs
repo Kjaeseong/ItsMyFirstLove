@@ -13,7 +13,7 @@ public class InitLocationEvents : MonoBehaviour
     [SerializeField] private Vector3 _setLocationVector;// = new Vector3(-6f, 0f, 10.3f);
 
 
-    // TODO : 지금 임시로 Invoke로 처리하는 부분이 좀 있는데 추후 순서에 따라 진행 될 수 있게 작업 요망 ex) 맵 로드 완료 후 실행
+    // TODO : 경로가 활성화 될 때 실행 됨. 맵이 로드되지 않은 상태면 버그 발생함. 만약 맵 로드전에 경로를 정해햐 한다면, OnEnable이 아닌 다른 방법으로 처리해야 함. (Ex. 함수로 전환 후 맵 로드후 실행)
     private void OnEnable()
     {
         foreach (var go in _map.GetComponentsInChildren<Transform>())

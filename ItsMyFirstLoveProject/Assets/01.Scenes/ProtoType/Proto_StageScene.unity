@@ -1027,18 +1027,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe1a66d44e8f47841b978f811562716d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BusinessNameObject:
-  - {fileID: 514007847}
-  - {fileID: 154832318}
-  - {fileID: 1947724726}
-  - {fileID: 1601888344}
-  - {fileID: 1066400099}
-  BusinessName:
-  - ExtrudedStructure (ChIJ77il4FSlfDURtTHgEqw1GqM)
-  - ExtrudedStructure (ChIJl-L0HlWlfDURRtr_nkpNSdc)
-  - ExtrudedStructure (ChIJ1-UyJFWlfDURhYSOGUpdcag)
-  - ExtrudedStructure (ChIJlQ2kLVWlfDURPWzreu8o_ow)
-  - ExtrudedStructure (ChIJb56rMlWlfDURx1D3fqca5Uc)
+  _character: {fileID: 0}
+  _ProtoTypeLocations: {fileID: 0}
+  _ProtoTypeBusinessName: {fileID: 0}
+  LocationNameOfBenchMark: 
 --- !u!114 &910068127 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7101055344760649479, guid: 0791e138201e8394ea882e015fc65c4d, type: 3}
@@ -1811,6 +1803,10 @@ PrefabInstance:
       propertyPath: _ui
       value: 
       objectReference: {fileID: 1952560015}
+    - target: {fileID: 5368421368034395996, guid: 7111aa048c317674c9bf50635fe4991d, type: 3}
+      propertyPath: _isPlayOneTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5368421368034395996, guid: 7111aa048c317674c9bf50635fe4991d, type: 3}
       propertyPath: _vpsEffectManager
       value: 

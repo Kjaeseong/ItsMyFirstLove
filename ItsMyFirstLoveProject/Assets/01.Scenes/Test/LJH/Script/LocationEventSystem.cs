@@ -29,10 +29,39 @@ public class LocationEventSystem : MonoBehaviour
     // 취향
     [SerializeField] private bool _favoriteEventOn;
 
+    private bool _isActivedEvent;
+    private float _eventOffDistance = 11f;
+
+    private void Update()
+    {
+        if (!_isActivedEvent) 
+        {
+            return;
+        }
+
+        if (Vector3.Distance(Camera.main.transform.position, transform.position) > _eventOffDistance)
+        {
+            if (_vpsEventOn)
+            {
+                _vpsEffectManager.DeactivateEffect(_vpsIndex);
+            }
+            if (_audioEventOn)
+            {
+                GameManager.Instance._audio.Stop(_audioName.Substring(0, _audioName.LastIndexOf('_')));
+            }
+            if (_isPlayOneTime)
+            {
+                gameObject.SetActive(false);
+            }
+            _isActivedEvent = false;
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("EventTrigger"))
         {
+            _isActivedEvent = true;
             Debug.Log("이벤트 실행");
             // VPS 연출
             if (_vpsEventOn)
@@ -69,23 +98,4 @@ public class LocationEventSystem : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("EventTrigger"))
-        {
-            if (_vpsEventOn)
-            {
-                _vpsEffectManager.DeactivateEffect(_vpsIndex);
-            }
-            if (_audioEventOn)
-            {
-                GameManager.Instance._audio.Stop(_audioName.Substring(0, _audioName.LastIndexOf('_')));
-            }
-        }
-
-        if (_isPlayOneTime)
-        {
-            gameObject.SetActive(false);
-        }
-    }
 }
