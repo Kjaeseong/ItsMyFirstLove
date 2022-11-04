@@ -29,7 +29,7 @@ public class GoogleMinimap : MonoBehaviour
     [SerializeField] private float _mapCenterLon;
 
     [Range(1, 20)]
-    [SerializeField] private int _zoom = 14;
+    [SerializeField] private int _zoom = 18;
 
     private int _mapWidth = 640;
     private int _mapHeight = 640;
@@ -39,20 +39,17 @@ public class GoogleMinimap : MonoBehaviour
     [Range(1, 4)]
     [SerializeField] private int _scale = 1;
 
-    [SerializeField] private float _markerLat;
-    [SerializeField] private float _markerLon;
+    [SerializeField] private float[] _markerLat;
+    [SerializeField] private float[] _markerLon;
 
     [SerializeField] private MarkerSize _markerSize = MarkerSize.mid;
     [SerializeField] private MarkerColor _markerColor = MarkerColor.blue;
 
-    [SerializeField] private char _label = 'S';
     [SerializeField] private string _apiKey;
 
 
     IEnumerator Map()
     {
-        _label = char.ToUpper(_label);
-
         _url = "https://maps.googleapis.com/maps/api/staticmap"
            + "?center=" + _mapCenterLat + "," + _mapCenterLon
            + "&zoom=" + _zoom
@@ -61,8 +58,16 @@ public class GoogleMinimap : MonoBehaviour
            + "&maptype=" + _mapType
            + "&markers=size:" + _markerSize
            + "%7Ccolor:" + _markerColor 
-           + "%7Clabel:" + _label 
-           + "%7C" + _markerLat + "," + _markerLon
+           + "%7C" + _markerLat[0] + "," + _markerLon[0]
+           + "&markers=size:" + _markerSize
+           + "%7Ccolor:" + _markerColor
+           + "%7C" + _markerLat[1] + "," + _markerLon[1]
+           + "&markers=size:" + _markerSize
+           + "%7Ccolor:" + _markerColor
+           + "%7C" + _markerLat[2] + "," + _markerLon[2]
+           + "&markers=size:" + _markerSize
+           + "%7Ccolor:" + _markerColor
+           + "%7C" + _markerLat[3] + "," + _markerLon[3]
            + "&key=" + _apiKey;
 
         using (UnityWebRequest uwr = UnityWebRequestTexture.GetTexture(_url))
