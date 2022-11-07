@@ -4816,7 +4816,7 @@ GameObject:
   - component: {fileID: 2370700791655223911}
   - component: {fileID: 9096167178108887214}
   m_Layer: 0
-  m_Name: PortalWall
+  m_Name: PortalWall Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

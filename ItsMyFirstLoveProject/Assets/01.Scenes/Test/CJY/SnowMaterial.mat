@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Filter 1
+  m_Name: SnowMaterial
   m_Shader: {fileID: 4800000, guid: 165365ab7100a044ca85fc8c33548a62, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -470,7 +470,7 @@ Material:
     - _OutlineSrcBlendAlpha: 1
     - _OutlineSrcBlendAlphaFA: 0
     - _OutlineSrcBlendFA: 1
-    - _OutlineStencilComp: 6
+    - _OutlineStencilComp: 3
     - _OutlineStencilFail: 0
     - _OutlineStencilPass: 0
     - _OutlineStencilReadMask: 255
@@ -506,7 +506,7 @@ Material:
     - _PreSrcBlendAlpha: 1
     - _PreSrcBlendAlphaFA: 0
     - _PreSrcBlendFA: 1
-    - _PreStencilComp: 6
+    - _PreStencilComp: 3
     - _PreStencilFail: 0
     - _PreStencilPass: 0
     - _PreStencilReadMask: 255
@@ -575,7 +575,7 @@ Material:
     - _SrcBlendAlpha: 1
     - _SrcBlendAlphaFA: 0
     - _SrcBlendFA: 1
-    - _StencilComp: 6
+    - _StencilComp: 3
     - _StencilFail: 0
     - _StencilPass: 0
     - _StencilReadMask: 255
