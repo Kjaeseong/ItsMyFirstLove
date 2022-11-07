@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: WP_Hakka
-  m_Shader: {fileID: 4800000, guid: efa77a80ca0344749b4f19fdd5891cbe, type: 3}
+  m_Shader: {fileID: 4800000, guid: 165365ab7100a044ca85fc8c33548a62, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -76,6 +76,18 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -211,6 +223,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _OutlineTex:
         m_Texture: {fileID: 2800000, guid: 3b4e0c62fc574a047b2e9b6eddd7aef0, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -291,6 +307,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _1st2nd_Shades_Feather: 0.56
     - _1st_ShadeColor_Feather: 0.463
@@ -362,6 +382,7 @@ Material:
     - _Cull: 0
     - _CullMode: 0
     - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
     - _DissolveNoiseStrength: 0.1
     - _DstBlend: 0
     - _DstBlendAlpha: 10
@@ -400,6 +421,9 @@ Material:
     - _GlitterShadowMask: 0
     - _GlitterUVMode: 0
     - _GlitterVRParallaxStrength: 1
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
     - _HighColor_Power: 0.753
     - _IgnoreEncryption: 0
     - _Inverse_MatcapMask: 0
@@ -493,9 +517,11 @@ Material:
     - _MatCapVRParallaxStrength: 1
     - _MatCapZRotCancel: 1
     - _Metallic: 0
+    - _Mode: 0
     - _MonochromeLighting: 0
     - _Nearest_Distance: 0.5
     - _OUTLINE: 0
+    - _OcclusionStrength: 1
     - _OffsetFactor: 0
     - _OffsetUnits: 0
     - _Offset_X_Axis_BLD: -0.05
@@ -526,7 +552,7 @@ Material:
     - _OutlineSrcBlendAlpha: 1
     - _OutlineSrcBlendAlphaFA: 0
     - _OutlineSrcBlendFA: 1
-    - _OutlineStencilComp: 8
+    - _OutlineStencilComp: 6
     - _OutlineStencilFail: 0
     - _OutlineStencilPass: 0
     - _OutlineStencilReadMask: 255
@@ -544,6 +570,35 @@ Material:
     - _Outline_Width: 0.3
     - _Parallax: 0.02
     - _ParallaxOffset: 0.5
+    - _PreAlphaToMask: 0
+    - _PreBlendOp: 0
+    - _PreBlendOpAlpha: 0
+    - _PreBlendOpAlphaFA: 4
+    - _PreBlendOpFA: 4
+    - _PreColorMask: 15
+    - _PreCull: 2
+    - _PreCutoff: 0.5
+    - _PreDstBlend: 10
+    - _PreDstBlendAlpha: 10
+    - _PreDstBlendAlphaFA: 1
+    - _PreDstBlendFA: 1
+    - _PreOffsetFactor: 0
+    - _PreOffsetUnits: 0
+    - _PreOutType: 0
+    - _PreSrcBlend: 1
+    - _PreSrcBlendAlpha: 1
+    - _PreSrcBlendAlphaFA: 0
+    - _PreSrcBlendFA: 1
+    - _PreStencilComp: 6
+    - _PreStencilFail: 0
+    - _PreStencilPass: 0
+    - _PreStencilReadMask: 255
+    - _PreStencilRef: 0
+    - _PreStencilWriteMask: 255
+    - _PreStencilZFail: 0
+    - _PreZClip: 1
+    - _PreZTest: 4
+    - _PreZWrite: 1
     - _Reflectance: 0.04
     - _ReflectionApplyTransparency: 1
     - _ReflectionBlendMode: 1
@@ -602,15 +657,17 @@ Material:
     - _ShadowStrengthMaskLOD: 0
     - _ShiftBackfaceUV: 0
     - _Smoothness: 1
+    - _SmoothnessTextureChannel: 0
     - _SpecularBlur: 0
     - _SpecularBorder: 0.5
+    - _SpecularHighlights: 1
     - _SpecularNormalStrength: 1
     - _SpecularToon: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _SrcBlendAlphaFA: 0
     - _SrcBlendFA: 1
-    - _StencilComp: 8
+    - _StencilComp: 6
     - _StencilFail: 0
     - _StencilPass: 0
     - _StencilReadMask: 255
@@ -632,6 +689,7 @@ Material:
     - _Tweak_MatcapMaskLevel: 0
     - _Tweak_RimLightMaskLevel: -0.485
     - _Tweak_SystemShadowsLevel: 0
+    - _UVSec: 0
     - _Unlit_Intensity: 1
     - _UseAnisotropy: 0
     - _UseAudioLink: 0
@@ -733,6 +791,7 @@ Material:
     - _OutlineTexHSVG: {r: 0, g: 1, b: 1, a: 1}
     - _OutlineTex_ScrollRotate: {r: 0, g: 0, b: 0, a: 0}
     - _Outline_Color: {r: 0.17728722, g: 0.38234252, b: 0.45283008, a: 1}
+    - _PreColor: {r: 1, g: 1, b: 1, a: 1}
     - _ReflectionColor: {r: 1, g: 1, b: 1, a: 1}
     - _ReflectionCubeColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimColor: {r: 0.65882355, g: 0.7596949, b: 0.77254903, a: 1}
@@ -744,6 +803,7 @@ Material:
     - _ShadowAOShift2: {r: 1, g: 0, b: 1, a: 0}
     - _ShadowBorderColor: {r: 1, g: 0, b: 0, a: 1}
     - _ShadowColor: {r: 0.6018156, g: 0.7845845, b: 0.8679245, a: 1}
+    - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _ViewShift: {r: 0, g: 0, b: 0, a: 1}
     - _e2ga0: {r: 1, g: 0, b: 0, a: 0}
     - _e2ga1: {r: 1, g: 0, b: 0, a: 1}

@@ -560,7 +560,7 @@ Material:
     - _OutlineSrcBlendAlpha: 1
     - _OutlineSrcBlendAlphaFA: 0
     - _OutlineSrcBlendFA: 1
-    - _OutlineStencilComp: 8
+    - _OutlineStencilComp: 6
     - _OutlineStencilFail: 0
     - _OutlineStencilPass: 0
     - _OutlineStencilReadMask: 255
@@ -597,7 +597,7 @@ Material:
     - _PreSrcBlendAlpha: 1
     - _PreSrcBlendAlphaFA: 0
     - _PreSrcBlendFA: 1
-    - _PreStencilComp: 8
+    - _PreStencilComp: 6
     - _PreStencilFail: 0
     - _PreStencilPass: 0
     - _PreStencilReadMask: 255
@@ -675,7 +675,7 @@ Material:
     - _SrcBlendAlpha: 1
     - _SrcBlendAlphaFA: 0
     - _SrcBlendFA: 1
-    - _StencilComp: 8
+    - _StencilComp: 6
     - _StencilFail: 0
     - _StencilPass: 0
     - _StencilReadMask: 255

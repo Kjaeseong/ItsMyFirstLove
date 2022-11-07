@@ -497,7 +497,7 @@ Shader "Hidden/lilToonTransparentOutline"
         [IntRange]                                      _StencilRef         ("Stencil Reference Value", Range(0, 255)) = 0
         [IntRange]                                      _StencilReadMask    ("Stencil ReadMask Value", Range(0, 255)) = 255
         [IntRange]                                      _StencilWriteMask   ("Stencil WriteMask Value", Range(0, 255)) = 255
-        [Enum(UnityEngine.Rendering.CompareFunction)]   _StencilComp        ("Stencil Compare Function", Float) = 8
+        [Enum((Equal, 3, NotEqual, 6))]                 _StencilComp        ("Stencil Compare Function", Float) = 8
         [Enum(UnityEngine.Rendering.StencilOp)]         _StencilPass        ("Stencil Pass", Float) = 0
         [Enum(UnityEngine.Rendering.StencilOp)]         _StencilFail        ("Stencil Fail", Float) = 0
         [Enum(UnityEngine.Rendering.StencilOp)]         _StencilZFail       ("Stencil ZFail", Float) = 0
@@ -528,7 +528,7 @@ Shader "Hidden/lilToonTransparentOutline"
         [IntRange]                                      _OutlineStencilRef          ("Stencil Reference Value", Range(0, 255)) = 0
         [IntRange]                                      _OutlineStencilReadMask     ("Stencil ReadMask Value", Range(0, 255)) = 255
         [IntRange]                                      _OutlineStencilWriteMask    ("Stencil WriteMask Value", Range(0, 255)) = 255
-        [Enum(UnityEngine.Rendering.CompareFunction)]   _OutlineStencilComp         ("Stencil Compare Function", Float) = 8
+        [Enum((Equal, 3, NotEqual, 6))]                 _OutlineStencilComp         ("Stencil Compare Function", int) = 6
         [Enum(UnityEngine.Rendering.StencilOp)]         _OutlineStencilPass         ("Stencil Pass", Float) = 0
         [Enum(UnityEngine.Rendering.StencilOp)]         _OutlineStencilFail         ("Stencil Fail", Float) = 0
         [Enum(UnityEngine.Rendering.StencilOp)]         _OutlineStencilZFail        ("Stencil ZFail", Float) = 0
@@ -561,7 +561,7 @@ Shader "Hidden/lilToonTransparentOutline"
         [IntRange]                                      _PreStencilRef          ("Stencil Reference Value", Range(0, 255)) = 0
         [IntRange]                                      _PreStencilReadMask     ("Stencil ReadMask Value", Range(0, 255)) = 255
         [IntRange]                                      _PreStencilWriteMask    ("Stencil WriteMask Value", Range(0, 255)) = 255
-        [Enum(UnityEngine.Rendering.CompareFunction)]   _PreStencilComp         ("Stencil Compare Function", Float) = 8
+        [Enum((Equal, 3, NotEqual, 6))]                 _StencilComp            ("Stencil Compare Function", int) = 6
         [Enum(UnityEngine.Rendering.StencilOp)]         _PreStencilPass         ("Stencil Pass", Float) = 0
         [Enum(UnityEngine.Rendering.StencilOp)]         _PreStencilFail         ("Stencil Fail", Float) = 0
         [Enum(UnityEngine.Rendering.StencilOp)]         _PreStencilZFail        ("Stencil ZFail", Float) = 0
@@ -580,6 +580,11 @@ Shader "Hidden/lilToonTransparentOutline"
         UsePass "Hidden/ltspass_transparent/FORWARD_ADD_OUTLINE"
         UsePass "Hidden/ltspass_transparent/SHADOW_CASTER_OUTLINE"
         UsePass "Hidden/ltspass_transparent/META"
+        Stencil
+        {
+            Ref 1
+            Comp[_StencilComp]
+        }
     }
     Fallback "Unlit/Texture"
 
