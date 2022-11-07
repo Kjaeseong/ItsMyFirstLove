@@ -1231,7 +1231,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2597758824163999028, guid: fbd38fb7c8f4ee542a8397fbd3f49cc6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
-      value: Proto_WalkScene
+      value: Proto_WalkScene GoogleMiniMapTest
       objectReference: {fileID: 0}
     - target: {fileID: 2597758824163999028, guid: fbd38fb7c8f4ee542a8397fbd3f49cc6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_StringArgument

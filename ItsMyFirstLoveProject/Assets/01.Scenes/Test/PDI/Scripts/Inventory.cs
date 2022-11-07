@@ -7,9 +7,9 @@ public class Inventory : MonoBehaviour
 {
     public Items[] ItemInInventory { get; private set; }
 
-    private void Awake()
+    private void Start()
     {
-        ItemInInventory = new Items[8];
+        LoadInventory();
     }
 
     /// <summary>

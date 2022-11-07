@@ -8,6 +8,7 @@ TagManager:
   - EventTrigger
   - Building
   - Destination
+  - Collectable
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,6 @@ TagManager:
   - Path
   - OnlyMiniMap
   - Destination
-  - 
   - 
   - 
   - 

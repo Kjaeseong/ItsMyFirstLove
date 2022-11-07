@@ -28,18 +28,6 @@ public class GameManager : SingletonBehaviour<GameManager>
     // 아이템 획득 관련 옵저버패턴      ----------------
     public UnityEvent<Items> ItemInfo = new UnityEvent<Items>();
     private Items _item;
-    public Items Item
-    {
-        get
-        {
-            return _item;
-        }
-        set
-        {
-            _item = value;
-            ItemInfo.Invoke(_item);
-        }
-    }
 
 
 
@@ -135,6 +123,7 @@ public class GameManager : SingletonBehaviour<GameManager>
     public void TouchItem(Items item)
     {
         _item = item;
+        ItemInfo.Invoke(_item);
     }
 
 }

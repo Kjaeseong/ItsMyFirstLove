@@ -8,12 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/01.Scenes/ProtoType/UI_TestScene.unity
     guid: 40b6cc9594118bd4980e797a3a6885be
-  - enabled: 1
-    path: Assets/01.Scenes/Test/PDI/Proto_WalkScene.unity
-    guid: 1b5e1b0cd4fad604db9c5aa353c3a2d1
+  - enabled: 0
+    path: Assets/01.Scenes/ProtoType/Proto_WalkScene.unity
+    guid: f2bb9e407ccb02e4e8f326987c6b9ce5
   - enabled: 1
     path: Assets/01.Scenes/ProtoType/Proto_StageScene.unity
     guid: 592ef5249ee99e446b80ac26da41fa3e
+  - enabled: 1
+    path: Assets/01.Scenes/Test/PDI/Proto_WalkScene GoogleMiniMapTest.unity
+    guid: 761ce835ff9f81745964ae22025e912d
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: b959e095d94abbd478eb3bfe18850dcc, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 23460753dc929494884b0d7471a3bd60, type: 2}

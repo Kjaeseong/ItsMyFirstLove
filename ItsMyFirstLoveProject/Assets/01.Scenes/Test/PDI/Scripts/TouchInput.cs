@@ -7,9 +7,6 @@ public class TouchInput : MonoBehaviour
 {
     private Inventory _inven;
 
-    [SerializeField] GameObject _item1;
-    [SerializeField] GameObject _item2;
-
     private Items _item;
 
     private ARRaycastManager _raycastMgr;
@@ -27,25 +24,43 @@ public class TouchInput : MonoBehaviour
 
     void Update()
     {
-        if (Input.touchCount == 0)
-        {
-            return;
-        }
+        //if (Input.touchCount == 0)
+        //{
+        //    return;
+        //}
 
-        Touch _touch = Input.GetTouch(0);
+        //Touch _touch = Input.GetTouch(0);
 
-        if(_touch.phase == TouchPhase.Began)
+        //if(_touch.phase == TouchPhase.Began)
+        //{
+        //    Ray _ray;
+        //    RaycastHit _hit;
+
+        //    _ray = _arCamera.ScreenPointToRay(_touch.position);
+
+        //    if (Physics.Raycast(_ray, out _hit))
+        //    {
+        //        //모든 선물 아이템은 Collectable 태그를 가지고 있을 예정
+        //        if (_hit.collider.tag == "Collectable")
+        //        {
+        //            _selectObject = _hit.collider.gameObject;
+        //            _item = _selectObject.GetComponent<Items>();
+        //            GameManager.Instance.TouchItem(_item);
+        //        }
+        //    }
+        //}
+
+        if(Input.GetMouseButtonDown(0))
         {
-            Ray _ray;
+            Ray _ray = _arCamera.ScreenPointToRay(Input.mousePosition);
             RaycastHit _hit;
-
-            _ray = _arCamera.ScreenPointToRay(_touch.position);
-
+            Debug.Log("레이저 발사");
             if (Physics.Raycast(_ray, out _hit))
             {
-                //모든 선물 아이템은 Collectable 태그를 가지고 있을 예정
-                if (_hit.collider.tag == "Collectable")
+                Debug.Log("뭔가 맞았다");
+                if(_hit.collider.tag == "Collectable")
                 {
+                    Debug.Log("아이템 맞았다.");
                     _selectObject = _hit.collider.gameObject;
                     _item = _selectObject.GetComponent<Items>();
                     GameManager.Instance.TouchItem(_item);

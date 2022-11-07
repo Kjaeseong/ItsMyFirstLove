@@ -15,12 +15,8 @@ public class ItemsPanel : MonoBehaviour
     private Items _nowSelectItem;
     private int _time = 0;
 
-    private Inventory _inven;
+    [SerializeField] private Inventory _inven;
 
-    private void Start()
-    {
-        _inven = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
-    }
     private void OnEnable()
     {
         GameManager.Instance.ItemInfo.AddListener(ShowItemPanel);
@@ -30,10 +26,9 @@ public class ItemsPanel : MonoBehaviour
     {
         _itemPanel.SetActive(true);
         _nowSelectItem = item;
-        _nameText.text = item.ItemName.ToString();
+        Debug.Log($"{_nowSelectItem.ItemName}");
+        _nameText.text = $"Name : {item.ItemName}";
         _itemInfoText.text = item.ItemInfo;
-        _cooldownText.text = item.ItemGetCooldown.ToString();
-        StartCoroutine(CooldownCheck(item));
     }
 
     /// <summary>
@@ -47,17 +42,19 @@ public class ItemsPanel : MonoBehaviour
     public void GetItemButtonClick()
     {
         _inven.AddItem(_nowSelectItem);
+        StartCoroutine(CooldownCheck(_nowSelectItem));
     }
 
     IEnumerator CooldownCheck(Items item)
     {
         while (item.ItemGetCooldown - _time > 0)
         {
+            _cooldownText.text = $"{item.ItemGetCooldown - _time} Sec remain";
             yield return new WaitForSecondsRealtime(1f);
             ++_time;
-            _cooldownText.text = (item.ItemGetCooldown - _time).ToString();
         }
         _time = 0;
+        _cooldownText.text = "";
     }
 
     private void OnDisable()
