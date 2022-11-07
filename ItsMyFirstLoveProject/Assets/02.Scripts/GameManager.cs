@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : SingletonBehaviour<GameManager>
 {
@@ -23,6 +24,23 @@ public class GameManager : SingletonBehaviour<GameManager>
     public float Level { get; private set; }
     public bool _isActCharacterWalkMode { get; private set; }
     public GameObject _characterModel { get; private set; }
+
+    // 아이템 획득 관련 옵저버패턴      ----------------
+    public UnityEvent<Items> ItemInfo = new UnityEvent<Items>();
+    private Items _item;
+    public Items Item
+    {
+        get
+        {
+            return _item;
+        }
+        set
+        {
+            _item = value;
+            ItemInfo.Invoke(_item);
+        }
+    }
+
 
 
     private void Awake()
@@ -108,6 +126,15 @@ public class GameManager : SingletonBehaviour<GameManager>
         //GameObject temp
         //GetType().GetField(name).GetValue(Object);
         // TODO : 방법 찾아야 함..분명 있을것같음
+    }
+
+    /// <summary>
+    /// 아이템 터치 시 아이템 정보 변경
+    /// </summary>
+    /// <param name="item">터치한 아이템에 대한 정보</param>
+    public void TouchItem(Items item)
+    {
+        _item = item;
     }
 
 }

@@ -48,10 +48,8 @@ public class TouchInput : MonoBehaviour
                 {
                     _selectObject = _hit.collider.gameObject;
                     _item = _selectObject.GetComponent<Items>();
-                    _inven.AddItem(_item);
-                    _hit.collider.gameObject.SetActive(false); 
+                    GameManager.Instance.TouchItem(_item);
                 }
-                //TODO: 추후에 터치로 아이템 습득을 해야할 경우 아래애 추가
             }
         }
     }
