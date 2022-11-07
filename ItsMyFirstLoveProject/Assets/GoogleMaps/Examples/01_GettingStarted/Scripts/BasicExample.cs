@@ -4,7 +4,8 @@ using Google.Maps.Examples.Shared;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Google.Maps.Examples {
+namespace Google.Maps.Examples
+{
     /// <summary>
     /// This example demonstrates a basic usage of the Maps SDK for Unity.
     /// </summary>
@@ -13,7 +14,8 @@ namespace Google.Maps.Examples {
     /// inspector before pressing start, that location will be loaded instead.
     /// </remarks>
     [RequireComponent(typeof(MapsService))]
-    public class BasicExample : MonoBehaviour {
+    public class BasicExample : MonoBehaviour
+    {
         [Tooltip("LatLng to load (must be set before hitting play).")]
         private LatLng _latLng = new LatLng(37.539970, 127.122938);
 
@@ -21,14 +23,15 @@ namespace Google.Maps.Examples {
 
         private BuildingManager _buildingManager;
 
-        private FindBuildingOfBusinessName _findBuildingOfBusinessName;
+        private BuildingFinder _buildingFinder;
 
         /// <summary>
         /// Use <see cref="MapsService"/> to load geometry.
         /// </summary>
-        private void Start() {
+        private void Start()
+        {
 
-            _findBuildingOfBusinessName = GetComponent<FindBuildingOfBusinessName>();
+            _buildingFinder = GetComponent<BuildingFinder>();
 
             _buildingManager = GetComponent<BuildingManager>();
             // Get required MapsService component on this GameObject.
@@ -64,21 +67,15 @@ namespace Google.Maps.Examples {
         /// <remarks>
         /// The communication between the game and the MapsSDK is done through APIs and event listeners.
         /// </remarks>
-        public void OnLoaded(MapLoadedArgs args) {
+        public void OnLoaded(MapLoadedArgs args)
+        {
             // The Map is loaded - you can start/resume gameplay from that point.
             // The new geometry is added under the GameObject that has MapsService as a component.
-            _buildingManager.GetMesh();
-            if (SceneManager.GetActiveScene().name == "Proto_StageScene")
-            {
-                _buildingManager.FindBuilding();
-                _findBuildingOfBusinessName.FindBusinessName();
-            }
 
             transform.position = new Vector3(
                 transform.position.x,
                 transform.position.y - 1.3f,
                 transform.position.z);
-            //_buildingManager.AddCharacter();
         }
     }
 }
