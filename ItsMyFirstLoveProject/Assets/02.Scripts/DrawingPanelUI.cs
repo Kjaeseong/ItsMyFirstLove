@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using GameFile;
 
@@ -29,9 +28,6 @@ public class DrawingPanelUI : MonoBehaviour
         PINK,
         SKYBLUE
     }
-
-    //시연용 테스트코드. 삭제가능
-    [SerializeField] private TEST_UI _ui;
 //---------------------------------------------------------
 
     // For RayCast
@@ -84,16 +80,14 @@ public class DrawingPanelUI : MonoBehaviour
     /// </summary>
     public void CreateDrawingPanel()
     {
-        SaveImage();
+        // 객체 생성
         GameObject panel = Instantiate(_drawingPanelPrefab);
-
-        //테스트용 코드, 삭제가능
+        // RawImage 컴포넌트 탐색
         RawImage _image = panel.GetComponentInChildren<RawImage>();
+        // 가장 최근에 저장된 이미지 로드 후 텍스쳐 입힘
         _image.texture = Img.TextureLoad();
-        _ui.gameObject.SetActive(true);
-        _ui.GameObjectSet(panel);
+
         panel.SetActive(false);
-        gameObject.SetActive(false);
     }
 
     //테스트용 코드, 삭제가능
