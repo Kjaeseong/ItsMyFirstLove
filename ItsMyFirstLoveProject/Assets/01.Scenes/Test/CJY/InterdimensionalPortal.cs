@@ -13,9 +13,7 @@ public class InterdimensionalPortal : MonoBehaviour
         Debug.Log("플레이어가 들어옴");
         foreach (var mat in _materials)
         {
-            mat.SetInt("_StencilComp", (int)CompareFunction.NotEqual);
-            mat.SetInt("_PreStencilComp", (int)CompareFunction.NotEqual);
-            mat.SetInt("_OutlineStencilComp", (int)CompareFunction.NotEqual);
+            ObjectMaskSetNotEqual();
         }
     }
     /// <summary>
@@ -32,23 +30,33 @@ public class InterdimensionalPortal : MonoBehaviour
         if (transform.position.z >= other.transform.position.z)
         {
             Debug.Log("플레이어가 입구앞");
-            foreach (var mat in _materials)
-            {
-                mat.SetInt("_StencilComp", (int)CompareFunction.NotEqual);
-                mat.SetInt("_PreStencilComp", (int)CompareFunction.NotEqual);
-                mat.SetInt("_OutlineStencilComp", (int)CompareFunction.NotEqual);
-            }
-
+            ObjectMaskSetNotEqual();
         }
         else
         {
             Debug.Log("플레이어가 들어왔음");
-            foreach (var mat in _materials)
-            {
-                mat.SetInt("_StencilComp", (int)CompareFunction.Equal);
-                mat.SetInt("_PreStencilComp", (int)CompareFunction.Equal);
-                mat.SetInt("_OutlineStencilComp", (int)CompareFunction.Equal);
-            }
+            ObjectMaskSetEqual();
+        }
+    }
+
+
+    void ObjectMaskSetEqual()
+    {
+        foreach (var mat in _materials)
+        {
+            mat.SetInt("_StencilComp", (int)CompareFunction.Equal);
+            mat.SetInt("_PreStencilComp", (int)CompareFunction.Equal);
+            mat.SetInt("_OutlineStencilComp", (int)CompareFunction.Equal);
+        }
+    }
+
+    void ObjectMaskSetNotEqual()
+    {
+        foreach (var mat in _materials)
+        {
+            mat.SetInt("_StencilComp", (int)CompareFunction.NotEqual);
+            mat.SetInt("_PreStencilComp", (int)CompareFunction.NotEqual);
+            mat.SetInt("_OutlineStencilComp", (int)CompareFunction.NotEqual);
         }
     }
 }
