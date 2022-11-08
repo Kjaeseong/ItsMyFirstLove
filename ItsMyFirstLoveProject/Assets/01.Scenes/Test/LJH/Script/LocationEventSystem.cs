@@ -34,7 +34,7 @@ public class LocationEventSystem : MonoBehaviour
 
     private void Update()
     {
-        if (!_isActivedEvent) 
+        if (!_isActivedEvent)
         {
             return;
         }
@@ -89,7 +89,7 @@ public class LocationEventSystem : MonoBehaviour
             }
 
             // 취향 이벤트
-            if(_favoriteEventOn)
+            if (_favoriteEventOn)
             {
 
             }
