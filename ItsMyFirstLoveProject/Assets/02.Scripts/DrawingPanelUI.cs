@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using GameFile;
 
@@ -8,6 +7,7 @@ public class DrawingPanelUI : MonoBehaviour
 {
     // TODO : 방명록 기능에 대한 구체적인 기획안 확정시 추가작업 하겠음. 작성자 김재성
     [SerializeField] private GameObject _captureCam;
+    private Camera _captureCamera;
     [SerializeField] private List<Material> _lineMaterials = new List<Material>(); 
     [SerializeField] private GameObject _drawingPanelPrefab;
     private Stack<GameObject> _lineStack = new Stack<GameObject>();
@@ -41,13 +41,18 @@ public class DrawingPanelUI : MonoBehaviour
     {
         Drawtouch();
     }
+    
+    private void Start() 
+    {
+        _captureCamera = _captureCam.GetComponent<Camera>();
+    }
 
     /// <summary>
     /// 메인카메라 기준 이미지 캡쳐. 지정된 파일 경로로 저장
     /// </summary>
     public void SaveImage()
     {
-        Img.Save(Camera.main.gameObject, Img.Size.Draw, Img.Name.Draw);
+        Img.Save(_captureCam, Img.Size.Draw, Img.Name.Draw);
         EraserAll();
     }
 
@@ -75,8 +80,20 @@ public class DrawingPanelUI : MonoBehaviour
     /// </summary>
     public void CreateDrawingPanel()
     {
+        // 객체 생성
         GameObject panel = Instantiate(_drawingPanelPrefab);
-        panel.SetActive(true);
+        // RawImage 컴포넌트 탐색
+        RawImage _image = panel.GetComponentInChildren<RawImage>();
+        // 가장 최근에 저장된 이미지 로드 후 텍스쳐 입힘
+        _image.texture = Img.TextureLoad();
+
+        panel.SetActive(false);
+    }
+
+    //테스트용 코드, 삭제가능
+    public void SelectColor(int num)
+    {
+        _selectColor = num;
     }
 
     // 캔버스 건물 배치 (미완. 추후 배치 관련 기획안 수립시 작업요망)
@@ -92,13 +109,13 @@ public class DrawingPanelUI : MonoBehaviour
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
-            Ray ray = Camera.main.ScreenPointToRay(touch.position);
+            Ray ray = _captureCamera.ScreenPointToRay(touch.position);
 
             if(Physics.Raycast(ray, out hit))
             {
                 if(hit.collider.name == "DrawCanvas")
                 {
-                    Vector3 touchPos = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, hit.collider.transform.position.z - 0.4f));
+                    Vector3 touchPos = _captureCamera.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, hit.collider.transform.position.z - 0.4f));
                     if(touch.phase == TouchPhase.Began && _canvasTouch == false)
                     {
                         createLine(touchPos);
@@ -128,6 +145,7 @@ public class DrawingPanelUI : MonoBehaviour
 
         line.transform.parent = transform;
         line.transform.position = touchPos;
+        line.layer = 12;
 
         lineRend.startWidth = 0.01f;
         lineRend.endWidth = 0.01f;

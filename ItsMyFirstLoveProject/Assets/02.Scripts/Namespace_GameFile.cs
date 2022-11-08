@@ -13,7 +13,7 @@ namespace GameFile
     {
         public struct Size
         {
-            public static Vector2 Draw  { get { return new Vector2(700, 700); }}
+            public static Vector2 Draw  { get { return new Vector2(1000, 1000); }}
             public static Vector2 Half  { get { return new Vector2(1080, 1200); }}
             public static Vector2 Full  { get { return new Vector2(1080, 2400); }}
             public static Vector2 Paper { get { return new Vector2(2400, 1080); }}
