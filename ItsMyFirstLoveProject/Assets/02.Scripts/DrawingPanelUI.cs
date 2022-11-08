@@ -6,6 +6,7 @@ using GameFile;
 
 public class DrawingPanelUI : MonoBehaviour
 {
+    // TODO : 방명록 기능에 대한 구체적인 기획안 확정시 추가작업 하겠음. 작성자 김재성
     [SerializeField] private GameObject _captureCam;
     [SerializeField] private List<Material> _lineMaterials = new List<Material>(); 
     [SerializeField] private GameObject _drawingPanelPrefab;
