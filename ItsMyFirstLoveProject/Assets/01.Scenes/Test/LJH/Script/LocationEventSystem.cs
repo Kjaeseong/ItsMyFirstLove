@@ -34,12 +34,11 @@ public class LocationEventSystem : MonoBehaviour
 
     private void Update()
     {
-        if (!_isActivedEvent)
+        if (!_isActivedEvent) 
         {
             return;
         }
 
-        // 해당 if문 내부는 이벤트 위치를 벗어났을 때 공통으로 해야하는 것 작성
         if (Vector3.Distance(Camera.main.transform.position, transform.position) > _eventOffDistance)
         {
             if (_vpsEventOn)
@@ -89,13 +88,13 @@ public class LocationEventSystem : MonoBehaviour
                 GameManager.Instance._audio.Play(_audioName);
             }
 
-            // 취향 이벤트 작성
-            if (_favoriteEventOn)
+            // 취향 이벤트
+            if(_favoriteEventOn)
             {
 
             }
 
-            // 기타 추가 이벤트 추가시 하위에 작성 EX) 방명록 등
+            // 기타 추가 이벤트
         }
     }
 

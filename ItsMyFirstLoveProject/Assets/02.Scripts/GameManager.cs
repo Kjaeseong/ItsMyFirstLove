@@ -24,9 +24,6 @@ public class GameManager : SingletonBehaviour<GameManager>
     public bool _isActCharacterWalkMode { get; private set; }
     public GameObject _characterModel { get; private set; }
 
-    // 스테이지 관련 변수     ----------------
-    public int StageIndex { get; private set; }
-
 
     private void Awake()
     {
@@ -113,12 +110,4 @@ public class GameManager : SingletonBehaviour<GameManager>
         // TODO : 방법 찾아야 함..분명 있을것같음
     }
 
-    /// <summary>
-    /// StageIndex 세팅 함수
-    /// </summary>
-    /// <param name="stageIndex"></param>
-    public void SetStageIndex(int stageIndex)
-    {
-        StageIndex = stageIndex;
-    }
 }
