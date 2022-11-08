@@ -5,24 +5,24 @@ using GameFile;
 
 public class DrawingPanel : MonoBehaviour
 {
-    private Stack<GameObject> _lineStack = new Stack<GameObject>();
-    private RawImage _image;
+    // private RawImage _image;
 
-    private void Start() 
-    {
-        _image = GetComponentInChildren<RawImage>();
-    }
+    // private void Start() 
+    // {
+    //     _image = GetComponentInChildren<RawImage>();
+        
+    // }
     
-    private void OnEnable() 
-    {
-        LoadImage();
-    }
+    // private void OnEnable() 
+    // {
+    //     LoadImage();
+    // }
 
-    // 가장 최근에 저장했던 이미지 텍스쳐 로드
-    private void LoadImage()
-    {
-        _image.texture = Img.TextureLoad();
-    }
+    // // 가장 최근에 저장했던 이미지 텍스쳐 로드
+    // private void LoadImage()
+    // {
+    //     _image.texture = Img.TextureLoad();
+    // }
 
 
 
