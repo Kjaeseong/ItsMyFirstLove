@@ -17,6 +17,13 @@ public class ChapterBlock : MonoBehaviour
     [SerializeField] private int _stage;
     [SerializeField] private int _favorabilityLevel;
 
+    [SerializeField] public string StartPosition { get; set; }
+    [SerializeField] public string PlaceName { get; set; }
+    [SerializeField] public string Location { get; set; }
+    [SerializeField] public string Story { get; set; }
+
+
+    private ChapterSelectUI _chapterSelectUI;
 
 
 
@@ -24,8 +31,11 @@ public class ChapterBlock : MonoBehaviour
     {
         _actChapter = GetComponentInChildren<ActiveChapterUI>();
         _activeChapter = _actChapter.gameObject;
+
         _deactChapter = GetComponentInChildren<DeactiveChapterUI>();
         _deactiveChapter = _deactChapter.gameObject;
+
+        _chapterSelectUI = GetComponentInParent<ChapterSelectUI>();
     }
 
     private void OnEnable() 
@@ -71,6 +81,15 @@ public class ChapterBlock : MonoBehaviour
         _deactChapter.TextSet(_chapterNum, _stage, _favorabilityLevel);
     }
 
-
+    public void ChapterButton()
+    {
+        _chapterSelectUI.ActivateChapterInfo(
+            _chapterNum,
+            StartPosition,
+            PlaceName,
+            Location,
+            Story
+        );
+    }
 
 }
