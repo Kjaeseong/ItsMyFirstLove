@@ -30,7 +30,7 @@ public class GameManager : SingletonBehaviour<GameManager>
     private Items _item;
 
     // 현재 스테이지 인덱스
-    public int CurrnetStageIndex { get; private set; }
+    public int CurrentStageIndex { get; private set; }
 
     private void Awake()
     {
@@ -133,6 +133,6 @@ public class GameManager : SingletonBehaviour<GameManager>
     /// <param name="currentStageIndex"></param>
     public void SetCurrentStageIndex(int currentStageIndex)
     {
-        CurrnetStageIndex = currentStageIndex;
+        CurrentStageIndex = currentStageIndex;
     }
 }
