@@ -62,7 +62,7 @@ public class InventoryManager : MonoBehaviour
         if (_inven.ItemInInventory[index].ItemCount >= 1)
         {
             --_inven.ItemInInventory[index].ItemCount;
-            _character.ReceivePresent(_inven.ItemInInventory[index].name);
+            _character.ReceivePresent(_inven.ItemInInventory[index].Impression);
         }
 
         if(_inven.ItemInInventory[index].ItemCount == 0)

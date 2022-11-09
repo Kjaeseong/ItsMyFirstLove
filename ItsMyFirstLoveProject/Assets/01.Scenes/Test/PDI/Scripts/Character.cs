@@ -7,22 +7,14 @@ public class Character : MonoBehaviour
     public int Favorability { get; private set; }
     public int Level { get; private set; }
 
-    private string _favor;
-    private string _hate;
-
-
     private void Start()
     {
-        Favorability = 0;
-        Level = 1;
-
-        _favor = "Item1";
-        _hate = "Item2";
+        LoadCharacterData();
     }
 
-    public void ReceivePresent(string _name)
+    public void ReceivePresent(int impression)
     {
-        if (_name == _favor)
+        if (impression == 1)
         {
             Favorability += 20;
 
@@ -33,7 +25,7 @@ public class Character : MonoBehaviour
             }
         }
 
-        else if(_name == _hate)
+        else if(impression == 2)
         {
             Favorability -= 10;
         }
@@ -43,5 +35,15 @@ public class Character : MonoBehaviour
             Favorability = 0;
         }
     }
-    //TODO: CSV파일형식으로 변경해야함
+
+    public void LoadCharacterData()
+    {
+        Favorability = GameManager.Instance._dataMgr.Favorability;
+        Level = GameManager.Instance._dataMgr.Level;
+    }
+
+    public void SaveCharacterData()
+    {
+        GameManager.Instance._dataMgr.SaveCharacterData(Favorability, Level);
+    }
 }
