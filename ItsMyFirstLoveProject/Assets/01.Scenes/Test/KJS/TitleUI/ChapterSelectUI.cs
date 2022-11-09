@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class ChapterSelectUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject _activeChapterPrefab;
+    [SerializeField] private GameObject _deactiveChapterPrefab;
+    [SerializeField] private GameObject _scrollField;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    private GameObject _
 }

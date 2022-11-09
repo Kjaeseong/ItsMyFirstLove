@@ -13,17 +13,19 @@ public class ActiveChapterUI : MonoBehaviour
     [SerializeField] private GameObject[] _alpha0 = new GameObject[4];
     [SerializeField] private GameObject[] _alpha1 = new GameObject[4];
 
+    private GameObject _backMenu;
+
     public void HeartSet(int index, bool active)
     {
         _alpha1[index].SetActive(active);
         _alpha0[index].SetActive(!active);
     }
 
-    public void TextSet(int ChapterNum, string Compen,float Favorability, int Coin)
+    public void TextSet(int ChapterNum, string Compen,float FavorabilityLevel, int Coin)
     {
         _chapterNum.text = $"Chapter {ChapterNum}";
         _compensation.text = Compen;
-        _status.text = $"호감도 : {Favorability}, 코인 : {Coin}";
+        _status.text = $"호감도 : {FavorabilityLevel}, 코인 : {Coin}";
     }
 
     public void ActivateStageWindow()
