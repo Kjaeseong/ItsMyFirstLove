@@ -31,6 +31,7 @@ public class LocationFinder : MonoBehaviour
 
     private void Update()
     {
+        MoveSettingInVPSeffect();
         _elaspedTime += Time.deltaTime;
 
         // 하나 이동을 위해서 절대값 계산
@@ -39,7 +40,10 @@ public class LocationFinder : MonoBehaviour
 
         if (sqrLen > 0 && _isStoryEnd == false)
         {
-            MoveHana();
+            if (_ai.isStopped == false)
+            {
+                MoveHana();
+            }
 
             if (sqrLen > 20)
             {
@@ -129,5 +133,23 @@ public class LocationFinder : MonoBehaviour
         yield return new WaitForSecondsRealtime(3f);
         coll.enabled = true;
     }
+
+    // AI 움직임 테스트 하는 중임
+    private void MoveSettingInVPSeffect()
+    {
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            Debug.Log("VPS 이벤트 시작");
+            _ai.isStopped = true;
+            _animationSupport.Play("Idle");
+        }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            Debug.Log("VPS 이벤트 끝나고 움직임");
+            _ai.isStopped = false;
+        }
+    }
 }
+
+
 
