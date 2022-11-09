@@ -6,10 +6,11 @@ using UnityEngine.SceneManagement;
 public class BuildingFinder : MonoBehaviour
 {
     [SerializeField] private LocationFinder _character;
-    [SerializeField] private GameObject _ProtoTypeLocations;
+    [SerializeField] private GameObject[] _ProtoTypeLocations;
     [SerializeField] private GameObject _ProtoTypeBusinessName;
 
     public string LocationNameOfBenchMark;
+    private float StageNumber;
 
     private void Start()
     {
@@ -27,11 +28,11 @@ public class BuildingFinder : MonoBehaviour
 
         GameObject BuildingForLocation = GameObject.Find(LocationNameOfBenchMark);
         Vector3 LocationPos = BuildingForLocation.transform.position;
-        _ProtoTypeLocations.transform.position = LocationPos;
+        _ProtoTypeLocations[GameManager.Instance.CurrentStageIndex].transform.position = LocationPos;
 
         for (int i = 0; i < _character._destinations.Length; i++)
         {
-            _character._destinations[i] = _ProtoTypeLocations.transform.GetChild(i).gameObject;
+            _character._destinations[i] = _ProtoTypeLocations[GameManager.Instance.CurrentStageIndex].transform.GetChild(i).gameObject;
         }
     }
 

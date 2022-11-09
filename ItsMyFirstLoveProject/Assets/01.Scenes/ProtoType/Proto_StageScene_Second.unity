@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &10318430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 10318431}
+  m_Layer: 0
+  m_Name: Bussiness_Group
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &10318431
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 10318430}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1120351645}
+  m_Father: {fileID: 1103231037}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &48497917
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,7 +381,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1103231037}
+    m_TransformParent: {fileID: 2078399113}
     m_Modifications:
     - target: {fileID: 315328387353183756, guid: a3471897f0852e64db8c99d60e59aa06, type: 3}
       propertyPath: m_LocalPosition.x
@@ -430,7 +461,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7522101435127340858, guid: a3471897f0852e64db8c99d60e59aa06, type: 3}
       propertyPath: m_Name
-      value: TEST__ProtoTypeLocationNumber
+      value: TEST__Stage0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3471897f0852e64db8c99d60e59aa06, type: 3}
@@ -652,7 +683,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _character: {fileID: -9036944996583800542, guid: 734461f101e01224c9523a237e2bbef4, type: 3}
-  _ProtoTypeLocations: {fileID: 648818379}
+  _ProtoTypeLocations:
+  - {fileID: 648818379}
+  - {fileID: 0}
   _ProtoTypeBusinessName: {fileID: 1120351646}
   LocationNameOfBenchMark: ExtrudedStructure (ChIJN2LvIVWlfDUR1hQoEQLTi3A)
 --- !u!114 &910068127 stripped
@@ -997,8 +1030,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 648818378}
-  - {fileID: 1120351645}
+  - {fileID: 2078399113}
+  - {fileID: 10318431}
   - {fileID: 419237865}
   m_Father: {fileID: 0}
   m_RootOrder: 15
@@ -1008,11 +1041,11 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1103231037}
+    m_TransformParent: {fileID: 10318431}
     m_Modifications:
     - target: {fileID: 4524097326999476912, guid: d1599a33ed5bcc54aa47fe1b6a65e4b4, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4524097326999476912, guid: d1599a33ed5bcc54aa47fe1b6a65e4b4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1056,7 +1089,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4524097326999476913, guid: d1599a33ed5bcc54aa47fe1b6a65e4b4, type: 3}
       propertyPath: m_Name
-      value: TEST__ProtoTypeBusinessLocation
+      value: TEST__Stage0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1599a33ed5bcc54aa47fe1b6a65e4b4, type: 3}
@@ -1463,6 +1496,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &2078399112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2078399113}
+  m_Layer: 0
+  m_Name: STAGE_Group
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2078399113
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078399112}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 648818378}
+  m_Father: {fileID: 1103231037}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &519570874111800342
 PrefabInstance:
   m_ObjectHideFlags: 0
