@@ -10,9 +10,17 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource _touch;
     [SerializeField] private AudioSource _event;
 
+    private float _bgmVolume = 0.5f;
+    private float _seVolume = 0.5f;
+
     private void Start() 
     {
         LoadFile();
+    }
+
+    public void foo()
+    {
+        Debug.Log("--");
     }
 
     private void LoadFile()
@@ -83,6 +91,27 @@ public class AudioManager : MonoBehaviour
                 _event.Stop();
                 break;
         }
+    }
+
+
+    /// <summary>
+    /// 배경음, 효과음 수치 조정 <br/>
+    /// bgm : 배경음 음량, 0 ~ 1 <br/>
+    /// se : 효과음 음량, 0 ~ 1
+    /// </summary>
+    public void SetVolume(float bgm, float se)
+    {
+        _bgmVolume = bgm;
+        _seVolume = se;
+    }
+
+
+    /// <summary>
+    /// 배경음, 효과음 음량 순으로 Vector2 형식으로 반환
+    /// </summary>
+    public Vector2 GetVolume()
+    {
+        return new Vector2(_bgmVolume, _seVolume);
     }
 
     private void ClipSet(AudioSource type, AudioClip file)
