@@ -88,13 +88,13 @@ public class LocationEventSystem : MonoBehaviour
                 GameManager.Instance._audio.Play(_audioName);
             }
 
-            // 취향 이벤트
+            // 취향 이벤트 작성
             if(_favoriteEventOn)
             {
 
             }
 
-            // 기타 추가 이벤트
+            // 기타 추가 이벤트 추가시 아래 위치에 추가 작성 요망
         }
     }
 

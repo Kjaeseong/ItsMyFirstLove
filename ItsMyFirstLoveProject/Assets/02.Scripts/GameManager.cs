@@ -29,7 +29,8 @@ public class GameManager : SingletonBehaviour<GameManager>
     public UnityEvent<Items> ItemInfo = new UnityEvent<Items>();
     private Items _item;
 
-
+    // 현재 스테이지 인덱스
+    public int CurrentStageIndex { get; private set; }
 
     private void Awake()
     {
@@ -126,4 +127,12 @@ public class GameManager : SingletonBehaviour<GameManager>
         ItemInfo.Invoke(_item);
     }
 
+    /// <summary>
+    /// 현재 스테이지 인덱스 세팅 함수
+    /// </summary>
+    /// <param name="currentStageIndex"></param>
+    public void SetCurrentStageIndex(int currentStageIndex)
+    {
+        CurrentStageIndex = currentStageIndex;
+    }
 }
