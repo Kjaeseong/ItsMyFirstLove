@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class ChapterSelectUI : MonoBehaviour
 {
-    [SerializeField] private GameObject _activeChapterPrefab;
-    [SerializeField] private GameObject _deactiveChapterPrefab;
-    [SerializeField] private GameObject _scrollField;
+    [SerializeField] private GameObject _backMenu;
 
-    private GameObject _
+
+    public void BackButton()
+    {
+        _backMenu.SetActive(true);
+        gameObject.SetActive(false);
+    }
+
+    public void BackMenuObjectSet(GameObject BackMenu)
+    {
+        _backMenu = BackMenu;
+    }
 }

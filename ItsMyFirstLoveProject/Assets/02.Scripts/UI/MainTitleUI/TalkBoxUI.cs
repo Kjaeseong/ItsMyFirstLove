@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TalkBox : MonoBehaviour
+public class TalkBoxUI : MonoBehaviour
 {
     private ModeSelectUI _modeSelectUI;
     private float _deactBoxTime;

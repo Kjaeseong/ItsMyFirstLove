@@ -11,20 +11,35 @@ public class KJS_OptionUI : MonoBehaviour
 
     private AudioManager _audio;
 
-    //private GameObject _backMenu;
+    private GameObject _backMenu;
+
+    private bool _hadVolume;
+    private bool _hadBackMenu;
+    
 
     private void OnEnable() 
     {
-        SliderValueSet(GameManager.Instance._audio.GetVolume());
+        _hadVolume = false;
     }
-    
     private void OnDisable() 
     {
-        //_backMenu.SetActive(true);
+        if(_hadBackMenu)
+        {
+            _backMenu.SetActive(true);
+            _backMenu = null;
+            _hadBackMenu = false;
+        }
     }
 
     private void Update() 
     {
+        if(!_hadVolume)
+        {
+            Debug.Log("---");
+            SliderValueSet(GameManager.Instance._audio.GetVolume());
+            _hadVolume = true;
+        }
+
         GameManager.Instance._audio.SetVolume(_bgmSlider.value, _seSlider.value);
     }
 
@@ -39,7 +54,8 @@ public class KJS_OptionUI : MonoBehaviour
     /// </summary>
     public void BackMenuObjectSet(GameObject BackMenu)
     {
-        //_backMenu = BackMenu;
+        _backMenu = BackMenu;
+        _hadBackMenu = true;
     }
 
     /// <summary>

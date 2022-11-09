@@ -11,11 +11,12 @@ public class ChapterBlock : MonoBehaviour
 
     [SerializeField] private bool _chapterActivate;
     [SerializeField] private bool[] _heartAct = new bool[4];
-    [SerializeField] private int _chapterNum;
+    private int _chapterNum;
     [SerializeField] private string _compensation;
     [SerializeField] private int _coin;
     [SerializeField] private int _stage;
     [SerializeField] private int _favorabilityLevel;
+
 
 
 
