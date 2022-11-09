@@ -3,6 +3,7 @@ using Google.Maps.Event;
 using Google.Maps.Examples.Shared;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Google.Maps.Examples
 {
@@ -25,28 +26,29 @@ namespace Google.Maps.Examples
 
         private BuildingFinder _buildingFinder;
 
+        [SerializeField] private GameObject _map;
+        [SerializeField] private GameObject _nav;
+        [SerializeField] private GameObject _ground;
+
+        [SerializeField] private InputField _useInputLat;
+        [SerializeField] private InputField _useInputLong;
+
         /// <summary>
         /// Use <see cref="MapsService"/> to load geometry.
         /// </summary>
         private void Start()
         {
-
             _buildingFinder = GetComponent<BuildingFinder>();
-
             _buildingManager = GetComponent<BuildingManager>();
-            // Get required MapsService component on this GameObject.
             _mapsService = GetComponent<MapsService>();
 
-            // Set real-world location to load.
             _mapsService.InitFloatingOrigin(_latLng);
 
-            // Register a listener to be notified when the map is loaded.
             _mapsService.Events.MapEvents.Loaded.AddListener(OnLoaded);
 
-            // Load map with default options.
             // 유니티상 테스트를 위해 다시 작성, 추후 GPS 적용시 아래 함수 사용
             LoadMap(_latLng.Lat, _latLng.Lng);
-            // _mapsService.LoadMap(ExampleDefaults.DefaultBounds, ExampleDefaults.DefaultGameObjectOptions);
+            // LoadMap(ExampleDefaults.DefaultBounds, ExampleDefaults.DefaultGameObjectOptions);
         }
 
         /// <summary>
@@ -61,17 +63,39 @@ namespace Google.Maps.Examples
             _mapsService.LoadMap(ExampleDefaults.DefaultBounds, ExampleDefaults.DefaultGameObjectOptions);
         }
 
+        public void TestLoadMapUseGPS()
+        {
+            _latLng = new LatLng(GameManager.Instance.Lat, GameManager.Instance.Long);
+            _mapsService.MoveFloatingOrigin(_latLng);
+            //_mapsService.MakeMapLoadRegion().UnloadOutside();
+            _mapsService.LoadMap(ExampleDefaults.DefaultBounds, ExampleDefaults.DefaultGameObjectOptions);
+            InitMapLocationToPlayerPosition();
+        }
+        public void TestLoadMapUseInput()
+        {
+            Debug.Log("인풋 맵 호출됨");
+            _latLng = new LatLng(double.Parse(_useInputLat.text), double.Parse(_useInputLong.text));
+            _mapsService.MoveFloatingOrigin(_latLng);
+            //_mapsService.MakeMapLoadRegion().UnloadOutside();
+            _mapsService.LoadMap(ExampleDefaults.DefaultBounds, ExampleDefaults.DefaultGameObjectOptions);
+            InitMapLocationToPlayerPosition();
+        }
+
+        public void InitMapLocationToPlayerPosition()
+        {
+            Vector3 vec = new Vector3(Camera.main.transform.position.x, 0f, Camera.main.transform.position.z);
+            _map.transform.position = vec;
+            _nav.transform.position = vec;
+            _ground.transform.position = vec;
+        }
+
         /// <summary>
-        /// Example of OnLoaded event listener.
+        /// 맵 로드 후 실행되어야 하는 요소들 여기에 작성
         /// </summary>
-        /// <remarks>
-        /// The communication between the game and the MapsSDK is done through APIs and event listeners.
-        /// </remarks>
         public void OnLoaded(MapLoadedArgs args)
         {
             // The Map is loaded - you can start/resume gameplay from that point.
             // The new geometry is added under the GameObject that has MapsService as a component.
-
             transform.position = new Vector3(
                 transform.position.x,
                 transform.position.y - 1.3f,
