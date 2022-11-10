@@ -13,10 +13,12 @@ public class ActiveChapterUI : MonoBehaviour
     [SerializeField] private GameObject[] _alpha0 = new GameObject[4];
     [SerializeField] private GameObject[] _alpha1 = new GameObject[4];
     private GameObject _chapterSelectUI;
+    private ChapterBlock _chapterBlock;
 
     private void Start() 
     {
         _chapterSelectUI = GetComponentInParent<ChapterSelectUI>().gameObject;
+        _chapterBlock = GetComponentInParent<ChapterBlock>();
     }
 
     public void HeartSet(int index, bool active)
@@ -34,7 +36,7 @@ public class ActiveChapterUI : MonoBehaviour
 
     public void ActivateStageWindow()
     {
-        _chapterSelectUI.SetActive(false);
+        _chapterBlock.ChapterButton();
         // TODO : 스테이지 정보창 구현시 아래 코드 사용.
         // _stageWindow.SetActive(true);
         // _stageWindowScript.BackMenuObjectSet(_chapterSelectUI);

@@ -5,14 +5,16 @@ using UnityEngine;
 public class ChapterSelectUI : MonoBehaviour
 {
     [SerializeField] private GameObject _backMenu;
+    [SerializeField] private GameObject _chapterList;
+    [SerializeField] private GameObject _chapterInfoUI;
+    [SerializeField] private ChapterInfoUI _chapterInfoUIscript;
 
-    private GameObject _chapterInfoUI;
-    private ChapterInfoUI _chapterInfoUIscript;
 
     private void Start() 
     {
         _chapterInfoUIscript = GetComponentInChildren<ChapterInfoUI>();
         _chapterInfoUI = _chapterInfoUIscript.gameObject;
+        _chapterInfoUI.SetActive(false);
     }
 
     public void BackButton()
@@ -23,15 +25,15 @@ public class ChapterSelectUI : MonoBehaviour
 
     public void ActivateChapterInfo(int ChapterNumber, string StartPosition, string PlaceName, string Location, string Story)
     {
-        _chapterInfoUIscript.BackMenuObjectSet(gameObject);
+        _chapterInfoUI.SetActive(true);
+        _chapterInfoUIscript.BackMenuObjectSet(_chapterList);
+        _chapterList.SetActive(false);
 
         _chapterInfoUIscript.ChapterNumber = ChapterNumber;
         _chapterInfoUIscript.StartPosition = StartPosition;
         _chapterInfoUIscript.PlaceName = PlaceName;
         _chapterInfoUIscript.Location = Location;
         _chapterInfoUIscript.Story = Story;
-
-        gameObject.SetActive(false);
     }
 
     public void BackMenuObjectSet(GameObject BackMenu)

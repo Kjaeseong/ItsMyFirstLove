@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3.117, y: -3.1171}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1100.5737, y: 2486.815}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5667390595587170477
@@ -899,7 +899,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -32.51001, y: -43.700134}
+  m_AnchoredPosition: {x: -32.51001, y: -43.700195}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &7794148209384317477
@@ -984,7 +984,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: -8839765433487389448}
         m_TargetAssemblyTypeName: KJS_OptionUI, Assembly-CSharp
         m_MethodName: ClickBackButton
         m_Mode: 1

@@ -18,8 +18,18 @@ public class ChapterInfoUI : MonoBehaviour
     public string Story { get; set; }
 
     private GameObject _backMenu;
+    private GameObject PopUpUI;
 
-    // 팝업창 띄워야됨
+    // 시작 범위 내 들어가 있는지 판별하기 위한 bool타입 변수
+    // 테스트 종료시 SerializeField 삭제
+    [SerializeField] private bool _insideStartArea;
+
+    private void Start() 
+    {
+        PopUpUI = GetComponentInChildren<ChapterInfoPopUpUI>().gameObject;
+        PopUpUI.SetActive(false);
+        
+    }
     
     private void OnEnable() 
     {
@@ -37,12 +47,19 @@ public class ChapterInfoUI : MonoBehaviour
 
     public void StartButton()
     {
-        GameManager.Instance._scene.Change("StoryMode");
+        if(_insideStartArea)
+        {
+            GameManager.Instance._scene.Change("StoryMode");
+        }
+        else
+        {
+            PopUpUI.SetActive(true);
+        }
     }
 
     public void MapScaleUpButton()
     {
-        // 지도 확대버튼 클릭시 동작
+        // TODO : 지도 확대버튼 클릭시 동작 로직 넣어야 함. 박도일팀장 등원시 공동작업 예정
     }
 
     public void BackMenuObjectSet(GameObject BackMenu)
