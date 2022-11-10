@@ -67,7 +67,7 @@ namespace Google.Maps.Examples
         {
             _latLng = new LatLng(GameManager.Instance.Lat, GameManager.Instance.Long);
             _mapsService.MoveFloatingOrigin(_latLng);
-            //_mapsService.MakeMapLoadRegion().UnloadOutside();
+            _mapsService.MakeMapLoadRegion().UnloadOutside();
             _mapsService.LoadMap(ExampleDefaults.DefaultBounds, ExampleDefaults.DefaultGameObjectOptions);
             InitMapLocationToPlayerPosition();
         }
@@ -76,7 +76,7 @@ namespace Google.Maps.Examples
             Debug.Log("인풋 맵 호출됨");
             _latLng = new LatLng(double.Parse(_useInputLat.text), double.Parse(_useInputLong.text));
             _mapsService.MoveFloatingOrigin(_latLng);
-            //_mapsService.MakeMapLoadRegion().UnloadOutside();
+            _mapsService.MakeMapLoadRegion().UnloadOutside();
             _mapsService.LoadMap(ExampleDefaults.DefaultBounds, ExampleDefaults.DefaultGameObjectOptions);
             InitMapLocationToPlayerPosition();
         }
