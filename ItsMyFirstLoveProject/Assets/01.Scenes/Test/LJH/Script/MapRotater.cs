@@ -50,12 +50,13 @@ public class MapRotater : MonoBehaviour
         {
             Vector3 dir = _defaultBuilding[i].transform.position - Camera.main.transform.position;
             dir.y = 0f;
-            Quaternion _rotation = Quaternion.LookRotation(dir.normalized);
-            _player.transform.rotation = _rotation;
+            //Quaternion _rotation = Quaternion.LookRotation(dir.normalized);
+            //_player.transform.rotation = _rotation;
+            _player.transform.LookAt(_defaultBuilding[i].transform.position);
             _map[i].transform.RotateAround(
                 Camera.main.transform.position,
                 Vector3.up,
-                -1 * _player.transform.rotation.eulerAngles.y
+                Camera.main.transform.rotation.eulerAngles.y - _player.transform.rotation.eulerAngles.y//-1 * _player.transform.rotation.eulerAngles.y
             );
         }
     }
