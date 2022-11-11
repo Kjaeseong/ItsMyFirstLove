@@ -26,12 +26,11 @@ public class LocationEventSystem : MonoBehaviour
 
     // ด๋ป็
     [SerializeField] private bool _lineEventOn;
-    [SerializeField] private string[] _lineSystemString;
 
     [Serializable]
     private class LineSystem
     {
-        [Header("Description")]
+        [Header("Description")] 
         public string Talker;
         public string Description;
         [Header("Select")]
@@ -119,9 +118,13 @@ public class LocationEventSystem : MonoBehaviour
         foreach (var line in _lineSystems)
         {
             //string[] splitLine  = line.Split('/');
-            if (line.Select1 != "")
+            if (line.Select3 != "" && line.Select1 != "")
             {
-                _ui.AddCommuSelect(line.Talker, line.Description, line.Select1, line.Select2);
+                _ui.AddCommuSelect(line.Talker, line.Description, line.Select1, line.Select1Description, line.Select2, line.Select2Description, line.Select3, line.Select3Description);
+            }
+            else if (line.Select2 != "")
+            {
+                _ui.AddCommuSelect(line.Talker, line.Description, line.Select1, line.Select1Description, line.Select2, line.Select2Description);
             }
             else
             {
