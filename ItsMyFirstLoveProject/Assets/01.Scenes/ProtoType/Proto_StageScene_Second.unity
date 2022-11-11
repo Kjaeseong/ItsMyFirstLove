@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 10318431}
   m_Layer: 0
-  m_Name: Bussiness_Group
+  m_Name: Business_Group
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -871,7 +871,8 @@ MonoBehaviour:
   _ProtoTypeLocations:
   - {fileID: 648818379}
   - {fileID: 548707552}
-  _ProtoTypeBusinessName: {fileID: 1120351646}
+  _ProtoTypeBusinessName:
+  - {fileID: 0}
   LocationNameOfBenchMark: ExtrudedStructure (ChIJN2LvIVWlfDUR1hQoEQLTi3A)
 --- !u!114 &910068127 stripped
 MonoBehaviour:
@@ -1281,11 +1282,6 @@ PrefabInstance:
 --- !u!4 &1120351645 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4524097326999476912, guid: d1599a33ed5bcc54aa47fe1b6a65e4b4, type: 3}
-  m_PrefabInstance: {fileID: 1120351644}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1120351646 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4524097326999476913, guid: d1599a33ed5bcc54aa47fe1b6a65e4b4, type: 3}
   m_PrefabInstance: {fileID: 1120351644}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1207687142
