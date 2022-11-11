@@ -4,16 +4,57 @@ using UnityEngine;
 
 public class TitleUIManager : MonoBehaviour
 {
-    [SerializeField] private GameObject _modeSelectUI;
-    [SerializeField] private GameObject _chapterSelectUI;
-    [SerializeField] private GameObject _optionUI;
+    private GameObject _modeSelectUI;
+    private ModeSelectUI _modeSelectUIscript;
+
+    private GameObject _chapterSelectUI;
+    private ChapterSelectUI _chapterSelectUIscript;
+
+    private GameObject _optionUI;
+    private KJS_OptionUI _optionUIscript;
+
+    private GameObject _mainTitleUI;
+    private MainTitleUI _mainTitleUIscript;
+
+
+    private void Start() 
+    {
+        _modeSelectUIscript = GetComponentInChildren<ModeSelectUI>();
+        _modeSelectUI = _modeSelectUIscript.gameObject;
+
+        _chapterSelectUIscript = GetComponentInChildren<ChapterSelectUI>();
+        _chapterSelectUI = _chapterSelectUIscript.gameObject;
+        
+        _optionUIscript = GetComponentInChildren<KJS_OptionUI>();
+        _optionUI = _optionUIscript.gameObject;
+
+        _mainTitleUIscript = GetComponentInChildren<MainTitleUI>();
+        _mainTitleUI = _mainTitleUIscript.gameObject;
+
+
+        _mainTitleUI.SetActive(false);
+        _optionUI.SetActive(false);
+        _chapterSelectUI.SetActive(false);
+
+        //테스트 용도
+        ActivateMainTitle();
+    }
+
+    private void ActivateLoading()
+    {
+        
+    }
+
+    private void ActivateMainTitle()
+    {
+        _mainTitleUI.SetActive(true);
+    }
 
     /// <summary>
     /// 모드 선택창UI 출력
     /// </summary>
     public void ActivateModeSelect()
     {
-        Debug.Log("모드 선택창 출력");
         _modeSelectUI.SetActive(true);
     }
 
@@ -22,8 +63,9 @@ public class TitleUIManager : MonoBehaviour
     /// </summary>
     public void ActivateChapterSelect()
     {
-        Debug.Log("챕터 선택창 출력");
         _chapterSelectUI.SetActive(true);
+        _chapterSelectUIscript.BackMenuObjectSet(_modeSelectUI);
+        _modeSelectUI.SetActive(false);
     }
 
     /// <summary>
@@ -31,8 +73,8 @@ public class TitleUIManager : MonoBehaviour
     /// </summary>
     public void ActivateOption()
     {
-        Debug.Log("환경설정 출력");
         _optionUI.SetActive(true);
+        _optionUIscript.BackMenuObjectSet(_modeSelectUI);
     }
 
     /// <summary>
