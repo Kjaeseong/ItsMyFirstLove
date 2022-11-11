@@ -60,4 +60,9 @@ public class AnimationSupport : MonoBehaviour
         _anim.SetTrigger("NO");
     }
 
+    public void PlayAnimationTrigger(string animationName)
+    {
+        _anim.SetTrigger(animationName);
+    }
+
 }

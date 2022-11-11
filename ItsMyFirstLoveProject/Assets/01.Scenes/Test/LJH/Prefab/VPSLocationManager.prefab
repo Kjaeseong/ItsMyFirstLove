@@ -63,6 +63,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8948730692446947871}
     m_Modifications:
+    - target: {fileID: 5368421368034395995, guid: 7111aa048c317674c9bf50635fe4991d, type: 3}
+      propertyPath: m_Name
+      value: HackBab-VPS
+      objectReference: {fileID: 0}
     - target: {fileID: 5368421368034395996, guid: 7111aa048c317674c9bf50635fe4991d, type: 3}
       propertyPath: _ui
       value: 
@@ -70,6 +74,14 @@ PrefabInstance:
     - target: {fileID: 5368421368034395996, guid: 7111aa048c317674c9bf50635fe4991d, type: 3}
       propertyPath: _vpsEffectManager
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5368421368034395998, guid: 7111aa048c317674c9bf50635fe4991d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -36
+      objectReference: {fileID: 0}
+    - target: {fileID: 5368421368034395998, guid: 7111aa048c317674c9bf50635fe4991d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5368421369626723523, guid: 7111aa048c317674c9bf50635fe4991d, type: 3}
       propertyPath: m_Name
@@ -85,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5368421369626723524, guid: 7111aa048c317674c9bf50635fe4991d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5368421369626723524, guid: 7111aa048c317674c9bf50635fe4991d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -93,7 +105,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5368421369626723524, guid: 7111aa048c317674c9bf50635fe4991d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 32.9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5368421369626723524, guid: 7111aa048c317674c9bf50635fe4991d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -132,16 +144,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5368421369626723525, guid: 7111aa048c317674c9bf50635fe4991d, type: 3}
+      propertyPath: _buildingName
+      value: ExtrudedStructure (ChIJJ1LQTVWlfDURg2Cg2Sn3Zqc)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5368421369626723525, guid: 7111aa048c317674c9bf50635fe4991d, type: 3}
       propertyPath: _vpsLocationData
       value: 
       objectReference: {fileID: 11400000, guid: 35a01707e97b7dc48bc86f45d95d2a2e, type: 2}
     - target: {fileID: 5368421369626723525, guid: 7111aa048c317674c9bf50635fe4991d, type: 3}
       propertyPath: _setLocationVector.x
-      value: -6
+      value: -3.5
       objectReference: {fileID: 0}
     - target: {fileID: 5368421369626723525, guid: 7111aa048c317674c9bf50635fe4991d, type: 3}
       propertyPath: _setLocationVector.z
-      value: 10.3
+      value: -8.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480107808514643946, guid: 7111aa048c317674c9bf50635fe4991d, type: 3}
+      propertyPath: m_Name
+      value: Exit3-Talk
       objectReference: {fileID: 0}
     - target: {fileID: 7480107808514643949, guid: 7111aa048c317674c9bf50635fe4991d, type: 3}
       propertyPath: _ui
@@ -151,6 +171,22 @@ PrefabInstance:
       propertyPath: _vpsEffectManager
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7480107808514643951, guid: 7111aa048c317674c9bf50635fe4991d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -105
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480107808514643951, guid: 7111aa048c317674c9bf50635fe4991d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -95
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480107809657781392, guid: 7111aa048c317674c9bf50635fe4991d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -85
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480107809657781392, guid: 7111aa048c317674c9bf50635fe4991d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 7480107809657781394, guid: 7111aa048c317674c9bf50635fe4991d, type: 3}
       propertyPath: _ui
       value: 
@@ -158,6 +194,10 @@ PrefabInstance:
     - target: {fileID: 7480107809657781394, guid: 7111aa048c317674c9bf50635fe4991d, type: 3}
       propertyPath: _vpsEffectManager
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480107809657781397, guid: 7111aa048c317674c9bf50635fe4991d, type: 3}
+      propertyPath: m_Name
+      value: HanaBank-Talk
       objectReference: {fileID: 0}
     - target: {fileID: 7480107809906566625, guid: 7111aa048c317674c9bf50635fe4991d, type: 3}
       propertyPath: _ui
@@ -175,7 +215,8 @@ PrefabInstance:
       propertyPath: _vpsEffectManager
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 127384133, guid: 7111aa048c317674c9bf50635fe4991d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7111aa048c317674c9bf50635fe4991d, type: 3}
 --- !u!1 &8948730693553125950 stripped
 GameObject:
@@ -187,6 +228,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5368421369626723524, guid: 7111aa048c317674c9bf50635fe4991d, type: 3}
   m_PrefabInstance: {fileID: 3940704570726547197}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6842932009345604246 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7513916802852201579, guid: 7111aa048c317674c9bf50635fe4991d, type: 3}
+  m_PrefabInstance: {fileID: 3940704570726547197}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &359317815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6842932009345604246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d0a2e87ab14ec94aad09f4690c15e62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _character: {fileID: 1580021252547560875, guid: 734461f101e01224c9523a237e2bbef4, type: 3}
 --- !u!1001 &8948730692730159317
 PrefabInstance:
   m_ObjectHideFlags: 0

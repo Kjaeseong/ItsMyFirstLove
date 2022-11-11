@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class LocationEventSystem : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class LocationEventSystem : MonoBehaviour
     [SerializeField] private InGameUI _ui;
     [SerializeField] private CSVReader _csvReader;
     [SerializeField] private VPSEffectManager _vpsEffectManager;
+    private AnimationSupport _animationSupport;
 
     // 일회성 이벤트는 체크!
     [SerializeField] private bool _isPlayOneTime;
@@ -17,10 +19,32 @@ public class LocationEventSystem : MonoBehaviour
     [SerializeField] private bool _vpsEventOn;
     [SerializeField] private int _vpsIndex;
 
+    //// 대사
+    //[SerializeField] private bool _lineEventOn;
+    //[SerializeField] private int _startCharID;
+    //[SerializeField] private int _endCharID;
+
     // 대사
     [SerializeField] private bool _lineEventOn;
-    [SerializeField] private int _startCharID;
-    [SerializeField] private int _endCharID;
+
+    [Serializable]
+    private class LineSystem
+    {
+        [Header("Description")] 
+        public string Talker;
+        public string Description;
+        [Header("Select")]
+        public string Select1;
+        public string Select1Description;
+        public string Select2;
+        public string Select2Description;
+        public string Select3;
+        public string Select3Description;
+        [Header("Animation")]
+        public string AnimationName;
+    }
+
+    [SerializeField] private LineSystem[] _lineSystems;
 
     // 사운드
     [SerializeField] private bool _audioEventOn;
@@ -31,6 +55,11 @@ public class LocationEventSystem : MonoBehaviour
 
     private bool _isActivedEvent;
     private float _eventOffDistance = 11f;
+
+    private void OnEnable()
+    {
+        InitLine();
+    }
 
     private void Update()
     {
@@ -59,43 +88,86 @@ public class LocationEventSystem : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        _animationSupport = other.GetComponentInChildren<AnimationSupport>();
         if (other.CompareTag("EventTrigger"))
         {
             _isActivedEvent = true;
             Debug.Log("이벤트 실행");
             // VPS 연출
-            if (_vpsEventOn)
-            {
-                _vpsEffectManager.ActivatedEffect(_vpsIndex, transform.position);
-            }
+            VPSEvent();
             // 대사 연출
-            if (_lineEventOn)
-            {
-                for (int i = 0; i < GameManager.Instance._csv.GetCSVLength("ProtoLine"); i++)
-                {
-                    if (int.Parse(GameManager.Instance._csv.GetCSV("ProtoLine", i, "charID")) >= _startCharID &&
-                        int.Parse(GameManager.Instance._csv.GetCSV("ProtoLine", i, "charID")) <= _endCharID)
-                    {
-                        _ui.AddCommuTalk(GameManager.Instance._csv.GetCSV("ProtoLine", i, "Talker"), GameManager.Instance._csv.GetCSV("ProtoLine", i, "Talk"));
-                    }
-                }
-                //_ui.AddCommuTalk("nn", "jjj");
-                _ui.CommuUI();
-            }
+            LineEvent();
             // 사운드 출력
-            if (_audioEventOn)
-            {
-                GameManager.Instance._audio.Play(_audioName);
-            }
-
+            AudioEvent();
             // 취향 이벤트 작성
-            if(_favoriteEventOn)
-            {
-
-            }
-
+            FavoriteEvent();
             // 기타 추가 이벤트 추가시 아래 위치에 추가 작성 요망
         }
     }
 
+    private void VPSEvent()
+    {
+        if (_vpsEventOn)
+        {
+            _vpsEffectManager.ActivatedEffect(_vpsIndex, transform.position);
+        }
+    }
+
+    private void InitLine()
+    {
+        foreach (var line in _lineSystems)
+        {
+            //string[] splitLine  = line.Split('/');
+            if (line.Select3 != "" && line.Select1 != "")
+            {
+                _ui.AddCommuSelect(line.Talker, line.Description, line.Select1, line.Select1Description, line.Select2, line.Select2Description, line.Select3, line.Select3Description);
+            }
+            else if (line.Select2 != "")
+            {
+                _ui.AddCommuSelect(line.Talker, line.Description, line.Select1, line.Select1Description, line.Select2, line.Select2Description);
+            }
+            else
+            {
+                _ui.AddCommuTalk(line.Talker, line.Description);
+            }
+
+            if (line.AnimationName != "")
+            {
+                _animationSupport.PlayAnimationTrigger(line.AnimationName);
+            }
+        }
+    }
+    private void LineEvent()
+    {
+        if (_lineEventOn)
+        {
+            // 기존 ver
+            //for (int i = 0; i < GameManager.Instance._csv.GetCSVLength("ProtoLine"); i++)
+            //{
+            //    if (int.Parse(GameManager.Instance._csv.GetCSV("ProtoLine", i, "charID")) >= _startCharID &&
+            //        int.Parse(GameManager.Instance._csv.GetCSV("ProtoLine", i, "charID")) <= _endCharID)
+            //    {
+            //        _ui.AddCommuTalk(GameManager.Instance._csv.GetCSV("ProtoLine", i, "Talker"), GameManager.Instance._csv.GetCSV("ProtoLine", i, "Talk"));
+            //    }
+            //}
+            //_ui.CommuUI();
+            _ui.CommuUI();
+        }
+    }
+
+    private void AudioEvent()
+    {
+        if (_audioEventOn)
+        {
+            GameManager.Instance._audio.Play(_audioName);
+        }
+    }
+
+    private void FavoriteEvent()
+    {
+        if (_favoriteEventOn)
+        {
+
+        }
+    }
 }

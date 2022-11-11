@@ -52,9 +52,22 @@ public class InGameUI : MonoBehaviour
     /// button1 : 첫 번째 버튼 텍스트 <br/>
     /// button2 : 두 번째 버튼 텍스트 <br/>
     /// </summary>
-    public void AddCommuSelect(string name, string talk, string button1, string button2)
+    public void AddCommuSelect(string name, string talk, string button1, string button1result, string button2, string button2result)
     {
-        _charCommunicationUI.AddSelection(name, talk, button1, button2);
+        _charCommunicationUI.AddSelection(name, talk, button1, button1result, button2, button2result);
+    }
+
+    /// <summary>
+    /// 선택지 UI창 내용 추가 <br/>
+    /// name : 대화창 이름 <br/>
+    /// talk : 대화 내용 <br/>
+    /// button1 : 첫 번째 버튼 텍스트 <br/>
+    /// button2 : 두 번째 버튼 텍스트 <br/>
+    /// button3 : 세 번째 버튼 텍스트 <br/>
+    /// </summary>
+    public void AddCommuSelect(string name, string talk, string button1, string button1result, string button2, string button2result, string button3, string button3result)
+    {
+        _charCommunicationUI.AddSelection(name, talk, button1, button1result, button2, button2result, button3, button3result);
     }
 
     /// <summary>
