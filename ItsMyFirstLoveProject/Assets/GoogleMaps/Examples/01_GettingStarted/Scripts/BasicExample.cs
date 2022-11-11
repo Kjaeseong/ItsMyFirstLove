@@ -18,7 +18,7 @@ namespace Google.Maps.Examples
     public class BasicExample : MonoBehaviour
     {
         [Tooltip("LatLng to load (must be set before hitting play).")]
-        private LatLng _latLng = new LatLng(37.539970, 127.122938);
+        private LatLng _latLng = new LatLng(37.540176, 127.125031);
 
         private MapsService _mapsService;
 

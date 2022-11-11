@@ -2276,14 +2276,6 @@ PrefabInstance:
       propertyPath: _vpsEffectManager
       value: 
       objectReference: {fileID: 6974566383075198003}
-    - target: {fileID: 2017306198952851542, guid: 1f520d97a744c284896b34829de512ae, type: 3}
-      propertyPath: _ui
-      value: 
-      objectReference: {fileID: 2614791036504576986}
-    - target: {fileID: 2017306198952851542, guid: 1f520d97a744c284896b34829de512ae, type: 3}
-      propertyPath: _vpsEffectManager
-      value: 
-      objectReference: {fileID: 6974566383075198003}
     - target: {fileID: 2017306199711025754, guid: 1f520d97a744c284896b34829de512ae, type: 3}
       propertyPath: _ui
       value: 
@@ -2296,10 +2288,6 @@ PrefabInstance:
       propertyPath: _map
       value: 
       objectReference: {fileID: 910068123}
-    - target: {fileID: 3940704570642766196, guid: 1f520d97a744c284896b34829de512ae, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3940704570824280099, guid: 1f520d97a744c284896b34829de512ae, type: 3}
       propertyPath: _map
       value: 
@@ -2324,13 +2312,33 @@ PrefabInstance:
       propertyPath: _map
       value: 
       objectReference: {fileID: 910068123}
+    - target: {fileID: 5872306362260515088, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _ui
+      value: 
+      objectReference: {fileID: 2614791036504576986}
+    - target: {fileID: 5872306362260515088, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _vpsEffectManager
+      value: 
+      objectReference: {fileID: 6974566383075198003}
+    - target: {fileID: 5872306363265122927, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _ui
+      value: 
+      objectReference: {fileID: 2614791036504576986}
+    - target: {fileID: 5872306363265122927, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _vpsEffectManager
+      value: 
+      objectReference: {fileID: 6974566383075198003}
+    - target: {fileID: 6842932009345604241, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _ui
+      value: 
+      objectReference: {fileID: 2614791036504576986}
+    - target: {fileID: 6842932009345604241, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _vpsEffectManager
+      value: 
+      objectReference: {fileID: 6974566383075198003}
     - target: {fileID: 8948730692446947868, guid: 1f520d97a744c284896b34829de512ae, type: 3}
       propertyPath: m_Name
       value: VPSLocationManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 8948730692446947868, guid: 1f520d97a744c284896b34829de512ae, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8948730692446947871, guid: 1f520d97a744c284896b34829de512ae, type: 3}
       propertyPath: m_RootOrder
@@ -2376,6 +2384,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8948730692962318753, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _ui
+      value: 
+      objectReference: {fileID: 2614791036504576986}
+    - target: {fileID: 8948730692962318753, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _vpsEffectManager
+      value: 
+      objectReference: {fileID: 6974566383075198003}
     - target: {fileID: 8948730693553125944, guid: 1f520d97a744c284896b34829de512ae, type: 3}
       propertyPath: _map
       value: 
