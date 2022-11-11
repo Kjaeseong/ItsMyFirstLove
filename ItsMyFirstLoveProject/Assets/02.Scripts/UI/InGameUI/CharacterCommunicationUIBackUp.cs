@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class CharacterCommunicationUI : MonoBehaviour
+public class CharacterCommunicationUIBackUp : MonoBehaviour
 {
     private enum SlideForm
     {
@@ -18,13 +18,11 @@ public class CharacterCommunicationUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _selectionText;
     [SerializeField] private TextMeshProUGUI _selectButton1;
     [SerializeField] private TextMeshProUGUI _selectButton2;
-    [SerializeField] private TextMeshProUGUI _selectButton3;
 
     private Queue<string> _nameQueue = new Queue<string>();
     private Queue<string> _talkQueue = new Queue<string>();
     private Queue<string> _button1Queue = new Queue<string>();
     private Queue<string> _button2Queue = new Queue<string>();
-    private Queue<string> _button3Queue = new Queue<string>();
     private Queue<int> _slide = new Queue<int>();
 
     private bool _isSelection;
@@ -107,26 +105,8 @@ public class CharacterCommunicationUI : MonoBehaviour
     }
 
     /// <summary>
-    /// 선택 모드에 정보 추가 <br/>
-    /// name : 대화창 이름 <br/>
-    /// talk : 대화 내용 <br/>
-    /// button1 : 첫 번째 버튼 텍스트 <br/>
-    /// button2 : 두 번째 버튼 텍스트 <br/>
-    /// button3 : 세 번째 버튼 텍스트 <br/>
-    /// </summary>
-    public void AddSelection(string name, string talk, string button1, string button2, string button3)
-    {
-        _nameQueue.Enqueue(name);
-        _talkQueue.Enqueue(talk);
-        _button1Queue.Enqueue(button1);
-        _button2Queue.Enqueue(button2);
-        _button3Queue.Enqueue(button3);
-        _slide.Enqueue((int)SlideForm.SELECT);
-    }
-
-    /// <summary>
     /// 버튼 선택시 버튼에 따라 다른 이벤트 실행을 위한 함수 <br/>
-    /// 버튼 이벤트에 1 혹은 2 혹은 3부여 <br/>
+    /// 버튼 이벤트에 1 혹은 2 부여 <br/>
     /// </summary>
     public void SelectButton(int select)
     {
@@ -137,11 +117,6 @@ public class CharacterCommunicationUI : MonoBehaviour
                 break;
             case 2:
                 // 버튼 2 선택시 이벤트
-                break;
-            case 3:
-                // 버튼 3 선택시 이벤트
-                break;
-            default:
                 break;
         }
     }
