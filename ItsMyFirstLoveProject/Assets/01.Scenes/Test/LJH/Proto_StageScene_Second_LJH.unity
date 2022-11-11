@@ -2268,6 +2268,14 @@ PrefabInstance:
       propertyPath: _vpsEffectManager
       value: 
       objectReference: {fileID: 6974566383075198003}
+    - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystemString.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystemString.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2017306198564069669, guid: 1f520d97a744c284896b34829de512ae, type: 3}
       propertyPath: _ui
       value: 
@@ -2332,6 +2340,10 @@ PrefabInstance:
       propertyPath: _ui
       value: 
       objectReference: {fileID: 2614791036504576986}
+    - target: {fileID: 6842932009345604241, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _line.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6842932009345604241, guid: 1f520d97a744c284896b34829de512ae, type: 3}
       propertyPath: _vpsEffectManager
       value: 
