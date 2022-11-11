@@ -4,6 +4,9 @@ using TMPro;
 public class WalkUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _charButton;
+    [SerializeField][Range(0, 10)] private float spawnCoolTime;
+
+    
     private InGameUI _inGameUI;
 
     private void Start() 
