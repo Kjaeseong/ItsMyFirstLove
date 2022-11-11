@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1847426444783786372}
   - component: {fileID: 6063015157930780285}
   m_Layer: 0
-  m_Name: Lobster 1
+  m_Name: Lobster_Origin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
