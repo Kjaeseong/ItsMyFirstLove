@@ -14,12 +14,14 @@ public class WalkUI : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI _charButton;
     [SerializeField][Range(0, 10)] private float ActiveCoolTime;
-    
+
     private float _coolTime;
     private InGameUI _inGameUI;
 
     private int _characterButtonStep;
     private int _prevButtonStep;
+
+
 
 
     private void Update() 
