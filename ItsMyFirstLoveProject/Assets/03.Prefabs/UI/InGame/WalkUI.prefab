@@ -486,7 +486,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &108045043782608085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -516,7 +516,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 396daea3299cc69448ddc62a8b6f6665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _charButton: {fileID: 7642424145412414658}
+  _charButton: {fileID: 1185389868772404780}
+  ActiveCoolTime: 5
 --- !u!1 &3816901624685617421
 GameObject:
   m_ObjectHideFlags: 0
@@ -640,7 +641,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3765635243094065192}
         m_TargetAssemblyTypeName: WalkUI, Assembly-CSharp
-        m_MethodName: ActivateCharacter
+        m_MethodName: ActivateCamera
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

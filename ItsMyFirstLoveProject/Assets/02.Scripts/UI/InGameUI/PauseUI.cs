@@ -12,6 +12,8 @@ public class PauseUI : MonoBehaviour
     //     set => StoryMainUI = value;
     // }
 
+    private GameObject _backMenu;
+
     /// <summary>
     /// 옵션창 호출을 위한 함수 <br/>
     /// </summary>
@@ -29,11 +31,23 @@ public class PauseUI : MonoBehaviour
         // }
     }
 
+    public void CountinueButton()
+    {
+        _backMenu.SetActive(true);
+        gameObject.SetActive(false);
+    }
+
     /// <summary>
     /// 게임매니저를 통해 씬체인저 호출, 씬 교체
     /// </summary>
     public void DateExit()
     {
         GameManager.Instance._scene.Change("MainTitle");
+    }
+
+
+    public void BackMenuObjectSet(GameObject BackMenu)
+    {
+        _backMenu = BackMenu;
     }
 }

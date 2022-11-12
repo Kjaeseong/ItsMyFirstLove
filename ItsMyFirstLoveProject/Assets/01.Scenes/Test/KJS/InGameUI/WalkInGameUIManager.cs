@@ -20,7 +20,7 @@ public class WalkInGameUIManager : MonoBehaviour
 
         _optionUI.gameObject.SetActive(false);
         _cameraUI.gameObject.SetActive(false);
-        _inventory.gameObject.SetActive(false);
+        //_inventory.gameObject.SetActive(false);
         _pauseUI.gameObject.SetActive(false);
     }
 

@@ -21,8 +21,12 @@ public class WalkUI : MonoBehaviour
     private int _characterButtonStep;
     private int _prevButtonStep;
 
+    private WalkInGameUIManager _walkMainUI;
 
-
+    // public StoryInGameUIManager StoryMainUI {
+    //     get => StoryMainUI;
+    //     set => StoryMainUI = value;
+    // }
 
     private void Update() 
     {
@@ -31,7 +35,7 @@ public class WalkUI : MonoBehaviour
 
     private void Start() 
     {
-        _inGameUI = GetComponentInParent<InGameUI>();
+        _walkMainUI = GetComponentInParent<WalkInGameUIManager>();
     }
 
     /// <summary>
@@ -56,7 +60,7 @@ public class WalkUI : MonoBehaviour
 
     public void ActivateCamera()
     {
-
+        _walkMainUI.ActivateCameraUI();
     }
 
     
