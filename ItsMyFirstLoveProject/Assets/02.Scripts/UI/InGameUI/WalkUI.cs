@@ -1,13 +1,31 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 
 public class WalkUI : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI _charButton;
-    [SerializeField][Range(0, 10)] private float spawnCoolTime;
+    private enum CharacterButtonState
+    {
+        ACT,
+        DEACT,
+        COUNT
+    }
 
+    [SerializeField] private TextMeshProUGUI _charButton;
+    [SerializeField][Range(0, 10)] private float ActiveCoolTime;
     
+    private float _coolTime;
     private InGameUI _inGameUI;
+
+    private int _characterButtonStep;
+    private int _prevButtonStep;
+
+
+    private void Update() 
+    {
+        CharacterButtonSet();
+    }
 
     private void Start() 
     {
@@ -20,8 +38,10 @@ public class WalkUI : MonoBehaviour
     /// </summary>
     public void ActivateCharacter()
     {
-        GameManager.Instance.ActivateCharacterInWalk();
-        CharacterButtonTextSet();
+        if(_characterButtonStep != (int)CharacterButtonState.COUNT)
+        {
+            GameManager.Instance.ActivateCharacterInWalk();
+        }
     }
 
     /// <summary>
@@ -32,16 +52,51 @@ public class WalkUI : MonoBehaviour
         _inGameUI.Inventory();
     }
 
-    private void CharacterButtonTextSet()
+    public void ActivateCamera()
     {
-        if(GameManager.Instance._isActCharacterWalkMode)
+
+    }
+
+    
+    private void CharacterButtonSet()
+    {
+        _prevButtonStep = _characterButtonStep;
+        if(!GameManager.Instance._isActCharacterWalkMode)
         {
-            _charButton.text = "Char DeAct";
+            if(_coolTime <= 0)
+            {
+                _characterButtonStep = (int)CharacterButtonState.ACT;
+            }
+            else
+            {
+                _coolTime -= Time.deltaTime;
+                _characterButtonStep = (int)CharacterButtonState.COUNT;
+                _charButton.text = $"{(int)_coolTime}s";
+            }
         }
         else
         {
-            _charButton.text = "Char act";
+            _coolTime = ActiveCoolTime;
+            _characterButtonStep = (int)CharacterButtonState.DEACT;
         }
+
+        if(_prevButtonStep != _characterButtonStep)
+        {
+            if(!GameManager.Instance._isActCharacterWalkMode)
+            {
+                _charButton.text = "Char act";
+            }
+            else
+            {
+                _charButton.text = "Char DeAct";
+            }
+        }
+        
+    }
+
+    private void CoolTimeCount()
+    {
+        
     }
 
 }
