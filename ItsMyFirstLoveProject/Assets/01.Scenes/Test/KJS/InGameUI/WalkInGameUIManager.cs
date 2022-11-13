@@ -71,8 +71,8 @@ public class WalkInGameUIManager : MonoBehaviour
     /// </summary>
     public void ActivateCameraUI()
     {
-        _cameraUI.BackMenuObjectSet(gameObject);
+        _cameraUI.BackMenuObjectSet(_walkUI.gameObject);
         _cameraUI.gameObject.SetActive(true);
-        gameObject.SetActive(false);
+        _walkUI.gameObject.SetActive(false);
     }
 }
