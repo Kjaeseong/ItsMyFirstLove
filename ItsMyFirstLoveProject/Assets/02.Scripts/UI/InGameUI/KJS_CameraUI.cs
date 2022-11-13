@@ -1,16 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.ARFoundation;
+using GameFile;
 
 public class KJS_CameraUI : MonoBehaviour
 {
     private bool _isRearCam;
-    [SerializeField] private GameObject _rearCamera;
-    [SerializeField] private GameObject _frontCamera;
 
     private GameObject _backMenu;
     [SerializeField] private GameObject _motionButton;
     [SerializeField] private GameObject _motionListPopUp;
+    private ARCameraManager _arCameraManager;
+
+    private void Start() 
+    {
+        _arCameraManager = Camera.main.GetComponent<ARCameraManager>();
+    }
 
 
     private void OnEnable() 
@@ -53,6 +59,7 @@ public class KJS_CameraUI : MonoBehaviour
     public void CameraShot()
     {
         //카메라 촬영(캡쳐) 동작
+        Img.Save(Camera.main.gameObject, Img.Size.Picture, Img.Name.FullCam);
     }
 
     /// <summary>
@@ -72,10 +79,12 @@ public class KJS_CameraUI : MonoBehaviour
         if(_isRearCam)
         {
             _isRearCam = false;
+            _arCameraManager.requestedFacingDirection = CameraFacingDirection.User;
         }
         else
         {
             _isRearCam = true;
+            _arCameraManager.requestedFacingDirection = CameraFacingDirection.World;
         }
 
         SetActiveObject(_isRearCam);
@@ -84,8 +93,8 @@ public class KJS_CameraUI : MonoBehaviour
 
     private void SetActiveObject(bool Select)
     {
-        _rearCamera.SetActive(Select);
-        _frontCamera.SetActive(!Select);
         _motionButton.SetActive(Select);
+        
+        
     }
 }
