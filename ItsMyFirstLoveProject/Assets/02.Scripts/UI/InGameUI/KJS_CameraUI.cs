@@ -59,7 +59,7 @@ public class KJS_CameraUI : MonoBehaviour
     public void CameraShot()
     {
         //카메라 촬영(캡쳐) 동작
-        Img.Save(Camera.main.gameObject, Img.Size.Picture, Img.Name.FullCam);
+        Img.Save(Camera.main.gameObject, Img.Size.Full, Img.Name.FullCam);
     }
 
     /// <summary>
