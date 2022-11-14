@@ -92,12 +92,12 @@ public class GameManager : SingletonBehaviour<GameManager>
             _isActCharacterWalkMode = true;
         }
 
-        _characterModel.transform.position = new Vector3(
-            Camera.main.transform.position.x,
-            Camera.main.transform.position.y - 1.3f,
-            Camera.main.transform.position.z + 4f);
+        // _characterModel.transform.position = new Vector3(
+        //     Camera.main.transform.position.x,
+        //     Camera.main.transform.position.y - 1.3f,
+        //     Camera.main.transform.position.z + 4f);
 
-        _characterModel.SetActive(_isActCharacterWalkMode);
+        // _characterModel.SetActive(_isActCharacterWalkMode);
     }
     public void SetCharObject(GameObject Char)
     {

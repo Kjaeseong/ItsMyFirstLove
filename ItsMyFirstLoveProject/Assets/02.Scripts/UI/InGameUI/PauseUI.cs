@@ -2,26 +2,39 @@ using UnityEngine;
 
 public class PauseUI : MonoBehaviour
 {
-    private InGameUI _inGameUI;
-
-    private void Start()
-    {
-        _inGameUI = GetComponentInParent<InGameUI>();
+    public WalkInGameUIManager WalkMainUI {
+        get => WalkMainUI;
+        set => WalkMainUI = value;
     }
+
+    // public StoryInGameUIManager StoryMainUI {
+    //     get => StoryMainUI;
+    //     set => StoryMainUI = value;
+    // }
+
+    private GameObject _backMenu;
 
     /// <summary>
     /// 옵션창 호출을 위한 함수 <br/>
-    /// 호출시 일시정지 오브젝트를 넘겨주면 뒤로가기 버튼 구현이 쉬워진다.
     /// </summary>
-    public void ActivateOptionUI(GameObject UI)
+    public void ActivateOptionUI()
     {
-        _inGameUI.Option(gameObject);
+        if(WalkMainUI != null)
+        {
+            WalkMainUI.ActivateOptionUI(gameObject);
+            gameObject.SetActive(false);
+        }
+        // if(StoryModeUI != null)
+        // {
+        //     StoryModeUI.ActivateOptionUI(gameObject);
+        //     gameObject.SetActive(false);
+        // }
+    }
+
+    public void CountinueButton()
+    {
+        _backMenu.SetActive(true);
         gameObject.SetActive(false);
-        // _optionUI.SetActive(true);
-        // _option.GetObject(gameObject);
-        // TODO : 위와 같은 방식으로 해당 오브젝트를 넘겨줘야 
-        // '뒤로가기' 등에 유동적으로 대응할 수 있음
-        // 추후 옵션창 구현시 참고.
     }
 
     /// <summary>
@@ -30,5 +43,11 @@ public class PauseUI : MonoBehaviour
     public void DateExit()
     {
         GameManager.Instance._scene.Change("MainTitle");
+    }
+
+
+    public void BackMenuObjectSet(GameObject BackMenu)
+    {
+        _backMenu = BackMenu;
     }
 }

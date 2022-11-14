@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/01.Scenes/ProtoType/UI_TestScene.unity
     guid: 40b6cc9594118bd4980e797a3a6885be
   - enabled: 0
@@ -20,7 +20,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/01.Scenes/ProtoType/Proto_StageScene_Second.unity
     guid: 522ce08588933004f8d1977c809a6d26
-  - enabled: 1
+  - enabled: 0
     path: Assets/01.Scenes/Test/LJH/Proto_StageScene_Second_LJH.unity
     guid: f25eaf47d8cae8f41877bf538d8c53b8
   m_configObjects:
