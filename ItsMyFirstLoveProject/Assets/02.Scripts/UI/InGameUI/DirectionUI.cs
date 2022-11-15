@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class DirectionUI : MonoBehaviour
 {
-    [SerializeField] private GameObject[] _dirUI = new GameObject[2];
-
     private enum Direction
     {
         LEFT,
         RIGHT
     }
 
+    [SerializeField] private GameObject[] _dirUI = new GameObject[2];
     [SerializeField] private GameObject _target;
 
-    private void FixedUpdate() 
+    /// <summary>
+    /// 방향 표시 대상을 정하기 위한 함수
+    /// </summary>
+    public void TargetObjectSet(GameObject Target)
     {
-        DirectionSet();
+        _target = Target;
+        StartCoroutine(DirectionSet());
     }
 
     private float GetAngleToTarget()
@@ -31,26 +34,30 @@ public class DirectionUI : MonoBehaviour
         return Angle;
     }
 
-    private void DirectionSet()
+    private IEnumerator DirectionSet()
     {
-        int direction = 0;
-        float angle = GetAngleToTarget();
+        while(true)
+        {
+            float angle = GetAngleToTarget();
 
-        if(180 < angle && angle < 340)
-        {
-            _dirUI[(int)Direction.RIGHT].SetActive(true);
-            _dirUI[(int)Direction.LEFT].SetActive(false);
-        }
-        else if(20 < angle && angle < 180)
-        {
-            _dirUI[(int)Direction.RIGHT].SetActive(false);
-            _dirUI[(int)Direction.LEFT].SetActive(true);
-        }
-        else
-        {
-            _dirUI[(int)Direction.RIGHT].SetActive(false);
-            _dirUI[(int)Direction.LEFT].SetActive(false);
-        }
+            if(180 < angle && angle < 340)
+            {
+                _dirUI[(int)Direction.RIGHT].SetActive(true); 
+                _dirUI[(int)Direction.LEFT].SetActive(false);
+            }
+            else if(20 < angle && angle < 180)
+            {
+                _dirUI[(int)Direction.RIGHT].SetActive(false);
+                _dirUI[(int)Direction.LEFT].SetActive(true);
+            }
+            else
+            {
+                _dirUI[(int)Direction.RIGHT].SetActive(false);
+                _dirUI[(int)Direction.LEFT].SetActive(false);
+            }
 
+            yield return new WaitForSeconds(0.2f);
+        }
+        
     }
 }
