@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
+using UnityEngine.SceneManagement;
 public class LocationFinder : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent _ai;
@@ -11,7 +11,7 @@ public class LocationFinder : MonoBehaviour
 
     private AnimationSupport _animationSupport;
     private int _locationCount = 0;
-    private float _elaspedTime = 0f;
+    private float _elaspedTime;
     private bool _isStoryEnd = false;
 
     public GameObject[] _destinations;
@@ -49,11 +49,14 @@ public class LocationFinder : MonoBehaviour
             {
                 PlayerStopped(_player);
 
-                //15초가 지나면 데이트 이벤트 종료.
-                if (_elaspedTime > 15f)
+                if(sqrLen > 25)
                 {
-                    Debug.Log("데이트가 종료됩니다.");
-                    _elaspedTime = 0f;
+                    Debug.Log("너무 멀어졌습니다.");
+                    if (_elaspedTime > 15f)
+                    {
+                        Debug.Log("데이트 종료");
+                        SceneManager.LoadScene("UI_TestScene");
+                    }
                 }
             }
         }
@@ -73,7 +76,6 @@ public class LocationFinder : MonoBehaviour
     // 캐릭터 이동 함수
     private void MoveHana()
     {
-        SetGameOverToTime();
         _ai.speed = 1f;
         _animationSupport.Play("Move");
     }
@@ -89,12 +91,6 @@ public class LocationFinder : MonoBehaviour
             transform.position.y,
             player.transform.position.z);
         transform.LookAt(target);
-    }
-
-    // 경과시간 초기화 함수
-    private void SetGameOverToTime()
-    {
-        _elaspedTime = 0f;
     }
 
     // 캐릭터가 목적지 포인트에 도착하면 다음 목적지로 변경해준다.
@@ -124,6 +120,12 @@ public class LocationFinder : MonoBehaviour
                 return;
             }
         }
+
+        if (other.tag == "VPS")
+        {
+            _ai.isStopped = true;
+            _animationSupport.Play("Idle");
+        }
     }
 
     // 목적지 도착 시 콜라이더를 끄는 코루틴
@@ -134,15 +136,12 @@ public class LocationFinder : MonoBehaviour
         coll.enabled = true;
     }
 
-    // AI 움직임 테스트 하는 중임
+    /// <summary>
+    /// AI 움직임 활성화
+    /// </summary>
     private void MoveSettingInVPSeffect()
     {
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            Debug.Log("VPS 이벤트 시작");
-            _ai.isStopped = true;
-            _animationSupport.Play("Idle");
-        }
+        // TODO: 임시로 GetKeyDown 넣은것임. 향후 텍스트창 넘길 때 이벤트로 정정 요망.
         if (Input.GetKeyDown(KeyCode.C))
         {
             Debug.Log("VPS 이벤트 끝나고 움직임");

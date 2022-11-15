@@ -7,9 +7,9 @@ public class BuildingFinder : MonoBehaviour
 {
     [SerializeField] private LocationFinder _character;
     [SerializeField] private GameObject[] _ProtoTypeLocations;
-    [SerializeField] private GameObject _ProtoTypeBusinessName;
+    [SerializeField] private GameObject[] _ProtoTypeBusinessName;
 
-    public string LocationNameOfBenchMark;
+    public string[] LocationNameOfBenchMark;
     private float StageNumber;
 
     private void Start()
@@ -24,7 +24,7 @@ public class BuildingFinder : MonoBehaviour
     {
         _ProtoTypeLocations[GameManager.Instance.CurrentStageIndex].SetActive(true);
 
-        GameObject BuildingForLocation = GameObject.Find(LocationNameOfBenchMark);
+        GameObject BuildingForLocation = GameObject.Find(LocationNameOfBenchMark[GameManager.Instance.CurrentStageIndex]);
         Vector3 LocationPos = BuildingForLocation.transform.position;
         _ProtoTypeLocations[GameManager.Instance.CurrentStageIndex].transform.position = LocationPos;
 
@@ -37,9 +37,10 @@ public class BuildingFinder : MonoBehaviour
     /// 빌딩의 이름을 찾고, 그 위치에 상호명을 넣는 스크립트
     private void FindBusinessName()
     {
-        GameObject BuildingForLocation = GameObject.Find(LocationNameOfBenchMark);
+        _ProtoTypeBusinessName[GameManager.Instance.CurrentStageIndex].SetActive(true);
+        GameObject BuildingForLocation = GameObject.Find(LocationNameOfBenchMark[GameManager.Instance.CurrentStageIndex]);
         Vector3 LocationPos = BuildingForLocation.transform.position;
-        _ProtoTypeBusinessName.transform.position = LocationPos;
+        _ProtoTypeBusinessName[GameManager.Instance.CurrentStageIndex].transform.position = LocationPos;
     }
 
 

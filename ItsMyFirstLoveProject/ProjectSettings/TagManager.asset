@@ -9,6 +9,7 @@ TagManager:
   - Building
   - Destination
   - Collectable
+  - VPS
   layers:
   - Default
   - TransparentFX
