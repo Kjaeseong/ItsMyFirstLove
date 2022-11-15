@@ -2510,7 +2510,7 @@ PrefabInstance:
       objectReference: {fileID: 6974566383075198003}
     - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
       propertyPath: _lineSystems.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
       propertyPath: _lineSystemString.Array.size
@@ -2545,6 +2545,14 @@ PrefabInstance:
       value: "\uC774\uC7AC\uD601"
       objectReference: {fileID: 0}
     - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[3].Talker
+      value: "\uC774\uC7AC\uD601"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[4].Talker
+      value: "\uC774\uC7AC\uD601"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
       propertyPath: _lineSystems.Array.data[0].Select1
       value: "\uC5B4"
       objectReference: {fileID: 0}
@@ -2569,6 +2577,22 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[1].VPSIndex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[2].VPSIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[3].VPSIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[4].VPSIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
       propertyPath: _lineSystems.Array.data[0].Description
       value: "\uC548\uB155\uD558\uC138\uC694"
       objectReference: {fileID: 0}
@@ -2581,7 +2605,19 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[4].Description
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
       propertyPath: _lineSystems.Array.data[0].AnimationName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[1].AnimationName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[2].AnimationName
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
@@ -2614,7 +2650,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
       propertyPath: _lineSystems.Array.data[1].Selects.Array.size
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
       propertyPath: _lineSystems.Array.data[0].Selects.Array.data[0]
@@ -2698,7 +2734,7 @@ PrefabInstance:
       objectReference: {fileID: 6974566383075198003}
     - target: {fileID: 3940704571190581995, guid: 1f520d97a744c284896b34829de512ae, type: 3}
       propertyPath: _lineSystems.Array.size
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3940704571190581995, guid: 1f520d97a744c284896b34829de512ae, type: 3}
       propertyPath: _lineSystems.Array.data[0].Talker
@@ -2710,6 +2746,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3940704571190581995, guid: 1f520d97a744c284896b34829de512ae, type: 3}
       propertyPath: _lineSystems.Array.data[2].Talker
+      value: "\uC2E0\uD601\uC9C4"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940704571190581995, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[3].Talker
+      value: "\uC2E0\uD601\uC9C4"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940704571190581995, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[4].Talker
       value: "\uC2E0\uD601\uC9C4"
       objectReference: {fileID: 0}
     - target: {fileID: 3940704571190581995, guid: 1f520d97a744c284896b34829de512ae, type: 3}
@@ -2733,12 +2777,56 @@ PrefabInstance:
       value: "\uC2EB\uC5B4?"
       objectReference: {fileID: 0}
     - target: {fileID: 3940704571190581995, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[3].Description
+      value: "\uC2EB\uC5B4?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940704571190581995, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[4].Description
+      value: "\uC2EB\uC5B4?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940704571190581995, guid: 1f520d97a744c284896b34829de512ae, type: 3}
       propertyPath: _lineSystems.Array.data[1].AnimationName
       value: KISS
       objectReference: {fileID: 0}
     - target: {fileID: 3940704571190581995, guid: 1f520d97a744c284896b34829de512ae, type: 3}
       propertyPath: _lineSystems.Array.data[2].AnimationName
       value: NO
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940704571190581995, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[3].AnimationName
+      value: NO
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940704571190581995, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[4].AnimationName
+      value: NO
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940704571190581995, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[1].Selects.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940704571190581995, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[1].Selects.Array.data[0]
+      value: "1\uBC88 \uC120\uD0DD\uC9C0"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940704571190581995, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[1].Selects.Array.data[1]
+      value: "1\uBC88 \uC120\uD0DD\uD568"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940704571190581995, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[1].Selects.Array.data[2]
+      value: "2\uBC88 \uC120\uD0DD\uC9C0"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940704571190581995, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[1].Selects.Array.data[3]
+      value: "2\uBC88 \uC120\uD0DD\uD568"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940704571190581995, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[1].Selects.Array.data[4]
+      value: "3\uBC88 \uC120\uD0DD\uC9C0"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940704571190581995, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[1].Selects.Array.data[5]
+      value: "3\uBC88 \uC120\uD0DD\uD568"
       objectReference: {fileID: 0}
     - target: {fileID: 3940704571293164683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
       propertyPath: _map
