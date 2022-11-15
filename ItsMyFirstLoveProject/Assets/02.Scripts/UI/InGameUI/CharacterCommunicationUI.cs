@@ -25,6 +25,7 @@ public class CharacterCommunicationUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _selectButton3InTriple;
 
     [SerializeField] private AnimationSupport _animation;
+    [SerializeField] private LocationEventSystem _locationSystem;
 
     private Queue<string> _nameQueue = new Queue<string>();
     private Queue<string> _talkQueue = new Queue<string>();
@@ -35,6 +36,7 @@ public class CharacterCommunicationUI : MonoBehaviour
     private Queue<string> _button3Queue = new Queue<string>();
     private Queue<string> _button3ResultQueue = new Queue<string>();
     private Queue<string> _animationNameQueue = new Queue<string>();
+    private Queue<int> _vpsEventQueue = new Queue<int>();
     private Queue<int> _slide = new Queue<int>();
 
     private string _selectedNextDescript = "";
@@ -115,15 +117,26 @@ public class CharacterCommunicationUI : MonoBehaviour
         {
             _animationNameQueue.Dequeue();
         }
+
+        if(_vpsEventQueue.Peek() < 0)
+        {
+            _vpsEventQueue.Dequeue();
+        }
+        else
+        {
+            _locationSystem.VPSEventOnWithDesc(_vpsEventQueue.Dequeue());
+        }
     }
 
     /// <summary>
-    /// 하나 생성 시 가지고 있는 애니메이션 서포트 스크립트 할당 함수
+    /// 현재 이벤트 로케이션 세팅 함수
     /// </summary>
-    public void SetAnimetionScript(AnimationSupport animationSupport)
+    /// <param name="location"></param>
+    public void SetCurrentLocation(LocationEventSystem location)
     {
-        _animation = animationSupport;
+        _locationSystem = location;
     }
+
 
     /// <summary>
     /// 대화 모드에 정보 추가 <br/>
@@ -181,9 +194,30 @@ public class CharacterCommunicationUI : MonoBehaviour
         _slide.Enqueue((int)SlideForm.SELECT3);
     }
 
+    /// <summary>
+    /// 하나 생성 시 가지고 있는 애니메이션 서포트 스크립트 할당 함수
+    /// </summary>
+    public void SetAnimetionScript(AnimationSupport animationSupport)
+    {
+        _animation = animationSupport;
+    }
+
+    /// <summary>
+    /// 애니메이션 이름 세팅 함수
+    /// </summary>
+    /// <param name="animationName"></param>
     public void AddAnimaition(string animationName)
     {
         _animationNameQueue.Enqueue(animationName);
+    }
+
+    /// <summary>
+    /// VPS 이펙트 추가
+    /// </summary>
+    /// <param name="vpsEffect"></param>
+    public void AddVPSEffect(int vpsIndex)
+    {
+        _vpsEventQueue.Enqueue(vpsIndex);
     }
 
     /// <summary>

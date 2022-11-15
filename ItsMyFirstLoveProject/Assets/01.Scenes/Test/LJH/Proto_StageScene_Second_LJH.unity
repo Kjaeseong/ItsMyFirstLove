@@ -2713,6 +2713,14 @@ PrefabInstance:
       value: "\uC2E0\uD601\uC9C4"
       objectReference: {fileID: 0}
     - target: {fileID: 3940704571190581995, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[1].VPSIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940704571190581995, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[1].VPSEffect
+      value: 
+      objectReference: {fileID: 4151678287363959484, guid: 6a548a9aef27b684d8977c3c8e3981ee, type: 3}
+    - target: {fileID: 3940704571190581995, guid: 1f520d97a744c284896b34829de512ae, type: 3}
       propertyPath: _lineSystems.Array.data[0].Description
       value: "\uC548\uB155"
       objectReference: {fileID: 0}

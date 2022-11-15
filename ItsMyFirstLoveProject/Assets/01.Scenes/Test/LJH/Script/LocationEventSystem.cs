@@ -43,6 +43,8 @@ public class LocationEventSystem : MonoBehaviour
         //public string Selects[THIRDDESC];
         [Header("Animation")]
         public string AnimationName;
+        [Header("VPSEffect")]
+        public int VPSIndex;
     }
 
     public enum Select
@@ -98,11 +100,12 @@ public class LocationEventSystem : MonoBehaviour
         if (other.CompareTag("EventTrigger"))
         {
             _isActivedEvent = true;
+            _ui.SetCurrentLocationInGameUI(gameObject.GetComponent<LocationEventSystem>());
             Debug.Log("이벤트 실행");
             // 대사 초기화
             InitLine();
             // VPS 연출
-            VPSEvent();
+            //VPSEvent();
             // 대사 연출
             LineEvent();
             // 사운드 출력
@@ -113,12 +116,13 @@ public class LocationEventSystem : MonoBehaviour
         }
     }
 
-    private void VPSEvent()
+    /// <summary>
+    /// VPS 이펙트 실행
+    /// </summary>
+    /// <param name="vpsIndex"></param>
+    public void VPSEventOnWithDesc(int vpsIndex)
     {
-        if (_vpsEventOn)
-        {
-            _vpsEffectManager.ActivatedEffect(_vpsIndex, transform.position);
-        }
+        _vpsEffectManager.ActivatedEffect(vpsIndex, transform.position);
     }
 
     private void InitLine()
@@ -149,6 +153,8 @@ public class LocationEventSystem : MonoBehaviour
             }
 
             _ui.AddAnimationWithTalk(line.AnimationName);
+
+            _ui.AddVPSEffectWithTalk(line.VPSIndex - 1);
         }
     }
     private void LineEvent()
