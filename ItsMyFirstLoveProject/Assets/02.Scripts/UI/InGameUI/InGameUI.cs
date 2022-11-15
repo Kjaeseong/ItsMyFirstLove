@@ -36,13 +36,22 @@ public class InGameUI : MonoBehaviour
     }
 
     /// <summary>
-    /// 대화UI창 내용 추가
+    /// 대화UI창 내용 추가 <br/>
     /// name : 대화창 이름 <br/>
-    /// talk : 대화 내용 <br/>
+    /// talk : 대화 내용 
     /// </summary>
     public void AddCommuTalk(string name, string talk)
     {
         _charCommunicationUI.AddTalk(name, talk);
+    }
+
+    /// <summary>
+    /// 애니메이션 이름 추가 <br/>
+    /// animationName : 애니메이션 이름
+    /// </summary>
+    public void AddAnimationWithTalk(string animationName)
+    {
+        _charCommunicationUI.AddAnimaition(animationName);
     }
 
     /// <summary>

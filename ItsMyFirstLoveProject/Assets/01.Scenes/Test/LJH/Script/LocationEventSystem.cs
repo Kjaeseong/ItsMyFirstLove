@@ -67,11 +67,6 @@ public class LocationEventSystem : MonoBehaviour
     private bool _isActivedEvent;
     private float _eventOffDistance = 11f;
 
-    private void OnEnable()
-    {
-        InitLine();
-    }
-
     private void Update()
     {
         if (!_isActivedEvent) 
@@ -99,11 +94,13 @@ public class LocationEventSystem : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        _animationSupport = other.GetComponentInChildren<AnimationSupport>();
+        //_animationSupport = other.GetComponentInChildren<AnimationSupport>();
         if (other.CompareTag("EventTrigger"))
         {
             _isActivedEvent = true;
             Debug.Log("이벤트 실행");
+            // 대사 초기화
+            InitLine();
             // VPS 연출
             VPSEvent();
             // 대사 연출
@@ -130,20 +127,20 @@ public class LocationEventSystem : MonoBehaviour
         {
             if (line.Selects.Length == 6)//line.Selects[(int)Select.THIRD] != null)
             {
-                _ui.AddCommuSelect(line.Talker, line.Description, 
-                    line.Selects[(int)Select.FIRST], 
-                    line.Selects[(int)Select.FIRSTDESC], 
-                    line.Selects[(int)Select.SECOND], 
-                    line.Selects[(int)Select.SECONDDESC], 
-                    line.Selects[(int)Select.THIRD], 
+                _ui.AddCommuSelect(line.Talker, line.Description,
+                    line.Selects[(int)Select.FIRST],
+                    line.Selects[(int)Select.FIRSTDESC],
+                    line.Selects[(int)Select.SECOND],
+                    line.Selects[(int)Select.SECONDDESC],
+                    line.Selects[(int)Select.THIRD],
                     line.Selects[(int)Select.THIRDDESC]);
             }
             else if (line.Selects.Length == 4)//line.Selects[(int)Select.SECOND] != null)
             {
                 _ui.AddCommuSelect(line.Talker, line.Description,
-                    line.Selects[(int)Select.FIRST], 
-                    line.Selects[(int)Select.FIRSTDESC], 
-                    line.Selects[(int)Select.SECOND], 
+                    line.Selects[(int)Select.FIRST],
+                    line.Selects[(int)Select.FIRSTDESC],
+                    line.Selects[(int)Select.SECOND],
                     line.Selects[(int)Select.SECONDDESC]);
             }
             else
@@ -151,10 +148,7 @@ public class LocationEventSystem : MonoBehaviour
                 _ui.AddCommuTalk(line.Talker, line.Description);
             }
 
-            if (line.AnimationName != "")
-            {
-                _animationSupport.PlayAnimationTrigger(line.AnimationName);
-            }
+            _ui.AddAnimationWithTalk(line.AnimationName);
         }
     }
     private void LineEvent()

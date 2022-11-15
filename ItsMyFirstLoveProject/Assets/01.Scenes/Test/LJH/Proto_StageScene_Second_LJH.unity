@@ -2696,6 +2696,42 @@ PrefabInstance:
       propertyPath: _vpsEffectManager
       value: 
       objectReference: {fileID: 6974566383075198003}
+    - target: {fileID: 3940704571190581995, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940704571190581995, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[0].Talker
+      value: "\uC2E0\uD601\uC9C4"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940704571190581995, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[1].Talker
+      value: "\uC2E0\uD601\uC9C4"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940704571190581995, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[2].Talker
+      value: "\uC2E0\uD601\uC9C4"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940704571190581995, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[0].Description
+      value: "\uC548\uB155"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940704571190581995, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[1].Description
+      value: "\uD0A4\uC2A4\uD574"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940704571190581995, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[2].Description
+      value: "\uC2EB\uC5B4?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940704571190581995, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[1].AnimationName
+      value: KISS
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940704571190581995, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[2].AnimationName
+      value: NO
+      objectReference: {fileID: 0}
     - target: {fileID: 3940704571293164683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
       propertyPath: _map
       value: 
@@ -2788,6 +2824,10 @@ PrefabInstance:
       propertyPath: _vpsEffectManager
       value: 
       objectReference: {fileID: 6974566383075198003}
+    - target: {fileID: 8948730693543503858, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _animationSetting
+      value: 
+      objectReference: {fileID: 1292353800}
     - target: {fileID: 8948730693553125944, guid: 1f520d97a744c284896b34829de512ae, type: 3}
       propertyPath: _map
       value: 

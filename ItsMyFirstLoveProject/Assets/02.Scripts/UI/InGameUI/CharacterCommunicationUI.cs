@@ -24,6 +24,8 @@ public class CharacterCommunicationUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _selectButton2InTriple;
     [SerializeField] private TextMeshProUGUI _selectButton3InTriple;
 
+    [SerializeField] private AnimationSupport _animation;
+
     private Queue<string> _nameQueue = new Queue<string>();
     private Queue<string> _talkQueue = new Queue<string>();
     private Queue<string> _button1Queue = new Queue<string>();
@@ -32,6 +34,7 @@ public class CharacterCommunicationUI : MonoBehaviour
     private Queue<string> _button2ResultQueue = new Queue<string>();
     private Queue<string> _button3Queue = new Queue<string>();
     private Queue<string> _button3ResultQueue = new Queue<string>();
+    private Queue<string> _animationNameQueue = new Queue<string>();
     private Queue<int> _slide = new Queue<int>();
 
     private string _selectedNextDescript = "";
@@ -63,6 +66,7 @@ public class CharacterCommunicationUI : MonoBehaviour
     /// </summary>
     public void SlideInit()
     {
+        
         if(_slide.Count <= 0)
         {
             gameObject.SetActive(false);
@@ -83,9 +87,7 @@ public class CharacterCommunicationUI : MonoBehaviour
                 _name.text = _nameQueue.Dequeue();
                 _selectionText.text = _talkQueue.Dequeue();
                 _selectButton1InDouble.text = _button1Queue.Dequeue();
-                //_button1ResultQueue.Dequeue();
                 _selectButton2InDouble.text = _button2Queue.Dequeue();
-                //_button2ResultQueue.Dequeue();
                 break;
             case (int)SlideForm.SELECT3:
                 _isSelection = true;
@@ -93,11 +95,8 @@ public class CharacterCommunicationUI : MonoBehaviour
                 _name.text = _nameQueue.Dequeue();
                 _selectionText.text = _talkQueue.Dequeue();
                 _selectButton1InTriple.text = _button1Queue.Dequeue();
-                //_button1ResultQueue.Dequeue();
                 _selectButton2InTriple.text = _button2Queue.Dequeue();
-                //_button2ResultQueue.Dequeue();
                 _selectButton3InTriple.text = _button3Queue.Dequeue();
-                //_button3ResultQueue.Dequeue();
                 break;
         }
 
@@ -107,8 +106,24 @@ public class CharacterCommunicationUI : MonoBehaviour
             _selectionText.text= _selectedNextDescript;
             _selectedNextDescript = "";
         }
+
+        if(_animationNameQueue.Peek() != "")
+        {
+            _animation.PlayAnimationTrigger(_animationNameQueue.Dequeue());
+        }
+        else
+        {
+            _animationNameQueue.Dequeue();
+        }
     }
 
+    /// <summary>
+    /// 하나 생성 시 가지고 있는 애니메이션 서포트 스크립트 할당 함수
+    /// </summary>
+    public void SetAnimetionScript(AnimationSupport animationSupport)
+    {
+        _animation = animationSupport;
+    }
 
     /// <summary>
     /// 대화 모드에 정보 추가 <br/>
@@ -164,6 +179,11 @@ public class CharacterCommunicationUI : MonoBehaviour
         _button3Queue.Enqueue(button3);
         _button3ResultQueue.Enqueue(button3result);
         _slide.Enqueue((int)SlideForm.SELECT3);
+    }
+
+    public void AddAnimaition(string animationName)
+    {
+        _animationNameQueue.Enqueue(animationName);
     }
 
     /// <summary>
