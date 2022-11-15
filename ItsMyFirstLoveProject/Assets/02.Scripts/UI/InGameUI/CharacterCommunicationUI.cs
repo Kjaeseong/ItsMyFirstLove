@@ -18,9 +18,11 @@ public class CharacterCommunicationUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _name;
     [SerializeField] private TextMeshProUGUI _talk;
     [SerializeField] private TextMeshProUGUI _selectionText;
-    [SerializeField] private TextMeshProUGUI _selectButton1;
-    [SerializeField] private TextMeshProUGUI _selectButton2;
-    [SerializeField] private TextMeshProUGUI _selectButton3;
+    [SerializeField] private TextMeshProUGUI _selectButton1InDouble;
+    [SerializeField] private TextMeshProUGUI _selectButton2InDouble;
+    [SerializeField] private TextMeshProUGUI _selectButton1InTriple;
+    [SerializeField] private TextMeshProUGUI _selectButton2InTriple;
+    [SerializeField] private TextMeshProUGUI _selectButton3InTriple;
 
     private Queue<string> _nameQueue = new Queue<string>();
     private Queue<string> _talkQueue = new Queue<string>();
@@ -32,9 +34,11 @@ public class CharacterCommunicationUI : MonoBehaviour
     private Queue<string> _button3ResultQueue = new Queue<string>();
     private Queue<int> _slide = new Queue<int>();
 
-    private string _selectedNextDescript;
+    private string _selectedNextDescript = "";
 
     private bool _isSelection;
+
+    private int currentSlide;
 
     private void OnEnable() 
     {
@@ -64,8 +68,8 @@ public class CharacterCommunicationUI : MonoBehaviour
             gameObject.SetActive(false);
             return;
         }
-
-        switch(_slide.Dequeue())
+        currentSlide = _slide.Peek();
+        switch (_slide.Dequeue())
         {
             case (int)SlideForm.TALK:
                 _isSelection = false;
@@ -78,17 +82,22 @@ public class CharacterCommunicationUI : MonoBehaviour
                 BoxFormChange();
                 _name.text = _nameQueue.Dequeue();
                 _selectionText.text = _talkQueue.Dequeue();
-                _selectButton1.text = _button1Queue.Dequeue();
-                _selectButton2.text = _button2Queue.Dequeue();
+                _selectButton1InDouble.text = _button1Queue.Dequeue();
+                //_button1ResultQueue.Dequeue();
+                _selectButton2InDouble.text = _button2Queue.Dequeue();
+                //_button2ResultQueue.Dequeue();
                 break;
             case (int)SlideForm.SELECT3:
                 _isSelection = true;
                 BoxFormChange();
                 _name.text = _nameQueue.Dequeue();
                 _selectionText.text = _talkQueue.Dequeue();
-                _selectButton1.text = _button1Queue.Dequeue();
-                _selectButton2.text = _button2Queue.Dequeue();
-                _selectButton3.text = _button3Queue.Dequeue();
+                _selectButton1InTriple.text = _button1Queue.Dequeue();
+                //_button1ResultQueue.Dequeue();
+                _selectButton2InTriple.text = _button2Queue.Dequeue();
+                //_button2ResultQueue.Dequeue();
+                _selectButton3InTriple.text = _button3Queue.Dequeue();
+                //_button3ResultQueue.Dequeue();
                 break;
         }
 
@@ -167,15 +176,15 @@ public class CharacterCommunicationUI : MonoBehaviour
         {
             case 1:
                 // 버튼 1 선택시 이벤트
-                _selectedNextDescript = _button1ResultQueue.Peek();
+                _selectedNextDescript = _button1ResultQueue.Dequeue();
                 break;
             case 2:
                 // 버튼 2 선택시 이벤트
-                _selectedNextDescript = _button2ResultQueue.Peek();
+                _selectedNextDescript = _button2ResultQueue.Dequeue();
                 break;
             case 3:
                 // 버튼 3 선택시 이벤트
-                _selectedNextDescript = _button3ResultQueue.Peek();
+                _selectedNextDescript = _button3ResultQueue.Dequeue();
                 break;
             default:
                 break;
@@ -184,16 +193,23 @@ public class CharacterCommunicationUI : MonoBehaviour
 
     private void BoxFormChange()
     {
-        _talkCanvas.SetActive(!_isSelection);
-        if(_selectButton3.text == "")
+        if(currentSlide == 0)
         {
-            _SelectionCanvasTriple.SetActive(!_isSelection);
-            _SelectionCanvasDouble.SetActive(_isSelection);
+            _talkCanvas.SetActive(true);
+            _SelectionCanvasDouble.SetActive(false);
+            _SelectionCanvasTriple.SetActive(false);
+        }
+        else if(currentSlide == 1)
+        {
+            _talkCanvas.SetActive(false);
+            _SelectionCanvasDouble.SetActive(true);
+            _SelectionCanvasTriple.SetActive(false);
         }
         else
         {
-            _SelectionCanvasDouble.SetActive(!_isSelection);
-            _SelectionCanvasTriple.SetActive(_isSelection);
+            _talkCanvas.SetActive(true);
+            _SelectionCanvasDouble.SetActive(false);
+            _SelectionCanvasTriple.SetActive(true);
         }
     }
 

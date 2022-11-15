@@ -128,7 +128,7 @@ public class LocationEventSystem : MonoBehaviour
     {
         foreach (var line in _lineSystems)
         {
-            if (line.Selects[(int)Select.THIRD] != "" && line.Selects[(int)Select.FIRST] != "")
+            if (line.Selects.Length == 6)//line.Selects[(int)Select.THIRD] != null)
             {
                 _ui.AddCommuSelect(line.Talker, line.Description, 
                     line.Selects[(int)Select.FIRST], 
@@ -138,9 +138,9 @@ public class LocationEventSystem : MonoBehaviour
                     line.Selects[(int)Select.THIRD], 
                     line.Selects[(int)Select.THIRDDESC]);
             }
-            else if (line.Selects[(int)Select.SECOND] != "")
+            else if (line.Selects.Length == 4)//line.Selects[(int)Select.SECOND] != null)
             {
-                _ui.AddCommuSelect(line.Talker, line.Description, 
+                _ui.AddCommuSelect(line.Talker, line.Description,
                     line.Selects[(int)Select.FIRST], 
                     line.Selects[(int)Select.FIRSTDESC], 
                     line.Selects[(int)Select.SECOND], 
