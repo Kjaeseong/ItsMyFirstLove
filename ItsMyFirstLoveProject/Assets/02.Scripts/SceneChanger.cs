@@ -10,4 +10,12 @@ public class SceneChanger : MonoBehaviour
     {
         SceneManager.LoadScene(name);
     }
+
+    /// <summary>
+    /// 현재 실행되고 있는 씬 이름 반환
+    /// </summary>
+    public string GetName()
+    {
+        return SceneManager.GetActiveScene().name;
+    }
 }

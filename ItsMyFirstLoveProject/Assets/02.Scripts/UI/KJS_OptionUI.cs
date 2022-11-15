@@ -9,33 +9,22 @@ public class KJS_OptionUI : MonoBehaviour
     [SerializeField] private Slider _bgmSlider;
     [SerializeField] private Slider _seSlider;
 
-    private AudioManager _audio;
-
     private GameObject _backMenu;
 
     private bool _hadVolume;
     private bool _hadBackMenu;
     
+    //private CreditUI _creditUI;
 
     private void OnEnable() 
     {
         _hadVolume = false;
-    }
-    private void OnDisable() 
-    {
-        if(_hadBackMenu)
-        {
-            _backMenu.SetActive(true);
-            _backMenu = null;
-            _hadBackMenu = false;
-        }
     }
 
     private void Update() 
     {
         if(!_hadVolume)
         {
-            Debug.Log("---");
             SliderValueSet(GameManager.Instance._audio.GetVolume());
             _hadVolume = true;
         }
@@ -63,6 +52,7 @@ public class KJS_OptionUI : MonoBehaviour
     /// </summary>
     public void ActivateCredit()
     {
+        // TODO : 추후 크레딧 넣을 시 여기에서 자신 오브젝트 입력해줄 것.
         _credit.SetActive(true);
     }
 
@@ -71,6 +61,9 @@ public class KJS_OptionUI : MonoBehaviour
     /// <summary>
     public void ClickBackButton()
     {
+        _backMenu.SetActive(true);
+        _backMenu = null;
+        _hadBackMenu = false;
         gameObject.SetActive(false);
     }
 }
