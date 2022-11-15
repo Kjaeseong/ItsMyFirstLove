@@ -2273,6 +2273,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2614791036504576986}
     - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: testC.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _testC.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
       propertyPath: _vpsEffectManager
       value: 
       objectReference: {fileID: 6974566383075198003}
@@ -2365,6 +2373,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[0].Selects.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
       propertyPath: _lineSystems.Array.data[1].Select1Description
       value: "1\u3137"
       objectReference: {fileID: 0}
@@ -2375,6 +2387,30 @@ PrefabInstance:
     - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
       propertyPath: _lineSystems.Array.data[1].Select3Description
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[0].Selects.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[0].Selects.Array.data[1]
+      value: "1\uBC88\uACE0\uB984"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[0].Selects.Array.data[2]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[0].Selects.Array.data[3]
+      value: "2\uBC88\uACE0\uB984"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[0].Selects.Array.data[4]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: _lineSystems.Array.data[0].Selects.Array.data[5]
+      value: "3\uBC88\uACE0"
       objectReference: {fileID: 0}
     - target: {fileID: 2017306198564069669, guid: 1f520d97a744c284896b34829de512ae, type: 3}
       propertyPath: _ui
