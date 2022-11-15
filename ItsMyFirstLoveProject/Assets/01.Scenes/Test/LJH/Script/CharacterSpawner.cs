@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject _character;
-
+    [SerializeField] private CharacterCommunicationUI _animationSetting;
     private bool _isCharacterOn;
 
     private void AddCharacter()

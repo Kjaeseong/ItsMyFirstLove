@@ -36,9 +36,9 @@ public class InGameUI : MonoBehaviour
     }
 
     /// <summary>
-    /// 대화UI창 내용 추가
+    /// 대화UI창 내용 추가 <br/>
     /// name : 대화창 이름 <br/>
-    /// talk : 대화 내용 <br/>
+    /// talk : 대화 내용 
     /// </summary>
     public void AddCommuTalk(string name, string talk)
     {
@@ -68,6 +68,33 @@ public class InGameUI : MonoBehaviour
     public void AddCommuSelect(string name, string talk, string button1, string button1result, string button2, string button2result, string button3, string button3result)
     {
         _charCommunicationUI.AddSelection(name, talk, button1, button1result, button2, button2result, button3, button3result);
+    }
+
+    /// <summary>
+    /// 애니메이션 이름 추가 <br/>
+    /// animationName : 애니메이션 이름
+    /// </summary>
+    public void AddAnimationWithTalk(string animationName)
+    {
+        _charCommunicationUI.AddAnimaition(animationName);
+    }
+
+    /// <summary>
+    /// VPS 이펙트 추가 함수
+    /// </summary>
+    /// <param name="vpsIndex"></param>
+    public void AddVPSEffectWithTalk(int vpsIndex)
+    {
+        _charCommunicationUI.AddVPSEffect(vpsIndex);
+    }
+
+    /// <summary>
+    /// 현재 위치 vps 로케이션 세팅 함수
+    /// </summary>
+    /// <param name="location"></param>
+    public void SetCurrentLocationInGameUI(LocationEventSystem location)
+    {
+        _charCommunicationUI.SetCurrentLocation(location);
     }
 
     /// <summary>

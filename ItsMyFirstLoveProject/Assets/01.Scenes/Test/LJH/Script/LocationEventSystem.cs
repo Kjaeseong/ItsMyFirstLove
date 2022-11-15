@@ -43,6 +43,8 @@ public class LocationEventSystem : MonoBehaviour
         //public string Selects[THIRDDESC];
         [Header("Animation")]
         public string AnimationName;
+        [Header("VPSEffect")]
+        public int VPSIndex;
     }
 
     public enum Select
@@ -66,11 +68,6 @@ public class LocationEventSystem : MonoBehaviour
 
     private bool _isActivedEvent;
     private float _eventOffDistance = 11f;
-
-    private void OnEnable()
-    {
-        InitLine();
-    }
 
     private void Update()
     {
@@ -99,13 +96,16 @@ public class LocationEventSystem : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        _animationSupport = other.GetComponentInChildren<AnimationSupport>();
+        //_animationSupport = other.GetComponentInChildren<AnimationSupport>();
         if (other.CompareTag("EventTrigger"))
         {
             _isActivedEvent = true;
+            _ui.SetCurrentLocationInGameUI(gameObject.GetComponent<LocationEventSystem>());
             Debug.Log("이벤트 실행");
+            // 대사 초기화
+            InitLine();
             // VPS 연출
-            VPSEvent();
+            //VPSEvent();
             // 대사 연출
             LineEvent();
             // 사운드 출력
@@ -116,34 +116,35 @@ public class LocationEventSystem : MonoBehaviour
         }
     }
 
-    private void VPSEvent()
+    /// <summary>
+    /// VPS 이펙트 실행
+    /// </summary>
+    /// <param name="vpsIndex"></param>
+    public void VPSEventOnWithDesc(int vpsIndex)
     {
-        if (_vpsEventOn)
-        {
-            _vpsEffectManager.ActivatedEffect(_vpsIndex, transform.position);
-        }
+        _vpsEffectManager.ActivatedEffect(vpsIndex, transform.position);
     }
 
     private void InitLine()
     {
         foreach (var line in _lineSystems)
         {
-            if (line.Selects[(int)Select.THIRD] != "" && line.Selects[(int)Select.FIRST] != "")
+            if (line.Selects.Length == 6)//line.Selects[(int)Select.THIRD] != null)
             {
-                _ui.AddCommuSelect(line.Talker, line.Description, 
-                    line.Selects[(int)Select.FIRST], 
-                    line.Selects[(int)Select.FIRSTDESC], 
-                    line.Selects[(int)Select.SECOND], 
-                    line.Selects[(int)Select.SECONDDESC], 
-                    line.Selects[(int)Select.THIRD], 
+                _ui.AddCommuSelect(line.Talker, line.Description,
+                    line.Selects[(int)Select.FIRST],
+                    line.Selects[(int)Select.FIRSTDESC],
+                    line.Selects[(int)Select.SECOND],
+                    line.Selects[(int)Select.SECONDDESC],
+                    line.Selects[(int)Select.THIRD],
                     line.Selects[(int)Select.THIRDDESC]);
             }
-            else if (line.Selects[(int)Select.SECOND] != "")
+            else if (line.Selects.Length == 4)//line.Selects[(int)Select.SECOND] != null)
             {
-                _ui.AddCommuSelect(line.Talker, line.Description, 
-                    line.Selects[(int)Select.FIRST], 
-                    line.Selects[(int)Select.FIRSTDESC], 
-                    line.Selects[(int)Select.SECOND], 
+                _ui.AddCommuSelect(line.Talker, line.Description,
+                    line.Selects[(int)Select.FIRST],
+                    line.Selects[(int)Select.FIRSTDESC],
+                    line.Selects[(int)Select.SECOND],
                     line.Selects[(int)Select.SECONDDESC]);
             }
             else
@@ -151,10 +152,9 @@ public class LocationEventSystem : MonoBehaviour
                 _ui.AddCommuTalk(line.Talker, line.Description);
             }
 
-            if (line.AnimationName != "")
-            {
-                _animationSupport.PlayAnimationTrigger(line.AnimationName);
-            }
+            _ui.AddAnimationWithTalk(line.AnimationName);
+
+            _ui.AddVPSEffectWithTalk(line.VPSIndex - 1);
         }
     }
     private void LineEvent()
