@@ -34,14 +34,25 @@ public class LocationEventSystem : MonoBehaviour
         public string Talker;
         public string Description;
         [Header("Select")]
-        public string Select1;
-        public string Select1Description;
-        public string Select2;
-        public string Select2Description;
-        public string Select3;
-        public string Select3Description;
+        public string[] Selects;
+        //public string Selects[FIRST];
+        //public string Selects[FIRSTDESC];
+        //public string Selects[SECOND];
+        //public string Selects[SECONDDESC];
+        //public string Selects[THIRD];
+        //public string Selects[THIRDDESC];
         [Header("Animation")]
         public string AnimationName;
+    }
+
+    public enum Select
+    {
+        FIRST,
+        FIRSTDESC,
+        SECOND,
+        SECONDDESC,
+        THIRD,
+        THIRDDESC
     }
 
     [SerializeField] private LineSystem[] _lineSystems;
@@ -117,14 +128,23 @@ public class LocationEventSystem : MonoBehaviour
     {
         foreach (var line in _lineSystems)
         {
-            //string[] splitLine  = line.Split('/');
-            if (line.Select3 != "" && line.Select1 != "")
+            if (line.Selects[(int)Select.THIRD] != "" && line.Selects[(int)Select.FIRST] != "")
             {
-                _ui.AddCommuSelect(line.Talker, line.Description, line.Select1, line.Select1Description, line.Select2, line.Select2Description, line.Select3, line.Select3Description);
+                _ui.AddCommuSelect(line.Talker, line.Description, 
+                    line.Selects[(int)Select.FIRST], 
+                    line.Selects[(int)Select.FIRSTDESC], 
+                    line.Selects[(int)Select.SECOND], 
+                    line.Selects[(int)Select.SECONDDESC], 
+                    line.Selects[(int)Select.THIRD], 
+                    line.Selects[(int)Select.THIRDDESC]);
             }
-            else if (line.Select2 != "")
+            else if (line.Selects[(int)Select.SECOND] != "")
             {
-                _ui.AddCommuSelect(line.Talker, line.Description, line.Select1, line.Select1Description, line.Select2, line.Select2Description);
+                _ui.AddCommuSelect(line.Talker, line.Description, 
+                    line.Selects[(int)Select.FIRST], 
+                    line.Selects[(int)Select.FIRSTDESC], 
+                    line.Selects[(int)Select.SECOND], 
+                    line.Selects[(int)Select.SECONDDESC]);
             }
             else
             {
