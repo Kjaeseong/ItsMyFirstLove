@@ -58,7 +58,6 @@ public class GoogleMinimap : MonoBehaviour
 
     [SerializeField] private string _apiKey;
 
-
     IEnumerator Map()
     {
         _url = "https://maps.googleapis.com/maps/api/staticmap"
