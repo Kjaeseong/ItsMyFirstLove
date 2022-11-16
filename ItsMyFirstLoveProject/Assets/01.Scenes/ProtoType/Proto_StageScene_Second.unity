@@ -1474,66 +1474,6 @@ PrefabInstance:
       propertyPath: _vpsEffectManager
       value: 
       objectReference: {fileID: 1503063058}
-    - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
-      propertyPath: _lineSystems.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
-      propertyPath: _lineSystems.Array.data[0].Talker
-      value: "\uC774\uC7AC\uD601"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
-      propertyPath: _lineSystems.Array.data[1].Talker
-      value: "\uC774\uC7AC\uD601"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
-      propertyPath: _lineSystems.Array.data[0].Description
-      value: "\uC120\uD0DD"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
-      propertyPath: _lineSystems.Array.data[1].Description
-      value: "\uC120\uD0DD"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
-      propertyPath: _lineSystems.Array.data[0].Selects.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
-      propertyPath: _lineSystems.Array.data[1].Selects.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
-      propertyPath: _lineSystems.Array.data[0].Selects.Array.data[0]
-      value: "1\uBC88"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
-      propertyPath: _lineSystems.Array.data[0].Selects.Array.data[1]
-      value: "\uD0A4\uC2A4/KISS"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
-      propertyPath: _lineSystems.Array.data[0].Selects.Array.data[2]
-      value: "2\uBC88"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
-      propertyPath: _lineSystems.Array.data[0].Selects.Array.data[3]
-      value: "\uC2EB\uC5B4/NO"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
-      propertyPath: _lineSystems.Array.data[1].Selects.Array.data[0]
-      value: "\uC2EB\uC5B4/NO"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
-      propertyPath: _lineSystems.Array.data[1].Selects.Array.data[1]
-      value: "\uC2EB\uC5B4/NO"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
-      propertyPath: _lineSystems.Array.data[1].Selects.Array.data[2]
-      value: "\uC2EB\uC5B4/NO"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1474520558996830683, guid: 1f520d97a744c284896b34829de512ae, type: 3}
-      propertyPath: _lineSystems.Array.data[1].Selects.Array.data[3]
-      value: "\uC2EB\uC5B4/NO"
-      objectReference: {fileID: 0}
     - target: {fileID: 2017306198564069669, guid: 1f520d97a744c284896b34829de512ae, type: 3}
       propertyPath: _ui
       value: 
@@ -1542,19 +1482,27 @@ PrefabInstance:
       propertyPath: _vpsEffectManager
       value: 
       objectReference: {fileID: 1503063058}
-    - target: {fileID: 2017306198952851542, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+    - target: {fileID: 2017306199711025754, guid: 1f520d97a744c284896b34829de512ae, type: 3}
       propertyPath: _ui
       value: 
       objectReference: {fileID: 1005980396}
-    - target: {fileID: 2017306198952851542, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+    - target: {fileID: 2017306199711025754, guid: 1f520d97a744c284896b34829de512ae, type: 3}
       propertyPath: _vpsEffectManager
       value: 
       objectReference: {fileID: 1503063058}
-    - target: {fileID: 2017306199711025754, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+    - target: {fileID: 3485148000737709933, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 98.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3485148000737709933, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 103
+      objectReference: {fileID: 0}
+    - target: {fileID: 3485148000737709935, guid: 1f520d97a744c284896b34829de512ae, type: 3}
       propertyPath: _ui
       value: 
       objectReference: {fileID: 1005980396}
-    - target: {fileID: 2017306199711025754, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+    - target: {fileID: 3485148000737709935, guid: 1f520d97a744c284896b34829de512ae, type: 3}
       propertyPath: _vpsEffectManager
       value: 
       objectReference: {fileID: 1503063058}
@@ -1562,6 +1510,10 @@ PrefabInstance:
       propertyPath: _map
       value: 
       objectReference: {fileID: 910068123}
+    - target: {fileID: 3940704570642766196, guid: 1f520d97a744c284896b34829de512ae, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3940704570824280099, guid: 1f520d97a744c284896b34829de512ae, type: 3}
       propertyPath: _map
       value: 

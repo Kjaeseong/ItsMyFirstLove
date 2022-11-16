@@ -39,7 +39,6 @@ public class LocationEventSystem : MonoBehaviour
         public string AnimationName;
         [Header("VPSEffect")]
         public int VPSIndex;
-
     }
 
     public enum Select
