@@ -57,7 +57,7 @@ public class GoogleMinimap : MonoBehaviour
     [SerializeField] private MarkerColor _playerMarkerColor = MarkerColor.brown;
 
     [SerializeField] private string _apiKey;
-
+    
 
     IEnumerator Map()
     {
