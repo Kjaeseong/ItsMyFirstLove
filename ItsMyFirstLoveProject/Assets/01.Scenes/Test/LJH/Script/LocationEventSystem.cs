@@ -28,23 +28,18 @@ public class LocationEventSystem : MonoBehaviour
     [SerializeField] private bool _lineEventOn;
 
     [Serializable]
-    private class LineSystem
+    public class LineSystem
     {
         [Header("Description")] 
         public string Talker;
         public string Description;
         [Header("Select")]
         public string[] Selects;
-        //public string Selects[FIRST];
-        //public string Selects[FIRSTDESC];
-        //public string Selects[SECOND];
-        //public string Selects[SECONDDESC];
-        //public string Selects[THIRD];
-        //public string Selects[THIRDDESC];
         [Header("Animation")]
         public string AnimationName;
         [Header("VPSEffect")]
         public int VPSIndex;
+
     }
 
     public enum Select

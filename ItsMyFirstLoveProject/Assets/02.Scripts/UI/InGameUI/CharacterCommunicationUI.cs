@@ -40,12 +40,14 @@ public class CharacterCommunicationUI : MonoBehaviour
     private Queue<int> _slide = new Queue<int>();
 
     private string _selectedNextDescript = "";
+    private string _selectedAnimationName = "";
+    private string _currentAnimationName;
 
     private bool _isSelection;
 
     private int currentSlide;
 
-    private void OnEnable() 
+    private void OnEnable()
     {
         SlideInit();
     }
@@ -56,7 +58,7 @@ public class CharacterCommunicationUI : MonoBehaviour
     /// </summary>
     public void BackGroundTouch()
     {
-        if(!_isSelection)
+        if (!_isSelection)
         {
             SlideInit();
         }
@@ -68,8 +70,8 @@ public class CharacterCommunicationUI : MonoBehaviour
     /// </summary>
     public void SlideInit()
     {
-        
-        if(_slide.Count <= 0)
+
+        if (_slide.Count <= 0)
         {
             gameObject.SetActive(false);
             return;
@@ -102,23 +104,25 @@ public class CharacterCommunicationUI : MonoBehaviour
                 break;
         }
 
-        if(_selectedNextDescript != "")
+        if (_selectedNextDescript != "")
         {
             _talk.text = _selectedNextDescript;
-            _selectionText.text= _selectedNextDescript;
+            _selectionText.text = _selectedNextDescript;
             _selectedNextDescript = "";
         }
 
-        if(_animationNameQueue.Peek() != "")
+        _currentAnimationName = _animationNameQueue.Dequeue();
+
+        if (_selectedAnimationName != "")
         {
-            _animation.PlayAnimationTrigger(_animationNameQueue.Dequeue());
-        }
-        else
-        {
-            _animationNameQueue.Dequeue();
+            _currentAnimationName = _selectedAnimationName;
+            _selectedAnimationName = "";
         }
 
-        if(_vpsEventQueue.Peek() < 0)
+        _animation.PlayAnimationTrigger(_currentAnimationName);
+
+
+        if (_vpsEventQueue.Peek() < 0)
         {
             _vpsEventQueue.Dequeue();
         }
@@ -226,18 +230,30 @@ public class CharacterCommunicationUI : MonoBehaviour
     /// </summary>
     public void SelectButton(int select)
     {
-        switch(select)
+        switch (select)
         {
             case 1:
                 // 버튼 1 선택시 이벤트
+                if (_button1ResultQueue.Peek().Split('/').Length > 1)
+                {
+                    _selectedAnimationName = _button1ResultQueue.Peek().Split('/')[1];
+                }
                 _selectedNextDescript = _button1ResultQueue.Dequeue();
                 break;
             case 2:
                 // 버튼 2 선택시 이벤트
+                if (_button2ResultQueue.Peek().Split('/').Length > 1)
+                {
+                    _selectedAnimationName = _button2ResultQueue.Peek().Split('/')[1];
+                }
                 _selectedNextDescript = _button2ResultQueue.Dequeue();
                 break;
             case 3:
                 // 버튼 3 선택시 이벤트
+                if (_button3ResultQueue.Peek().Split('/').Length > 1)
+                {
+                    _selectedAnimationName = _button3ResultQueue.Peek().Split('/')[1];
+                }
                 _selectedNextDescript = _button3ResultQueue.Dequeue();
                 break;
             default:
@@ -247,13 +263,13 @@ public class CharacterCommunicationUI : MonoBehaviour
 
     private void BoxFormChange()
     {
-        if(currentSlide == 0)
+        if (currentSlide == 0)
         {
             _talkCanvas.SetActive(true);
             _SelectionCanvasDouble.SetActive(false);
             _SelectionCanvasTriple.SetActive(false);
         }
-        else if(currentSlide == 1)
+        else if (currentSlide == 1)
         {
             _talkCanvas.SetActive(false);
             _SelectionCanvasDouble.SetActive(true);
