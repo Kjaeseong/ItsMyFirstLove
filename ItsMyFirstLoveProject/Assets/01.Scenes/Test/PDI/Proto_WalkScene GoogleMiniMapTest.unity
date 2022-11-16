@@ -1308,24 +1308,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14993a8a8dc60814ba3ffe271b2f6149, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _url: https://maps.googleapis.com/maps/api/staticmap?center=37.53975,127.1233&zoom=18&size=640x640&scale=1&maptype=roadmap&markers=size:big%7Ccolor:red%7C37.53944,127.1234&markers=size:big%7Ccolor:red%7C37.54005,127.1232&markers=size:big%7Ccolor:red%7C37.53975,127.124&markers=size:big%7Ccolor:red%7C37.45592,126.7053&key=AIzaSyC9KfkxmfwmwlClXhQFtNF2saKR_CSWgWA
+  _url: https://maps.googleapis.com/maps/api/staticmap?center=37.53975,127.1233&zoom=18&size=640x640&scale=1&maptype=roadmap&markers=size:tiny%7Ccolor:brown%7C37.53975,127.1233&markers=size:mid%7Ccolor:red%7C37.53934,127.1233&markers=size:mid%7Ccolor:red%7C37.54022,127.1236&markers=size:mid%7Ccolor:red%7C37.53981,127.1225&markers=size:mid%7Ccolor:red%7C37.53986,127.1241&markers=size:mid%7Ccolor:red%7C37.53934,127.1244&markers=size:mid%7Ccolor:red%7C37.54022,127.1232&markers=size:mid%7Ccolor:red%7C37.53981,127.1241&markers=size:mid%7Ccolor:red%7C37.53986,127.125&key=AIzaSyC9KfkxmfwmwlClXhQFtNF2saKR_CSWgWA
   _mapCenterLat: 37.539745
   _mapCenterLon: 127.123276
   _zoom: 18
   _mapType: 0
   _scale: 1
   _markerLat:
-  - 37.539436
-  - 37.540047
-  - 37.539753
-  - 37.455925
+  - 37.53934
+  - 37.540222
+  - 37.539806
+  - 37.539864
+  - 37.540882
+  - 37.53915
+  - 37.54114
+  - 37.541298
   _markerLon:
-  - 127.12342
-  - 127.12322
-  - 127.124016
-  - 126.70529
-  _markerSize: 3
-  _markerColor: 8
+  - 127.1233
+  - 127.123566
+  - 127.12247
+  - 127.12411
+  - 127.124435
+  - 127.12317
+  - 127.12409
+  - 127.124954
+  _giftMarkerSize: 1
+  _giftMarkerColor: 8
+  _playerMarkerSize: 0
+  _playerMarkerColor: 1
   _apiKey: AIzaSyC9KfkxmfwmwlClXhQFtNF2saKR_CSWgWA
 --- !u!114 &1198499463
 MonoBehaviour:

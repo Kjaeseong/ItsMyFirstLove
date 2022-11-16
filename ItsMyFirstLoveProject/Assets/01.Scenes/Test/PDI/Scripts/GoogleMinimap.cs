@@ -42,8 +42,11 @@ public class GoogleMinimap : MonoBehaviour
     [SerializeField] private float[] _markerLat;
     [SerializeField] private float[] _markerLon;
 
-    [SerializeField] private MarkerSize _markerSize = MarkerSize.mid;
-    [SerializeField] private MarkerColor _markerColor = MarkerColor.blue;
+    [SerializeField] private MarkerSize _giftMarkerSize = MarkerSize.mid;
+    [SerializeField] private MarkerColor _giftMarkerColor = MarkerColor.red;
+
+    [SerializeField] private MarkerSize _playerMarkerSize = MarkerSize.tiny;
+    [SerializeField] private MarkerColor _playerMarkerColor = MarkerColor.brown;
 
     [SerializeField] private string _apiKey;
 
@@ -56,18 +59,33 @@ public class GoogleMinimap : MonoBehaviour
            + "&size=" + _mapWidth + "x" + _mapHeight
            + "&scale=" + _scale
            + "&maptype=" + _mapType
-           + "&markers=size:" + _markerSize
-           + "%7Ccolor:" + _markerColor 
+           + "&markers=size:" + _playerMarkerSize
+           + "%7Ccolor:" + _playerMarkerColor
+           + "%7C" + _mapCenterLat + "," + _mapCenterLon
+           + "&markers=size:" + _giftMarkerSize
+           + "%7Ccolor:" + _giftMarkerColor 
            + "%7C" + _markerLat[0] + "," + _markerLon[0]
-           + "&markers=size:" + _markerSize
-           + "%7Ccolor:" + _markerColor
+           + "&markers=size:" + _giftMarkerSize
+           + "%7Ccolor:" + _giftMarkerColor
            + "%7C" + _markerLat[1] + "," + _markerLon[1]
-           + "&markers=size:" + _markerSize
-           + "%7Ccolor:" + _markerColor
+           + "&markers=size:" + _giftMarkerSize
+           + "%7Ccolor:" + _giftMarkerColor
            + "%7C" + _markerLat[2] + "," + _markerLon[2]
-           + "&markers=size:" + _markerSize
-           + "%7Ccolor:" + _markerColor
+           + "&markers=size:" + _giftMarkerSize
+           + "%7Ccolor:" + _giftMarkerColor
            + "%7C" + _markerLat[3] + "," + _markerLon[3]
+           + "&markers=size:" + _giftMarkerSize
+           + "%7Ccolor:" + _giftMarkerColor
+           + "%7C" + _markerLat[4] + "," + _markerLon[4]
+           + "&markers=size:" + _giftMarkerSize
+           + "%7Ccolor:" + _giftMarkerColor
+           + "%7C" + _markerLat[5] + "," + _markerLon[5]
+           + "&markers=size:" + _giftMarkerSize
+           + "%7Ccolor:" + _giftMarkerColor
+           + "%7C" + _markerLat[6] + "," + _markerLon[6]
+           + "&markers=size:" + _giftMarkerSize
+           + "%7Ccolor:" + _giftMarkerColor
+           + "%7C" + _markerLat[7] + "," + _markerLon[7]
            + "&key=" + _apiKey;
 
         using (UnityWebRequest uwr = UnityWebRequestTexture.GetTexture(_url))
