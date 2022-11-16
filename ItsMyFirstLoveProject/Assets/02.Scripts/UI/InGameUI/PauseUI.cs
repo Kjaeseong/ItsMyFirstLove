@@ -1,53 +1,62 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseUI : MonoBehaviour
 {
-    public WalkInGameUIManager WalkMainUI {
-        get => WalkMainUI;
-        set => WalkMainUI = value;
+    [SerializeField] private GameObject _exitPopUpUI;
+    private KJS_OptionUI _optionUI;
+
+    private void OnEnable() 
+    {
+        _exitPopUpUI.SetActive(false);
     }
-
-    // public StoryInGameUIManager StoryMainUI {
-    //     get => StoryMainUI;
-    //     set => StoryMainUI = value;
-    // }
-
-    private GameObject _backMenu;
 
     /// <summary>
-    /// 옵션창 호출을 위한 함수 <br/>
+    /// 이어하기 버튼 선택. 자신 오브젝트 종료
     /// </summary>
-    public void ActivateOptionUI()
-    {
-        if(WalkMainUI != null)
-        {
-            WalkMainUI.ActivateOptionUI(gameObject);
-            gameObject.SetActive(false);
-        }
-        // if(StoryModeUI != null)
-        // {
-        //     StoryModeUI.ActivateOptionUI(gameObject);
-        //     gameObject.SetActive(false);
-        // }
-    }
-
     public void CountinueButton()
     {
-        _backMenu.SetActive(true);
         gameObject.SetActive(false);
+    }
+
+    /// <summary>
+    /// 게임종료 선택시 씬에 따라 동작 선택
+    /// </summary>
+    public void ExitButton()
+    {
+        if(GameManager.Instance._scene.GetName() == "StoryMode")
+        {
+            _exitPopUpUI.SetActive(true);
+        }
+        else if(GameManager.Instance._scene.GetName() == "WalkMode")
+        {
+            GameManager.Instance._scene.Change("MainTitle");
+        }
+    }
+
+    /// <summary>
+    /// 게임종료 선택 팝업 비활성화
+    /// </summary>
+    public void ExitPopUpNoButton()
+    {
+        _exitPopUpUI.SetActive(false);
     }
 
     /// <summary>
     /// 게임매니저를 통해 씬체인저 호출, 씬 교체
     /// </summary>
-    public void DateExit()
+    public void ExitPopUpYesButton()
     {
         GameManager.Instance._scene.Change("MainTitle");
     }
 
-
-    public void BackMenuObjectSet(GameObject BackMenu)
+    /// <summary>
+    /// 옵션 버튼 선택
+    /// </summary>
+    public void OptionButton()
     {
-        _backMenu = BackMenu;
+        _optionUI.BackMenuObjectSet(gameObject);
+        _optionUI.gameObject.SetActive(true);
+        gameObject.SetActive(false);
     }
 }
